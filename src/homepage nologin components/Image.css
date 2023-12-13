@@ -1,0 +1,21 @@
+.image-container {
+    text-align: left;
+  }
+  
+  .image {
+    width: 600px;
+    height: 300px;
+    border-radius: 10px;
+    position: relative;
+    left: 100px;
+  }
+  
+  .image-caption {
+    margin-top: 10px;
+    font-size: 20px;
+    position: relative;
+    left: 100px;
+    max-width: 600px;
+    font-weight: lighter;
+  }
+  
