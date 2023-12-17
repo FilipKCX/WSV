@@ -6,6 +6,7 @@ import Headline from '../components/Headline'
 import LogIn from '../components/LogIn'
 import BottomNavbar from '../components/BottomNavbar'
 import './Homepagenologin.css'
+import { Router } from 'react-router-dom'
 
 const Homepagenologin = () => 
 {
