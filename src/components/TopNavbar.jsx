@@ -4,7 +4,7 @@ import './TopNavbar.css';
 const TopNavbar = () => {
   return (
     <div className="top-navbar">
-      <div className="logo">Logo einfügen</div>
+      <div className="logo">Logo</div>
       <div className="nav-links">
         <a href="#">Home</a>
         <a href="#">Profil</a>
