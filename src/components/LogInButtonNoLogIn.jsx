@@ -1,11 +1,15 @@
 import React from 'react';
 import './LogInButtonNoLogIn.css';
+import {Link } from "react-router-dom"
+
 
 const LogInButtonNoLogIn = ({ label, onClick }) => {
   return (
+    <Link to="/register">
     <button className="login-button-no-login" onClick={onClick}>
       Mitglied werden
     </button>
+    </Link>
   );
 };
 

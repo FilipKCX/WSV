@@ -1,4 +1,3 @@
-// src/components/LoginComponent.js
 import React, { useState } from 'react';
 import './LogIn.css';
 
