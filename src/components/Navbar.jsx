@@ -9,21 +9,21 @@ import './Navbar.css'
       { text: 'Chat', to: '/chat' },
       { text: 'Likes', to: '/likes' },
       { text: 'Profil', to: '/profil' },
-      { text: 'Home', to: '/home' }
+      { text: 'Home', to: '/homeUser' }
 
   ];
 
   return (
     <nav className="navbar">
-      
+      {navLinks.map((link, index) => (
+        <Link key={index} to={link.to}>
+          {link.text}
+        </Link>
+      ))}
     </nav>
   );
   }
   
   export default Navbar;
 
-  //{navLinks.map((link, index) => (
-        //<Link key={index} to={link.to}>
-       //   {link.text}
-     //   </Link>
-   //   ))}
+  
