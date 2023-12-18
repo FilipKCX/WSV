@@ -18,11 +18,13 @@ import PasswordRequest from './pages/passwordRequest'
 import RegisterSelect from './pages/RegisterSelect'
 
 
+import ProfilePage from './pages/ProfilePage'
+import ProfileCreation from './pages/ProfileCreation'
 
 const router = createBrowserRouter([
   {
-    path: "/", 
-    element: <Homepagenologin/>
+    path: "/",
+    element: <Homepagenologin />
   },
   {
     path: "/Datenschutz", 
@@ -79,12 +81,24 @@ const router = createBrowserRouter([
   {
     path: "/registerselect",
     element: <RegisterSelect/>
+  },
+  {
+    path: "/register",
+    element: <Register />
+  },
+  {
+    path: "/profilepage",
+    element: <ProfilePage />
+  },
+  {
+    path: "/profilecreation",
+    element: <ProfileCreation/>
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 )
 

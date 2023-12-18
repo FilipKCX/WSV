@@ -1,0 +1,80 @@
+.profile-creation-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .left-section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-input-box {
+    margin-bottom: 20px;
+  }
+  
+  .right-section {
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+  
+  .profile-upload-box {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .upload-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .text-input-box {
+    background-color: #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 80px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  
+  .character-count {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    color: #666;
+  }
+  
+  .description-label {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .back-button {
+    background-color: #ddd;
+  }
+  
+  .save-button {
+    background-color: #4caf50;
+    color: white;
+  }
+  
