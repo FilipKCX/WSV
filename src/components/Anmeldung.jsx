@@ -23,9 +23,10 @@ const Anmeldung = () => {
         Durch Klicken auf "Log In" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie
         <br />und der Cookie-Richtlinie von WorkingStudent zu.
       </p>
-
+      <Link to= '/passwortanfordern'>
       <p className="password-link">Password vergessen?</p>
-      
+      </Link>
+     
       <Link to= '/register'>
       <p className="registrierung-link">
         Noch kein WorkingStudent oder auf der Suche nach WorkingStudents? Hier registrieren!
