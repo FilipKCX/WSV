@@ -3,7 +3,7 @@
     height: 1px;
     width: 100%;
     background-color: #ccc;
-    margin: 80px 0; /* Adjust margin as needed */
+    margin: 100px 0; /* Adjust margin as needed */
   }
   
   .line::after {

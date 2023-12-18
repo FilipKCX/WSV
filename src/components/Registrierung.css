@@ -33,7 +33,7 @@
   }
   
   .register-button {
-    background-color: #2b3687;
+    background-color: #000080;
     color: white;
     padding: 10px;
     border: none;
@@ -43,7 +43,7 @@
   }
   
   .register-button:hover {
-    background-color: #2b3687;
+    background-color: #000080;
   }
   
   .registration-text {
