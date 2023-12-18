@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
+import KategorieAuswahl from '../components/KategorieAuswahl'
+import './Register.css'
 
-const RegisterSelect = () => {
-  return (
-    
-    <div>
-      <h2>This is a blank page!</h2>
-    </div>
-  );
-};
+const RegisterSelect = () => 
+{
+return <> 
+<KategorieAuswahl/> 
+</>
+}
 
-export default RegisterSelect;
+export default RegisterSelect

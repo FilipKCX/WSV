@@ -15,6 +15,7 @@ import Likes from './pages/Main/Likes'
 import Einstellungen from './pages/Main/Einstelungen'
 import LogInPage from './pages/LogInPage'
 import PasswordRequest from './pages/passwordRequest'
+import RegisterSelect from './pages/RegisterSelect'
 
 
 
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
   {
     path: "/passwortanfordern",
     element: <PasswordRequest/>
+  },
+  {
+    path: "/registerselect",
+    element: <RegisterSelect/>
   }
 ])
 
