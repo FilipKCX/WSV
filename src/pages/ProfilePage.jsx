@@ -2,13 +2,13 @@ import React from 'react'
 import LineSeparator from '../components/LineSeperator'
 import BottomNavbar from '../components/BottomNavbar'
 import './ProfilePage.css'
-import TopNavbar from '../components/TopNavbar'
+import Navbar from '../components/Navbar'
 import ProfileView from '../components/ProfileView'
 
 const ProfilePage = () => 
 {
 return <> 
-<TopNavbar/>
+<Navbar/>
 <LineSeparator/>
 <ProfileView/>
 <BottomNavbar/>

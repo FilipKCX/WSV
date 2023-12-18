@@ -8,7 +8,7 @@ import '../components/Navbar.css';
       { text: 'Einstellungen', to: '/einstellungen' },
       { text: 'Chat', to: '/chat' },
       { text: 'Likes', to: '/likes' },
-      { text: 'Profil', to: '/profil' },
+      { text: 'Profil', to: '/profilepage' },
       { text: 'Home', to: '/homeUser' }
 
   ];
