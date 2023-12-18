@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Navbar.css'
+import '../components/Navbar.css';
   
   function Navbar() {
 
@@ -16,7 +16,7 @@ import './Navbar.css'
   return (
     <nav className="navbartop">
       {navLinks.map((link, index) => (
-        <Link key={index} to={link.to}>
+        <Link key={index} to={link.to} className='navbar-link'>
           {link.text}
         </Link>
       ))}
