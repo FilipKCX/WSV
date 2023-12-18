@@ -1,4 +1,4 @@
-.navbar {
+.bottom{
     background-color: #f0f0f0;
     color: black;
     padding: 1px;
@@ -10,7 +10,7 @@
     gap: 30px;
   }
  
-  .navbar a {
+  .bottom a{
     color: black;
     text-decoration: none;
   }

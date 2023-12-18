@@ -1,4 +1,4 @@
-.registration-container {
+.anmeldung-container {
     background-color: #f0f0f0; 
     border-radius: 20px; 
     padding: 20px;
@@ -12,7 +12,7 @@
     transform: translate(-50%, -60%);
   }
   
-  .registration-container h1 {
+  .anmeldung-container h1 {
     font-size: 28px;
     margin-bottom: 20px;
   }
@@ -32,7 +32,7 @@
     box-sizing: border-box;
   }
   
-  .register-button {
+  .anmelde-button {
     background-color: #004B7C;
     color: white;
     padding: 10px;
@@ -42,17 +42,23 @@
     cursor: pointer;
   }
   
-  .register-button:hover {
+  .anmelde-button:hover {
     background-color: #000080;
   }
   
-  .registration-text {
+  .anmeldung-text {
     font-size: 12px; 
     color: #555; 
     margin-top: 10px;
   }
   
-  .login-link {
+  .registrierung-link {
+    font-size: 14px;
+    color: #007bff; 
+    cursor: pointer;
+  }
+
+  .password-link {
     font-size: 14px;
     color: #007bff; 
     cursor: pointer;

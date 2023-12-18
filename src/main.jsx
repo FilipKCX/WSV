@@ -13,6 +13,9 @@ import Chat from './pages/Main/Chat'
 import Profil from './pages/Main/Profil'
 import Likes from './pages/Main/Likes'
 import Einstellungen from './pages/Main/Einstelungen'
+import LogInPage from './pages/LogInPage'
+import PasswordRequest from './pages/passwordRequest'
+
 
 
 const router = createBrowserRouter([
@@ -33,7 +36,7 @@ const router = createBrowserRouter([
     element: <AGB/>
   },
   {
-    path: "/register", 
+    path: "/Register", 
     element: <Register/>
   },
   {
@@ -60,10 +63,17 @@ const router = createBrowserRouter([
     path: "/Einstellungen",
     element: <Einstellungen/>
   },
-  
   {
     path: "HomeUser",
     element: <HomeUser/>
+  },
+  {
+    path: "/anmeldung",
+    element: <LogInPage/>
+  },
+  {
+    path: "/passwortanfordern",
+    element: <PasswordRequest/>
   }
 ])
 

@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
+import Prequest from '../components/Prequest'
+import './PasswordRequest.css'
 
-const passwordRequest = () => {
-  return (
-    
-    <div>
-      <h2>This is a blank page!</h2>
-    </div>
-  );
-};
+const PasswordRequest = () => 
+{
+return <> 
+<Prequest/> 
+</>
+}
 
-export default passwordRequest;
+export default PasswordRequest

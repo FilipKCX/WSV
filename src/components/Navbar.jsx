@@ -14,7 +14,7 @@ import './Navbar.css'
   ];
 
   return (
-    <nav className="navbar">
+    <nav className="navbartop">
       {navLinks.map((link, index) => (
         <Link key={index} to={link.to}>
           {link.text}

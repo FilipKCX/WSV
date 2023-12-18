@@ -1,14 +1,12 @@
-import '../main.jsx';
+import React from 'react'
+import Anmeldung from '../components/Anmeldung'
+import './LogInPage.css'
 
-import LogInpage from 'react';
+const LogInPage = () => 
+{
+return <> 
+<Anmeldung/> 
+</>
+}
 
-const AGB = () => {
-  return (
-    
-    <div>
-      <h2>This is a blank page!</h2>
-    </div>
-  );
-};
-
-export default LogInpage;
+export default LogInPage
