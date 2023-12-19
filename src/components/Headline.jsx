@@ -7,7 +7,7 @@ const Headline = () => {
   const highlightColor = "#004B7C";
 
   const parts = text.split(highlightText);
-  const highlightedPart = parts[0]; // Part before the highlighted text
+  const highlightedPart = parts[0]; 
 
   return (
     <h2 className="headline">

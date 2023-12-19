@@ -12,7 +12,7 @@ import HomeUser from './pages/Main/HomeUser'
 import Chat from './pages/Main/Chat'
 import Profil from './pages/Main/Profil'
 import Likes from './pages/Main/Likes'
-import Einstellungen from './pages/Main/Einstelungen'
+import Einstellungen from './pages/Main/Einstellungen'
 import LogInPage from './pages/LogInPage'
 import PasswordRequest from './pages/passwordRequest'
 import RegisterSelect from './pages/RegisterSelect'
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
     element: <Hinweise/>
   },
   {
-    path: "/Hinweise",
+    path: "/HomeUser",
     element: <HomeUser/>
   },
   {

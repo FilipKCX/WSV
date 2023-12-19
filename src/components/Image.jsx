@@ -1,6 +1,5 @@
-// src/components/ImageComponent.js
 import React from 'react';
-import './Image.css'; // Import the CSS file
+import './Image.css'; 
 
 const ImageComponent = () => {
   return (

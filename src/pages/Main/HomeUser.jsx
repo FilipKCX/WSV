@@ -7,13 +7,11 @@ import Navbar from '../../components/Navbar'
 const HomeUser = () => 
 {
 return <> 
-<Navbar/>
 <LineSeperator/>
-
+<Navbar/>
 <div className= 'imgdiv'>
 <Headline/> 
 </div>
-
 </>
 }
 
