@@ -1,15 +1,17 @@
 import React from 'react';
 import './BottomNavbar.css';
-import {Link } from "react-router-dom"
+import { Link } from "react-router-dom"
+
+
 
 const BottomNavbar = () => {
   return (
-    <div className="navbar">
-      <Link to="/impressum">Impressum</Link>
-      <Link to="/agb">AGB</Link>
-      <Link to="/datenschutzerklärung">Datenschutzerklärung</Link>
-      <Link to="/cookies">Cookies</Link>
-      <Link to="/kontakt">Kontakt</Link>
+    <div className="bottom">
+      <Link to="/Impressum">Impressum</Link>
+      <Link to="/AGB">AGB</Link>
+      <Link to="/Datenschutz">Datenschutzerklärung</Link>
+      <Link to="/Hinweise">Hinweise zu Cookies</Link>
+      <Link to="/Kontakt">Kontakt</Link>
     </div>
   );
 };

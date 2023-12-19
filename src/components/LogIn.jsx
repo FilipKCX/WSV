@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LogIn.css';
+import {Link } from "react-router-dom"
 
 const LoginComponent = () => {
   const [email, setEmail] = useState('');
@@ -34,8 +35,9 @@ const LoginComponent = () => {
           onChange={handlePasswordChange}
           placeholder="Password"
         />
-
+        <Link to= "/HomeUser">
         <button type="submit">Bestätigen & Anmelden</button>
+        </Link>
       </form>
       <p id="signup-paragraph">Durch klicken auf "Bestätigen & Anmelden" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie und der Cookie-Richtlinie von WorkingStudent zu.</p>
     </div>

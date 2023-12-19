@@ -3,17 +3,17 @@
     height: 60px;
     border-radius: 30px;
     background-color: #ffffff;
-    color: #3381ee;
+    color: #004B7C;
     cursor: pointer;
     outline: none;
-    border: 2px solid #3381ee;
+    border: 2px solid #004B7C;
     font-size: 18px;
     position: absolute;
     right: 80px; 
-    top: 10px;
+    top: 18px;
   }
   
   .login-button-no-login:hover {
     color: #ffffff;
-    background-color: #3381ee;
+    background-color: #004B7C;
   }
