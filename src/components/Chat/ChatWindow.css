@@ -66,3 +66,40 @@
     border-radius: 50%;
     margin-right: 10px;
   }
+  .chat-window {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f0f0f0;
+  }
+  
+  /* Chat Bubble */
+  /* ... Existing styles for chat bubbles ... */
+  
+  /* Text Input */
+  .text-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .text-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+  
+  .text-input button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #7289da;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }

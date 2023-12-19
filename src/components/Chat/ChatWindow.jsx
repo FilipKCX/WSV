@@ -3,9 +3,10 @@ import './chatWindow.css';
 
 const ChatWindow = ({ selectedChat }) => {
   const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
+
 
   useEffect(() => {
-  
     let dataFromBackend = [];
     if (selectedChat === 'chat1') {
       dataFromBackend = [
@@ -22,16 +23,41 @@ const ChatWindow = ({ selectedChat }) => {
     setMessages(dataFromBackend);
   }, [selectedChat]);
 
+  const handleInputChange = (e) => {
+    setNewMessage(e.target.value);
+  };
+
+  const handleSendMessage = () => {
+
+    const updatedMessages = [
+      ...messages,
+      { id: messages.length + 1, text: newMessage, sender: 'user1' }, 
+    ];
+    setMessages(updatedMessages);
+    setNewMessage(''); 
+  };
+
   return (
     <div className="chat-window">
-      {messages.map((message) => (
-        <div
-          key={message.id}
-          className={`chat-bubble ${message.sender === 'user1' ? 'sender-chat' : 'receiver-chat'}`}
-        >
-          <p className="chat-message">{message.text}</p>
-        </div>
-      ))}
+      <div className="chat-messages">
+        {messages.map((message) => (
+          <div
+            key={message.id}
+            className={`chat-bubble ${message.sender === 'user1' ? 'sender-chat' : 'receiver-chat'}`}
+          >
+            <p className="chat-message">{message.text}</p>
+          </div>
+        ))}
+      </div>
+      <div className="text-input">
+        <input
+          type="text"
+          placeholder="Type a message..."
+          value={newMessage}
+          onChange={handleInputChange}
+        />
+        <button onClick={handleSendMessage}>Send</button>
+      </div>
     </div>
   );
 };
