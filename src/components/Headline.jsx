@@ -4,7 +4,7 @@ import './Headline.css';
 const Headline = () => {
   const text = "Willkommen bei WorkingStudent!";
   const highlightText = "Working";
-  const highlightColor = "#a0d68a";
+  const highlightColor = "#004B7C";
 
   const parts = text.split(highlightText);
   const highlightedPart = parts[0]; // Part before the highlighted text

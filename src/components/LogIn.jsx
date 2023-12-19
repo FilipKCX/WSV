@@ -1,6 +1,6 @@
-// src/components/LoginComponent.js
 import React, { useState } from 'react';
 import './LogIn.css';
+import {Link } from "react-router-dom"
 
 const LoginComponent = () => {
   const [email, setEmail] = useState('');
@@ -17,7 +17,7 @@ const LoginComponent = () => {
   return (
     <div className="login-container">
       <h2></h2>
-      <p>Gestalte mit uns deine Karriere! Starte durch und erstelle jetzt dein eigenes Profil bei WorkingStudent</p>
+      <p id="login-paragraph">Gestalte mit uns deine Karriere! Starte durch und erstelle jetzt dein eigenes Profil bei WorkingStudent!</p>
       <form>
         <input
           type="email"
@@ -35,10 +35,11 @@ const LoginComponent = () => {
           onChange={handlePasswordChange}
           placeholder="Password"
         />
-
-        <button type="submit">Login</button>
+        <Link to= "/HomeUser">
+        <button type="submit">Bestätigen & Anmelden</button>
+        </Link>
       </form>
-      <p>Don't have an account? <a href="/signup">Sign up here</a>.</p>
+      <p id="signup-paragraph">Durch klicken auf "Bestätigen & Anmelden" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie und der Cookie-Richtlinie von WorkingStudent zu.</p>
     </div>
   );
 };
