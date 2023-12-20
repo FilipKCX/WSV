@@ -1,7 +1,6 @@
 import React from 'react';
 import './BottomNavbar.css';
 import { Link } from "react-router-dom"
-import wostuLogo from '../assets/WS_logo'
 
 
 
