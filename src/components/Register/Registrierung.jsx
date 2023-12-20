@@ -8,7 +8,7 @@ const Registrierung = () => {
     <div className="registration-container">
       <h1>Registrieren</h1>
 
-      <p>Erobere die Arbeitswelt mit nur wenigen klicks!</p>
+      <p className='erober'>Erobere die Arbeitswelt mit nur wenigen klicks!</p>
 
       <div className="input-container">
         <input type="email" placeholder="E-Mail" />

@@ -1,25 +1,19 @@
 import React from 'react'
-import Image from '../components/Image'
-import LogInButtonNoLogIn from '../components/LogInButtonNoLogIn'
-import LineSeperator from '../components/LineSeperator'
-import Headline from '../components/Headline'
-import LogIn from '../components/LogIn'
+import LogInButton from '../components/Homepagenologin/LogInButton'
+import RegisterButton from '../components/Homepagenologin/RegisterButton'
+import ImageWithText from '../components/Homepagenologin/ImageWithText'
 import BottomNavbar from '../components/BottomNavbar'
+import Logo from '../components/Logo'
 import './Homepagenologin.css'
-import { Router } from 'react-router-dom'
-import Logo from '../components/Logo' 
+
 
 const Homepagenologin = () => 
 {
 return <> 
-<LogInButtonNoLogIn/> 
-<LineSeperator/>
 <Logo/>
-<div className= 'imgdiv'>
-<Headline/> 
-<Image/> 
-</div>
-<LogIn/> 
+<LogInButton/> 
+<RegisterButton/> 
+<ImageWithText/> 
 <BottomNavbar/>
 </>
 }

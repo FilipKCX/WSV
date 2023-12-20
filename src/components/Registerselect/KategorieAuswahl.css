@@ -19,32 +19,37 @@
 }
   
 .student-button {
-    background-color: #000080;
-    color: white;
+    background-color: #fff;
+    color: #0074cc;
     padding: 10px;
     border: none;
     border-radius: 20px;
     width: 65%;
     cursor: pointer;
+    font-size: 20px;
+
 }
 
 .unternehmen-button {
-    background-color: #000080;
-    color: white;
+    background-color: #fff;
+    color: #0074cc;
     padding: 10px;
     border: none;
     border-radius: 20px;
     width: 65%;
     margin-top: 20px;
     cursor: pointer;
+    font-size: 20px;
 }
   
 .student-button:hover {
-    background-color: #000080;
+    background-color: #0074cc;
+    color: #fff;
 }
 
 .unternehmen-button:hover {
-    background-color: #000080;
+    background-color: #0074cc;
+    color: #fff;
 }
   
 .kategorie-text {

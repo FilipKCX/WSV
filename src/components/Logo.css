@@ -1,8 +1,18 @@
-.logo {
-    width: 100px; 
-    height: auto;
-    position: absolute;
-    top: 0px; 
-    left: 20px; 
+/* Logo.css */
+.logo-link {
+  text-decoration: none; 
+  color: #0074cc; 
+  position: fixed;
+  top: 40px; 
+  left: 55px; 
 }
 
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.logo-container {
+  position: fixed; 
+  height: 100%; 
+}

@@ -5,7 +5,7 @@
     margin-top: 20px;
   }
   
-  .navbar-link {
+  .navbartop-link {
   
     float: right;
     display: block;
@@ -17,7 +17,7 @@
     border-radius: 10px;
   }
   
-  .navbar-link:hover {
+  .navbartop-link:hover {
     color: white;
     background-color: #000080;
     border-radius: 10%;

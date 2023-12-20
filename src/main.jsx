@@ -67,10 +67,6 @@ const router = createBrowserRouter([
     element: <Einstellungen/>
   },
   {
-    path: "HomeUser",
-    element: <HomeUser/>
-  },
-  {
     path: "/anmeldung",
     element: <LogInPage/>
   },

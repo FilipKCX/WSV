@@ -1,9 +1,8 @@
 .bottom{
-    background-color: #f0f0f0;
     color: black;
     padding: 1px;
     position: fixed;
-    bottom: 0;
+    bottom: 80px;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -11,7 +10,7 @@
   }
  
   .bottom a{
-    color: black;
+    color: grey;
     text-decoration: none;
   }
   

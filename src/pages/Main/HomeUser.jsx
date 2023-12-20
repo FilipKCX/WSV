@@ -1,17 +1,17 @@
 import React from 'react'
-import LineSeperator from '../../components/LineSeperator'
-import Headline from '../../components/Headline'
 import '../Homepagenologin.css'
-import Navbar from '../../components/Navbar'
+import TopNavbarUser from '../../components/TopNavbarUser'
+import Logo from '../../components/Logo'
+import BottomNavbar from '../../components/BottomNavbar'
+
+
 
 const HomeUser = () => 
 {
 return <> 
-<LineSeperator/>
-<Navbar/>
-<div className= 'imgdiv'>
-<Headline/> 
-</div>
+<Logo/>
+<TopNavbarUser/>
+<BottomNavbar/>
 </>
 }
 

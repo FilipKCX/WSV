@@ -1,0 +1,16 @@
+.top-navbar {
+    display: flex;
+    position: fixed;
+    top: 55px;
+    right: 55px;
+    padding: 0px;
+    background-color: #fff; 
+  }
+
+  .topnav-links a {
+    margin-left: 40px; 
+    text-decoration: none;
+    color: black; 
+    font-size: 16px;
+    font-weight: bold;
+  }

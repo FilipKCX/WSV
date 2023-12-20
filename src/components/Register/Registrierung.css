@@ -10,17 +10,28 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -60%);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: lighter;
   }
   
   .registration-container h1 {
     font-size: 28px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: lighter;
+  }
+
+  .erober{
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: left;
   }
   
   .input-container {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   
   .input-container input {
@@ -33,17 +44,21 @@
   }
   
   .register-button {
-    background-color: #004B7C;
+    background-color: #0074cc;
     color: white;
     padding: 10px;
     border: none;
     border-radius: 20px;
     width: 65%;
     cursor: pointer;
+    font-size: 20px;
+    margin-bottom: 10px;
   }
   
   .register-button:hover {
-    background-color: #000080;
+    background-color: #fff;
+    color: #0074cc;
+    border: 1px solid #0074cc;
   }
   
   .registration-text {
