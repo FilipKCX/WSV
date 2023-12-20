@@ -4,7 +4,8 @@ import RegisterButton from '../components/Homepagenologin/RegisterButton'
 import ImageWithText from '../components/Homepagenologin/ImageWithText'
 import BottomNavbar from '../components/BottomNavbar'
 import Logo from '../components/Logo'
-import './Homepagenologin.css'
+import '.
+import Button from 'react-bootstrap/Button';
 
 
 const Homepagenologin = () => 
@@ -15,7 +16,11 @@ return <>
 <RegisterButton/> 
 <ImageWithText/> 
 <BottomNavbar/>
+<div className="oprimary">
+        <Button variant="outline-primary">Primary</Button>
+</div>
+
 </>
 }
 
-export default Homepagenologin
+export default Homepagenologin;
