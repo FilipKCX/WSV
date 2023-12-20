@@ -16,6 +16,7 @@ import Einstellungen from './pages/Main/Einstelungen'
 import LogInPage from './pages/LogInPage'
 import PasswordRequest from './pages/passwordRequest'
 import RegisterSelect from './pages/RegisterSelect'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 import ProfilePage from './pages/ProfilePage'
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
     element: <HomeUser/>
   },
   {
-    path: "/Chat",
+    path: "/HomeUser#chat",
     element: <Chat/>
   },
   {

@@ -8,8 +8,6 @@ const HomeUser = () =>
 {
 return <> 
 <Navbar/>
-<LineSeperator/>
-
 <div className= 'imgdiv'>
 <Headline/> 
 </div>
