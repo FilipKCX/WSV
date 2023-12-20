@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ChatMenu from '../../components/Chat/ChatMenu';
 import ChatWindow from '../../components/Chat/ChatWindow';
+import Navbar from '../../components/Navbar';
 
 const Chat = () => {
   const [selectedChat, setSelectedChat] = useState('chat1');
@@ -9,8 +10,9 @@ const Chat = () => {
     setSelectedChat(chatId);
   };
 
-  return (
-    <div class="chat-app-container">
+  return <>
+  <Navbar/>
+  <div class="chat-app-container">
       <div class="chat-menu">
         <ChatMenu selectChat={handleChatSelect} selectedChat={selectedChat} />
       </div>
@@ -18,10 +20,15 @@ const Chat = () => {
         <ChatWindow selectedChat={selectedChat} />
       </div>
   </div>
+  
+  
+  </>
+    
+    
       
       
  
-  );
+;
 };
 
 export default Chat;

@@ -7,7 +7,7 @@
   .chat-menu {
     height: 100%; /* Set height to occupy full height of the container */
     width: 50%; /* Set the width to 50% for half the left side */
-    background-color: #36393f;
+
     color: #fff;
     padding: 20px;
     overflow-y: auto; /* Enable vertical scrolling */

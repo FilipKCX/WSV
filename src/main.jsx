@@ -52,10 +52,6 @@ const router = createBrowserRouter([
     element: <HomeUser/>
   },
   {
-    path: "/HomeUser#chat",
-    element: <Chat/>
-  },
-  {
     path: "/Profil",
     element: <Profil/>
   },
@@ -68,8 +64,8 @@ const router = createBrowserRouter([
     element: <Einstellungen/>
   },
   {
-    path: "HomeUser",
-    element: <HomeUser/>
+    path: "/chat",
+    element: <Chat/>
   },
   {
     path: "/anmeldung",

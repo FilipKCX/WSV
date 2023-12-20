@@ -9,7 +9,6 @@ const ProfilePage = () =>
 {
 return <> 
 <Navbar/>
-<LineSeparator/>
 <ProfileView/>
 <BottomNavbar/>
 </>

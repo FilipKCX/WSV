@@ -1,7 +1,7 @@
 .chat-menu {
     height: 100%; /* Set height to occupy full height of the container */
-    width: 50%; /* Set the width to 50% for half the left side */
-    background-color: #36393f;
+    width: 100%; /* Set the width to 50% for half the left side */
+    background-color: #fff;
     color: #fff;
     padding: 20px;
     overflow-y: auto; /* Enable vertical scrolling */
@@ -10,7 +10,7 @@
   
   .chat-options {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center; /* Center the chat list */
   }
   
@@ -19,9 +19,10 @@
   }
   
   .chat-box {
-    border: 2px solid transparent; /* Added border for separation */
+    border: flex solid transparent; /* Added border for separation */
     border-radius: 8px;
     padding: 10px;
+    width: 200px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s, border-color 0.2s; /* Added border-color transition */
   }

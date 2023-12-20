@@ -1,0 +1,15 @@
+/* Logo.css */
+.logo-link {
+  text-decoration: none; 
+  color: #0074cc; 
+  position: fixed;
+  top: 18px; 
+  left: 55px; 
+  font-size: 28px;
+}
+
+.logo {
+  font-size: 100px;
+  font-weight: bold;
+}
+
