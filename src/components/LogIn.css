@@ -5,7 +5,7 @@
     position: relative;
     margin-left: 1000px;
     margin-top: -470px;
-    padding: 20px; /* Added padding for spacing */
+    padding: 20px; 
   }
   
   h2 {
@@ -15,7 +15,7 @@
   #login-paragraph {
     color: #666;
     margin-bottom: 20px;
-    font-size: 20px; /* Increased text size */
+    font-size: 20px; 
   }
   
   form {
@@ -52,8 +52,8 @@
 
   #signup-paragraph {
     color: #666;
-    margin-top: 10px; /* Added margin to separate from the button */
-    font-size: 10px; /* Increased text size */
+    margin-top: 10px; 
+    font-size: 10px; 
   }
   
   button:hover {

@@ -11,7 +11,6 @@ return <>
 <div className= 'imgdiv'>
 <Headline/> 
 </div>
-
 </>
 }
 
