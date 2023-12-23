@@ -22,7 +22,7 @@
     align-items: center;
   }
   .fixed-logo {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%; /* Adjust width as needed */

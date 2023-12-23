@@ -21,7 +21,8 @@ import Logo from './Logo';
   return (
     <Navbar expand="lg" className="bg-body-tertiary" sticky='top'>
       <Container>
-        <Navbar.Brand href="#home"> <Logo /> </Navbar.Brand> 
+        <div className='fixed-logo'><Navbar.Brand href="#home" > <Logo /> </Navbar.Brand> </div>
+        
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
            <Nav className="ml-auto">

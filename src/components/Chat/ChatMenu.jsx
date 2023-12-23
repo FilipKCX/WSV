@@ -7,7 +7,7 @@ const ChatMenu = ({ selectChat, selectedChat }) => {
   };
 
   return (
-    <div className="chat-menu">
+    <div className="chat-mmenu">
       <div className="chat-options">
         <div
           className={`chat-option ${selectedChat === 'chat1' ? 'active' : ''}`}

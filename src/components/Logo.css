@@ -2,7 +2,7 @@
 .logo-link {
   text-decoration: none; 
   color: #0074cc; 
-  position: fixed;
+  position: absolute;
   top: 18px; 
   left: 55px; 
   font-size: 28px;

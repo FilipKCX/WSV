@@ -1,10 +1,14 @@
 import React from 'react';
+import Navibar from '../../components/Navbar';
+import './HomeUser.css'
 
 const Likes = () => {
   return (
     
-    <div>
-      <h2>This is a blank page!</h2>
+    <div className='scrollable-container'>
+      <Navibar/>
+
+
     </div>
   );
 };

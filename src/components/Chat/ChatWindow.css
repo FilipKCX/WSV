@@ -3,14 +3,7 @@
     height: 100vh; /* Adjust as needed */
   }
   
-  /* Chat Menu */
-  .chat-menu {
-    width: 20%; /* Adjust as needed */
-    background-color: #36393f;
-    color: #fff;
-    padding: 20px;
-    overflow-y: auto; /* Enable scrolling if many chats */
-  }
+  
   
   /* Chat Option */
   .chat-option {
@@ -29,6 +22,7 @@
   
   /* Chat Window */
   .chat-window {
+    position :relative;
     flex: 1;
     padding: 20px;
     overflow-y: auto; /* Enable scrolling for messages */
@@ -77,14 +71,17 @@
   /* Chat Bubble */
   /* ... Existing styles for chat bubbles ... */
   
-  /* Text Input */
+  
   .text-input {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 20px;
+    padding: 10px;
+    position: fixed;
+    bottom: 30px;
+    width: calc(70% - 40px); /* Adjust padding from left and right */
+    z-index: 1; /* Ensure it's above other elements */
   }
-  
   .text-input input {
     flex: 1;
     padding: 10px;
@@ -92,6 +89,7 @@
     border-radius: 5px;
     margin-right: 10px;
     font-size: 14px;
+    bottom: 30;
   }
   
   .text-input button {

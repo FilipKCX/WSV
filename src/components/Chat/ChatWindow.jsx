@@ -49,7 +49,7 @@ const ChatWindow = ({ selectedChat }) => {
           </div>
         ))}
       </div>
-      <div className="text-input">
+      <div className="text-input" >
         <input
           type="text"
           placeholder="Type a message..."
@@ -59,6 +59,7 @@ const ChatWindow = ({ selectedChat }) => {
         <button onClick={handleSendMessage}>Send</button>
       </div>
     </div>
+    
   );
 };
 

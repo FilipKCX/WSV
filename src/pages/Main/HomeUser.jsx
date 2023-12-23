@@ -1,15 +1,17 @@
 import React from 'react'
-import LineSeperator from '../../components/LineSeperator'
-import Headline from '../../components/Headline'
+import Headline from '../../components/Headline2'
 import '../Homepagenologin.css'
-import Navbar from '../../components/Navbar'
+import Navibar from '../../components/Navbar'
+import './HomeUser.css'
 
 const HomeUser = () => 
 {
 return <> 
-<Navbar/>
-<div className= 'imgdiv'>
-<Headline/> 
+<div className='scrollable-container'>
+    <Navibar/>
+        <div className= 'imgdiv'>
+            <Headline/> 
+        </div>
 </div>
 </>
 }
