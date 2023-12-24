@@ -1,10 +1,6 @@
-.back-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 50px; /* Fügt rechten Abstand zwischen den Buttons hinzu */
+/* Container für den Zurück-Button */
+.back-button-container {
+  position: absolute;
+  bottom: 60px; /* Ändere den Abstand vom unteren Rand nach Bedarf */
+  left: 600px; /* Ändere den linken Abstand nach Bedarf */
 }

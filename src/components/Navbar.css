@@ -6,7 +6,6 @@
   }
   
   .navbar-link {
-  
     float: right;
     display: block;
     color: black;
@@ -21,4 +20,3 @@
     color: white;
     background-color: #000080;
     border-radius: 10%;
-  }
