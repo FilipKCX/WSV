@@ -50,10 +50,6 @@ const router = createBrowserRouter([
     element: <HomeUser/>
   },
   {
-    path: "/Chat",
-    element: <Chat/>
-  },
-  {
     path: "/Profil",
     element: <Profil/>
   },
@@ -64,6 +60,10 @@ const router = createBrowserRouter([
   {
     path: "/Einstellungen",
     element: <Einstellungen/>
+  },
+  {
+    path: "HomeUser",
+    element: <HomeUser/>
   },
   {
     path: "/anmeldung",

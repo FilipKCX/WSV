@@ -1,24 +1,30 @@
 .navbartop {
     overflow: hidden;
     font-family: 'Roboto Slab', sans-serif;
-    margin-right: 75px;
+    margin-right: 25px;
     margin-top: 20px;
   }
   
-  .navbartop-link {
-  
-    float: right;
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 10px 40px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    border-radius: 10px;
+  .navbartop-nav .nav-link {
+    padding:  0.5rem; /* Adjust padding as needed */
+    margin-right: 10px; /* Increase the space between links */
+    font-size: 20px; /* Set the font size */
   }
   
   .navbartop-link:hover {
     color: white;
     background-color: #000080;
     border-radius: 10%;
+  }
+  .custom-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .fixed-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Adjust width as needed */
+    z-index: 1000; /* Ensure it's above other content */
   }

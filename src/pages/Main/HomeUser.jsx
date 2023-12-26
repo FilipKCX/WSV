@@ -1,19 +1,18 @@
 import React from 'react'
+import Headline from '../../components/Headline2'
 import '../Homepagenologin.css'
-import TopNavbarUser from '../../components/TopNavbarUser'
-import Articles from '../../components/Homeuser/Articles'
-import Logo from '../../components/LogoUser'
-import BottomNavbar from '../../components/BottomNavbar'
-
-
+import Navibar from '../../components/Navbar'
+import './HomeUser.css'
 
 const HomeUser = () => 
 {
 return <> 
-<Logo/>
-<TopNavbarUser/>
-<Articles/>
-<BottomNavbar/>
+<div className='scrollable-container'>
+    <Navibar/>
+        <div className= 'imgdiv'>
+            <Headline/> 
+        </div>
+</div>
 </>
 }
 
