@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../components/Logo'
+import Logo from '../components/LogoNoLogIn'
 import Prequest from '../components/Prequest/Prequest'
 import BottomNavbar from '../components/BottomNavbar'
 import './PasswordRequest.css'

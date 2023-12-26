@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Logo.css'; 
+import './LogoNoLogIn.css'; 
 
-const Logo = () => {
+const LogoNoLogIn = () => {
   return (
     <Link to="/" className="logo-link">
       <div className="logo">WorkingStudent</div>
@@ -10,4 +10,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default LogoNoLogIn;
