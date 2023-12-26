@@ -4,8 +4,8 @@ import {Link} from "react-router-dom"
 
 const TopNavbarUser = () => {
   return (
-    <div className="top-navbar">
-      <div className="topnav-links">
+    <div className="top-nnavbar">
+      <div className="topnnav-links">
        <Link to="/HomeUser">Home</Link>
        <Link to="/profilepage">Profil</Link>
        <Link to="/likes">Likes</Link>

@@ -1,4 +1,4 @@
-.top-navbar {
+.top-nnavbar {
     display: flex;
     position: fixed;
     top: 55px;
@@ -7,7 +7,7 @@
     background-color: #fff; 
   }
 
-  .topnav-links a {
+  .topnnav-links a {
     margin-left: 40px; 
     text-decoration: none;
     color: black; 
