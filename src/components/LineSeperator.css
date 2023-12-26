@@ -3,7 +3,7 @@
   height: 1px;
   width: 100%;
   background-color: #ccc;
-  margin-top: 100px; 
+  margin-top: 85px; /* Adjust margin as needed */
 }
 
 .seperator::after {

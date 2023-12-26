@@ -1,5 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+// import Navbar from './homepage nologin components/Navbar'
+// import Scrollbar from './homepage nologin components/Scrollbar'
+// import LogInButtonNoLogIn from './homepage nologin components/LogInButtonNoLogIn'
+// import LineSeperator from './homepage nologin components/LineSeperator'
+// import Headline from './homepage nologin components/Headline'
+// import Image from './homepage nologin components/Image'
+// import LogIn from './homepage nologin components/LogIn'
+import Registrierung from './Sameer/Registrierung';
+
+
 import './index.css'
 import Homepagenologin from './pages/Homepagenologin'
 import Register from './pages/Register'
@@ -16,6 +26,8 @@ import Einstellungen from './pages/Main/Einstellungen'
 import LogInPage from './pages/LogInPage'
 import PasswordRequest from './pages/passwordRequest'
 import RegisterSelect from './pages/RegisterSelect'
+import Impressum from './pages/Static/Impressum'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
@@ -38,6 +50,10 @@ const router = createBrowserRouter([
   {
     path: "/AGB", 
     element: <AGB/>
+  },
+  {
+    path: "/Impressum",
+    element: <Impressum/>
   },
   {
     path: "/Register", 

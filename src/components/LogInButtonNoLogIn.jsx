@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './LogInButtonNoLogIn.css';
-import {Link } from "react-router-dom"
 
 
 const LogInButtonNoLogIn = ({ label, onClick }) => {

@@ -9,7 +9,10 @@
 }
 
 .logo {
-  font-size: 100px;
-  font-weight: bold;
+    width: 65px; 
+    height: auto;
+    position: absolute;
+    top: 7px; /* Abstand von oben */
+    left: 20px; /* Abstand von links */
 }
 
