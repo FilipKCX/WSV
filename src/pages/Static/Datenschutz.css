@@ -1,0 +1,21 @@
+.datenschutz-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin-left: 20px;
+  }
+  
+  .datenschutz-container h1 {
+    margin-bottom: 20px;
+  }
+  
+  .datenschutz-container h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .datenschutz-container p {
+    margin-bottom: 10px;
+    text-align: justify;
+  }
+  

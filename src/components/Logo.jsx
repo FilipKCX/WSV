@@ -1,6 +1,6 @@
 import React from 'react';
 import './Logo.css' 
-import wslogo from '../assets/WS_logo.png'; 
+import wslogo from '../assets/Neu_Logo.png'; 
 import {Link } from "react-router-dom"; 
 
 

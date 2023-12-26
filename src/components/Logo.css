@@ -1,8 +1,8 @@
 .logo {
-    width: 100px; 
+    width: 65px; 
     height: auto;
     position: absolute;
-    top: 0px; /* Abstand von oben */
+    top: 7px; /* Abstand von oben */
     left: 20px; /* Abstand von links */
 }
 

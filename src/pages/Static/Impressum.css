@@ -1,0 +1,30 @@
+.impressum-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    margin-left: 20px;
+}
+
+.impressum-info {
+    width: 100%;
+}
+
+.impressum-section {
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.6;
+}

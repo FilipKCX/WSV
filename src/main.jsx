@@ -26,6 +26,8 @@ import Einstellungen from './pages/Main/Einstelungen'
 import LogInPage from './pages/LogInPage'
 import PasswordRequest from './pages/passwordRequest'
 import RegisterSelect from './pages/RegisterSelect'
+import Impressum from './pages/Static/Impressum'
+
 
 
 import ProfilePage from './pages/ProfilePage'
@@ -47,6 +49,10 @@ const router = createBrowserRouter([
   {
     path: "/AGB", 
     element: <AGB/>
+  },
+  {
+    path: "/Impressum",
+    element: <Impressum/>
   },
   {
     path: "/Register", 
@@ -108,10 +114,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <LogInButtonNoLogIn/> <LineSeperator/>
-    <Headline/> <Image/> <LogIn/> <Scrollbar/>  */}
-    <Registrierung/>
-  </React.StrictMode>,
     <RouterProvider router={router} />
   </React.StrictMode>
 )
