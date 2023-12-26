@@ -14,10 +14,12 @@
   
   .chat-option:hover {
     background-color: #4a4f57;
+    border-radius: 12px;
   }
   
   .chat-option.active {
-    background-color: #7289da; /* Discord's highlight color */
+    background-color: #7289da;
+    border-radius: 12px;
   }
   
   /* Chat Window */
@@ -44,7 +46,7 @@
   
   /* Receiver's Chat Bubble */
   .receiver-chat {
-    background-color: #f0f0f0; /* Receiver's color */
+    background-color: white; /* Receiver's color */
   }
   
   /* Chat Message Text */
