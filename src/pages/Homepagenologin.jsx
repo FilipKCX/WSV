@@ -4,7 +4,6 @@ import RegisterButton from '../components/Homepagenologin/RegisterButton'
 import ImageWithText from '../components/Homepagenologin/ImageWithText'
 import BottomNavbar from '../components/BottomNavbar'
 import Logo from '../components/LogoNoLogIn'
-import '.
 import Button from 'react-bootstrap/Button';
 
 
