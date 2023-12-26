@@ -58,6 +58,10 @@ const router = createBrowserRouter([
     element: <Likes/>
   },
   {
+    path: "/chat",
+    element: <Chat/>
+  },
+  {
     path: "/Einstellungen",
     element: <Einstellungen/>
   },
