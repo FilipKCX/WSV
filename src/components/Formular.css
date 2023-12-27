@@ -1,0 +1,21 @@
+.form-container {
+  max-width: 400px; /* Maximale Breite des Formulars */
+  margin-left: 100px; /* Linker Abstand (kann nach Bedarf angepasst werden) */
+  margin-top: 70px; /* Oberer Abstand (kann nach Bedarf angepasst werden) */
+}
+
+/* Label-Stil für die Input-Labels */
+label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 16px; /* Skaliere die Schriftgröße der Input-Labels */
+}
+
+/* Überschreibe Bootstrap-Stile für Formular-Controls */
+input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

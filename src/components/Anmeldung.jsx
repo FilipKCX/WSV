@@ -7,7 +7,7 @@ const Anmeldung = () => {
     <div className="anmeldung-container">
       <h1>Log In</h1>
 
-      <p>Erobere die Arbeitswelt mit nur wenigen klicks!</p>
+      <p>Erobere die Arbeitswelt mit nur wenigen Klicks!</p>
 
       <div className="input-container">
         <input type="email" placeholder="E-Mail" />
