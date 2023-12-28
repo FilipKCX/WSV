@@ -4,8 +4,8 @@ import './LogoUser.css';
 
 const LogoUser = () => {
   return (
-    <Link to="/homeuser" className="logo-link">
-      <div className="logo">WorkingStudent</div>
+    <Link to="/homeuser" className="llogo-link">
+      <div className="llogo">WorkingStudent</div>
     </Link>
   );
 };

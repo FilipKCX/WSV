@@ -1,4 +1,4 @@
-.logo-link {
+.llogo-link {
     text-decoration: none; 
     color: #0074cc; 
     position: fixed;
@@ -6,12 +6,12 @@
     left: 55px; 
   }
   
-  .logo {
+  .llogo {
     font-size: 30px;
     font-weight: bold;
   }
   
-  .logo-container {
+  .llogo-container {
     position: fixed; 
     height: 100%; 
   }

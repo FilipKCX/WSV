@@ -6,9 +6,9 @@
   }
   
   .navbartop-nav .nav-link {
-    padding:  0.5rem; /* Adjust padding as needed */
-    margin-right: 10px; /* Increase the space between links */
-    font-size: 20px; /* Set the font size */
+    padding:  0.5rem; 
+    margin-right: 10px; 
+    font-size: 20px; 
   }
   .custom-center {
     display: flex;
