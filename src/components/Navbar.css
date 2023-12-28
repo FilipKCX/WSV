@@ -2,14 +2,15 @@
     overflow: hidden;
     font-family: 'Roboto Slab', sans-serif;
     margin-right: 25px;
-    margin-top: 20px;
+
   }
-  
+
   .navbartop-nav .nav-link {
     padding:  0.5rem; 
     margin-right: 10px; 
-    font-size: 20px; 
+    font-size: 25px; 
   }
+
   .custom-center {
     display: flex;
     justify-content: center;

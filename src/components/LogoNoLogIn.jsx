@@ -4,8 +4,8 @@ import './LogoNoLogIn.css';
 
 const LogoNoLogIn = () => {
   return (
-    <Link to="/" className="logo-link">
-      <div className="logo">WorkingStudent</div>
+    <Link to="/" className="llogo-link">
+      <div className="llogo">WorkingStudent</div>
     </Link>
   );
 };

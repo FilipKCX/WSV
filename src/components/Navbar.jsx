@@ -19,6 +19,7 @@ import Logo from './Logo';
   ];
 
   return (
+    <div className='navbarr'> 
     <Navbar expand="lg" className="bg-body-tertiary" sticky='top'>
       <Container>
         <div className='fixed-logo'><Navbar.Brand href="#home" > <Logo /> </Navbar.Brand> </div>
@@ -52,6 +53,7 @@ import Logo from './Logo';
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </div>
   );
   }
   
