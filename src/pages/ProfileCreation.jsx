@@ -9,12 +9,10 @@ import './ProfileCreation.css'
 
 const ProfileCreation = () => 
 {
-return <>
-<Formular/>
-<ProfilbildKomponente/>
-<TextControls/>
-<BackButton/>
-<SaveButton/>
+return <> 
+<TopNavbar/>
+<LineSeparator/>
+<ProfileEditor/>
 <BottomNavbar/>
 </>
 }

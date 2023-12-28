@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LikeMenu from '../../components/Likes/LikeMenu';
 import Navibar from '../../components/Navbar';
-import './HomeUser.css'
+import './Likes.css'; // Import your CSS file for the Likes component
 
 const Likes = () => {
+  const [selectedLike, setSelectedLike] = useState('like1');
+
+  const handleLikeSelect = (likeId) => {
+    setSelectedLike(likeId);
+  };
+
   return (
-    
-    <div className='scrollable-container'>
-      <Navibar/>
-
-
-    </div>
+    <>
+      <Navibar />
+      <div className="like-app-container">
+        <div className="like-menu">
+          <LikeMenu selectLike={handleLikeSelect} selectedLike={selectedLike} />
+        </div>
+      </div>
+    </>
   );
 };
 

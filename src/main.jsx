@@ -33,6 +33,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 import ProfilePage from './pages/ProfilePage'
 import ProfileCreation from './pages/ProfileCreation'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const router = createBrowserRouter([
   {
@@ -76,12 +77,16 @@ const router = createBrowserRouter([
     element: <Likes/>
   },
   {
+    path: "/chat",
+    element: <Chat/>
+  },
+  {
     path: "/Einstellungen",
     element: <Einstellungen/>
   },
   {
-    path: "/chat",
-    element: <Chat/>
+    path: "HomeUser",
+    element: <HomeUser/>
   },
   {
     path: "/anmeldung",

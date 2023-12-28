@@ -1,0 +1,14 @@
+/* Like App Container */
+.like-app-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Like Menu */
+  .like-menu {
+    height: 100%;
+    width: 100%; /* Adjust width as needed */
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
