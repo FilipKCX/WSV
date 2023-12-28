@@ -1,17 +1,17 @@
 import React from 'react';
-import './LikeMenu.css'; // Assuming the CSS file name is adjusted accordingly
+import './LikeMenu.css';
 
-const LikeMenu = ({ selectChat, selectedChat }) => {
-  const handleChatSelect = (chatId) => {
-    selectChat(chatId);
+const LikeMenu = ({ selectLike, selectedLike }) => {
+  const handleLikeSelect = (likeId) => {
+    selectLike(likeId);
   };
 
   return (
-    <div className="like-mmenu">
+    <div className="like-menu">
       <div className="like-options">
         <div
-          className={`like-option ${selectedChat === 'chat1' ? 'active' : ''}`}
-          onClick={() => handleChatSelect('chat1')}
+          className={`like-option ${selectedLike === 'like1' ? 'active' : ''}`}
+          onClick={() => handleLikeSelect('like1')}
         >
           <div className="like-box">
             <h3>Like 1</h3>
@@ -19,11 +19,11 @@ const LikeMenu = ({ selectChat, selectedChat }) => {
           </div>
         </div>
         <div
-          className={`like-option ${selectedChat === 'chat2' ? 'active' : ''}`}
-          onClick={() => handleChatSelect('chat2')}
+          className={`like-option ${selectedLike === 'like2' ? 'active' : ''}`}
+          onClick={() => handleLikeSelect('like2')}
         >
           <div className="like-box">
-            <h3>Chat 2</h3>
+            <h3>Like 2</h3>
             <p>Description or preview here...</p>
           </div>
         </div>
