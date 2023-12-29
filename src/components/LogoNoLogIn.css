@@ -1,18 +1,16 @@
-/* Logo.css */
-.logo-llink {
+.llogo-link {
   text-decoration: none; 
   color: #0074cc; 
-  position: fixed;
-  top: 40px; 
+  position: absolute;
+  top: 18px; 
   left: 55px; 
+  font-size: 28px;
 }
 
 .llogo {
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.llogo-container {
-  position: fixed; 
-  height: 100%; 
+    width: 65px; 
+    height: auto;
+    position: absolute;
+    top: 7px; 
+    left: 20px; 
 }

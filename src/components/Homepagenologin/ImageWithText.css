@@ -1,19 +1,20 @@
-.container {
+.container-image-withtext {
     display: flex;
     justify-content: space-between;
     align-items: left;
     padding: 20px; 
     margin-top: 150px;
-    margin-left: 25px;
+    background-color: lightgray;
   }
   
-  .text-container {
+  .text-container-image-withtext {
     flex: 1;
     max-width: 600px;
     margin-right: 30px; 
+    margin-left: 50px;
   }
 
-  .text-container p {
+  .text-container-image-withtext p {
     font-size: 20px; /* Adjust the font size as needed */
     max-width: 550px;
     font-weight: lighter;
@@ -29,7 +30,6 @@
     height: 300px; /* Set maximum height to 100% */
     border-radius: 8px; /* Optional: Add border-radius for rounded corners */
     margin-top: 20px;
-    border: 20px solid #0074cc; /* Blue thick border */
-    
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   }
   

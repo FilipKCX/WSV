@@ -1,14 +1,13 @@
 import React from 'react';
 import './LogInButton.css';
 import {Link } from "react-router-dom"
+import Button from 'react-bootstrap/Button';
 
 
 const LogInButton = ({ label, onClick }) => {
   return (
     <Link to="/anmeldung">
-    <button className="login-button-no-login" onClick={onClick}>
-      Log In
-    </button>
+    <Button className='login-button-no-login' variant="outline-primary">Log In</Button>{' '}
     </Link>
   );
 };
