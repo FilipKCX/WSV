@@ -18,7 +18,7 @@ import PasswordRequest from './pages/passwordRequest'
 import RegisterSelect from './pages/RegisterSelect'
 import ProfilePage from './pages/ProfilePage'
 import ProfileCreation from './pages/ProfileCreation'
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
 const router = createBrowserRouter([
   {
