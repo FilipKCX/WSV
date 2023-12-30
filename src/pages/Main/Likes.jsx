@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import LikeMenu from '../../components/Likes/LikeMenu';
 import Navibar from '../../components/Navbar';
 import './Likes.css'; // Import your CSS file for the Likes component
+import LikeWindow from '../../components/Likes/LikeWindow';
 
 const Likes = () => {
   const [selectedLike, setSelectedLike] = useState('like1');
@@ -14,8 +15,11 @@ const Likes = () => {
     <>
       <Navibar />
       <div className="like-app-container">
-        <div className="like-menu">
+        <div className="like-mmenu">
           <LikeMenu selectLike={handleLikeSelect} selectedLike={selectedLike} />
+        </div>
+        <div className="like-window"> 
+          <LikeWindow selectedLike={selectedLike} /> 
         </div>
       </div>
     </>

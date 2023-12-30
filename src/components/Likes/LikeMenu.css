@@ -1,7 +1,6 @@
-/* Like Menu */
 .like-menu {
   height: 100%;
-  width: 25%;
+  width: 100%;
   background-color: #f0f0f0cc;
   color: rgba(0, 0, 0, 0.61);
   padding: 20px;
@@ -23,19 +22,20 @@
   border: 1px solid transparent;
   border-radius: 12px;
   padding: 10px;
-  width: 200px;
+  width: 100%; /* Adjusted width to occupy available space */
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s, border-color 0.2s;
   margin-bottom: 10px;
+  box-sizing: border-box; /* Include padding and border in width calculation */
 }
 
 .like-box:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   border-radius: 12px;
 }
 
 .like-option.active {
-  background-color: #7289da; 
+  background-color: #7289da;
   border-radius: 12px;
 }
 
