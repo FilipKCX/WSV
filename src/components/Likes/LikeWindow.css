@@ -1,38 +1,32 @@
-/* LikeWindow.css */
-  
-  .like-profile {
-    /* Styles for the profile section */
-    /* Example: */
-    padding-bottom: 10px;
-  }
-  
-  .profile-scroll {
-    /* Style the scrollable area */
-    max-height: 150px; /* Set the maximum height for vertical scrolling */
-    overflow-y: auto; /* Enable vertical scrolling */
-  }
-  
-  /* Additional styling for other elements as needed */
-  .like-content {
-    /* Styles for other content */
-    /* Example: */
-    margin-top: 10px;
-  }
-  
-  .like-buttons {
-    /* Styles for buttons */
-    /* Example: */
-    margin-top: 10px;
-  }
-  .like-container {
+.like-window {
     display: flex;
+    flex-direction: column;
+    height: 100%;
+
   }
   
-
+  .like-content {
+    flex: 1; /* Take remaining space */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px; /* Adjust padding as needed */
+  }
   
-  .like-window {
-    /* Style for the main like window */
-    /* Occupy 75% of the screen width */
-    width: 100%;
-    padding: 20px;
+  .no-content {
+    flex: 1; /* Take remaining space */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px; /* Adjust padding as needed */
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px; /* Adjust padding as needed */
+    background-color: #f0f0f0; /* Example background color */
+  }
+  
+  .input-container input {
+    flex: 1;
+    margin-right: 10px; /* Adjust margin as needed */
   }

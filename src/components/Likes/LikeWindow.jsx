@@ -24,6 +24,7 @@ const LikeWindow = ({ selectedLike }) => {
           <p>No content selected</p>
         </div>
       )}
+
     </div>
   );
 };
