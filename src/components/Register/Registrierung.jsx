@@ -1,6 +1,7 @@
 import React from 'react';
 import './Registrierung.css';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 
 const Registrierung = () => {
@@ -22,7 +23,7 @@ const Registrierung = () => {
         <input type="password" placeholder="Passwort bestätigen" />
       </div>
 
-      <button className="register-button">Registrieren</button>
+      <Button className='register-button' variant="outline-primary">Registrieren</Button>{' '}
 
       <p className="registration-text">
         Durch Klicken auf "Registrieren" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie

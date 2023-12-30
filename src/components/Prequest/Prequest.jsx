@@ -1,6 +1,7 @@
 import React from 'react';
 import './Prequest.css';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 const Prequest = () => {
   return (
@@ -12,11 +13,11 @@ const Prequest = () => {
         <input type="email" placeholder="E-Mail" />
       </div>
       <Link to= ''>
-      <button className="requester-button">Passwort anfordern</button>
+      <Button className='requester-button' variant="outline-primary">Passwort anfordern</Button>{' '}
       </Link>
 
       <Link to= '/anmeldung'>
-      <button className="backer-button">Zurück zum Log In</button>
+      <Button className='backer-button' variant="outline-primary">Zurück zum Log In</Button>{' '}
       </Link>
 
     </div>

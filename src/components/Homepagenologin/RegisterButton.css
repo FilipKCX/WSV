@@ -1,19 +1,16 @@
 .register-button-no-login {
     width: 180px;
     height: 45px;
-    border-radius: 10px;
-    background-color: #0074cc;
-    color: #fff;
-    cursor: pointer;
-    outline: none;
-    border: 2px solid #0074cc;
-    font-size: 18px;
+    border-radius: 10px!important;
+    background-color: #0074cc !important;
+    color: #fff!important;
+    font-size: 18px!important;
     position: fixed;
     right: 80px; 
     top: 30px;
   }
   
   .register-button-no-login:hover {
-    color: #0074cc;
-    background-color: #fff;
+    color: #0074cc!important;
+    background-color: #fff!important;
   }

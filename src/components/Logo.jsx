@@ -3,9 +3,7 @@ import './Logo.css'
 
 import {Link } from "react-router-dom"; 
 
-
-
-const Header = () => {
+const Logo = () => {
     return (
         <Link to="/HomeUser">
             <div className='logo-llink'>
@@ -15,4 +13,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Logo;

@@ -1,19 +1,16 @@
 .login-button-no-login {
     width: 180px;
     height: 45px;
-    border-radius: 10px;
-    background-color: #ffffff;
-    color: #0074cc;
-    cursor: pointer;
-    outline: none;
-    border: 2px solid #0074cc;
-    font-size: 18px;
+    border-radius: 10px !important;
+    background-color: #ffffff !important;
+    color: #0074cc !important;
+    font-size: 18px !important;
     position: fixed;
     right: 300px; 
     top: 30px;
   }
   
   .login-button-no-login:hover {
-    color: #ffffff;
-    background-color: #0074cc;
+    color: #ffffff !important;
+    background-color: #0074cc !important;
   }

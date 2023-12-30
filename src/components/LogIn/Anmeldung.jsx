@@ -1,13 +1,14 @@
 import React from 'react';
 import './Anmeldung.css';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 const Anmeldung = () => {
   return (
     <div className="anmeldung-container">
       <h1>Log In</h1>
 
-      <p>Erobere die Arbeitswelt mit nur wenigen klicks!</p>
+      <p className='erober'>Erobere die Arbeitswelt mit nur wenigen klicks!</p>
 
       <div className="input-container">
         <input type="email" placeholder="E-Mail" />
@@ -17,7 +18,7 @@ const Anmeldung = () => {
         <input type="password" placeholder="Passwort" />
       </div>
 
-      <button className="anmelde-button">Log In</button>
+      <Button className='anmelde-button' variant="outline-primary">Log In</Button>{' '}
 
       <p className="anmeldung-text">
         Durch Klicken auf "Log In" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie

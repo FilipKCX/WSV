@@ -1,13 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import Navbar from './homepage nologin components/Navbar'
-// import Scrollbar from './homepage nologin components/Scrollbar'
-// import LogInButtonNoLogIn from './homepage nologin components/LogInButtonNoLogIn'
-// import LineSeperator from './homepage nologin components/LineSeperator'
-// import Headline from './homepage nologin components/Headline'
-// import Image from './homepage nologin components/Image'
-// import LogIn from './homepage nologin components/LogIn'
-import Registrierung from './Sameer/Registrierung';
 
 
 import './index.css'
@@ -24,7 +16,7 @@ import Profil from './pages/Main/Profil'
 import Likes from './pages/Main/Likes'
 import Einstellungen from './pages/Main/Einstellungen'
 import LogInPage from './pages/LogInPage'
-import PasswordRequest from './pages/passwordRequest'
+import PasswordRequest from './pages/PasswordRequest'
 import RegisterSelect from './pages/RegisterSelect'
 import Impressum from './pages/Static/Impressum'
 

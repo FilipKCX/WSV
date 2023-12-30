@@ -44,37 +44,33 @@
   }
   
   .requester-button {
-    background-color: #fff;
-    color: #0074cc;
-    padding: 10px;
-    border: 1px solid #0074cc;
-    border-radius: 20px;
+    background-color: #fff !important;
+    color: #0074cc !important;
+    padding: 10px !important;
+    border-radius: 20px !important;
     width: 65%;
-    cursor: pointer;
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 20px !important;
+    margin-bottom: 10px!important;
   }
   
   .requester-button:hover {
-    background-color: #0074cc;
-    color:#fff;
-    border: 1px solid #0074cc;
+    background-color: #0074cc!important;
+    color:#fff!important;
+    border: 1px solid #0074cc!important;
   }
 
   .backer-button {
-    background-color: #fff;
-    color: #0074cc;
-    padding: 10px;
-    border: 1px solid #0074cc;
-    border-radius: 20px;
-    width: 65%;
-    cursor: pointer;
-    font-size: 20px;
+    background-color: #fff!important;
+    color: #0074cc!important;
+    padding: 10px!important;
+    border-radius: 20px!important;
+    width: 65%!important;
+    font-size: 20px!important;
     margin-bottom: 10px;
   }
   
   .backer-button:hover {
-    background-color: #0074cc;
-    color:#fff;
-    border: 1px solid #0074cc;
+    background-color: #0074cc!important;
+    color:#fff!important;
+    border: 1px solid #0074cc!important;
   }

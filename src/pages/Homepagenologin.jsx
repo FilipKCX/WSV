@@ -3,19 +3,18 @@ import LogInButton from '../components/Homepagenologin/LogInButton'
 import RegisterButton from '../components/Homepagenologin/RegisterButton'
 import ImageWithText from '../components/Homepagenologin/ImageWithText'
 import BottomNavbar from '../components/BottomNavbar'
-import Logo from '../components/Logo'
+import LogoNoLogIn from '../components/LogoNoLogIn'
 
 
 
 const Homepagenologin = () => 
 {
 return <> 
-<Logo/>
+<LogoNoLogIn/>
 <LogInButton/> 
 <RegisterButton/> 
 <ImageWithText/> 
 <BottomNavbar/>
-
 </>
 }
 
