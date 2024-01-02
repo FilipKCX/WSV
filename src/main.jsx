@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-
 import './index.css'
 import Homepagenologin from './pages/Homepagenologin'
 import Register from './pages/Register'
@@ -26,6 +25,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import ProfilePage from './pages/ProfilePage'
 import ProfileCreation from './pages/ProfileCreation'
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+
 
 const router = createBrowserRouter([
   {
