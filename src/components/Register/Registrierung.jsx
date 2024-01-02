@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import './Registrierung.css';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import serverPackage from '/src/components/serverPackage' 
+import { getHTTPRequest } from '/src/components/serverPackage';
+import { getDataMain } from '/src/components/serverPackage';
 
 const Registrierung = () => {
   const [email, setEmail] = useState('');
@@ -21,20 +24,16 @@ const Registrierung = () => {
     };
 
     // Send POST request to backend
-    fetch('http://localhost:3001/createAccount', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(userData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data); // Handle success or error messages
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
+    let apiResponse; // Variable, um die Response zu speichern
+
+    let commandURL = "http://localhost:34123/createUser&" + email + "&" + password;
+    let paramArray = [email, password];
+    
+    
+    apiResponse = getHTTPRequest("createUser", paramArray);
+    //apiResponse = getDataMain()
+    alert(apiResponse);
+
   };
 
   return (
