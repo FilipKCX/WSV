@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import React, { useState } from 'react';
 import './Registrierung.css';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
