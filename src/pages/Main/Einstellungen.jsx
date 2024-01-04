@@ -1,14 +1,12 @@
 import React from 'react';
 import Navibar from '../../components/Navbar';
-import './HomeUser.css'
+import Settings from '../../components/Settingsuser/Settings';
 
 const Einstellungen = () => {
-  return (
-    
-    <div className='scrollable-container'>
+  return <>
       <Navibar/>
-    </div>
-  );
+      <Settings/>
+      </>
 };
 
 export default Einstellungen;

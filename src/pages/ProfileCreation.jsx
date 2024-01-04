@@ -1,17 +1,13 @@
 import React from 'react'
+import LogoNoLogIn from '../components/LogoNoLogIn'
 import BottomNavbar from '../components/BottomNavbar'
-import Formular from '../components/Formular'
-import TextControls from '../components/TextControls'
-import ProfilbildKomponente from '../components/ProfilbildKomponente'
-import BackButton from '../components/BackButton'
-import SaveButton from '../components/SaveButton'
+import ProfileEditor from '../components/ProfileRegister/ProfileEditor'
 import './ProfileCreation.css'
 
 const ProfileCreation = () => 
 {
 return <> 
-<TopNavbar/>
-<LineSeparator/>
+<LogoNoLogIn/>
 <ProfileEditor/>
 <BottomNavbar/>
 </>

@@ -4,7 +4,8 @@
     align-items: left;
     padding: 20px; 
     margin-top: 150px;
-    background-color: lightgray;
+    background-color:#e6e6e6;
+    min-width: 200vh;
   }
   
   .text-container-image-withtext {

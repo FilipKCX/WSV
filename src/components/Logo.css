@@ -15,3 +15,6 @@
     left: 20px; /* Abstand von links */
 }
 
+.logo-link:hover {
+  text-decoration: none; /* Remove underline on hover */
+}

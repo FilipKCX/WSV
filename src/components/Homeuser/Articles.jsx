@@ -1,26 +1,77 @@
 import React from 'react';
-import './Articles.css'; // Import the CSS file
+import { Container, Card, Row, Col, Carousel } from 'react-bootstrap';
+import './Articles.css'
 
 const Articles = () => {
   return (
-    <div className="component-homeuser">
-      <h1 className="headline-homeuser">WorkingStudent - Dein Wegbegleiter für Karriere und Studium!</h1>
-      <img className="image-homeuser" src="https://images.tagesschau.de/image/32b9df23-a2b3-4517-acad-fad23693295d/AAABhnkR3Bk/AAABibBxrfI/16x9-1920/gates-105.jpg" alt="Description of the image" />
-      <p className="subtext-homeuser">
-        <strong>Unsere Geschichte</strong><br />
-        Wir sind ein leidenschaftliches Team von Fachleuten, die genau wissen, wie anspruchsvoll es sein kann, Beruf und Studium unter einen Hut zu bringen. Bei WorkingStudent verstehen wir die einzigartigen Herausforderungen, vor die Arbeitnehmer im Studium gestellt werden, und wir sind hier, um dich auf diesem spannenden Weg zu begleiten.
-        <br /><br />
-        <strong>Unsere Mission</strong><br />
-        Unsere Mission bei WorkingStudent ist es, eine Brücke zwischen deinem Studium und deiner beruflichen Entwicklung zu schlagen. Wir glauben fest daran, dass Arbeit und Studium Hand in Hand gehen können und sollten. Unser Jobportal bietet nicht nur eine Vielzahl von spannenden Karrieremöglichkeiten für Studierende, sondern auch Ressourcen und Unterstützung, um sicherzustellen, dass du das Beste aus beiden Welten herausholen kannst.
-        <br /><br />
-        <strong>Warum WorkingStudent?</strong><br />
-        Bei WorkingStudent verstehen wir die Bedürfnisse der Arbeitnehmer von morgen. Wir bieten nicht nur eine Plattform für die Suche nach flexiblen Arbeitsmöglichkeiten, sondern auch wertvolle Ratschläge, Ressourcen und Gemeinschaftsunterstützung. Egal, ob du nach einem Praktikum, einem Werkstudentenjob oder dem idealen Berufseinstieg suchst - WorkingStudent ist hier, um dir den Weg zu ebnen.
-        <br /><br />
-        <strong>Schließe dich unserer Gemeinschaft an</strong><br />
-        Entdecke, wie WorkingStudent die Karrierewege von Studierenden verändert. Schließe dich unserer wachsenden Gemeinschaft an und sei Teil einer Bewegung, die die Möglichkeiten für Arbeitnehmer im Studium neu definiert. Wir freuen uns darauf, dich auf deinem Weg zu begleiten und gemeinsam Erfolge zu feiern!
-      </p>
+    <div className="articles-container">
+      {/* Carousel */}
+      <Container >
+        <Carousel>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://www.mercedes-benz.com/content/dam/brandhub/assets/art-and-culture/zeitgeist/collaboration-moncler/02-2023/teaser/mercedes-benz-x-moncler-teaser-2560x1440-02-2023.cbv20230517110952.jpg/_jcr_content/renditions/mq7-original-aspect.jpeg"
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3>Explore New Horizons</h3>
+              <p>Embark on a journey of discovery with our innovative solutions and cutting-edge technologies.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="https://group.mercedes-benz.com/bilder/karriere/studenten/situative-bildwelt/werkstudierende-w1680xh945-cutout.jpg"
+              alt="Second slide"
+            />
+            <Carousel.Caption>
+              <h3>Join Our Vibrant Community</h3>
+              <p>Connect with like-minded individuals and be part of a dynamic community that values growth and collaboration.</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          {/* Add more Carousel.Items as needed */}
+        </Carousel>
+      </Container>
+
+      {/* Main Content */}
+      <Container>
+        <Row>
+          <Col>
+            <Card bg="primary" text="white" className="my-5">
+              <Card.Body>
+                <Card.Title>About Us</Card.Title>
+                <Card.Text>
+                Willkommen bei WorkingStudent, deinem Wegweiser für die perfekte Verbindung von Studium und beruflicher Praxis! 
+                Als erfahrene Vermittler unterstützen wir Studierende dabei, die idealen Möglichkeiten als Werkstudenten zu finden. 
+                Unsere Mission ist es, die Brücke zwischen Bildung und Praxis zu schlagen, damit du nicht nur studierst, 
+                sondern auch wertvolle Erfahrungen in deinem Traumfeld sammelst. Entdecke mit uns die vielfältigen Chancen, 
+                die deine Studienzeit bereichern und deine beruflichen Perspektiven erweitern werden.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+          <Col>
+            <Card bg="primary" text="white" className="my-5">
+              <Card.Body>
+                <Card.Title>Our Services</Card.Title>
+                <Card.Text>
+                Unsere Dienstleistungen richten sich darauf aus, angehende Fachkräfte mit passenden Unternehmen zu verbinden. 
+                Wir bieten umfassende Vermittlungsdienste für Working Students an, um individuelle Fähigkeiten und 
+                Talente mit den Bedürfnissen unserer Partnerunternehmen in Einklang zu bringen. 
+                Von maßgeschneiderten Praktika bis hin zu gezielten Karriereberatungen – wir begleiten dich auf dem Weg 
+                zu erfolgreichen beruflichen Erfahrungen während deines Studiums.
+                </Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+      <footer className="bg-light-text-center-py-3">
+        <p>&copy; 2024 WorkingStudent. All rights reserved.</p>
+      </footer>
     </div>
   );
-}
+};
 
 export default Articles;

@@ -1,8 +1,5 @@
-.navbartop {
-    overflow: hidden;
-    font-family: 'Roboto Slab', sans-serif;
-    margin-right: 25px;
-    margin-top: 20px;
+  .bg-body-tertiary{
+    background-color:  #e6e6e6;
   }
   
   .navbar-nav .nav-link {

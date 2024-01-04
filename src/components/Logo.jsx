@@ -1,15 +1,15 @@
 import React from 'react';
-import './Logo.css' 
-
-import {Link } from "react-router-dom"; 
+import './Logo.css';
+import { Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 const Logo = () => {
     return (
-        <Link to="/HomeUser">
-            <div className='logo-llink'>
+        <Container>
+            <Link to="/HomeUser" className='logo-link'>
                 WorkingStudent
-            </div>    
-        </Link>
+            </Link>
+        </Container>
     );
 };
 

@@ -1,12 +1,13 @@
 .bottom{
     color: black;
-    padding: 1px;
-    position: fixed;
-    bottom: 80px;
+    position: absolute;
+    bottom: 10px;
+    height: 30px;
     display: flex;
-    width: 100%;
     justify-content: center;
+    width: 100%;
     gap: 30px;
+    background-color: #e6e6e6;
   }
  
   .bottom a{

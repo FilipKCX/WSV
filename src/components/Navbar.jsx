@@ -43,8 +43,20 @@ import Logo from './Logo';
                 <NavDropdown.Item as="span">Einstellungen</NavDropdown.Item>
             </Link>
 
+            <Link to="/impressum" className="dropdown-item">
+                <NavDropdown.Item as="span">Impressum</NavDropdown.Item>
+            </Link>
+            <Link to="/agb" className="dropdown-item">
+                <NavDropdown.Item as="span">AGB</NavDropdown.Item>
+            </Link>
+            <Link to="/datenschutz" className="dropdown-item">
+                <NavDropdown.Item as="span">Datenschutz</NavDropdown.Item>
+            </Link>
+            <Link to="/hinweise" className="dropdown-item">
+                <NavDropdown.Item as="span">Hinweise</NavDropdown.Item>
+            </Link>
             <Link to="/kontakt" className="dropdown-item">
-                <NavDropdown.Item as="span">Über uns</NavDropdown.Item>
+                <NavDropdown.Item as="span">Kontakt</NavDropdown.Item>
             </Link>
             </NavDropdown>
             
