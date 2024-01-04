@@ -18,6 +18,9 @@ import LogInPage from './pages/LogInPage'
 import PasswordRequest from './pages/PasswordRequest'
 import RegisterSelect from './pages/RegisterSelect'
 import Impressum from './pages/Static/Impressum'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import ProfilePage from './pages/ProfilePage'
 import ProfileCreation from './pages/ProfileCreation'
 import 'bootstrap/dist/css/bootstrap.min.css'

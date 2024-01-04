@@ -1,37 +1,37 @@
 import React from 'react';
-import './Impressum.css';
+import { Container, Row, Col } from 'react-bootstrap';
+import './Impressum.css'; 
 
 const Impressum = () => {
   return (
-    <div className="impressum-container">
-      <h1>Impressum</h1>
-      <div className="impressum-info">
-        <div className="impressum-section">
+    <Container className="impressum-container">
+      <Row>
+        <Col>
+          <h1>Impressum</h1>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={6}>
           <h2>Adresse:</h2>
-          <p>Lorem Ipsum<br/>
-          Musterstraße 123<br/>
-          12345 Hamburg</p>
-        </div>
-        <div className="impressum-section">
+          <p>Lorem Ipsum<br/>Musterstraße 123<br/>12345 Hamburg</p>
+        </Col>
+        <Col md={6}>
           <h2>Kontakt:</h2>
-          <p>contact.workingstudent@gmail.com<br/>
-          Musterstraße 123<br/>
-          12345 Hamburg</p>
-        </div>
-        <div className="impressum-section">
+          <p>contact.workingstudent@gmail.com<br/>Musterstraße 123<br/>12345 Hamburg</p>
+        </Col>
+      </Row>
+      <Row>
+        <Col md={6}>
           <h2>Vertretungsberechtigt:</h2>
-          <p>Lorem Ipsum<br/>
-          Lorem Ipsum<br/>
-          Lorem Ipsum</p>
-        </div>
-        <div className="impressum-section">
+          <p>Lorem Ipsum<br/>Lorem Ipsum<br/>Lorem Ipsum</p>
+        </Col>
+        <Col md={6}>
           <h2>Handelsregister:</h2>
-          <p>Amtsgericht Hamburg HRB 1234,<br/>
-          USt-IdNr. DE 12345678</p>
-        </div>
-      </div>
-    </div>
+          <p>Amtsgericht Hamburg HRB 1234<br/>USt-IdNr. DE 12345678</p>
+        </Col>
+      </Row>
+    </Container>
   );
-};
+}
 
 export default Impressum;
