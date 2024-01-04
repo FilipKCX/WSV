@@ -7,12 +7,16 @@ import serverPackage from '/src/components/serverPackage'
 import { getHTTPRequest } from '/src/components/serverPackage';
 import { getDataMain } from '/src/components/serverPackage';
 
+
+//sessionStorage = window.sessionStorage;
+
 const Registrierung = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [isUser, setisUser] = useState('');
 
-  const handleRegistration = () => {
+  const handleRegister = () => {
     if (password !== confirmPassword) {
       alert('Passwords do not match');
       return;
@@ -22,18 +26,85 @@ const Registrierung = () => {
     const userData = {
       email: email,
       password: password,
+      //isUser: isUser
     };
 
     // Send POST request to backend
-    let apiResponse; // Variable, um die Response zu speichern
+     // Variable, um die Response zu speichern
 
-    let commandURL = "http://localhost:34123/createUser&" + email + "&" + password;
-    let paramArray = [email, password];
+    // add isUser here
+    let paramArray = [email, password, isUser];
     
+    async function handleRequestOLD() {
+      try {
+        const apiResponse = await getHTTPRequest("createUser", paramArray);
+        alert(apiResponse)
+        return apiResponse
+        // Handle the resolved data
+        //alert(apiResponse);
+      } catch (error) {
+        // Handle errors if the Promise rejects
+        console.error("Error:", error);
+      }
+      
+    }
     
-    apiResponse = getHTTPRequest("createUser", paramArray);
+    //let test = handleRequest().then(result => {resulttest = result});
+
+    //alert(test);
+
+    //let globalTestValue = null; // Globale Variable
+
+async function handleRequest() {
+  try {
+    const apiResponse = await getHTTPRequest("createUser", paramArray);
+    //alert(apiResponse)
+    sessionStorage.setItem("userID", apiResponse);
+
+    
+    const apiResponse2 = await getHTTPRequest("getIsUser", apiResponseArray);
+    //alert(apiResponse2)
+    sessionStorage.setItem("isUser", apiResponse2);
+    
+    //next tasks
+
+    if (apiResponse2 == 1) 
+    {
+      //redirect User
+    }
+    else
+    {
+      //redirect Company
+    }
+
+    //direct to home
+  } catch (error) {
+    console.error("Error:", error);
+    throw error; // Re-throw the error to be caught outside the function if needed
+  }
+}
+
+
+
+
+
+//let a = handleRequest()
+
+handleRequest()
+//const userID = sessionStorage.getItem("userID");
+//alert(userID)
+
+// Beachten Sie, dass globalTestValue in diesem Stadium möglicherweise noch nicht aktualisiert ist.
+// Sie sollten sicherstellen, dass alle notwendigen Operationen erst nach der Aktualisierung durchgeführt werden.
+
+
+
+
+    
+    //console.log(apiResponse)
     //apiResponse = getDataMain()
-    alert(apiResponse);
+    //alert(apiResponse);
+    //alert(apiResponse())
 
   };
 
