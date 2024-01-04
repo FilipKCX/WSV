@@ -11,7 +11,6 @@ const Registrierung = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [isUser, setisUser] = useState('');
 
   const handleRegister = () => {
     if (password !== confirmPassword) {
@@ -23,20 +22,16 @@ const Registrierung = () => {
     const userData = {
       email: email,
       password: password,
-      //isUser: isUser
     };
 
-    // Send POST request to backend
-    let apiResponse; // Variable, um die Response zu speichern
 
     let commandURL = "http://localhost:34123/createUser&" + email + "&" + password;
     let paramArray = [email, password];
     
     
-    apiResponse = getHTTPRequest("createUser", paramArray);
+    let apiResponse = getHTTPRequest("createUser", paramArray);
     //apiResponse = getDataMain()
-    //alert(apiResponse);
-    //alert(apiResponse())
+    alert(apiResponse);
 
   };
 
