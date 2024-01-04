@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+
 import './index.css'
 import Homepagenologin from './pages/Homepagenologin'
 import Register from './pages/Register'
@@ -12,13 +13,19 @@ import HomeUser from './pages/Main/HomeUser'
 import Chat from './pages/Main/Chat'
 import Profil from './pages/Main/Profil'
 import Likes from './pages/Main/Likes'
-import Einstellungen from './pages/Main/Einstelungen'
+import Einstellungen from './pages/Main/Einstellungen'
 import LogInPage from './pages/LogInPage'
-import PasswordRequest from './pages/passwordRequest'
+import PasswordRequest from './pages/PasswordRequest'
 import RegisterSelect from './pages/RegisterSelect'
+import Impressum from './pages/Static/Impressum'
+
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Matching from './pages/Main/Matching'
 import ProfilePage from './pages/ProfilePage'
 import ProfileCreation from './pages/ProfileCreation'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+
 
 const router = createBrowserRouter([
   {
@@ -38,6 +45,10 @@ const router = createBrowserRouter([
     element: <AGB/>
   },
   {
+    path: "/Impressum",
+    element: <Impressum/>
+  },
+  {
     path: "/Register", 
     element: <Register/>
   },
@@ -46,12 +57,8 @@ const router = createBrowserRouter([
     element: <Hinweise/>
   },
   {
-    path: "/Hinweise",
+    path: "/HomeUser",
     element: <HomeUser/>
-  },
-  {
-    path: "/Chat",
-    element: <Chat/>
   },
   {
     path: "/Profil",
@@ -60,6 +67,10 @@ const router = createBrowserRouter([
   {
     path: "/Likes",
     element: <Likes/>
+  },
+  {
+    path: "/chat",
+    element: <Chat/>
   },
   {
     path: "/Einstellungen",

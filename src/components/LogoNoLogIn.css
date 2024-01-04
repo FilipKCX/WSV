@@ -1,0 +1,16 @@
+.llogo-link {
+  text-decoration: none; 
+  color: #0074cc; 
+  position: absolute;
+  top: 18px; 
+  left: 55px; 
+  font-size: 28px;
+}
+
+.llogo {
+    width: 65px; 
+    height: auto;
+    position: absolute;
+    top: 7px; 
+    left: 20px; 
+}

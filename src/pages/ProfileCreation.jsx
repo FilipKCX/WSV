@@ -1,9 +1,11 @@
 import React from 'react'
-import LineSeparator from '../components/LineSeperator'
 import BottomNavbar from '../components/BottomNavbar'
-import TopNavbar from '../components/TopNavbar'
-import ProfileEditor from '../components/ProfileEditor'
-
+import Formular from '../components/Formular'
+import TextControls from '../components/TextControls'
+import ProfilbildKomponente from '../components/ProfilbildKomponente'
+import BackButton from '../components/BackButton'
+import SaveButton from '../components/SaveButton'
+import './ProfileCreation.css'
 
 const ProfileCreation = () => 
 {

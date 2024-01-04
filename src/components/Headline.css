@@ -4,5 +4,12 @@
     margin-left: 100px;
     font-weight: lighter;
   }
-  
+
+.headline2 {
+    color: #333;
+    font-size: 40px;
+    margin-left: 50svh;
+    margin-top: 20px;
+    font-weight: lighter
+}
   

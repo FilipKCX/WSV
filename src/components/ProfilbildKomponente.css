@@ -1,0 +1,24 @@
+/* ProfilbildKomponente.css */
+
+/* Container für das Profilbild */
+.profilbild-container {
+  border-radius: 30px; /* Stärker abgerundete Ecken */
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  width: 150px;
+  height: 150px;
+  position: absolute; /* Absolute Positionierung */
+  top: 10%; /* Vertikale Position (kann nach Bedarf angepasst werden) */
+  right: 100px; /* Rechter Abstand (kann nach Bedarf angepasst werden) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.profilbild-container span {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+  line-height: 1.5;
+}

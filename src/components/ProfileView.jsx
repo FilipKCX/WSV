@@ -23,7 +23,7 @@ const ProfileView = () => {
     <div className="profile-view">
       <div className="profile-header">
         <div className="profile-picture">
-          {/* Hier kannst du das Profilbild des Nutzers einfügen */}
+          {}
         </div>
         <div className="edit-profile">
           Bild bearbeiten

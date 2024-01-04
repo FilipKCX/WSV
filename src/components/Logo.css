@@ -1,8 +1,17 @@
+.logo-llink {
+  text-decoration: none; 
+  color: #0074cc; 
+  position: absolute;
+  top: 18px; 
+  left: 55px; 
+  font-size: 28px;
+}
+
 .logo {
-    width: 100px; 
+    width: 65px; 
     height: auto;
     position: absolute;
-    top: 0px; /* Abstand von oben */
+    top: 7px; /* Abstand von oben */
     left: 20px; /* Abstand von links */
 }
 

@@ -1,7 +1,13 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import './BackButton.css';
 
-const BackButton = () => {
-    return <button className="back-button">Zurück</button>;
-};
+function BackButton() {
+  return (
+    <div className="back-button-container">
+      <Button variant="secondary">Zurück</Button>{' '}
+    </div>
+  );
+}
 
 export default BackButton;
