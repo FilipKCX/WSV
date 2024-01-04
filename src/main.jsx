@@ -16,8 +16,7 @@ import Einstellungen from './pages/Main/Einstelungen'
 import LogInPage from './pages/LogInPage'
 import PasswordRequest from './pages/passwordRequest'
 import RegisterSelect from './pages/RegisterSelect'
-
-
+import Matching from './pages/Main/Matching'
 import ProfilePage from './pages/ProfilePage'
 import ProfileCreation from './pages/ProfileCreation'
 
@@ -93,6 +92,10 @@ const router = createBrowserRouter([
   {
     path: "/profilecreation",
     element: <ProfileCreation/>
+  },
+  {
+    path: "/Matching",
+    element: <Matching/>
   }
 ])
 
