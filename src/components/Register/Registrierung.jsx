@@ -3,9 +3,8 @@ import './Registrierung.css';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import serverPackage from '/src/components/serverPackage' 
 import { getHTTPRequest } from '/src/components/serverPackage';
-import { getDataMain } from '/src/components/serverPackage';
+import SelectButton from '../SelectButton';
 
 
 //sessionStorage = window.sessionStorage;
@@ -144,8 +143,8 @@ handleRequest()
       <Button className='register-button' variant="outline-primary" onClick={handleRegister}>
         Registrieren
       </Button>{' '}
-
-      {/* Agreement text and login link */}
+      
+      <div className='alignb-center'> <SelectButton value = {isUser} onChange={(e) => setisUser(e.target.value) } /> </div>
       <p className="registration-text">
         Durch Klicken auf "Registrieren" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie
         <br />und der Cookie-Richtlinie von WorkingStudent zu.
