@@ -69,3 +69,7 @@
     color: #007bff; 
     cursor: pointer;
   }
+   
+  .alignb-center {
+    align-content: center;
+  }

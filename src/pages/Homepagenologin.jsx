@@ -7,12 +7,13 @@ import LogoNoLogIn from '../components/LogoNoLogIn'
 
 
 
+
 const Homepagenologin = () => 
 {
 return <> 
 <LogoNoLogIn/>
 <LogInButton/> 
-<RegisterButton/> 
+<RegisterButton/>
 <ImageWithText/> 
 <BottomNavbar/>
 </>

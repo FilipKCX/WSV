@@ -3,16 +3,16 @@ import './Registrierung.css';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import serverPackage from '/src/components/serverPackage' 
+ 
 import { getHTTPRequest } from '/src/components/serverPackage';
-import { getDataMain } from '/src/components/serverPackage';
+import SelectButton from '../SelectButton';
 
 const Registrierung = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleRegistration = () => {
+  const handleRegister = () => {
     if (password !== confirmPassword) {
       alert('Passwords do not match');
       return;
@@ -24,14 +24,12 @@ const Registrierung = () => {
       password: password,
     };
 
-    // Send POST request to backend
-    let apiResponse; // Variable, um die Response zu speichern
 
     let commandURL = "http://localhost:34123/createUser&" + email + "&" + password;
     let paramArray = [email, password];
     
     
-    apiResponse = getHTTPRequest("createUser", paramArray);
+    let apiResponse = getHTTPRequest("createUser", paramArray);
     //apiResponse = getDataMain()
     alert(apiResponse);
 
@@ -73,7 +71,10 @@ const Registrierung = () => {
       <Button className='register-button' variant="outline-primary" onClick={handleRegister}>
         Registrieren
       </Button>{' '}
-
+      <div className='alignb-center'>
+      <SelectButton/>
+      </div>
+       
       {/* Agreement text and login link */}
       <p className="registration-text">
         Durch Klicken auf "Registrieren" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie
