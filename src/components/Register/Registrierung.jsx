@@ -3,17 +3,38 @@ import './Registrierung.css';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import serverPackage from '/src/components/serverPackage' 
+import { getHTTPRequest } from '/src/components/serverPackage';
+import { getDataMain } from '/src/components/serverPackage';
 
 const Registrierung = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleRegister = () => {
-   
-    console.log('Email:', email);
-    console.log('Password:', password);
-    console.log('Confirm Password:', confirmPassword);
+  const handleRegistration = () => {
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    // Prepare data for backend
+    const userData = {
+      email: email,
+      password: password,
+    };
+
+    // Send POST request to backend
+    let apiResponse; // Variable, um die Response zu speichern
+
+    let commandURL = "http://localhost:34123/createUser&" + email + "&" + password;
+    let paramArray = [email, password];
+    
+    
+    apiResponse = getHTTPRequest("createUser", paramArray);
+    //apiResponse = getDataMain()
+    alert(apiResponse);
+
   };
 
   return (
