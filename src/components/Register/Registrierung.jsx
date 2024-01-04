@@ -77,7 +77,7 @@ const Registrierung = () => {
         Registrieren
       </Button>{' '}
       <div className='alignb-center'>
-      <SelectButton/>
+      <SelectButton value = {isUser} onChange={(e) => setisUser(e.target.value) } />
       </div>
        
       {/* Agreement text and login link */}

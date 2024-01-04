@@ -30,7 +30,7 @@ const server = http.createServer((req, res) => {
         user: 'root',
         password: 'WS',
         database: 'user',
-      });
+      }));
 
     connection.connect((err) => {
       if (err) {
