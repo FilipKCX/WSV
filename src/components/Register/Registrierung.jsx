@@ -38,19 +38,6 @@ const Registrierung = () => {
     // add isUser here
     let paramArray = [email, password, isUser];
     
-    async function handleRequestOLD() {
-      try {
-        const apiResponse = await getHTTPRequest("createUser", paramArray);
-        alert(apiResponse)
-        return apiResponse
-        // Handle the resolved data
-        //alert(apiResponse);
-      } catch (error) {
-        // Handle errors if the Promise rejects
-        console.error("Error:", error);
-      }
-      
-    }
     
     //let test = handleRequest().then(result => {resulttest = result});
 
@@ -63,7 +50,7 @@ async function handleRequest() {
     const apiResponse = await getHTTPRequest("createUser", paramArray);
     //alert(apiResponse)
     sessionStorage.setItem("userID", apiResponse);
-
+    alert(apiResponse)
     
     const apiResponse2 = await getHTTPRequest("getIsUser", apiResponseArray);
     //alert(apiResponse2)

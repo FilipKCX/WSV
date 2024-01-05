@@ -52,7 +52,7 @@ const getHTTPRequest = (command, paramArray) => {
     StringParams = StringParams + "&" + paramArray[i];
   }
 
-  let commandURL = "http://localhost:34123/" + command + "&" + StringParams;
+  let commandURL = "http://localhost:34123/" + command + StringParams;
 
   fetch(commandURL, {
     method: 'GET',
@@ -68,7 +68,7 @@ const getHTTPRequest = (command, paramArray) => {
       const content = contentLines.join('\r\n');
       // Hier kannst du die Daten weiter verarbeiten oder zurückgeben
       //alert(data)
-      alert(data)
+      //alert(data)
       return data;
     });
 
