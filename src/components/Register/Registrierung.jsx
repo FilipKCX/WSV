@@ -49,13 +49,16 @@ async function handleRequest() {
   try {
     const apiResponse = await getHTTPRequest("createUser", paramArray);
     //alert(apiResponse)
-    sessionStorage.setItem("userID", apiResponse);
-    alert(apiResponse)
+    //sessionStorage.setItem("userID", apiResponse);
+    //alert(apiResponse)
     
+
+    let apiResponseArray = [10];
     const apiResponse2 = await getHTTPRequest("getIsUser", apiResponseArray);
     //alert(apiResponse2)
-    sessionStorage.setItem("isUser", apiResponse2);
-    
+    //sessionStorage.setItem("isUser", apiResponse2);
+    //alert("test")
+    //alert(sessionStorage.getItem("userID"))
     //next tasks
 
     if (apiResponse2 == 1) 
@@ -81,6 +84,8 @@ async function handleRequest() {
 //let a = handleRequest()
 
 handleRequest()
+alert("außerhalb Funktion")
+alert(sessionStorage.getItem("userID"))
 //const userID = sessionStorage.getItem("userID");
 //alert(userID)
 
