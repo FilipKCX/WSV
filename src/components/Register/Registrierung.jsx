@@ -13,10 +13,10 @@ const Registrierung = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [isUser, setIsUser] = useState(false); // Assuming isUser is a boolean
+  const [isButtonOff, setIsButtonOff] = useState('1'); // Set initial value to '1'
 
-  const handleUserChange = (e) => {
-    setIsUser(e.target.value); // Assuming you want to set isUser based on the target value
+  const handleButtonToggle = () => {
+    setIsButtonOff((prevValue) => (prevValue === '1' ? '0' : '1')); // Toggle the value between '1' and '0'
   };
 
   const handleRegister = () => {
@@ -148,7 +148,7 @@ handleRequest()
         Registrieren
       </Button>{' '}
       
-      <div className='alignb-center'> <SelectButton value={isUser} onChange={handleUserChange} /> </div>
+      <div className='alignb-center'> <SelectButton onToggle={handleButtonToggle} /> </div>
       <p className="registration-text">
         Durch Klicken auf "Registrieren" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie
         <br />und der Cookie-Richtlinie von WorkingStudent zu.

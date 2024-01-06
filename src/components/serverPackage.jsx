@@ -11,7 +11,7 @@ const ServerPackage = () => {
     StringParams = StringParams + "&" + paramArray[i]
   }
   
-  let commandURL = "http://localhost:34123/" + command + "&" + StringParams;
+  let commandURL = "http://localhost:34123/" + command + StringParams;
 
   return fetch(commandURL, {
     method: 'GET',
