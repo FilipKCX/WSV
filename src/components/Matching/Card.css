@@ -8,6 +8,11 @@
     margin-bottom: 10px;
 }
 
+.btn-primary:hover {
+    background-color: #fff !important;
+    color: #0074cc !important;
+}
+
 .card {
     padding: 1.5em .5 .5em;
     text-align: center;
@@ -28,7 +33,3 @@
     box-shadow: 0 5px 10px rgba(0, 123, 255, 0.2);
 }
 
-.chat-button:hover {
-    background-color: #fff !important;
-    color: #0074cc !important;
-}
