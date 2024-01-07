@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import './Registrierung.css';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { getHTTPRequest } from '/src/components/serverPackage';
 import SelectButton from '../SelectButton';
+import HomeUser from '../../pages/Main/HomeUser'
 
-
-//sessionStorage = window.sessionStorage;
 
 const Registrierung = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [isButtonOff, setIsButtonOff] = useState('1'); // Set initial value to '1'
+  const [isUser, setIsButtonOff] = useState('1'); // Set initial value to '1'
+  const navigate = useNavigate();
 
   const handleButtonToggle = () => {
     setIsButtonOff((prevValue) => (prevValue === '1' ? '0' : '1')); // Toggle the value between '1' and '0'
@@ -29,7 +30,7 @@ const Registrierung = () => {
     const userData = {
       email: email,
       password: password,
-      //isUser: isUser
+      isUser: isUser
     };
 
     // Send POST request to backend
@@ -49,23 +50,21 @@ async function handleRequest() {
   try {
     const apiResponse = await getHTTPRequest("createUser", paramArray);
     //alert(apiResponse)
-    sessionStorage.setItem("userID", apiResponse);
-    alert(apiResponse)
+    window.sessionStorage.setItem('userID', apiResponse);
     
-    const apiResponse2 = await getHTTPRequest("getIsUser", apiResponseArray);
+    window.sessionStorage.getItem("userID");
+    let userArray = [35]
+    const apiResponse2 = await getHTTPRequest("getIsUser", userArray);
     //alert(apiResponse2)
-    sessionStorage.setItem("isUser", apiResponse2);
+    window.sessionStorage.setItem("isUser", apiResponse2);
     
     //next tasks
+    const condition = true; // Replace this with your condition
 
-    if (apiResponse2 == 1) 
-    {
-      //redirect User
-    }
-    else
-    {
-      //redirect Company
-    }
+    if (condition) {
+      navigate("/HomeUser");
+    } 
+    
 
     //direct to home
   } catch (error) {
@@ -81,8 +80,10 @@ async function handleRequest() {
 //let a = handleRequest()
 
 handleRequest()
-//const userID = sessionStorage.getItem("userID");
-//alert(userID)
+alert(window.sessionStorage.getItem(userID))
+
+
+
 
 // Beachten Sie, dass globalTestValue in diesem Stadium möglicherweise noch nicht aktualisiert ist.
 // Sie sollten sicherstellen, dass alle notwendigen Operationen erst nach der Aktualisierung durchgeführt werden.

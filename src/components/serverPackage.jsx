@@ -2,7 +2,7 @@ const ServerPackage = () => {
   function getHTTPRequest(a, b) 
 { 
   let command = a;
-  let paramArray = b;
+  let paramArray = b; //&22&
   let StringParams = "";
 
   
@@ -31,6 +31,7 @@ const ServerPackage = () => {
   
       apiResponse = data;
       
+      return data;
       //alert(apiResponse);
   
       //console.log('Statuscode:', statusCode);
@@ -52,7 +53,7 @@ const getHTTPRequest = (command, paramArray) => {
     StringParams = StringParams + "&" + paramArray[i];
   }
 
-  let commandURL = "http://localhost:34123/" + command + StringParams;
+  let commandURL = "http://localhost:34123/" + command + "&" + StringParams;
 
   fetch(commandURL, {
     method: 'GET',
