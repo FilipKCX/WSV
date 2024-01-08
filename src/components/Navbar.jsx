@@ -18,12 +18,12 @@ import Logo from './Logo';
       { text: 'Home', to: '/homeUser' }
 
   ];
+  const sessionStorageData = sessionStorage.getItem('userID')
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary" sticky='top'>
       <Container>
         <div className='fixed-logo'><Navbar.Brand href="#home" > <Logo/> </Navbar.Brand> </div>
-        <h3 sessionS />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
            <Nav className="ml-auto">

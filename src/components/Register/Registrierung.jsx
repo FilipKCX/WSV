@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import { getHTTPRequest } from '/src/components/serverPackage';
 import SelectButton from '../SelectButton';
 import HomeUser from '../../pages/Main/HomeUser'
+import { getDataMain } from '../serverPackage';
 
 
 const Registrierung = () => {
@@ -39,29 +40,28 @@ const Registrierung = () => {
     // add isUser here
     let paramArray = [email, password, isUser];
     
-    
+    handleRequest();
     //let test = handleRequest().then(result => {resulttest = result});
 
     //alert(test);
 
     //let globalTestValue = null; // Globale Variable
 
-async function handleRequest() {
-  try {
-    const apiResponse = await getHTTPRequest("createUser", paramArray);
-    //alert(apiResponse)
-    window.sessionStorage.setItem('userID', apiResponse);
+  async function handleRequest() {
+   try {
+    const apiResponse = await getHTTPRequest("createUser", paramArray);    
+    sessionStorage.setItem('userID', apiResponse);
     
-    window.sessionStorage.getItem("userID");
-    let userArray = [35]
+    alert(sessionStorage.getItem("userID"));
+    let userArray = [56]
     const apiResponse2 = await getHTTPRequest("getIsUser", userArray);
     //alert(apiResponse2)
-    window.sessionStorage.setItem("isUser", apiResponse2);
+    sessionStorage.setItem("isUser", apiResponse2);
     
     //next tasks
     const condition = true; // Replace this with your condition
 
-    if (condition) {
+    if ( sessionStorage.getItem('isUser') == "(1,)") {
       navigate("/HomeUser");
     } 
     
@@ -70,8 +70,9 @@ async function handleRequest() {
   } catch (error) {
     console.error("Error:", error);
     throw error; // Re-throw the error to be caught outside the function if needed
+    }
+    //console.log(sessionStorage.getItem("userID"));
   }
-}
 
 
 
@@ -79,8 +80,8 @@ async function handleRequest() {
 
 //let a = handleRequest()
 
-handleRequest()
-alert(window.sessionStorage.getItem(userID))
+
+//console.log(sessionStorage.getItem('userID'))
 
 
 
