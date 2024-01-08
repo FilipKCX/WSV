@@ -5,9 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { getHTTPRequest } from '/src/components/serverPackage';
-import SelectButton from '../SelectButton';
-import HomeUser from '../../pages/Main/HomeUser'
-import { getDataMain } from '../serverPackage';
+import SelectButton from '../../SelectButton';
 
 
 const Registrierung = () => {
@@ -53,7 +51,7 @@ const Registrierung = () => {
     sessionStorage.setItem('userID', apiResponse);
     
     alert(sessionStorage.getItem("userID"));
-    let userArray = [56]
+    let userArray = [sessionStorage.getItem('userID')]
     const apiResponse2 = await getHTTPRequest("getIsUser", userArray);
     //alert(apiResponse2)
     sessionStorage.setItem("isUser", apiResponse2);
@@ -63,6 +61,9 @@ const Registrierung = () => {
 
     if ( sessionStorage.getItem('isUser') == "(1,)") {
       navigate("/HomeUser");
+    }
+    else{
+      navigate("/HomeCompany");
     } 
     
 
