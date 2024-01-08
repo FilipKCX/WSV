@@ -13,7 +13,7 @@ import Logo from './LogoCompany';
       { text: 'Einstellungen', to: '/EinstellungenCompany' },
       { text: 'Chat', to: '/ChatCompany' },
       { text: 'Likes', to: '/LikesCompany' },
-      { text: 'Matching', to: '/MatchingCompany' },
+      { text: 'Matching', to: '/Matching' },
       { text: 'Profil', to: '/ProfilepageCompany' },
       { text: 'Home', to: '/HomeCompany' }
 
@@ -33,7 +33,7 @@ import Logo from './LogoCompany';
             <Link to="/ChatCompany" className="nav-link">
               <Nav.Link as="span">Chat</Nav.Link>
             </Link>
-            <Link to="/MatchingCompany" className="nav-link">
+            <Link to="/Matching" className="nav-link">
               <Nav.Link as="span">Matching</Nav.Link>
             </Link>
             <Link to="/ProfilepageCompany" className="nav-link">
