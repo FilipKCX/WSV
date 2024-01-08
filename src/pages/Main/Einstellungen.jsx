@@ -1,6 +1,6 @@
 import React from 'react';
 import Navibar from '../../components/Navbar';
-import Settings from '../../components/Settingsuser/Settings';
+import Settings from '../../components/UserComponents/Settingsuser/Settings';
 
 const Einstellungen = () => {
   return <>

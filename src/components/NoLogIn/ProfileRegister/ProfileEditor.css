@@ -1,0 +1,34 @@
+
+.profile-editor-container {
+  background-color: #e6e6e6;
+  margin-top: 250px;
+}
+
+.profile-editor-col {
+  max-width: 800px; /* Increased width */
+  margin: auto;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+
+/* Adjust the space between buttons */
+.button-container .col {
+  margin-top: 10px;
+}
+
+/* Add margin between extra fields and the "Add Field" button */
+.additional-fields-container {
+  margin-top: 10px;
+}
+
+/* Add margin for each additional field */
+.additional-fields-container .form-control {
+  margin-top: 10px;
+}
+
+/* Adjust the margin for the "Add Field" button */
+.additional-fields-container .btn-secondary {
+  margin-top: 10px;
+}

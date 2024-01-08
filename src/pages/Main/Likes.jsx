@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import LikeMenu from '../../components/Likes/LikeMenu';
+import LikeMenu from '../../components/UserComponents/Likes/LikeMenu';
 import Navibar from '../../components/Navbar';
 import './Likes.css'; // Import your CSS file for the Likes component
-import LikeWindow from '../../components/Likes/LikeWindow';
+import LikeWindow from '../../components/UserComponents/Likes/LikeWindow';
 
 const Likes = () => {
   const [selectedLike, setSelectedLike] = useState('like1');

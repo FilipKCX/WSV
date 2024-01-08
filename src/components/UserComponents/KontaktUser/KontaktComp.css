@@ -1,0 +1,38 @@
+.kontakt-container {
+    padding: 40px;
+    background: #e6e6e6;
+    color: #212529;
+    min-height: 100vh;
+  }
+  
+  .kontakt-container h1 {
+    margin-bottom: 20px;
+    color: #007bff; 
+  }
+  
+  .kontakt-container p {
+    margin-bottom: 40px;
+  }
+  
+  .kntc {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .kntc .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .kntc .form-control {
+    border-radius: 4px;
+  }
+  
+  .kntc .btn-primary {
+    background-color: #007bff; 
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+  }
+  
