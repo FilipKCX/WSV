@@ -21,3 +21,7 @@
     width: 100%; /* Adjust width as needed */
     z-index: 1000; /* Ensure it's above other content */
   }
+
+  .bottom {
+    position: static !important;
+  }
