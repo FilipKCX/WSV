@@ -5,7 +5,6 @@ import '../../UserComponents/Homeuser/Articles.css'
 const Articles = () => {
   return (
     <div className="articles-container">
-      {/* Carousel */}
       <Container >
         <Carousel>
           <Carousel.Item>
@@ -30,11 +29,9 @@ const Articles = () => {
               <p>Mit der Einstellung von Werkstudenten legen Sie den Grundstein für eine erfolgsversprechende Zukunft Ihres Unternehmens</p>
             </Carousel.Caption>
           </Carousel.Item>
-          {/* Add more Carousel.Items as needed */}
         </Carousel>
       </Container>
 
-      {/* Main Content */}
       <Container>
         <Row>
           <Col>

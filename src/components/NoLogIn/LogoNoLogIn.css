@@ -11,10 +11,10 @@
     width: 65px; 
     height: auto;
     position: absolute;
-    top: 7px; /* Abstand von oben */
-    left: 20px; /* Abstand von links */
+    top: 7px; 
+    left: 20px; 
 }
 
 .llogo-link:hover {
-  text-decoration: none; /* Remove underline on hover */
+  text-decoration: none; 
 }

@@ -143,10 +143,10 @@ const router = createBrowserRouter([
     path: "/ChatCompany",
     element: <ChatCompany/>
   },
-  {
-    path: "/LikesCompany",
-    element: <LikesCompany/>
-  },
+  // {
+  //   path: "/LikesCompany",
+  //   element: <LikesCompany/>
+  // },
   {
     path: "/SettingsCompany",
     element: <EinstellungenCompany/>

@@ -7,7 +7,7 @@ function SelectButton({ onToggle }) {
   const handleToggle = () => {
     const newValue = isChecked ? '1' : '0';
     setIsChecked(!isChecked);
-    onToggle(newValue); // Send the value to the parent component
+    onToggle(newValue); 
   };
 
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import './KontaktComp.css'; // Stellen Sie sicher, dass die Kontakt.css-Datei in Ihrem Projekt existiert
+import './KontaktComp.css'; 
 
 const Kontakt = () => {
     const [form, setForm] = useState({
@@ -19,7 +19,7 @@ const Kontakt = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Hier könnten Sie die Formulardaten an einen Server senden
+      
         console.log(form);
         alert('Nachricht gesendet!');
     };

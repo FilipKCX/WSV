@@ -1,16 +1,16 @@
 .chat-menu {
-  height: 100%; /* Set height to occupy full height of the container */
-  width: 25%; /* Set the width to 50% for half the left side */
+  height: 100%; 
+  width: 25%; 
   background-color: #f0f0f0cc;
   padding: 20px;
   border-radius: 12px;
-  overflow-y: auto; /* Enable vertical scrolling */
-  overflow-x: hidden; /* Hide horizontal scrollbar */
+  overflow-y: auto; 
+  overflow-x: hidden; 
 }
 
 .chat-options {
   display: flex;
-  flex-direction: column; /* Change to column to stack items vertically */
+  flex-direction: column; 
 }
 
 .chat-option {
@@ -18,13 +18,13 @@
 }
 
 .chat-box {
-  border: 1px solid transparent; /* Added border for separation */
+  border: 1px solid transparent; 
   border-radius: 12px;
   padding: 10px;
   width: 200px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s, border-color 0.2s; /* Added border-color transition */
-  margin-bottom: 10px; /* Adjust spacing between chat boxes */
+  transition: background-color 0.3s, transform 0.2s, border-color 0.2s; 
+  margin-bottom: 10px; 
 }
 
 .chat-box:hover {
@@ -36,7 +36,7 @@
   border-radius: 12px;
 }
 .chat-box.active {
-  border-color: #0074cc; /* Highlight color for the selected box */
+  border-color: #0074cc; 
 }
 
 .chat-box h3 {

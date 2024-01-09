@@ -7,7 +7,6 @@ const Prequest = () => {
   const handlePasswordRequest = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
-    // Implement password request logic here
   };
 
   return (

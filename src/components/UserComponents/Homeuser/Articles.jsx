@@ -5,7 +5,6 @@ import './Articles.css'
 const Articles = () => {
   return (
     <div className="articles-container">
-      {/* Carousel */}
       <Container >
         <Carousel>
           <Carousel.Item>
@@ -30,11 +29,11 @@ const Articles = () => {
               <p>Connect with like-minded individuals and be part of a dynamic community that values growth and collaboration.</p>
             </Carousel.Caption>
           </Carousel.Item>
-          {/* Add more Carousel.Items as needed */}
+          
         </Carousel>
       </Container>
 
-      {/* Main Content */}
+     
       <Container>
         <Row>
           <Col>

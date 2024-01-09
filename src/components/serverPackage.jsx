@@ -20,7 +20,7 @@ const getHTTPRequest = async (command, paramArray) => {
       const [statusLine, ...contentLines] = data.split('\r\n');
       const [protocol, statusCode] = statusLine.split(' ');
       const content = contentLines.join('\r\n');
-      // Hier kannst du die Daten weiter verarbeiten oder zurückgeben
+      
       console.log(data)
       return data;
     });
@@ -32,7 +32,7 @@ const getDataMain = () => {
 }
 
 
-export { getHTTPRequest }; // Exportiere die Funktion direkt
+export { getHTTPRequest }; 
 export { getDataMain };
 
 

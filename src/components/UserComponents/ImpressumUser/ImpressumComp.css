@@ -1,26 +1,26 @@
 .impressum-container {
     padding: 40px;
     background: #e6e6e6;
-    color: #212529; /* Dunkelgrau für Text */
-    min-height: 100vh; /* Stellt sicher, dass der Container die volle Höhe einnimmt */
+    color: #212529; 
+    min-height: 100vh; 
   }
   
   .impressum-container h1 {
     margin-bottom: 30px;
-    color: #007bff; /* Bootstrap-Primärfarbe für den Titel */
+    color: #007bff; 
   }
   
   .impressum-container h2 {
     margin-top: 20px;
     margin-bottom: 10px;
-    color: #343a40; /* Dunkelgrau für Überschriften */
+    color: #343a40; 
   }
   
   .impressum-container p {
-    background: #fff; /* Weißer Hintergrund für Absätze */
+    background: #fff; 
     padding: 15px;
-    border-radius: 8px; /* Abgerundete Ecken für die Absätze */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leichter Schatten für Absätze */
-    line-height: 1.6; /* Verbesserte Zeilenhöhe für Lesbarkeit */
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    line-height: 1.6; 
   }
   

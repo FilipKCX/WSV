@@ -1,8 +1,8 @@
 .chat-app-container {
     display: flex;
-    height: 100vh; /* Adjust as needed */
+    height: 100vh; 
   }
-  /* Chat Option */
+  
   .chat-option {
     padding: 10px;
     cursor: pointer;
@@ -19,15 +19,15 @@
     border-radius: 12px;
   }
   
-  /* Chat Window */
+  
   .chat-window {
     position :relative;
     flex: 1;
     padding: 20px;
-    overflow-y: auto; /* Enable scrolling for messages */
+    overflow-y: auto; 
   }
   
-  /* Chat Bubble */
+  
   .chat-bubble {
     max-width: 70%;
     margin-bottom: 10px;
@@ -35,24 +35,24 @@
     border-radius: 10px;
   }
   
-  /* Sender's Chat Bubble */
+  
   .sender-chat {
-    background-color: #7289da; /* Discord's sender color */
+    background-color: #7289da; 
     align-self: flex-end;
   }
   
-  /* Receiver's Chat Bubble */
+  
   .receiver-chat {
-    background-color: white; /* Receiver's color */
+    background-color: white; 
   }
   
-  /* Chat Message Text */
+  
   .chat-message {
     margin: 0;
     color: #000;
   }
   
-  /* Avatar (optional) */
+  
   .avatar {
     width: 30px;
     height: 30px;
@@ -67,8 +67,7 @@
     background-color: #f0f0f0;
   }
   
-  /* Chat Bubble */
-  /* ... Existing styles for chat bubbles ... */
+  
   
   
   .text-input {
@@ -78,8 +77,8 @@
     padding: 10px;
     position: fixed;
     bottom: 30px;
-    width: calc(70% - 40px); /* Adjust padding from left and right */
-    z-index: 1; /* Ensure it's above other elements */
+    width: calc(70% - 40px); 
+    z-index: 1; 
   }
   .text-input input {
     flex: 1;

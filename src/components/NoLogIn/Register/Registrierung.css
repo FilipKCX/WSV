@@ -71,8 +71,8 @@
   }
    
   .alignb-center {
-    display: flex; /* Use flexbox for easy centering */
-  justify-content: center; /* Horizontally center the content */
+    display: flex; 
+  justify-content: center; 
   align-items: center;
 
   }

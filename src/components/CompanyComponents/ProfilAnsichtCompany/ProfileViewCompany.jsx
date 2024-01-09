@@ -19,7 +19,6 @@ const Profilansicht = () => {
       sonntag: false,
     });
 
-    // Funktion zum Umschalten der Verfügbarkeit
     const toggleVerfuegbarkeit = (tag) => {
       setVerfuegbarkeit(prevState => ({
           ...prevState,
@@ -36,7 +35,7 @@ const Profilansicht = () => {
       console.log('Profilbeschreibung:', profilbeschreibung);
       console.log('Werdegang:', werdegang);
       console.log('Verfügbarkeit:', verfuegbarkeit);
-      alert('Profil gespeichert!'); // Für Demonstrationszwecke 
+      alert('Profil gespeichert!'); 
     };
 
     const [profilBild, setProfilBild] = useState(null);
