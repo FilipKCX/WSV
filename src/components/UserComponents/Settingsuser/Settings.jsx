@@ -74,7 +74,6 @@ const SettingsPanel = () => {
   return (
     <div className='settdiv'>
     <Container>
-      
       <h3>E-Mail Einstellungen</h3>
       <Form>
         <Form.Group>
