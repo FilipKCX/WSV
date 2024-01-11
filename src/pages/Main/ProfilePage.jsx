@@ -6,7 +6,8 @@ import ProfileView from '../../components/UserComponents/Profilansicht/ProfileVi
 const ProfilePage = () => 
 {
 return (
-    <div><Navibar/>
+    <div>
+    <Navibar/>
     <ProfileView/>
 </div>
     

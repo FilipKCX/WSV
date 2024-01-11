@@ -2,8 +2,63 @@ import React from 'react';
 import './Anmeldung.css';
 import { Link } from 'react-router-dom';
 import { Button, Form } from 'react-bootstrap';
+import { useState } from 'react';
+import { getHTTPRequest } from '/src/components/serverPackage';
+import { useNavigate } from "react-router-dom";
+
 
 const Anmeldung = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+
+const handleLogIn = () => {
+  const userData = {
+    email: email,
+    password: password,
+  };
+
+  const tester = "was";
+   // Variable, um die Response zu speichern
+
+  // add isUser here
+  let paramArray = [email, password];
+  console.log(paramArray)
+  handleLogInRequest();
+  //let test = handleRequest().then(result => {resulttest = result});
+
+  //alert(test);
+
+  //let globalTestValue = null; // Globale Variable
+
+async function handleLogInRequest() {
+ try {
+  const apiResponse = await getHTTPRequest("getLoginUser", paramArray);
+  if(apiResponse == 'a')
+  {
+    alert('Die Email oder das Passwort ist falsch!');
+    return;
+  }    
+  sessionStorage.setItem('userID', apiResponse);
+
+  if ( sessionStorage.getItem('isUser') == "(1,)") {
+    navigate("/HomeUser");
+  }
+  else
+  {
+    navigate("/HomeCompany");
+  } 
+  } 
+  catch (error)
+  {
+    console.error("Error:", error);
+    throw error; 
+  }
+}
+
+};
+
   return (
     <div className="anmeldung-container">
       <h1>Log In</h1>
@@ -12,14 +67,22 @@ const Anmeldung = () => {
 
       <Form>
         <Form.Group controlId="formEmail" className="input-container">
-          <Form.Control type="email" placeholder="E-Mail" />
+          <Form.Control 
+          type="email" 
+          placeholder="E-Mail"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}/>
         </Form.Group>
 
         <Form.Group controlId="formPassword" className="input-container">
-          <Form.Control type="password" placeholder="Passwort" />
+          <Form.Control 
+          type="password"
+          placeholder="Passwort"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)} />
         </Form.Group>
 
-        <Button className='anmelde-button' variant="outline-primary" type="submit">
+        <Button className='anmelde-button' variant="outline-primary" onClick={handleLogIn}>
           Log In
         </Button>
       </Form>

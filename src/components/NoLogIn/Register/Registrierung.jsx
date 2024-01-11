@@ -37,7 +37,7 @@ const Registrierung = () => {
 
     // add isUser here
     let paramArray = [email, password, isUser];
-    
+    console.log(paramArray)
     handleRequest();
     //let test = handleRequest().then(result => {resulttest = result});
 
@@ -72,32 +72,7 @@ const Registrierung = () => {
     console.error("Error:", error);
     throw error; // Re-throw the error to be caught outside the function if needed
     }
-    //console.log(sessionStorage.getItem("userID"));
   }
-
-
-
-
-
-//let a = handleRequest()
-
-
-//console.log(sessionStorage.getItem('userID'))
-
-
-
-
-// Beachten Sie, dass globalTestValue in diesem Stadium möglicherweise noch nicht aktualisiert ist.
-// Sie sollten sicherstellen, dass alle notwendigen Operationen erst nach der Aktualisierung durchgeführt werden.
-
-
-
-
-    
-    //console.log(apiResponse)
-    //apiResponse = getDataMain()
-    //alert(apiResponse);
-    //alert(apiResponse())
 
   };
 
@@ -107,7 +82,7 @@ const Registrierung = () => {
 
       <p className='erober'>Erobere die Arbeitswelt mit nur wenigen Klicks!</p>
 
-      <Form.Group className="input-container">
+      <Form.Group controlId="formEmail" className="input-container">
         <Form.Control
           type="email"
           placeholder="E-Mail"
