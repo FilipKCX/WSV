@@ -2,6 +2,7 @@
   padding: 40px;
   background: #e6e6e6;
   color: hsl(210, 11%, 15%);
+  min-width: 192.5vh;
 }
 
 .agb-container h1 {

@@ -12,11 +12,11 @@ const Registrierung = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [isUser, setIsButtonOff] = useState('1'); // Set initial value to '1'
+  const [isUser, setIsButtonOff] = useState('1'); 
   const navigate = useNavigate();
 
   const handleButtonToggle = () => {
-    setIsButtonOff((prevValue) => (prevValue === '1' ? '0' : '1')); // Toggle the value between '1' and '0'
+    setIsButtonOff((prevValue) => (prevValue === '1' ? '0' : '1')); 
   };
 
   const handleRegister = () => {
@@ -25,17 +25,14 @@ const Registrierung = () => {
       return;
     }
 
-    // Prepare data for backend
+    
     const userData = {
       email: email,
       password: password,
       isUser: isUser
     };
 
-    // Send POST request to backend
-     // Variable, um die Response zu speichern
-
-    // add isUser here
+    
     let paramArray = [email, password, isUser];
     console.log(paramArray)
     handleRequest();
@@ -56,8 +53,8 @@ const Registrierung = () => {
     //alert(apiResponse2)
     sessionStorage.setItem("isUser", apiResponse2);
     
-    //next tasks
-    const condition = true; // Replace this with your condition
+    
+    const condition = true; 
 
     if ( sessionStorage.getItem('isUser') == "(1,)") {
       navigate("/HomeUser");
@@ -67,10 +64,10 @@ const Registrierung = () => {
     } 
     
 
-    //direct to home
+    
   } catch (error) {
     console.error("Error:", error);
-    throw error; // Re-throw the error to be caught outside the function if needed
+    throw error; 
     }
   }
 

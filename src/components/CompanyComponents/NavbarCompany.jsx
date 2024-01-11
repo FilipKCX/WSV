@@ -39,9 +39,9 @@ import Logo from './LogoCompany';
             <Link to="/ProfilepageCompany" className="nav-link">
               <Nav.Link as="span">Profil</Nav.Link>
             </Link>
-            <Link to="/LikesCompany" className="nav-link">
+            {/* <Link to="/LikesCompany" className="nav-link">
               <Nav.Link as="span">Likes</Nav.Link>
-            </Link>
+            </Link> */}
             <NavDropdown title="Mehr" id="basic-nav-dropdown" className="custom-center">
             <Link to="/SettingsCompany" className="dropdown-item">
                 <NavDropdown.Item as="span">Einstellungen</NavDropdown.Item>

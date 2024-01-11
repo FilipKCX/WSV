@@ -74,7 +74,6 @@ const SettingsPanel = () => {
   return (
     <div className='settdiv'>
     <Container>
-      {/* Email Section */}
       <h3>E-Mail Einstellungen</h3>
       <Form>
         <Form.Group>
@@ -114,7 +113,7 @@ const SettingsPanel = () => {
         <hr className="blue-line" />
       </Form>
 
-      {/* Password Section */}
+      
       <h3>Passwort Einstellungen</h3>
       <Form>
         <Form.Group>

@@ -4,7 +4,7 @@ import '../../NoLogIn/ProfileRegister/ProfileEditor.css';
 
 const ProfileEditor = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState(Array(5).fill('')); // Assuming 5 questions
+  const [answers, setAnswers] = useState(Array(5).fill('')); 
 
   const questions = [
     'Firmenname',

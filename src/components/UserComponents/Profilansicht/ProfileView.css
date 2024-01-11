@@ -1,21 +1,23 @@
 .profil-container {
     padding-top: 0px;
     padding-bottom: 0px;
-    background-color: #f4f4f4; /* Hintergrundfarbe des Containers */
+    min-width: 192.5vh;
+    background-color: #e6e6e6;
 }
 
 .profil-row {
-    background-color: #fff; /* Hintergrundfarbe der Zeile */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Schatten für die Zeile */
-    border-radius: 10px; /* Abgerundete Ecken */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    border-radius: 10px; 
     overflow: hidden;
 }
 
 .profil-bild-container {
+  margin-top: 10px;
   text-align: center;
+  border-radius: 10px;
   padding: 20px;
-  background-color: #eaeaea;
-  cursor: pointer; /* Zeigt einen Zeiger-Cursor an, um Interaktivität anzudeuten */
+  background-color: #A9A9A9;
+  cursor: pointer; 
   position: relative;
 }
 
@@ -28,36 +30,37 @@
   background-color: rgba(255, 255, 255, 0.8);
   padding: 5px;
   border-radius: 5px;
-  display: none; /* Standardmäßig versteckt */
+  display: none; 
 }
 
 .profil-bild-container:hover div {
-  display: block; /* Zeigt den Text beim Hover an */
+  display: block; 
 }
 
 .profil-bild {
   width: 180px;
   height: 180px;
   object-fit: cover;
-  border: 3px solid #007bff; /* Rahmenfarbe */
+  border: 3px solid #007bff; 
 }
 
 .profil-name {
-    color: #007bff; /* Farbe des Namens */
+    color: #007bff; 
 }
 
 .profil-info {
-    color: grey; /* Farbe der Profilinformationen */
+    color: grey; 
 }
 
 .profil-card {
     margin-bottom: 20px;
-    transition: transform 0.3s ease; /* Übergangseffekt für Hover */
+    transition: transform 0.3s ease;
+    margin-top: 10px; 
 }
 
 .profil-card:hover {
-    transform: translateY(-10px); /* Hover-Effekt */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Schatten bei Hover */
+    transform: translateY(-10px); 
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
 }
 
 .profil-input {
@@ -67,17 +70,17 @@
   border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
-  color: grey; /* Farbe des Eingabetextes */
+  color: grey; 
 }
 
-/* Stil für den Platzhaltertext */
+
 .profil-input::placeholder {
-  color: grey; /* Farbe des Platzhalters */
+  color: grey; 
 }
 
-/* Stil für den Text, wenn der Benutzer anfängt zu schreiben */
+
 .profil-input:focus {
-  color: black; /* Farbe des Textes bei Fokus */
+  color: black; 
 }
 
 

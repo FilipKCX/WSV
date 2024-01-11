@@ -1,5 +1,5 @@
 import React from 'react';
-import './LikeMenu.css'; // Import the CSS file for LikeMenu styling
+import './LikeMenu.css'; 
 
 const LikeMenu = ({ selectLike, selectedLike }) => {
   const handleLikeSelect = (likeId) => {

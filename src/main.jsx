@@ -19,7 +19,7 @@ import RegisterSelect from './pages/MainNoLogIn/RegisterSelect'
 import Impressum from './pages/Static/Impressum'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Matching from './pages/Main/Matching'
+import Matching from './pages/MainCompany/MatchingCompany'
 import ProfilePage from './pages/Main/ProfilePage'
 import ProfileCreation from './pages/MainNoLogIn/ProfileCreation'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -143,10 +143,10 @@ const router = createBrowserRouter([
     path: "/ChatCompany",
     element: <ChatCompany/>
   },
-  {
-    path: "/LikesCompany",
-    element: <LikesCompany/>
-  },
+  // {
+  //   path: "/LikesCompany",
+  //   element: <LikesCompany/>
+  // },
   {
     path: "/SettingsCompany",
     element: <EinstellungenCompany/>
