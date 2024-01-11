@@ -1,32 +1,33 @@
 .like-window {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-  }
-  
-  .like-content {
-    flex: 1; 
-    overflow-y: auto; 
-    padding: 10px; 
-  }
-  
-  .no-content {
-    flex: 1; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px; 
-  }
-  
-  .input-container {
-    display: flex;
-    align-items: center;
-    padding: 10px; 
-    background-color: #f0f0f0; 
-  }
-  
-  .input-container input {
-    flex: 1;
-    margin-right: 10px; 
-  }
+#primary {
+  margin-left: 6%;
+}
+
+#secondary {
+  margin-left: 10px;
+}
+
+.like-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.no-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
