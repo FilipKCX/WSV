@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Image, Card, Form, Button, Table } from 'react-bootstrap';
 import './ProfileView.css';
+import { getHTTPRequest } from '../../serverPackage';
 
 const Profilansicht = () => {
     const [name, setName] = useState('');
@@ -27,17 +28,7 @@ const Profilansicht = () => {
       }));
     };
 
-    const saveProfile = () => {
-      console.log('Speichern der Profildaten...');
-      console.log('Name:', name);
-      console.log('E-Mail:', email);
-      console.log('Telefonnummer:', telefon);
-      console.log('Fähigkeiten:', faehigkeiten);
-      console.log('Profilbeschreibung:', profilbeschreibung);
-      console.log('Werdegang:', werdegang);
-      console.log('Verfügbarkeit:', verfuegbarkeit);
-      alert('Profil gespeichert!'); 
-    };
+    
 
     const [profilBild, setProfilBild] = useState(null);
 
@@ -49,6 +40,48 @@ const Profilansicht = () => {
 
     const triggerFileInput = () => {
         document.getElementById('profilbild-input').click();
+    };
+
+    const saveProfile = () => {
+      console.log('Speichern der Profildaten...');
+      console.log('Name:', name);
+      console.log('E-Mail:', email);
+      console.log('Telefonnummer:', telefon);
+      console.log('Fähigkeiten:', faehigkeiten);
+      console.log('Profilbeschreibung:', profilbeschreibung);
+      console.log('Werdegang:', werdegang);
+      console.log('Verfügbarkeit:', verfuegbarkeit);
+      alert('Profil gespeichert!'); 
+    
+    let usID = sessionStorage.getItem('userID')
+    let paramArray = [usID, name, email, telefon, faehigkeiten, profilbeschreibung, werdegang];
+
+    async function handleProfileCreation() {
+      try {
+       const apiResponse = await getHTTPRequest("createProfile", paramArray);
+       if(apiResponse == 'a')
+       {
+         alert('Etwas hat nicht geklappt!');
+         return;
+       }    
+     
+       if ( sessionStorage.getItem('isUser') == "(1)") {
+         //navigate("/HomeUser");
+       }
+       else
+       {
+         //navigate("/HomeCompany");
+       } 
+       } 
+       catch (error)
+       {
+         console.error("Error:", error);
+         throw error; 
+       }
+     }
+
+
+      handleProfileCreation();
     };
 
     return (

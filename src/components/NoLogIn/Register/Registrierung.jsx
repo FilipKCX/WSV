@@ -56,7 +56,7 @@ const Registrierung = () => {
     
     const condition = true; 
 
-    if ( sessionStorage.getItem('isUser') == "(1,)") {
+    if ( sessionStorage.getItem('isUser') == "1") {
       navigate("/HomeUser");
     }
     else{

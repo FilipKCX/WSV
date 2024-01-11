@@ -14,15 +14,7 @@ const Anmeldung = () => {
 
 
 const handleLogIn = () => {
-  const userData = {
-    email: email,
-    password: password,
-  };
 
-  const tester = "was";
-   // Variable, um die Response zu speichern
-
-  // add isUser here
   let paramArray = [email, password];
   console.log(paramArray)
   handleLogInRequest();
