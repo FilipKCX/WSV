@@ -1,4 +1,4 @@
-.logo-llink {
+.logo-link {
   text-decoration: none; 
   color: #0074cc; 
   position: absolute;
@@ -11,7 +11,10 @@
     width: 65px; 
     height: auto;
     position: absolute;
-    top: 7px; /* Abstand von oben */
-    left: 20px; /* Abstand von links */
+    top: 7px; 
+    left: 20px; 
 }
 
+.logo-link:hover {
+  text-decoration: none; 
+}

@@ -1,11 +1,36 @@
+import http from 'http';
+import { parse as parseUrl } from 'url';
+import mysql from 'mysql';
 
-    
-    const connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: 'WS',
-      database: 'user',
+
+
+const server = http.createServer((req, res) => {
+  const { pathname } = parseUrl(req.url);
+  console.log(req)
+  console.log(pathname)
+
+
+  if (pathname == "/createAccount" && req.method == 'POST') {
+    console.log("hier")
+    console.log(body)
+    let body = '';
+    req.on('data', (chunk) => {
+      body += chunk.toString(); // Accumulate incoming data
     });
+
+    console.log(body)
+
+    req.on('end', () => {
+      const requestData = JSON.parse(body);
+
+      
+      const connection = mysql.createConnection({
+        host: 'localhost',
+        port: 3001,
+        user: 'root',
+        password: 'WS',
+        database: 'user',
+      }));
 
     connection.connect((err) => {
       if (err) {
@@ -26,4 +51,13 @@
         console.log('Disconnected from MariaDB!');
       });
     });
-  
+  } else {
+    res.writeHead(404, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify({ message: 'Enndpoint not found' }));
+  }
+});
+
+const PORT = 3306; // Replace with your desired port
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

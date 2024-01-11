@@ -1,6 +1,0 @@
-/* Container für den Speichern-Button */
-.save-button-container {
-  position: absolute;
-  bottom: 60px; /* Ändere den Abstand vom unteren Rand nach Bedarf */
-  right: 600px; /* Ändere den rechten Abstand nach Bedarf */
-}

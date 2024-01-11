@@ -1,0 +1,17 @@
+.bottom{
+    color: black;
+    position: absolute;
+    bottom: 10px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 30px;
+    background-color: #e6e6e6;
+  }
+ 
+  .bottom a{
+    color: grey;
+    text-decoration: none;
+  }
+  
