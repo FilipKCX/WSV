@@ -34,7 +34,7 @@ async function handleLogInRequest() {
   }    
   sessionStorage.setItem('userID', apiResponse);
 
-  if ( sessionStorage.getItem('isUser') == "(1,)") {
+  if ( sessionStorage.getItem('isUser') == "1") {
     navigate("/HomeUser");
   }
   else
