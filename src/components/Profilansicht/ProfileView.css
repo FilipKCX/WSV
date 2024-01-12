@@ -2,6 +2,7 @@
     padding-top: 0px;
     padding-bottom: 0px;
     background-color: #f4f4f4; /* Hintergrundfarbe des Containers */
+    min-height: 100vh;
 }
 
 .profil-row {
@@ -9,6 +10,7 @@
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Schatten für die Zeile */
     border-radius: 10px; /* Abgerundete Ecken */
     overflow: hidden;
+    min-height: 100vh;
 }
 
 .profil-bild-container {

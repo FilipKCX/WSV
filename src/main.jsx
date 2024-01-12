@@ -41,6 +41,7 @@ import KontaktNoLogIn from './pages/StaticNoLogIn/KontaktNoLogIn'
 import AGBNoLogIn from './pages/StaticNoLogIn/AGBNoLogIn'
 import HinweiseNoLogIn from './pages/StaticNoLogIn/HinweiseNoLogIn'
 import ImpressumNoLogIn from './pages/StaticNoLogIn/ImpressumNoLogIn'
+import ProfilAnsicht from './components/Profilansicht/ProfileView'
 
 const router = createBrowserRouter([
   {
@@ -110,6 +111,10 @@ const router = createBrowserRouter([
   {
     path: "/profilepage",
     element: <ProfilePage />
+  },
+  {
+    path: "/newprofilepage",
+    element: <ProfilAnsicht/>
   },
   {
     path: "/profilecreation",
