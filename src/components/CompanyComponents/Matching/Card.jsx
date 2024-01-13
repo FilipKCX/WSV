@@ -21,11 +21,11 @@ const DynamicCards = ({ studentIds }) => {
       }
     };
 
-    fetchData(); 
+    fetchData();
 
-    
 
-  }, [studentIds]); 
+
+  }, [studentIds]);
 
   return (
     <Container className="container-full-height">
