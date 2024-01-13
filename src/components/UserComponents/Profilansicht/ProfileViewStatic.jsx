@@ -8,7 +8,7 @@ const ProfileViewStatic = () => {
     const companyPhone = "+49 123 456789";
     const profileDescription = "Hier kommt die Profilbeschreibung des Unternehmens hin.";
     const companyAddress = "Hier kommt die Beschreibung des Stellenangebots hin.";
-    const contactPersonName = "Name der Kontaktperson";
+    const contactPersonName = "Name der Kontaktperson für den Job";
     const contactPersonEmail = "E-Mail@mail.com";
     const contactPersonPhone = "+49 987 654321";
 
