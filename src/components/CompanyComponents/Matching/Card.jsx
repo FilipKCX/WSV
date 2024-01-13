@@ -1,8 +1,35 @@
 import React from 'react';
 import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import './Card.css';
-
+impo
 const ThreeCards = () => {
+  async function makeCards() {
+    
+  
+  try {
+    const apiResponse = await getHTTPRequest("getLoginUser", paramArray);
+    if(apiResponse == 'a')
+    {
+      alert('Die Email oder das Passwort ist falsch!');
+      return;
+    }    
+    sessionStorage.setItem('userID', apiResponse);
+  
+    if ( sessionStorage.getItem('isUser') == "1") {
+      navigate("/HomeUser");
+    }
+    else
+    {
+      navigate("/HomeCompany");
+    } 
+    } 
+    catch (error)
+    {
+      console.error("Error:", error);
+      throw error; 
+    }
+  }
+
   return (
     <Container className="container-full-height">
       <Row className="justify-content-md-center row-full-height">
