@@ -78,8 +78,7 @@
   border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
-  color: grey;
-  pointer-events: none;
+  pointer-events: stroke;
 }
 
 .profil-input-static::placeholder {
@@ -89,6 +88,7 @@
 .profil-input-static:focus {
   color: black;
 }
+
 
 .d-flex {
   flex-direction: column;
