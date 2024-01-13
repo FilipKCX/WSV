@@ -1,3 +1,4 @@
+import { common } from "@mui/material/colors";
 
 const getHTTPRequest = async (command, paramArray) => {
   let StringParams = "";
@@ -6,8 +7,8 @@ const getHTTPRequest = async (command, paramArray) => {
     StringParams = StringParams + "&" + paramArray[i];
   }
 
-  let commandURL = "http://localhost:34123/" + command + "&" + StringParams;
-
+  let commandURL = "http://localhost:34123/" + command +  StringParams;
+  console.log(commandURL)
   return await fetch(commandURL, {
     method: 'GET',
     headers: {

@@ -6,6 +6,7 @@ import './HomeUser.css'
 
 const HomeUser = () => 
 {
+    console.log(sessionStorage.getItem('userID'))
 return <> 
     <Navibar/>
     <Articles/>
