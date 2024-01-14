@@ -4,54 +4,79 @@ import './ProfileView.css';
 import { getHTTPRequest } from '../../serverPackage';
 
 const Profilansicht = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [telefon, setTelefon] = useState('');
-    const [profilbeschreibung, setProfilbeschreibung] = useState('');
-    const [werdegang, setWerdegang] = useState('');
-    const [faehigkeiten, setFaehigkeiten] = useState('');
-    const [verfuegbarkeit, setVerfuegbarkeit] = useState({
-      montag: false,
-      dienstag: false,
-      mittwoch: false,
-      donnerstag: false,
-      freitag: false,
-      samstag: false,
-      sonntag: false,
-    });
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [telefon, setTelefon] = useState('');
+  const [studiengang, setStudiengang] = useState('');
+  const [semester, setSemester] = useState('');
+  const [profilbeschreibung, setProfilbeschreibung] = useState('');
+  const [werdegang, setWerdegang] = useState('');
+  const [faehigkeiten, setFaehigkeiten] = useState('');
+  const [verfuegbarkeit, setVerfuegbarkeit] = useState({
+    montag: { available: false, hours: 0 },
+    dienstag: { available: false, hours: 0 },
+    mittwoch: { available: false, hours: 0 },
+    donnerstag: { available: false, hours: 0 },
+    freitag: { available: false, hours: 0 },
+  });
+  
 
-    
-    const toggleVerfuegbarkeit = (tag) => {
-      setVerfuegbarkeit(prevState => ({
-          ...prevState,
-          [tag]: !prevState[tag]
-      }));
-    };
+  // Funktion zum Umschalten der Verfügbarkeit
+  const toggleVerfuegbarkeit = (tag) => {
+    setVerfuegbarkeit(prevState => ({
+      ...prevState,
+      [tag]: {
+        ...prevState[tag],
+        available: !prevState[tag].available
+      }
+    }));
+  };
+  
+  // Funktion um Stundenanzahl zu aktualisieren
+  const handleChangeHours = (tag, value) => {
+    const hours = Number(value); // Stellt sicher, dass die Eingabe als Zahl gespeichert wird
+    setVerfuegbarkeit(prevState => ({
+      ...prevState,
+      [tag]: {
+        ...prevState[tag],
+        hours: hours >= 0 ? hours : 0 // Verhindert negative Stundenanzahlen
+      }
+    }));
+  };
 
-    
+  // Funktion um zu verhindern, dass Zahlen bei "Stunden" eingegeben werden können
+  const handleKeyDown = (e) => {
+    // Erlaube nur das Benutzen der Pfeiltasten
+    if (e.key !== "ArrowUp" && e.key !== "ArrowDown") {
+      e.preventDefault();
+    }
+  };
+  
+  const saveProfile = () => {
+    console.log('Speichern der Profildaten...');
+    console.log('Name:', name);
+    console.log('E-Mail:', email);
+    console.log('Telefonnummer:', telefon);
+    console.log('Studiengang:', studiengang);
+    console.log('Aktuelles Semester:', semester);
+    console.log('Fähigkeiten:', faehigkeiten);
+    console.log('Profilbeschreibung:', profilbeschreibung);
+    console.log('Werdegang:', werdegang);
+    console.log('Verfügbarkeit:', verfuegbarkeit);
+    alert('Profil gespeichert!'); // Für Demonstrationszwecke 
+  };
 
-    const [profilBild, setProfilBild] = useState(null);
+  const [profilBild, setProfilBild] = useState(null);
 
-    const handleBildAuswahl = (event) => {
-        if (event.target.files && event.target.files[0]) {
-            setProfilBild(URL.createObjectURL(event.target.files[0]));
-        }
-    };
+  const handleBildAuswahl = (event) => {
+      if (event.target.files && event.target.files[0]) {
+          setProfilBild(URL.createObjectURL(event.target.files[0]));
+      }
+  };
 
-    const triggerFileInput = () => {
-        document.getElementById('profilbild-input').click();
-    };
-
-    const saveProfile = () => {
-      console.log('Speichern der Profildaten...');
-      console.log('Name:', name);
-      console.log('E-Mail:', email);
-      console.log('Telefonnummer:', telefon);
-      console.log('Fähigkeiten:', faehigkeiten);
-      console.log('Profilbeschreibung:', profilbeschreibung);
-      console.log('Werdegang:', werdegang);
-      console.log('Verfügbarkeit:', verfuegbarkeit);
-      alert('Profil gespeichert!'); 
+  const triggerFileInput = () => {
+      document.getElementById('profilbild-input').click();
+  };
     
     let usID = sessionStorage.getItem('userID')
     let paramArray = [usID, name, email, telefon, faehigkeiten, profilbeschreibung, werdegang];
@@ -82,8 +107,7 @@ const Profilansicht = () => {
 
 
       handleProfileCreation();
-    };
-
+    
     return (
         <Container className="profil-container">
             <Row className="justify-content-md-center profil-row">
@@ -122,9 +146,27 @@ const Profilansicht = () => {
                     </Form.Group>
                     <Form.Group>
                         <Form.Control
+                            type="text"
+                            placeholder="Studiengang"
+                            value={studiengang}
+                            onChange={e => setStudiengang(e.target.value)}
+                            className="profil-input"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control
+                            type="text"
+                            placeholder="Aktuelles Semester"
+                            value={semester}
+                            onChange={e => setSemester(e.target.value)}
+                            className="profil-input"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control
                           as="textarea"
                           rows={3}
-                          placeholder="Ihre Fähigkeiten"
+                          placeholder="Ihre Fähigkeiten (2-3 Sätze)"
                           value={faehigkeiten}
                           onChange={e => setFaehigkeiten(e.target.value)}
                           className="profil-input"
@@ -162,27 +204,39 @@ const Profilansicht = () => {
                       <Card.Body>
                         <Card.Title>Verfügbarkeit</Card.Title>
                         <Table responsive>
-                          <thead>
-                            <tr>
-                              <th>Wochentag</th>
-                              <th>Verfügbar</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {Object.keys(verfuegbarkeit).map(tag => (
-                              <tr key={tag}>
-                                <td>{tag.charAt(0).toUpperCase() + tag.slice(1)}</td>
-                                <td>
-                                  <Form.Check
-                                    type="checkbox"
-                                    checked={verfuegbarkeit[tag]}
-                                    onChange={() => toggleVerfuegbarkeit(tag)}
-                                  />
-                                </td>
+                              <thead>
+                              <tr>
+                                <th>Wochentag</th>
+                                <th className="th-verfuegbar">Verfügbar</th>
+                                <th>Stunden</th>
                               </tr>
-                            ))}
-                          </tbody>
-                        </Table>
+                            </thead>
+                            <tbody>
+                              {Object.keys(verfuegbarkeit).map(tag => (
+                                <tr key={tag}>
+                                  <td>{tag.charAt(0).toUpperCase() + tag.slice(1)}</td>
+                                  <td className="td-verfuegbar">
+                                    <div className="form-check">
+                                      <Form.Check
+                                        type="checkbox"
+                                        checked={verfuegbarkeit[tag].available}
+                                        onChange={() => toggleVerfuegbarkeit(tag)}
+                                      />
+                                    </div>
+                                  </td>
+                                  <td>
+                                  <Form.Control
+                                    type="number"
+                                    value={verfuegbarkeit[tag].hours}
+                                    onChange={e => handleChangeHours(tag, e.target.value)}
+                                    onKeyDown={handleKeyDown} // Event-Handler hinzufügen
+                                    disabled={!verfuegbarkeit[tag].available}
+                                    />
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </Table>
                       </Card.Body>
                     </Card>
                     <div className="d-flex justify-content-end mb-3">
@@ -192,9 +246,13 @@ const Profilansicht = () => {
             </Row>
         </Container>
     );
-}
 
+};
 export default Profilansicht;
+
+
+
+
 
 
 

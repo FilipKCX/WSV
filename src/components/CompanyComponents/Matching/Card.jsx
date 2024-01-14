@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import './Card.css';
-impo
+import {getHTTPRequest} from '../../serverPackage'
+
+const studentIdh = [ 11, 24, 67]
+
 const DynamicCards = ({ studentIds }) => {
   const [studentData, setStudentData] = useState([]);
 
@@ -20,32 +23,18 @@ const DynamicCards = ({ studentIds }) => {
         console.error('Error fetching data:', error);
       }
     };
-
-    fetchData(); 
+    let a = makeCards();
+    console.log(a)
+   
 
     
 
   }, [studentIds]); 
 
   async function makeCards() {
-    
-  
   try {
-    const apiResponse = await getHTTPRequest("getLoginUser", paramArray);
-    if(apiResponse == 'a')
-    {
-      alert('Die Email oder das Passwort ist falsch!');
-      return;
-    }    
-    sessionStorage.setItem('userID', apiResponse);
-  
-    if ( sessionStorage.getItem('isUser') == "1") {
-      navigate("/HomeUser");
-    }
-    else
-    {
-      navigate("/HomeCompany");
-    } 
+    const apiResponse = await getHTTPRequest("getUsers");
+       
     } 
     catch (error)
     {
