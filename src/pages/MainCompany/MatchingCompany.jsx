@@ -5,9 +5,23 @@ import './MatchingCompany.css';
 
 const Matching = () => 
 {
+    const fetchUsers = async () => {
+        try {
+          const apiResponse = await getHTTPRequest("getUsers");
+          console.log(apiResponse)
+          return apiResponse   
+          } 
+          catch (error)
+          {
+            console.error("Error:", error);
+            throw error; 
+          }
+        }
+    console.log(fetchUsers)
+
 return <> 
 <Navbar/>
-<Card/>
+<Card fetchUsers= {fetchUsers}/>
 </>
 }
 

@@ -34,7 +34,8 @@ const DynamicCards = ({ studentIds }) => {
   async function makeCards() {
   try {
     const apiResponse = await getHTTPRequest("getUsers");
-       
+    console.log(apiResponse)
+    sessionStorage.setItem('userprofileID',)   
     } 
     catch (error)
     {
