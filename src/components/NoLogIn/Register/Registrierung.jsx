@@ -18,7 +18,7 @@ const Registrierung = () => {
   const handleButtonToggle = () => {
     setIsButtonOff((prevValue) => (prevValue === '1' ? '0' : '1')); 
   };
-
+``
   const handleRegister = () => {
     if (password !== confirmPassword) {
       alert('Passwords do not match');

@@ -78,8 +78,8 @@ const Profilansicht = () => {
       document.getElementById('profilbild-input').click();
   };
     
-    let usID = sessionStorage.getItem('userID')
-    let paramArray = [usID, name, email, telefon, faehigkeiten, profilbeschreibung, werdegang];
+    const usID = sessionStorage.getItem('userID')
+    let paramArray = [usID, name, email, telefon, studiengang, semester, faehigkeiten, profilbeschreibung, werdegang, verfuegbarkeit];
 
     async function handleProfileCreation() {
       try {

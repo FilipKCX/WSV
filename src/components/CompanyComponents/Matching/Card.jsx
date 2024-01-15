@@ -1,76 +1,66 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import './Card.css';
-import {getHTTPRequest} from '../../serverPackage'
+import {getHTTPRequest} from '../../serverPackage';
 
-const studentIdh = [ 11, 24, 67]
-
-const DynamicCards = ({ studentIds }) => {
-  const [studentData, setStudentData] = useState([]);
+const DynamicCards = ({ userId }) => {
+  //console.log(userId)
+  const [student, setStudentData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const dataPromises = studentIds.map(async (id) => {
-          const response = await fetch(`/api/students/${id}`);
-          const student = await response.json();
-          return student;
-        });
+      console.log(userId);
+      const param = [userId];
+      const apiResponse = await getHTTPRequest("getProfileInfo", param);
+      const sortArray = JSON.parse(apiResponse);
+      const selectedArray = sortArray[0];
 
-        const fetchedData = await Promise.all(dataPromises);
-        setStudentData(fetchedData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
+      // Extract student data into a single object
+      const studentData = {
+        name: selectedArray[0],
+        study: selectedArray[1],
+        graduation: selectedArray[2],
+        workingHours: selectedArray[3],
+        experience: selectedArray[4],
+        profileLink: selectedArray[5]
+      };
+      
+      // Render a single card using the student data object
+      const card = (
+        <Card className="custom-card">
+          <Card.Img variant="top" src={studentData.image} />
+          <Card.Body>
+            <Card.Title>Name: {studentData.name}</Card.Title>
+          </Card.Body>
+          <ListGroup className="list-group-flush">
+            <ListGroup.Item>Studium: {studentData.study}</ListGroup.Item>
+            <ListGroup.Item>Abschluss: {studentData.graduation}</ListGroup.Item>
+            <ListGroup.Item>Arbeitszeit: {studentData.workingHours}</ListGroup.Item>
+            <ListGroup.Item>Berufserfahrung: {studentData.experience}</ListGroup.Item>
+            <ListGroup.Item><Card.Link href={studentData.profileLink}>Zum Profil</Card.Link></ListGroup.Item>
+          </ListGroup>
+          <Card.Body className="card-buttons">
+            <button className="round-button check-button">✓</button>
+            <button className="round-button x-button">×</button>
+          </Card.Body>
+        </Card>
+      );
+
+      console.log(card);
+      setIsLoading(false);
+      setStudentData(card);
     };
-    let a = makeCards();
-    console.log(a)
-   
 
-    
+    fetchData();
+  }, []);
 
-  }, [studentIds]); 
-
-  async function makeCards() {
-  try {
-    const apiResponse = await getHTTPRequest("getUsers");
-    console.log(apiResponse)
-    sessionStorage.setItem('userprofileID',)   
-    } 
-    catch (error)
-    {
-      console.error("Error:", error);
-      throw error; 
-    }
+  if (isLoading) {
+    return <div>Loading...</div>;
   }
 
-  return (
-    <Container className="container-full-height">
-      <Row className="justify-content-md-center row-full-height">
-        {studentData.map((student, index) => (
-          <Col md="auto" key={index}>
-            <Card className="custom-card">
-              <Card.Img variant="top" src={student.imageUrl} />
-              <Card.Body>
-                <Card.Title>Name: {student.name}</Card.Title>
-              </Card.Body>
-              <ListGroup className="list-group-flush">
-                <ListGroup.Item>Studium: {student.study}</ListGroup.Item>
-                <ListGroup.Item>Abschluss: {student.graduation}</ListGroup.Item>
-                <ListGroup.Item>Arbeitszeit: {student.workingHours}</ListGroup.Item>
-                <ListGroup.Item>Berufserfahrung: {student.experience}</ListGroup.Item>
-                <ListGroup.Item><Card.Link href={student.profileLink}>Zum Profil</Card.Link></ListGroup.Item>
-              </ListGroup>
-              <Card.Body className="card-buttons">
-                <button className="round-button check-button">✓</button>
-                <button className="round-button x-button">×</button>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-    </Container>
-  );
+  return student;
 };
 
 export default DynamicCards;
+
