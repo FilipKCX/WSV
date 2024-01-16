@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import './Card.css';
 import {getHTTPRequest} from '../../serverPackage';
+import logo from '../../../images/LL.jpg'
 
 const DynamicCards = ({ userId }) => {
   //console.log(userId)
@@ -25,11 +26,12 @@ const DynamicCards = ({ userId }) => {
         experience: selectedArray[4],
         profileLink: selectedArray[5]
       };
+
       
       // Render a single card using the student data object
       const card = (
         <Card className="custom-card">
-          <Card.Img variant="top" src={studentData.image} />
+          <Card.Img variant="top" src={logo} />
           <Card.Body>
             <Card.Title>Name: {studentData.name}</Card.Title>
           </Card.Body>
