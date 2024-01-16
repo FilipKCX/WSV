@@ -240,7 +240,7 @@ const Profilansicht = () => {
                       </Card.Body>
                     </Card>
                     <div className="d-flex justify-content-end mb-3">
-                         <Button variant="primary" onClick={saveProfile}>Speichern</Button>
+                         <Button variant="primary" className='speichern-button' onClick={saveProfile}>Speichern</Button>
                     </div>
                 </Col>
             </Row>
@@ -249,10 +249,3 @@ const Profilansicht = () => {
 
 };
 export default Profilansicht;
-
-
-
-
-
-
-

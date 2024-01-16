@@ -15,7 +15,6 @@
   text-align: center;
   padding: 20px;
   background-color: #eaeaea;
-  cursor: pointer;
   position: relative;
   border-radius: 10px;
 }
@@ -89,4 +88,19 @@
 .user-td-verfuegbar-static .form-check {
   position: relative;
   left: -1%;
+}
+
+.bearbeiten-button {
+  background-color: #0074cc !important;
+  color: white !important;
+  padding: 10px !important;
+  border-radius: 20px !important;
+  width: 100% !important;
+  font-size: 20px !important;
+  margin-bottom: 10px;
+}
+
+.bearbeiten-button:hover {
+  background-color: #fff !important;
+  color: #0074cc !important;
 }

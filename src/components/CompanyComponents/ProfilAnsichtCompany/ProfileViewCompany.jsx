@@ -114,7 +114,7 @@ const Unternehmensprofil = () => {
                         </Card.Body>
                     </Card>
                     <div className="d-flex justify-content-end mb-3">
-                        <Button variant="primary" onClick={saveCompanyProfile}>Speichern</Button>
+                        <Button variant="primary" className="speichern-button" onClick={saveCompanyProfile}>Speichern</Button>
                     </div>
                 </Col>
             </Row>

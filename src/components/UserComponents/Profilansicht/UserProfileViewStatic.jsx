@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Image, Card, Form, Table } from 'react-bootstrap';
+import { Container, Row, Col, Image, Card, Button, Form, Table } from 'react-bootstrap';
 import './UserProfileViewStatic.css';
 
 const Profilansicht = () => {
@@ -50,6 +50,20 @@ const Profilansicht = () => {
     }
   };
 
+  const saveProfile = () => {
+    console.log('Speichern der Profildaten...');
+    console.log('Name:', name);
+    console.log('E-Mail:', email);
+    console.log('Telefonnummer:', telefon);
+    console.log('Studiengang:', studiengang);
+    console.log('Aktuelles Semester:', semester);
+    console.log('Fähigkeiten:', faehigkeiten);
+    console.log('Profilbeschreibung:', profilbeschreibung);
+    console.log('Werdegang:', werdegang);
+    console.log('Verfügbarkeit:', verfuegbarkeit);
+    alert('Profil gespeichert!'); // Für Demonstrationszwecke 
+  };
+
   const [profilBild, setProfilBild] = useState(null);
 
   const handleBildAuswahl = (event) => {
@@ -76,6 +90,7 @@ const Profilansicht = () => {
               value={name}
               readOnly // Hinzugefügt, um das Feld nur lesbar zu machen
               className="user-profil-input-static"
+              disabled
             />
           </Form.Group>
           <Form.Group>
@@ -85,6 +100,7 @@ const Profilansicht = () => {
               value={email}
               readOnly // Hinzugefügt, um das Feld nur lesbar zu machen
               className="user-profil-input-static"
+              disabled
             />
           </Form.Group>
           <Form.Group>
@@ -94,6 +110,7 @@ const Profilansicht = () => {
               value={telefon}
               readOnly // Hinzugefügt, um das Feld nur lesbar zu machen
               className="user-profil-input-static"
+              disabled
             />
           </Form.Group>
           <Form.Group>
@@ -103,6 +120,7 @@ const Profilansicht = () => {
               value={studiengang}
               readOnly // Hinzugefügt, um das Feld nur lesbar zu machen
               className="user-profil-input-static"
+              disabled
             />
           </Form.Group>
           <Form.Group>
@@ -112,6 +130,7 @@ const Profilansicht = () => {
               value={semester}
               readOnly // Hinzugefügt, um das Feld nur lesbar zu machen
               className="user-profil-input-static"
+              disabled
             />
           </Form.Group>
           <Form.Group>
@@ -122,6 +141,7 @@ const Profilansicht = () => {
               value={faehigkeiten}
               readOnly // Hinzugefügt, um das Feld nur lesbar zu machen
               className="user-profil-input-static"
+              disabled
             />
           </Form.Group>
         </Col>
@@ -136,6 +156,7 @@ const Profilansicht = () => {
                 value={profilbeschreibung}
                 readOnly // Hinzugefügt, um das Feld nur lesbar zu machen
                 className="profil-input"
+                disabled
               />
             </Card.Body>
           </Card>
@@ -149,6 +170,7 @@ const Profilansicht = () => {
                 value={werdegang}
                 readOnly // Hinzugefügt, um das Feld nur lesbar zu machen
                 className="profil-input"
+                disabled
               />
             </Card.Body>
           </Card>
@@ -159,7 +181,6 @@ const Profilansicht = () => {
                 <thead>
                   <tr>
                     <th>Wochentag</th>
-                    <th className="th-verfuegbar">Verfügbar</th>
                     <th>Stunden</th>
                   </tr>
                 </thead>
@@ -167,16 +188,6 @@ const Profilansicht = () => {
                   {Object.keys(verfuegbarkeit).map(tag => (
                     <tr key={tag}>
                       <td>{tag.charAt(0).toUpperCase() + tag.slice(1)}</td>
-                      <td className="td-verfuegbar">
-                        <div className="form-check">
-                          <Form.Check
-                            type="checkbox"
-                            checked={verfuegbarkeit[tag].available}
-                            onChange={() => toggleVerfuegbarkeit(tag)}
-                            disabled // Hinzugefügt, um das Feld nur lesbar zu machen
-                          />
-                        </div>
-                      </td>
                       <td>
                         <Form.Control
                           type="number"
@@ -192,6 +203,9 @@ const Profilansicht = () => {
               </Table>
             </Card.Body>
           </Card>
+          <div className="d-flex justify-content-end mb-3">
+            <Button variant="primary" className='bearbeiten-button' onClick={saveProfile}>Bearbeiten</Button>
+          </div>
         </Col>
       </Row>
     </Container>
