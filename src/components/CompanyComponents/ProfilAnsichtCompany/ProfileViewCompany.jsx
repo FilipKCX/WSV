@@ -14,6 +14,7 @@ const validationSchema = yup.object({
 const Unternehmensprofil = () => {
     const saveCompanyProfile = (values) => {
         console.log('Speichern der Unternehmensdaten...');
+        console.log('Profilbild:', profilbild);
         console.log('Unternehmensname:', values.unternehmensName);
         console.log('E-Mail:', values.email);
         console.log('Standort:', values.standort);
@@ -23,6 +24,18 @@ const Unternehmensprofil = () => {
         console.log('Karrierechancen:', values.karriere);
         alert('Unternehmensprofil gespeichert!');
     };
+
+  const [profilBild, setProfilBild] = useState(null);
+
+  const handleBildAuswahl = (event) => {
+      if (event.target.files && event.target.files[0]) {
+          setProfilBild(URL.createObjectURL(event.target.files[0]));
+      }
+  };
+
+  const triggerFileInput = () => {
+      document.getElementById('profilbild-input').click();
+  };
 
     return (
         <Formik

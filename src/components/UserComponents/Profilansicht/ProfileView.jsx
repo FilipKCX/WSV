@@ -34,16 +34,18 @@ const Profilansicht = () => {
   };
 
   // Funktion um Stundenanzahl zu aktualisieren
-  const handleChangeHours = (tag, value) => {
-    const hours = Number(value); // Stellt sicher, dass die Eingabe als Zahl gespeichert wird
-    setVerfuegbarkeit(prevState => ({
-      ...prevState,
-      [tag]: {
-        ...prevState[tag],
-        hours: hours >= 0 ? hours : 0 // Verhindert negative Stundenanzahlen
-      }
-    }));
-  };
+const handleChangeHours = (tag, value) => {
+  let hours = Number(value); // Stellt sicher, dass die Eingabe als Zahl gespeichert wird
+  hours = Math.max(0, Math.min(hours, 9)); 
+  setVerfuegbarkeit(prevState => ({
+    ...prevState,
+    [tag]: {
+      ...prevState[tag],
+      hours: hours // Setzt die Stunden mit der beschränkten Zahl
+    }
+  }));
+};
+
 
   // Funktion um zu verhindern, dass Zahlen bei "Stunden" eingegeben werden können
   const handleKeyDown = (e) => {

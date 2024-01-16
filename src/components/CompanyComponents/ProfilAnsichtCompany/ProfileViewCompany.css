@@ -1,4 +1,3 @@
-/* Hauptcontainer-Styling */
 .profil-container {
     padding-top: 0px;
     padding-bottom: 0px;
@@ -6,11 +5,10 @@
     min-height: 100vh;
 }
 
-/* Styling für die Zeilen */
 .profil-row {
     background-color: #fff; /* Hintergrundfarbe der Zeile */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Schatten für die Zeile */
-    border-radius: 10px; /* Abgerundete Ecken */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    border-radius: 10px; 
     overflow: hidden;
     min-height: 100vh;
 }
@@ -19,8 +17,8 @@
 .profil-bild-container {
   text-align: center;
   padding: 20px;
-  background-color: #eaeaea; /* Hintergrund für das Logo */
-  cursor: pointer; /* Zeigt einen Zeiger-Cursor an, um Interaktivität anzudeuten */
+  background-color: #eaeaea; 
+  cursor: pointer; 
   position: relative;
 }
 
@@ -31,7 +29,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: #007bff; /* Farbe des Klick-Hinweises */
-  background-color: rgba(255, 255, 255, 0.8); /* Hintergrund des Klick-Hinweises */
+  background-color: rgba(255, 255, 255, 0.8); 
   padding: 5px;
   border-radius: 5px;
   display: none; /* Standardmäßig versteckt */
@@ -47,7 +45,7 @@
   width: 180px;
   height: 180px;
   object-fit: cover;
-  border: 3px solid #007bff; /* Rahmenfarbe des Logos */
+  border: 3px solid #007bff; 
 }
 
 /* Styling für die Karten */
@@ -59,23 +57,23 @@
 /* Hover-Effekt für Karten */
 .profil-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Schatten bei Hover */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
 }
 
 /* Styling für Eingabefelder */
 .profil-input {
   padding: 10px;
   margin: 5px 0;
-  border: 1px solid #ccc; /* Rahmenfarbe */
-  border-radius: 5px; /* Abgerundete Ecken */
-  width: 100%; /* Vollbreite */
-  box-sizing: border-box; /* Box-Modell für die Breitenberechnung */
-  color: grey; /* Farbe des Eingabetextes */
+  border: 1px solid #ccc; 
+  border-radius: 5px; 
+  width: 100%; 
+  box-sizing: border-box; 
+  color: grey; 
 }
 
 /* Stil für den Platzhaltertext */
 .profil-input::placeholder {
-  color: grey; /* Farbe des Platzhalters */
+  color: grey; 
 }
 
 /* Stil für den Text, wenn der Benutzer anfängt zu schreiben */
