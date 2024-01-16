@@ -1,5 +1,5 @@
 import React from 'react'
-import DatenschutzComp from '../../components/UserComponents/DatenschutzUser/DatenschutzComp'
+import DatenschutzComp from '../../components/UserComponents/AGBUser/DatenschutzUser/DatenschutzComp'
 import Navbar from '../../components/Navbar'
 
 const Datenschutz = () => 

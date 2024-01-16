@@ -1,16 +1,17 @@
 .articles-container {
-  background-color: #e6e6e6;
+border-radius: 8px;
+margin-top: 40px;
 }
 
 .bg-light-text-center-py-3
 {
-  background-color: #e6e6e6;
  display: flex;
  justify-content: center;
 }
 
 .carousel-item img {
   height: 650px; 
+  border-radius: 20px;
 }
 
 

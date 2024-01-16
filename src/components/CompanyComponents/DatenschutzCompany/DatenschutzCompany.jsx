@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import '../../UserComponents/DatenschutzUser/DatenschutzComp.css'; 
+import '../../UserComponents/AGBUser/DatenschutzUser/DatenschutzComp.css'; 
 
 const Datenschutz = () => {
   return (
