@@ -69,6 +69,20 @@ const handleChangeHours = (tag, value) => {
     handleProfileCreation();
     alert('Profil gespeichert!'); // Für Demonstrationszwecke 
   };
+  
+  const calculateTotalWorkHours = () => {
+    const weekdays = Object.keys(verfuegbarkeit);
+  
+    const totalWorkHours = weekdays.reduce((total, weekday) => {
+      return total + (verfuegbarkeit[weekday].available ? verfuegbarkeit[weekday].hours : 0);
+    }, 0);
+    
+  
+    return totalWorkHours;
+  };
+
+  const totalWorkHours = calculateTotalWorkHours();
+  console.log('Total Work Hours:', totalWorkHours);
 
   const [profilBild, setProfilBild] = useState(null);
 
