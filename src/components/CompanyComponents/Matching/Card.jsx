@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import './Card.css';
 import {getHTTPRequest} from '../../serverPackage';
-import logo from '../../../images/LL.jpg'
 
 const DynamicCards = ({ userId }) => {
   //console.log(userId)
@@ -27,7 +26,7 @@ const DynamicCards = ({ userId }) => {
         profileLink: selectedArray[5]
       };
 
-      
+      const logo = "http://localhost:5173/96339913-140d-4cd7-bd89-1c995640b801"
       // Render a single card using the student data object
       const card = (
         <Card className="custom-card">
