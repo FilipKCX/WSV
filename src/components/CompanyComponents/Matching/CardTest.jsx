@@ -3,27 +3,23 @@ import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-boots
 import './Card.css';
 
 const DynamicCards = ({ userId }) => {
-
-
-    
-
-      
+ 
       const card = (
         <Card className="custom-card">
-          <Card.Img variant="top" src={logo} />
+          <Card.Img variant="top" src={logo} className="rounded-image"/>
           <Card.Body>
-            <Card.Title>Name: </Card.Title>
+            <Card.Title>Name: Connor McGregor </Card.Title>
           </Card.Body>
           <ListGroup className="list-group-flush">
-            <ListGroup.Item>Studium: </ListGroup.Item>
-            <ListGroup.Item>Abschluss: </ListGroup.Item>
-            <ListGroup.Item>Arbeitszeit: </ListGroup.Item>
-            <ListGroup.Item>Berufserfahrung: </ListGroup.Item>
+            <ListGroup.Item className='fixed-height'>Studium: Psychologie</ListGroup.Item>
+            <ListGroup.Item className='fixed-height'>Abschluss: Bachelor of Science </ListGroup.Item>
+            <ListGroup.Item className='fixed-height'>Arbeitszeit: 20h </ListGroup.Item>
+            <ListGroup.Item className='fixed-height'>Berufserfahrung: keine</ListGroup.Item>
             <ListGroup.Item><Card.Link>Zum Profil</Card.Link></ListGroup.Item>
           </ListGroup>
           <Card.Body className="card-buttons">
-            <button className="round-button check-button">✓</button>
-            <button className="round-button x-button">×</button>
+            <button className="roundmatch-button x-button">×</button>
+            <button className="roundmatch-button check-button">✓</button>
           </Card.Body>
         </Card>
       );

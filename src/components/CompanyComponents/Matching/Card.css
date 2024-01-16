@@ -1,5 +1,4 @@
 .container-full-height {
-
     min-width: 192.5vh;
   }
   .custom-card {
@@ -7,28 +6,64 @@
     width: 20rem;
     margin-right: 50px;
     margin-left: 50px;
+    display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
   }
   
-  .round-button {
+  .roundmatch-button {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 4px solid;
     font-weight: bold;
-    font-size: 16px;
+   
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .check-button {
     background-color: transparent;
     color: lightgreen;
     border-color: lightgreen;
-    margin-right: 105px;
-    margin-left: 50px;
+    
     outline: none;
+    font-size: 30px;
   }
   
   .x-button {
     background-color: transparent;
     color: red;
     border-color: red;
+    margin-right: 110px;
+    margin-left: 0px; 
+    font-size: 38px;
   }
+
+  .fixed-height {
+    height: 3em; 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+
+.check-button:hover{
+  background-color: transparent; 
+  color: greenyellow; 
+}
+
+.x-button:hover {
+  background-color: transparent; 
+  color: darkred; 
+}
+
+.rounded-image {
+  border-radius: 50%;
+  border: 2px solid;
+  overflow: hidden;
+  width: 150px; 
+  height: 150px; 
+  margin-top: 20px;
+}

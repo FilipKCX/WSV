@@ -5,74 +5,40 @@ import { Button, Form } from 'react-bootstrap';
 import { useState } from 'react';
 import { getHTTPRequest } from '/src/components/serverPackage';
 import { useNavigate } from "react-router-dom";
+import { Formik, Field, ErrorMessage } from 'formik';
+import * as yup from 'yup';
 
+const validationSchema = yup.object({
+  email: yup.string().matches(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, 'E-Mail muss gültig sein').email('Ungültige E-Mail Adresse').required('E-Mail ist erforderlich'),
+  password: yup.string().min(6, 'Das Passwort muss mindestens 6 Zeichen lang sein.').required('Passwort ist erforderlich'),
+});
 
 const Anmeldung = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const handleLogInRequest = async (values) => {
+    try {
+      const paramArray = [values.email, values.password];
+      console.log(paramArray);
+      const apiResponse = await getHTTPRequest('getLoginUser', paramArray);
+      if (apiResponse === 'a') {
+        alert('Die Email oder das Passwort ist falsch!');
+        return;
+      }
+      sessionStorage.setItem('userID', apiResponse);
 
-const handleLogIn = () => {
-
-  let paramArray = [email, password];
-  console.log(paramArray)
-  handleLogInRequest();
-  //let test = handleRequest().then(result => {resulttest = result});
-
-  //alert(test);
-
-  //let globalTestValue = null; // Globale Variable
-
-  const handleLogIn = () => {
-    // Email validation
-    if (!validateEmail(email)) {
-      alert('Invalid email format');
-      return;
+      if (sessionStorage.getItem('isUser') === '1') {
+        navigate('/HomeUser');
+      } else {
+        navigate('/HomeCompany');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      throw error;
     }
-  
-    // Password validation
-    if (password.includes('&')) {
-      alert('Password cannot contain the "&" symbol');
-      return;
-    }
-  
-    let paramArray = [email, password];
-    console.log(paramArray);
-    handleLogInRequest();
   };
-  
-  // Email validation function
-  const validateEmail = (email) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
-async function handleLogInRequest() {
- try {
-  const apiResponse = await getHTTPRequest("getLoginUser", paramArray);
-  if(apiResponse == 'a')
-  {
-    alert('Die Email oder das Passwort ist falsch!');
-    return;
-  }    
-  sessionStorage.setItem('userID', apiResponse);
-
-  if ( sessionStorage.getItem('isUser') == "1") {
-    navigate("/HomeUser");
-  }
-  else
-  {
-    navigate("/HomeCompany");
-  } 
-  } 
-  catch (error)
-  {
-    console.error("Error:", error);
-    throw error; 
-  }
-}
-
-};
 
   return (
     <div className="anmeldung-container">
@@ -80,27 +46,44 @@ async function handleLogInRequest() {
 
       <p className='erober'>Erobere die Arbeitswelt mit nur wenigen Klicks!</p>
 
-      <Form>
-        <Form.Group controlId="formEmail" className="input-container">
-          <Form.Control 
-          type="email" 
-          placeholder="E-Mail"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}/>
-        </Form.Group>
+      <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        validationSchema={validationSchema}
+        onSubmit={(values) => handleLogInRequest(values)}
+      >
+        <Form>
+          <Form.Group controlId="formEmail" className="input-container">
+            <Field
+              type="email"
+              placeholder="E-Mail"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              as={Form.Control}
+            />
+            <ErrorMessage name="email" component="div" className="error-message" />
+          </Form.Group>
 
-        <Form.Group controlId="formPassword" className="input-container">
-          <Form.Control 
-          type="password"
-          placeholder="Passwort"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)} />
-        </Form.Group>
+          <Form.Group controlId="formPassword" className="input-container">
+            <Field
+              type="password"
+              placeholder="Passwort"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              as={Form.Control}
+            />
+            <ErrorMessage name="password" component="div" className="error-message" />
+          </Form.Group>
 
-        <Button className='anmelde-button' variant="outline-primary" onClick={handleLogIn}>
-          Log In
-        </Button>
-      </Form>
+          <Button type="submit" className='anmelde-button' variant="outline-primary">
+            Log In
+          </Button>
+        </Form>
+      </Formik>
 
       <p className="anmeldung-text">
         Durch Klicken auf "Log In" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie

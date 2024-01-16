@@ -209,6 +209,10 @@ const router = createBrowserRouter([
   {
     path: "/testpage",
     element: <TestComponent/>
+  },
+  {
+    path: "/LogInPage",
+    element: <LogInPage/>
   }
 ])
 

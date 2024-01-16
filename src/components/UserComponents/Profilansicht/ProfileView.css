@@ -1,14 +1,14 @@
 .profil-container {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    min-width: 192.5vh;
-    background-color: #e6e6e6;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  min-width: 192.5vh;
+  background-color: #e6e6e6;
 }
 
 .profil-row {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-    border-radius: 10px; 
-    overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .profil-bild-container {
@@ -17,7 +17,7 @@
   border-radius: 10px;
   padding: 20px;
   background-color: #A9A9A9;
-  cursor: pointer; 
+  cursor: pointer;
   position: relative;
 }
 
@@ -30,37 +30,37 @@
   background-color: rgba(255, 255, 255, 0.8);
   padding: 5px;
   border-radius: 5px;
-  display: none; 
+  display: none;
 }
 
 .profil-bild-container:hover div {
-  display: block; 
+  display: block;
 }
 
 .profil-bild {
   width: 180px;
   height: 180px;
   object-fit: cover;
-  border: 3px solid #007bff; 
+  border: 3px solid #007bff;
 }
 
 .profil-name {
-    color: #007bff; 
+  color: #007bff;
 }
 
 .profil-info {
-    color: grey; 
+  color: grey;
 }
 
 .profil-card {
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-    margin-top: 10px; 
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+  margin-top: 10px;
 }
 
 .profil-card:hover {
-    transform: translateY(-10px); 
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .profil-input {
@@ -70,17 +70,22 @@
   border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
-  color: grey; 
+  color: grey;
 }
-
 
 .profil-input::placeholder {
-  color: grey; 
+  color: grey;
 }
-
 
 .profil-input:focus {
-  color: black; 
+  color: black;
 }
 
+.profil-input.error {
+  border: 1px solid red;
+}
 
+.error-message {
+  color: red;
+  margin-top: 5px;
+}

@@ -20,7 +20,7 @@ const Profilansicht = () => {
     donnerstag: { available: false, hours: 0 },
     freitag: { available: false, hours: 0 },
   });
-  
+
 
   // Funktion zum Umschalten der Verfügbarkeit
   const toggleVerfuegbarkeit = (tag) => {
@@ -32,18 +32,20 @@ const Profilansicht = () => {
       }
     }));
   };
-  
+
   // Funktion um Stundenanzahl zu aktualisieren
-  const handleChangeHours = (tag, value) => {
-    const hours = Number(value); // Stellt sicher, dass die Eingabe als Zahl gespeichert wird
-    setVerfuegbarkeit(prevState => ({
-      ...prevState,
-      [tag]: {
-        ...prevState[tag],
-        hours: hours >= 0 ? hours : 0 // Verhindert negative Stundenanzahlen
-      }
-    }));
-  };
+const handleChangeHours = (tag, value) => {
+  let hours = Number(value); // Stellt sicher, dass die Eingabe als Zahl gespeichert wird
+  hours = Math.max(0, Math.min(hours, 9)); 
+  setVerfuegbarkeit(prevState => ({
+    ...prevState,
+    [tag]: {
+      ...prevState[tag],
+      hours: hours // Setzt die Stunden mit der beschränkten Zahl
+    }
+  }));
+};
+
 
   // Funktion um zu verhindern, dass Zahlen bei "Stunden" eingegeben werden können
   const handleKeyDown = (e) => {
@@ -52,7 +54,7 @@ const Profilansicht = () => {
       e.preventDefault();
     }
   };
-  
+
   const saveProfile = () => {
     console.log('Speichern der Profildaten...');
     console.log('Name:', name);
@@ -68,6 +70,20 @@ const Profilansicht = () => {
     alert('Profil gespeichert!'); // Für Demonstrationszwecke 
   };
   
+  const calculateTotalWorkHours = () => {
+    const weekdays = Object.keys(verfuegbarkeit);
+  
+    const totalWorkHours = weekdays.reduce((total, weekday) => {
+      return total + (verfuegbarkeit[weekday].available ? verfuegbarkeit[weekday].hours : 0);
+    }, 0);
+    
+  
+    return totalWorkHours;
+  };
+
+  const totalWorkHours = calculateTotalWorkHours();
+  console.log('Total Work Hours:', totalWorkHours);
+
   const [profilBild, setProfilBild] = useState(null);
 const [selectedImagePath, setSelectedImagePath] = useState('');
 
@@ -249,10 +265,3 @@ return (
 
 };
 export default Profilansicht;
-
-
-
-
-
-
-

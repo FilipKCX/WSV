@@ -5,12 +5,11 @@ import './ProfileViewStatic.css';
 const ProfileViewStatic = () => {
     const companyName = "Firmenname GmbH";
     const companyEmail = "info@firmenname.com";
-    const companyPhone = "+49 123 456789";
-    const profileDescription = "Hier kommt die Profilbeschreibung des Unternehmens hin.";
-    const companyAddress = "Hier kommt die Beschreibung des Stellenangebots hin.";
-    const contactPersonName = "Name der Kontaktperson für den Job";
-    const contactPersonEmail = "E-Mail@mail.com";
-    const contactPersonPhone = "+49 987 654321";
+    const companyLocation = "Standort";
+    const whatWeOffer = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum";
+    const whoWeAre = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum";
+    const careerOpportunities = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum";
+    const ourHistory = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum";
 
     return (
         <Container className="profil-container-static">
@@ -26,6 +25,7 @@ const ProfileViewStatic = () => {
                             className="profil-input-static"
                             readOnly
                             value={companyName}
+                            disabled
                         />
                     </Form.Group>
                     <Form.Group>
@@ -35,6 +35,7 @@ const ProfileViewStatic = () => {
                             className="profil-input-static"
                             readOnly
                             value={companyEmail}
+                            disabled
                         />
                     </Form.Group>
                     <Form.Group>
@@ -43,51 +44,42 @@ const ProfileViewStatic = () => {
                             placeholder="Telefonnummer"
                             className="profil-input-static"
                             readOnly
-                            value={companyPhone}
+                            value={companyLocation}
+                            disabled
                         />
                     </Form.Group>
                     <Card className="profil-card-static">
                         <Card.Body>
-                            <Card.Title>Unternehmensbeschreibung</Card.Title>
-                            <p className="profil-input-static">{profileDescription}</p>
+                            <Card.Title>Wer wir sind</Card.Title>
+                            <div className="profil-input-static" readOnly>
+                                <p>{whoWeAre}</p>
+                            </div>
                         </Card.Body>
                     </Card>
-                    <Form.Group>
-                        <Card className="profil-card-static">
-                            <Card.Body>
-                                <Card.Title>Stellenbeschreibung</Card.Title>
-                                <p className="profil-input-static">{companyAddress}</p>
-                            </Card.Body>
-                        </Card>
-                    </Form.Group>
-                    <Form.Group>
-                        <Card className="profil-card-static">
-                            <Card.Body>
-                                <Card.Title>Kontaktperson</Card.Title>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Name"
-                                    className="profil-input-static"
-                                    readOnly
-                                    value={contactPersonName}
-                                />
-                                <Form.Control
-                                    type="text"
-                                    placeholder="E-Mail"
-                                    className="profil-input-static"
-                                    readOnly
-                                    value={contactPersonEmail}
-                                />
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Telefonnummer"
-                                    className="profil-input-static"
-                                    readOnly
-                                    value={contactPersonPhone}
-                                />
-                            </Card.Body>
-                        </Card>
-                    </Form.Group>
+                    <Card className="profil-card-static">
+                        <Card.Body>
+                            <Card.Title>Was wir bieten</Card.Title>
+                            <div className="profil-input-static" readOnly>
+                                <p>{whatWeOffer}</p>
+                            </div>
+                        </Card.Body>
+                    </Card>
+                    <Card className="profil-card-static">
+                        <Card.Body>
+                            <Card.Title>Karrierechancen</Card.Title>
+                            <div className="profil-input-static" readOnly>
+                                <p>{careerOpportunities}</p>
+                            </div>
+                        </Card.Body>
+                    </Card>
+                    <Card className="profil-card-static">
+                        <Card.Body>
+                            <Card.Title>Unsere Geschichte</Card.Title>
+                            <div className="profil-input-static" readOnly>
+                                <p>{ourHistory}</p>
+                            </div>
+                        </Card.Body>
+                    </Card>
                     <div className="button-container">
                         <Button variant="primary" className='likebuttons' id='primary'>Primary</Button>{' '}
                         <Button variant="primary" className='likebuttons' id='secondary'>Secondary</Button>{' '}
