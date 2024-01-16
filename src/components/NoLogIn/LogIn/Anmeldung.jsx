@@ -24,6 +24,29 @@ const handleLogIn = () => {
 
   //let globalTestValue = null; // Globale Variable
 
+  const handleLogIn = () => {
+    // Email validation
+    if (!validateEmail(email)) {
+      alert('Invalid email format');
+      return;
+    }
+  
+    // Password validation
+    if (password.includes('&')) {
+      alert('Password cannot contain the "&" symbol');
+      return;
+    }
+  
+    let paramArray = [email, password];
+    console.log(paramArray);
+    handleLogInRequest();
+  };
+  
+  // Email validation function
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 async function handleLogInRequest() {
  try {
   const apiResponse = await getHTTPRequest("getLoginUser", paramArray);

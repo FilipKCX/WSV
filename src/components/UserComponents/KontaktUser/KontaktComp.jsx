@@ -14,12 +14,27 @@ const Kontakt = () => {
     });
 
     const handleChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+
+        // Additional validation for email, vorname, and nachname
+        let updatedValue = value;
+
+        if (name === 'email') {
+            // Validate email format
+            updatedValue = value.replace(/[^a-zA-Z0-9@.]/g, '');
+        } else if (name === 'vorname' || name === 'nachname') {
+            // Allow only letters
+            updatedValue = value.replace(/[^a-zA-Z]/g, '');
+        } else {
+            // For other fields, allow any input
+            updatedValue = value.replace(/&/g, ''); // Remove '&'
+        }
+
+        setForm({ ...form, [name]: updatedValue });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-      
         console.log(form);
         alert('Nachricht gesendet!');
     };
@@ -30,7 +45,7 @@ const Kontakt = () => {
                 <Col md={8}>
                     <h1>Kontakt</h1>
                     <p>Wir freuen uns, von Ihnen zu hören und stehen Ihnen für Fragen, Anregungen oder Anfragen gerne zur Verfügung.</p>
-                    <Form className= 'kntc' onSubmit={handleSubmit}>
+                    <Form className='kntc' onSubmit={handleSubmit}>
                         <Form.Group>
                             <Form.Label>E-Mail*</Form.Label>
                             <Form.Control type="email" value={form.email} name="email" onChange={handleChange} required />
