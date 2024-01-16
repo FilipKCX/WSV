@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Card, Row, Col, Carousel, Button } from 'react-bootstrap';
 import './TutorialUser.css'
+import { Link } from 'react-router-dom';
 
 const Tutorial = () => {
   return (
@@ -64,9 +65,11 @@ const Tutorial = () => {
           </Carousel.Item>
         </Carousel>
       </Container>
+      <Link to= '/HomeUser'>
       <Button variant="primary" className="tutorial-end-button">
         Tutorial beenden
       </Button>
+      </Link>
     </div>
   );
 };
