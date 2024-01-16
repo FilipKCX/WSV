@@ -12,6 +12,7 @@ const Profilansicht = () => {
   const [profilbeschreibung, setProfilbeschreibung] = useState('');
   const [werdegang, setWerdegang] = useState('');
   const [faehigkeiten, setFaehigkeiten] = useState('');
+  const [logo, setLogo] = useState('none.jpg')
   const [verfuegbarkeit, setVerfuegbarkeit] = useState({
     montag: { available: false, hours: 0 },
     dienstag: { available: false, hours: 0 },
@@ -63,50 +64,32 @@ const Profilansicht = () => {
     console.log('Profilbeschreibung:', profilbeschreibung);
     console.log('Werdegang:', werdegang);
     console.log('Verfügbarkeit:', verfuegbarkeit);
+    handleProfileCreation();
     alert('Profil gespeichert!'); // Für Demonstrationszwecke 
   };
-
+  
   const [profilBild, setProfilBild] = useState(null);
 
   const handleBildAuswahl = (event) => {
       if (event.target.files && event.target.files[0]) {
           setProfilBild(URL.createObjectURL(event.target.files[0]));
+          
       }
   };
-
+  console.log(profilBild)
   const triggerFileInput = () => {
       document.getElementById('profilbild-input').click();
   };
     
     const usID = sessionStorage.getItem('userID')
-    let paramArray = [usID, name, email, telefon, studiengang, semester, faehigkeiten, profilbeschreibung, werdegang, verfuegbarkeit];
-
-    async function handleProfileCreation() {
-      try {
-       const apiResponse = await getHTTPRequest("createProfile", paramArray);
-       if(apiResponse == 'a')
-       {
-         alert('Etwas hat nicht geklappt!');
-         return;
-       }    
-     
-       if ( sessionStorage.getItem('isUser') == "(1)") {
-         
-       }
-       else
-       {
-         
-       } 
-       } 
-       catch (error)
-       {
-         console.error("Error:", error);
-         throw error; 
-       }
+    let paramArray = [usID, name, email, telefon, studiengang, semester, faehigkeiten, profilbeschreibung, werdegang, profilBild];
+    async function handleProfileCreation() {  
+       const apiResponse = await getHTTPRequest("createProfile", paramArray);     
+      return ;      
      }
 
 
-      handleProfileCreation();
+      
     
     return (
         <Container className="profil-container">

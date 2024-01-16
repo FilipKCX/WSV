@@ -5,6 +5,7 @@ import { Container, Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import './MatchingCompany.css';
 import { getHTTPRequest } from '/src/components/serverPackage';
 import TestComponent from '../../components/testcomponent';
+import CardTest from '../../components/CompanyComponents/Matching/CardTest';
 
 export default function  Matching () 
 {
