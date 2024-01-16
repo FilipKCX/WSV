@@ -1,0 +1,95 @@
+.profil-container {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: #f4f4f4; /* Hintergrundfarbe des Containers */
+}
+
+.profil-row {
+    background-color: #fff; /* Hintergrundfarbe der Zeile */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Schatten für die Zeile */
+    border-radius: 10px; /* Abgerundete Ecken */
+    overflow: hidden;
+}
+
+.profil-bild-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #eaeaea;
+  cursor: pointer; /* Zeigt einen Zeiger-Cursor an, um Interaktivität anzudeuten */
+  position: relative;
+}
+
+.profil-bild-container div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #007bff;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  border-radius: 5px;
+  display: none; /* Standardmäßig versteckt */
+}
+
+.profil-bild-container:hover div {
+  display: block; /* Zeigt den Text beim Hover an */
+}
+
+.profil-bild {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border: 3px solid #007bff; /* Rahmenfarbe */
+}
+
+.profil-name {
+    color: #007bff; /* Farbe des Namens */
+}
+
+.profil-info {
+    color: grey; /* Farbe der Profilinformationen */
+}
+
+.profil-card {
+    margin-bottom: 20px;
+    transition: transform 0.3s ease; /* Übergangseffekt für Hover */
+}
+
+.profil-card:hover {
+    transform: translateY(-10px); /* Hover-Effekt */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15); /* Schatten bei Hover */
+}
+
+.profil-input {
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  color: grey; /* Farbe des Eingabetextes */
+}
+
+/* Stil für den Platzhaltertext */
+.profil-input::placeholder {
+  color: grey; /* Farbe des Platzhalters */
+}
+
+/* Stil für den Text, wenn der Benutzer anfängt zu schreiben */
+.profil-input:focus {
+  color: black; /* Farbe des Textes bei Fokus */
+}
+
+/* Zentriert den Text in der Kopfzeile und den Zellen */
+.th-verfuegbar,
+.td-verfuegbar {
+  text-align: left;
+  padding-left: 50%; 
+}
+
+/* Um die Checkboxen zu zentrieren */
+.td-verfuegbar .form-check {
+  position: relative;
+  left: -1%; 
+}
+

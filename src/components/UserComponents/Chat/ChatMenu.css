@@ -1,0 +1,52 @@
+.chat-menu {
+  height: 100%; 
+  width: 25%; 
+  background-color: #f0f0f0cc;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-y: auto; 
+  overflow-x: hidden; 
+}
+
+.chat-options {
+  display: flex;
+  flex-direction: column; 
+}
+
+.chat-option {
+  margin-bottom: 15px;
+}
+
+.chat-box {
+  border: 1px solid transparent; 
+  border-radius: 12px;
+  padding: 10px;
+  width: 200px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, border-color 0.2s; 
+  margin-bottom: 10px; 
+}
+
+.chat-box:hover {
+  transform: scale(1.05);
+  border-radius: 12px;
+}
+.chat-option.active {
+  background-color: #7289da; 
+  border-radius: 12px;
+}
+.chat-box.active {
+  border-color: #0074cc; 
+}
+
+.chat-box h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+.chat-box p {
+  margin: 0;
+  font-size: 14px;
+
+}

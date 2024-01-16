@@ -1,8 +1,20 @@
-.logo {
-    width: 100px; 
-    height: auto;
-    position: absolute;
-    top: 0px; /* Abstand von oben */
-    left: 20px; /* Abstand von links */
+.logo-link {
+  text-decoration: none; 
+  color: #0074cc; 
+  position: absolute;
+  top: 18px; 
+  left: 55px; 
+  font-size: 28px;
 }
 
+.logo {
+    width: 65px; 
+    height: auto;
+    position: absolute;
+    top: 7px; 
+    left: 20px; 
+}
+
+.logo-link:hover {
+  text-decoration: none; 
+}

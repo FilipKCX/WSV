@@ -1,12 +1,13 @@
-import React from 'react';
+import React from 'react'
+import DatenschutzComp from '../../components/UserComponents/DatenschutzUser/DatenschutzComp'
+import Navbar from '../../components/Navbar'
 
-const Datenschutz = () => {
-  return (
-    
-    <div>
-      <h2>This is a blank page!</h2>
-    </div>
-  );
-};
+const Datenschutz = () => 
+{
+return <> 
+<Navbar/>
+<DatenschutzComp/>
+</>
+}
 
 export default Datenschutz;

@@ -1,0 +1,24 @@
+
+.like-app-container {
+  display: flex;
+  height: 100vh;
+}
+
+
+.like-mmenu {
+  height: 100%;
+  width: 25%;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.like-window {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: white;
+}
+
+

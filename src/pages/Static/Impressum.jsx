@@ -1,12 +1,13 @@
-import React from 'react';
+import React from 'react'
+import ImpressumComp from '../../components/UserComponents/ImpressumUser/ImpressumComp'
+import Navbar from '../../components/Navbar'
 
-const Impressum = () => {
-  return (
-    
-    <div>
-      <h2>This is a blank page!</h2>
-    </div>
-  );
-};
+const Impressum = () => 
+{
+return <> 
+<Navbar/>
+<ImpressumComp/>
+</>
+}
 
 export default Impressum;

@@ -1,19 +1,15 @@
 import React from 'react'
-import LineSeperator from '../../components/LineSeperator'
-import Headline from '../../components/Headline'
-import '../Homepagenologin.css'
-import Navbar from '../../components/Navbar'
+import '../Main/HomeUser.css'
+import Navibar from '../../components/Navbar'
+import Articles from '../../components/UserComponents/Homeuser/Articles'
+import './HomeUser.css'
 
 const HomeUser = () => 
 {
+    console.log(sessionStorage.getItem('userID'))
 return <> 
-<Navbar/>
-<LineSeperator/>
-
-<div className= 'imgdiv'>
-<Headline/> 
-</div>
-
+    <Navibar/>
+    <Articles/>
 </>
 }
 

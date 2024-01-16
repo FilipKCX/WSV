@@ -1,16 +1,16 @@
 import React from 'react';
-import './Logo.css' 
-import wslogo from '../assets/WS_logo.png'; 
-import {Link } from "react-router-dom"; 
+import './Logo.css';
+import { Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
-
-
-const Header = () => {
+const Logo = () => {
     return (
-        <Link to="/">
-            <img src={wslogo} alt="WorkingStudent Logo" className="logo" />
-        </Link>
+        <Container>
+            <Link to="/HomeUser" className='logo-link'>
+                WorkingStudent
+            </Link>
+        </Container>
     );
 };
 
-export default Header;
+export default Logo;

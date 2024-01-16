@@ -1,12 +1,13 @@
-import React from 'react';
+import React from 'react'
+import AGBComp from '../../components/UserComponents/AGBUser/AGBComp'
+import Navbar from '../../components/Navbar'
 
-const AGB = () => {
-  return (
-    
-    <div>
-      <h2>This is a blank page!</h2>
-    </div>
-  );
-};
+const AGB = () => 
+{
+return <> 
+<Navbar/>
+<AGBComp/>
+</>
+}
 
 export default AGB;

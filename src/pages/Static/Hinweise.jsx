@@ -1,12 +1,13 @@
-import React from 'react';
+import React from 'react'
+import HinweiseComp from '../../components/UserComponents/HinweiseUser/HinweiseComp'
+import Navbar from '../../components/Navbar'
 
-const Hinweise = () => {
-  return (
-    
-    <div>
-      <h2>This is a blank page!</h2>
-    </div>
-  );
-};
+const Hinweise = () => 
+{
+return <> 
+<Navbar/>
+<HinweiseComp/>
+</>
+}
 
 export default Hinweise;

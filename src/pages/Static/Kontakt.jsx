@@ -1,12 +1,13 @@
-import React from 'react';
+import React from 'react'
+import KontaktComp from '../../components/UserComponents/KontaktUser/KontaktComp'
+import Navbar from '../../components/Navbar'
 
-const Kontakt = () => {
-  return (
-    
-    <div>
-      <h2>This is a blank page!</h2>
-    </div>
-  );
-};
+const Kontakt = () => 
+{
+return <> 
+<Navbar/>
+<KontaktComp/>
+</>
+}
 
 export default Kontakt;
