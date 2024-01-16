@@ -69,37 +69,54 @@ const Profilansicht = () => {
   };
   
   const [profilBild, setProfilBild] = useState(null);
+const [selectedImagePath, setSelectedImagePath] = useState('');
 
-  const handleBildAuswahl = (event) => {
-      if (event.target.files && event.target.files[0]) {
-          setProfilBild(URL.createObjectURL(event.target.files[0]));
-          
-      }
-  };
-  console.log(profilBild)
-  const triggerFileInput = () => {
-      document.getElementById('profilbild-input').click();
-  };
-    
-    const usID = sessionStorage.getItem('userID')
-    let paramArray = [usID, name, email, telefon, studiengang, semester, faehigkeiten, profilbeschreibung, werdegang, profilBild];
-    async function handleProfileCreation() {  
-       const apiResponse = await getHTTPRequest("createProfile", paramArray);     
-      return ;      
-     }
+const handleImageSelection = (event) => {
+  const file = event.target.files[0];
 
+  if (file) {
+    const reader = new FileReader();
+    const fileName = file.name;
+    reader.onload = () => {
+      setSelectedImagePath(reader.result);
+      const imageData = reader.result;
+      const base64Image = `data:image/jpeg;base64,${imageData}`;
+      setProfilBild(base64Image);
+      setLogo(fileName)
+    };
 
-      
-    
-    return (
-        <Container className="profil-container">
-            <Row className="justify-content-md-center profil-row">
-                <Col md={6} className="profil-col">
-                <div className="profil-bild-container" onClick={triggerFileInput}>
-                    <Image src={profilBild || "platzhalter-bild-url.jpg"} roundedCircle className="profil-bild" />
-                    <div>Klicken, um Foto hinzuzufügen</div>
-                    <input type="file" id="profilbild-input" hidden onChange={handleBildAuswahl} />
-                </div>
+    reader.readAsDataURL(file);
+  }
+};
+console.log(logo)
+const triggerFileInput = () => {
+  document.getElementById('profilbild-input').click();
+};
+
+const usID = sessionStorage.getItem('userID');
+//TODO verfuegbarkeit
+const verfueg = 16;
+let paramArray = [usID, name, email, telefon, studiengang, semester, faehigkeiten, profilbeschreibung, werdegang, verfueg, logo ];
+console.log(paramArray)
+async function handleProfileCreation() {
+  const apiResponse = await getHTTPRequest("createProfile", paramArray);
+  return ;
+}
+
+return (
+  <Container className="profil-container">
+    <Row className="justify-content-md-center profil-row">
+      <Col md={6} className="profil-col">
+        <div className="profil-bild-container" onClick={triggerFileInput}>
+          <Image
+            src={selectedImagePath || "platzhalter-bild-url.jpg"}
+            roundedCircle
+            className="profil-bild"
+          />
+
+          <div>Klicken, um Foto hinzuzufügen</div>
+          <input type="file" id="profilbild-input" hidden onChange={handleImageSelection} />
+          </div>
                     <Form.Group>
                         <Form.Control
                             type="text"

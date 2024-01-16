@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import './Card.css';
-import logo from '../../../images/LL.jpg'
 
 const DynamicCards = ({ userId }) => {
 

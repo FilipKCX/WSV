@@ -47,6 +47,7 @@ import TutorialCompany from './pages/MainNoLogIn/TutorialCompany'
 import ProfilePageStatic from './pages/Main/ProfilePageStatic'
 
 import Testpage from './pages/Static/testpage'
+import TestComponent from './components/testcomponent'
 
 const router = createBrowserRouter([
   {
@@ -204,6 +205,10 @@ const router = createBrowserRouter([
   {
     path: "/testcomp",
     element: <Testpage/>
+  },
+  {
+    path: "/testpage",
+    element: <TestComponent/>
   }
 ])
 
