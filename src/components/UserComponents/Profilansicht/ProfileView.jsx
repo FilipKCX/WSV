@@ -91,11 +91,11 @@ const Profilansicht = () => {
        }    
      
        if ( sessionStorage.getItem('isUser') == "(1)") {
-         //navigate("/HomeUser");
+         
        }
        else
        {
-         //navigate("/HomeCompany");
+         
        } 
        } 
        catch (error)

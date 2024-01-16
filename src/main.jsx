@@ -44,6 +44,7 @@ import ImpressumNoLogIn from './pages/StaticNoLogIn/ImpressumNoLogIn'
 
 import TutorialUser from './pages/MainNoLogIn/TutorialUser'
 import TutorialCompany from './pages/MainNoLogIn/TutorialCompany'
+import ProfilePageStatic from './pages/Main/ProfilePageStatic'
 
 const router = createBrowserRouter([
   {
@@ -185,6 +186,10 @@ const router = createBrowserRouter([
   {
     path: "/AGBNo",
     element: <AGBNoLogIn/>
+  },
+  {
+    path: "/ProfilePageStatic",
+    element: <ProfilePageStatic/>
   },
   {
     path: "/TutorialUser",

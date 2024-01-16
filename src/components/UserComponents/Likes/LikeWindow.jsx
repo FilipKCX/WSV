@@ -1,30 +1,32 @@
 import React from 'react';
-import './LikeWindow.css'; 
+import Button from 'react-bootstrap/Button';
+import './LikeWindow.css';
+import ProfilePageCompanyStatic from '../../../pages/MainCompany/ProfilePageCompanyStatic';
 
 const LikeWindow = ({ selectedLike }) => {
-  
+
   const likedContent = [
-    { id: 'like1', content: 'Liked Content 1' },
+    { id: 'like1', content: 'ProfilePageCompanyStatic' },
     { id: 'like2', content: 'Liked Content 2' },
-    
   ];
 
-  
   const selectedContent = likedContent.find((item) => item.id === selectedLike);
 
   return (
     <div className="like-window">
       {selectedContent ? (
         <div className="like-content">
-         
-          <p>{selectedContent.content}</p>
+          {selectedContent.id === 'like1' ? (
+            <ProfilePageCompanyStatic/>
+          ) : (
+            <p>{selectedContent.content}</p>
+          )}
         </div>
       ) : (
         <div className="no-content">
           <p>No content selected</p>
         </div>
       )}
-
     </div>
   );
 };
