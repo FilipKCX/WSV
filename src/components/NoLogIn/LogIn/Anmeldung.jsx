@@ -10,12 +10,11 @@ import * as yup from 'yup';
 
 const validationSchema = yup.object({
   email: yup.string()
-  .matches(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, 'E-Mail muss gültig sein').
-  email('Ungültige E-Mail Adresse')
-  .required('E-Mail ist erforderlich'),
-  password: yup.string().
-  min(6, 'Das Passwort muss mindestens 6 Zeichen lang sein.').
-  required('Passwort ist erforderlich'),
+    .email('E-Mail muss gültig sein.')
+    .required('E-Mail ist erforderlich.'),
+  password: yup.string()
+    .min(6, 'Das Passwort muss mindestens 6 Zeichen lang sein.')
+    .required('Passwort ist erforderlich.'),
 });
 
 const Anmeldung = () => {
