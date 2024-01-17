@@ -160,10 +160,10 @@ const Profilansicht = () => {
     return;
   }
 
-  return (
-    <Container className="profil-container">
-      <Row className="justify-content-md-center profil-row">
-        <Col md={6} className="profil-col">
+ return (
+        <Container className="profil-container">
+            <Row className="justify-content-md-center profil-row">
+                <Col md={6} className="profil-col">
           <div className="profil-bild-container" onClick={triggerFileInput}>
             <Image
               src={selectedImagePath || "platzhalter-bild-url.jpg"}
@@ -174,165 +174,135 @@ const Profilansicht = () => {
             <div>Klicken, um Foto hinzuzufügen</div>
             <input type="file" id="profilbild-input" hidden onChange={handleImageSelection} />
           </div>
-          <Form.Group>
-            <Form.Control
-              type="text"
-              placeholder="Name"
-              name="name"
-              value={formik.values.name}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              className={`profil-input ${formik.touched.name && formik.errors.name ? 'is-invalid' : ''}`}
-            />
-            {formik.touched.name && formik.errors.name ? (
-              <div className="invalid-feedback">{formik.errors.name}</div>
-            ) : null}
-          </Form.Group>
-          <Form.Group>
-            <Form.Control
-              type="text"
-              placeholder="E-Mail"
-              name="email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              className={`profil-input ${formik.touched.email && formik.errors.email ? 'is-invalid' : ''}`}
-            />
-            {formik.touched.email && formik.errors.email ? (
-              <div className="invalid-feedback">{formik.errors.email}</div>
-            ) : null}
-          </Form.Group>
-          <Form.Group>
-            <Form.Control
-              type="text"
-              placeholder="Telefonnummer"
-              name="telefon"
-              value={formik.values.telefon}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              className={`profil-input ${formik.touched.telefon && formik.errors.telefon ? 'is-invalid' : ''}`}
-            />
-            {formik.touched.telefon && formik.errors.telefon ? (
-              <div className="invalid-feedback">{formik.errors.telefon}</div>
-            ) : null}
-          </Form.Group>
-          <Form.Group>
-            <Form.Control
-              type="text"
-              placeholder="Studiengang"
-              name="studiengang"
-              value={formik.values.studiengang}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              className={`profil-input ${formik.touched.studiengang && formik.errors.studiengang ? 'is-invalid' : ''}`}
-            />
-            {formik.touched.studiengang && formik.errors.studiengang ? (
-              <div className="invalid-feedback">{formik.errors.studiengang}</div>
-            ) : null}
-          </Form.Group>
-          <Form.Group>
-            <Form.Control
-              type="text"
-              placeholder="Aktuelles Semester"
-              name="semester"
-              value={formik.values.semester}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              className={`profil-input ${formik.touched.semester && formik.errors.semester ? 'is-invalid' : ''}`}
-            />
-            {formik.touched.semester && formik.errors.semester ? (
-              <div className="invalid-feedback">{formik.errors.semester}</div>
-            ) : null}
-          </Form.Group>
-          <Form.Group>
-            <Form.Control
-              as="textarea"
-              rows={3}
-              placeholder="Ihre Fähigkeiten (2-3 Sätze)"
-              name="faehigkeiten"
-              value={formik.values.faehigkeiten}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              className={`profil-input ${formik.touched.faehigkeiten && formik.errors.faehigkeiten ? 'is-invalid' : ''}`}
-            />
-            {formik.touched.faehigkeiten && formik.errors.faehigkeiten ? (
-              <div className="invalid-feedback">{formik.errors.faehigkeiten}</div>
-            ) : null}
-          </Form.Group>
-        </Col>
-        <Col md={6}>
-          <Card className="profil-card">
-            <Card.Body>
-              <Card.Title>Profilbeschreibung</Card.Title>
-              <Form.Control
-                as="textarea"
-                placeholder="Hier kommt Ihre Profilbeschreibung hin."
-                rows={3}
-                value={profilbeschreibung}
-                onChange={e => setProfilbeschreibung(e.target.value)}
-                className="profil-input"
-              />
-            </Card.Body>
-          </Card>
-          <Card className="profil-card">
-            <Card.Body>
-              <Card.Title>Werdegang</Card.Title>
-              <Form.Control
-                as="textarea"
-                placeholder="Hier können Sie Ihren beruflichen Werdegang darstellen."
-                rows={3}
-                value={werdegang}
-                onChange={e => setWerdegang(e.target.value)}
-                className="profil-input"
-              />
-            </Card.Body>
-          </Card>
-          <Card className="profil-card">
-            <Card.Body>
-              <Card.Title>Verfügbarkeit</Card.Title>
-              <Table responsive>
-                <thead>
-                  <tr>
-                    <th>Wochentag</th>
-                    <th className="th-verfuegbar">Verfügbar</th>
-                    <th>Stunden</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {Object.keys(verfuegbarkeit).map(tag => (
-                    <tr key={tag}>
-                      <td>{tag.charAt(0).toUpperCase() + tag.slice(1)}</td>
-                      <td className="td-verfuegbar">
-                        <div className="form-check">
-                          <Form.Check
-                            type="checkbox"
-                            checked={verfuegbarkeit[tag].available}
-                            onChange={() => toggleVerfuegbarkeit(tag)}
-                          />
-                        </div>
-                      </td>
-                      <td>
+                    <Form.Group>
                         <Form.Control
-                          type="number"
-                          value={verfuegbarkeit[tag].hours}
-                          onChange={e => handleChangeHours(tag, e.target.value)}
-                          onKeyDown={handleKeyDown} // Event-Handler hinzufügen
-                          disabled={!verfuegbarkeit[tag].available}
+                            type="text"
+                            placeholder="Name"
+                            value={name} 
+                            onChange={e => setName(e.target.value)}
+                            className="profil-input"
                         />
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </Table>
-            </Card.Body>
-          </Card>
-          <div className="d-flex justify-content-end mb-3">
-            <Button variant="primary" onClick={saveProfile}>Speichern</Button>
-          </div>
-        </Col>
-      </Row>
-    </Container>
-  );
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control
+                            type="text"
+                            placeholder="E-Mail"
+                            value={email}
+                            onChange={e => setEmail(e.target.value)}
+                            className="profil-input"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control
+                            type="text"
+                            placeholder="Telefonnummer"
+                            value={telefon}
+                            onChange={e => setTelefon(e.target.value)}
+                            className="profil-input"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control
+                            type="text"
+                            placeholder="Studiengang"
+                            value={studiengang}
+                            onChange={e => setStudiengang(e.target.value)}
+                            className="profil-input"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control
+                            type="text"
+                            placeholder="Aktuelles Semester"
+                            value={semester}
+                            onChange={e => setSemester(e.target.value)}
+                            className="profil-input"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control
+                          as="textarea"
+                          rows={3}
+                          placeholder="Ihre Fähigkeiten (2-3 Sätze)"
+                          value={faehigkeiten}
+                          onChange={e => setFaehigkeiten(e.target.value)}
+                          className="profil-input"
+                        />
+                    </Form.Group>
+                </Col>
+                <Col md={6}>
+                    <Card className="profil-card">
+                        <Card.Body>
+                            <Card.Title>Profilbeschreibung</Card.Title>
+                            <Form.Control
+                                as="textarea"
+                                placeholder="Hier kommt Ihre Profilbeschreibung hin."
+                                rows={3}
+                                value={profilbeschreibung}
+                                onChange={e => setProfilbeschreibung(e.target.value)}
+                                className="profil-input"
+                            />
+                        </Card.Body>
+                    </Card>
+                    <Card className="profil-card">
+                        <Card.Body>
+                            <Card.Title>Werdegang</Card.Title>
+                            <Form.Control
+                                as="textarea"
+                                placeholder="Hier können Sie Ihren beruflichen Werdegang darstellen."
+                                rows={3}
+                                value={werdegang}
+                                onChange={e => setWerdegang(e.target.value)}
+                                className="profil-input"
+                            />
+                        </Card.Body>
+                    </Card>
+                    <Card className="profil-card">
+                      <Card.Body>
+                        <Card.Title>Verfügbarkeit</Card.Title>
+                        <Table responsive>
+                              <thead>
+                              <tr>
+                                <th>Wochentag</th>
+                                <th className="th-verfuegbar">Verfügbar</th>
+                                <th>Stunden</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {Object.keys(verfuegbarkeit).map(tag => (
+                                <tr key={tag}>
+                                  <td>{tag.charAt(0).toUpperCase() + tag.slice(1)}</td>
+                                  <td className="td-verfuegbar">
+                                    <div className="form-check">
+                                      <Form.Check
+                                        type="checkbox"
+                                        checked={verfuegbarkeit[tag].available}
+                                        onChange={() => toggleVerfuegbarkeit(tag)}
+                                      />
+                                    </div>
+                                  </td>
+                                  <td>
+                                  <Form.Control
+                                    type="number"
+                                    value={verfuegbarkeit[tag].hours}
+                                    onChange={e => handleChangeHours(tag, e.target.value)}
+                                    onKeyDown={handleKeyDown} // Event-Handler hinzufügen
+                                    disabled={!verfuegbarkeit[tag].available}
+                                    />
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </Table>
+                      </Card.Body>
+                    </Card>
+                    <div className="d-flex justify-content-end mb-3">
+                         <Button variant="primary" onClick={saveProfile}>Speichern</Button>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
+    );
 
 };
 export default Profilansicht;
