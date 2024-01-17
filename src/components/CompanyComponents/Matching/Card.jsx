@@ -39,23 +39,23 @@ const DynamicCards = ({ userId }) => {
       console.log(logo)
       // Render a single card using the student data object
       const card = (
-        <Card className="custom-card">
-          <Card.Img variant="top" src={ logo } />
-          <Card.Body>
-            <Card.Title>Name: {studentData.name}</Card.Title>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
-            <ListGroup.Item>Studium: {studentData.study}</ListGroup.Item>
-            <ListGroup.Item>Abschluss: {studentData.graduation}</ListGroup.Item>
-            <ListGroup.Item>Arbeitszeit: {studentData.workingHours}</ListGroup.Item>
-            <ListGroup.Item>Berufserfahrung: {studentData.experience}</ListGroup.Item>
-            <ListGroup.Item><Card.Link href={studentData.profileLink}>Zum Profil</Card.Link></ListGroup.Item>
-          </ListGroup>
-          <Card.Body className="card-buttons">
-            <button className="round-button check-button" onClick={addToLikes}>✓</button>
-            <button className="round-button x-button">×</button>
-          </Card.Body>
-        </Card>
+<Card className="custom-card">
+<Card.Img variant="top" src={logo} className="rounded-image"/>
+<Card.Body>
+  <Card.Title>Name: {studentData.name} </Card.Title>
+</Card.Body>
+<ListGroup className="list-group-flush">
+  <ListGroup.Item className='fixed-height'>Studium: {studentData.study}</ListGroup.Item>
+  <ListGroup.Item className='fixed-height'>Abschluss: {studentData.graduation} </ListGroup.Item>
+  <ListGroup.Item className='fixed-height'>Arbeitszeit: {studentData.workingHours} </ListGroup.Item>
+  <ListGroup.Item className='fixed-height'>Berufserfahrung: {studentData.experience} </ListGroup.Item>
+  <ListGroup.Item><Card.Link>Zum Profil</Card.Link></ListGroup.Item>
+</ListGroup>
+<Card.Body className="card-buttons">
+  <button className="roundmatch-button x-button">×</button>
+  <button className="roundmatch-button check-button">✓</button>
+</Card.Body>
+</Card>
       );
 
       console.log(card);

@@ -111,7 +111,12 @@ const Profilansicht = () => {
     const weekdays = Object.keys(verfuegbarkeit);
 
     const totalWorkHours = weekdays.reduce((total, weekday) => {
-      return total + (verfuegbarkeit[weekday].available ? verfuegbarkeit[weekday].hours : 0);
+      let abc = total + (verfuegbarkeit[weekday].available ? verfuegbarkeit[weekday].hours : 0);
+      if(abc >=20)
+      {
+        abc=20;
+      }
+      return abc;
     }, 0);
 
 
@@ -147,9 +152,8 @@ const Profilansicht = () => {
   };
 
   const usID = sessionStorage.getItem('userID');
-  //TODO verfuegbarkeit
-  const verfueg = 16;
-  let paramArray = [usID, name, email, telefon, studiengang, semester, faehigkeiten, profilbeschreibung, werdegang, verfueg, logo];
+
+  let paramArray = [usID, name, email, telefon, studiengang, semester, faehigkeiten, profilbeschreibung, werdegang, totalWorkHours, logo];
   console.log(paramArray)
   async function handleProfileCreation() {
     const apiResponse = await getHTTPRequest("createProfile", paramArray);
