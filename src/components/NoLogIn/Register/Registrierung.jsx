@@ -88,7 +88,7 @@ const Registrierung = () => {
             <ErrorMessage name="confirmPassword" component="div" className="error-message" />
           </Form.Group>
 
-          <Button type="submit" className="register-button" variant="outline-primary">
+          <Button type="submit" className="register-button" variant="outline-primary" >
             Registrieren
           </Button>{' '}
 

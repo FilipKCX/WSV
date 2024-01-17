@@ -9,6 +9,6 @@ const TestComponent = ({ userId }) => {
       {/* Add any content or styling you want to test */}
     </div>
   );
-};
+}; 
 
 export default TestComponent;
