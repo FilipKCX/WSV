@@ -9,12 +9,19 @@ import SelectButton from '../../SelectButton';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 
-
 const validationSchema = yup.object({
-  email: yup.string().required('E-Mail ist erforderlich').matches(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, 'E-Mail muss gültig sein').email('Ungültige E-Mail Adresse'),
-  password: yup.string().min(6, 'Das Passwort muss mindestens 6 Zeichen lang sein.').required('Passwort ist erforderlich'),
-  confirmPassword: yup.string().oneOf([yup.ref('password'), null], 'Passwörter müssen übereinstimmen').required('Passwortbestätigung ist erforderlich'),
+  email: yup.string()
+    .required('E-Mail ist erforderlich.')
+    .email('Ungültige E-Mail Adresse.')
+    .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, 'E-Mail muss gültig sein.'),
+  password: yup.string()
+    .min(6, 'Das Passwort muss mindestens 6 Zeichen lang sein.')
+    .required('Passwort ist erforderlich.'),
+  confirmPassword: yup.string()
+    .oneOf([yup.ref('password'), null], 'Passwörter müssen übereinstimmen.')
+    .required('Passwortbestätigung ist erforderlich.'),
 });
+
 const Registrierung = () => {
   const navigate = useNavigate();
 
