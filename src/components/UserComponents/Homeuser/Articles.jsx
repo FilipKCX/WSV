@@ -14,8 +14,8 @@ const Articles = () => {
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>Explore New Horizons</h3>
-              <p>Embark on a journey of discovery with our innovative solutions and cutting-edge technologies.</p>
+              <h3>Erkunde neue Horizonte</h3>
+              <p>Begib dich auf eine Reise der Entdeckung mit unseren innovativen Lösungen und modernsten Technologien.</p>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -25,8 +25,8 @@ const Articles = () => {
               alt="Second slide"
             />
             <Carousel.Caption>
-              <h3>Join Our Vibrant Community</h3>
-              <p>Connect with like-minded individuals and be part of a dynamic community that values growth and collaboration.</p>
+              <h3>Schließe dich unserer lebendigen Gemeinschaft an.</h3>
+              <p>Vernetze dich mit Gleichgesinnten und werde Teil einer dynamischen Gemeinschaft, die Wachstum und Zusammenarbeit schätzt.</p>
             </Carousel.Caption>
           </Carousel.Item>
           
