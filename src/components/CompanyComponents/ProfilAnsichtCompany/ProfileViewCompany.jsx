@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap';
 import './ProfileViewCompany.css';
 import { Formik, Field, ErrorMessage } from 'formik';
