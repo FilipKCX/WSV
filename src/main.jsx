@@ -95,7 +95,7 @@ const router = createBrowserRouter([
     element: <Einstellungen/>
   },
   {
-    path: "HomeUser",
+    path: "/HomeUser",
     element: <HomeUser/>
   },
   {
@@ -106,10 +106,10 @@ const router = createBrowserRouter([
     path: "/passwortanfordern",
     element: <PasswordRequest/>
   },
-  {
-    path: "/registerselect",
-    element: <RegisterSelect/>
-  },
+  // {
+  //   path: "/registerselect",
+  //   element: <RegisterSelect/>
+  // },
   {
     path: "/register",
     element: <Register />
@@ -118,10 +118,10 @@ const router = createBrowserRouter([
     path: "/profilepage",
     element: <ProfilePage />
   },
-  {
-    path: "/profilecreation",
-    element: <ProfileCreation/>
-  },
+  // {
+  //   path: "/profilecreation",
+  //   element: <ProfileCreation/>
+  // },
   {
     path: "/Matching",
     element: <Matching/>
@@ -166,10 +166,10 @@ const router = createBrowserRouter([
     path: "/ProfilePageCompany",
     element: <ProfilePageCompany/>
   },
-  {
-    path: "/ProfileCreationCompany",
-    element: <ProfileCreationCompany/>
-  },
+  // {
+  //   path: "/ProfileCreationCompany",
+  //   element: <ProfileCreationCompany/>
+  // },
   {
     path: "/ImpressumNo",
     element: <ImpressumNoLogIn/>

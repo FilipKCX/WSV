@@ -80,7 +80,7 @@
 .profil-input:focus {
   color: black; /* Farbe des Textes bei Fokus */
 }
-
+/* 
 .speichern-button {
   background-color: #0074cc !important;
   color: white !important;
@@ -94,4 +94,4 @@
 .speichern-button:hover {
   background-color: #fff !important;
   color: #0074cc !important;
-}
+} */
