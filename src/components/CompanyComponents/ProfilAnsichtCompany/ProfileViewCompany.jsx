@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
 import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap';
 import './ProfileViewCompany.css';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import React, { useState } from 'react';
+
 
 const validationSchema = yup.object({
     unternehmensName: yup.string().matches(/^[a-zA-Z\s]+$/, 'Nur Buchstaben erlaubt'),
@@ -52,14 +53,14 @@ const Unternehmensprofil = () => {
             onSubmit={(values) => saveCompanyProfile(values)}
         >
             <Form>
-                <Container className="profil-container">
-                    <Row className="justify-content-md-center profil-row">
+                            <Container className="profil-container">
+                      <Row className="justify-content-md-center profil-row">
                         <Col md={6} className="profil-col">
-                            <div className="profil-bild-container">
-                                <Image src="platzhalter-bild-url.jpg" roundedCircle className="profil-bild" />
-                                <div>Klicken, um Logo hinzuzufügen</div>
-                                <input type="file" id="profilbild-input" hidden />
-                            </div>
+                          <div className="profil-bild-container" onClick={triggerFileInput}>
+                            <Image src={profilBild || "platzhalter-bild-url.jpg"} roundedCircle className="profil-bild" />
+                            <div>Klicken, um Foto hinzuzufügen</div>
+                            <input type="file" id="profilbild-input" hidden onChange={handleBildAuswahl} />
+                          </div>
                             <Form.Group>
                                 <Field
                                     type="text"
