@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap';
 import './ProfileViewStatic.css';
 
 const ProfileViewStatic = () => {
-    const companyName = "Firmenname GmbH";
-    const companyEmail = "info@firmenname.com";
-    const companyLocation = "Standort";
-    const whatWeOffer = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum";
-    const whoWeAre = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum";
-    const careerOpportunities = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum";
-    const ourHistory = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum";
+    const [companypage, setCompanyPage] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        const fetchData = async () => {
+          console.log(userId);
+          const param = [userId];
+          const apiResponse = await getHTTPRequest("getProfileInfo", param);
+          const sortArray = JSON.parse(apiResponse);
+          const selectedArray = sortArray[0];
+    
+          // Extract student data into a single object
+          const studentData = {
+            name: selectedArray[1],
+            study: selectedArray[4],
+            graduation: selectedArray[5],
+            workingHours: selectedArray[9],
+            experience: selectedArray[9],
+          };
+    
+          const cID = sessionStorage.getItem('userID')
+          let params = [userId, cID]
+          const addToLikes = async () =>{
+             const apiResponse = await getHTTPRequest("addLike", params)
+             console.log(userId)
+             return 
+          }
 
-    return (
+    const staticCompanyPage =  (
         <Container className="profil-container-static">
             <Row className="profil-row-static">
                 <Col md={6} className="profil-col-static" style={{ "min-width": '100%' }}>
@@ -88,6 +107,13 @@ const ProfileViewStatic = () => {
             </Row>
         </Container>
     );
+    console.log(staticCompanyPage);
+      setIsLoading(false);
+      setCompanyPage(staticCompanyPage);
+    };
+
+    fetchData();
+  }, []);
 };
 
 export default ProfileViewStatic;
