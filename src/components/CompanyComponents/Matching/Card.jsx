@@ -25,14 +25,13 @@ const DynamicCards = ({ userId }) => {
         workingHours: selectedArray[9],
         experience: selectedArray[9],
       };
+
       const cID = sessionStorage.getItem('userID')
       let params = [userId, cID]
       const addToLikes = async () =>{
-
          const apiResponse = await getHTTPRequest("addLike", params)
          console.log(userId)
          return 
-
       }
 
       const logo = "./src/imagess/" + selectedArray[10]

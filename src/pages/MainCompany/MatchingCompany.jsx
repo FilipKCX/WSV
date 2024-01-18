@@ -14,6 +14,7 @@ export default function  Matching ()
   useEffect(() => {
    const fetchUsers = async () => {
           const apiResponse = await getHTTPRequest("getUsers");
+          console.log(apiResponse)
           const newArray = JSON.parse(apiResponse)
           console.log(newArray)
           setIsLoading(false)

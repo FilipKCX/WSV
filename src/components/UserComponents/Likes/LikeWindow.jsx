@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import './LikeWindow.css';
 import ProfilePageCompanyStatic from '../../../pages/MainCompany/ProfilePageCompanyStatic';
 
-const LikeWindow = ({ selectedLike }) => {
+function LikeWindow ({ selectedLike }) {
 
   const likedContent = [
     { id: 'like1', content: 'ProfilePageCompanyStatic' },

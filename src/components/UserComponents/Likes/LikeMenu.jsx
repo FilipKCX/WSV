@@ -2,32 +2,37 @@ import React from 'react';
 import './LikeMenu.css';
 import { getHTTPRequest } from '../../serverPackage';
 import { useState , useEffect} from 'react';
+import LikeWindow from './LikeWindow';
 
 export default function LikeMenu  ({ selectLike, selectedLike,  })  
 {
   const [isLoading, setIsLoading] = useState(true);
-  const [likeUsers, setLikeUsers] = useState([12, 16 , 18]);
+  const [likeUsers, setLikeUsers] = useState([]);
+  const [selectedOption, setSelectedOption] = useState(null);
   const uID = sessionStorage.getItem('userID');
   const param = [uID];
 
   const handleLikeSelect = (likeId) => {
-    selectLike(likeId);
+    return <>
+          {likeId}
+    </>
   };
   
   
   useEffect(() => {
     const fetchUsers = async () => {
            const apiResponse = await getHTTPRequest("getLikes", param);
+           console.log(apiResponse)
            const newArray = JSON.parse(apiResponse)
            console.log(newArray)
            setIsLoading(false)
-           //setLikeUsers(newArray);        
+           setLikeUsers([newArray]);        
          }
     fetchUsers();
     
        },[]); 
 
-
+       console.log(likeUsers)
        if (isLoading) {
         return <div>Loading...</div>;
       }
@@ -36,12 +41,17 @@ export default function LikeMenu  ({ selectLike, selectedLike,  })
 
     <div className="like-menu">
       <div className="like-options">
-        {likeUsers.map((company) => (
-          <div
-            key={company}
-            className={`like-option ${selectedLike === company ? 'active' : ''}`}
-            onClick={() => handleLikeSelect(company)}
-          >
+        {likeUsers[0].map((company) => (
+          <div 
+             key={company}
+              className={`like-option ${selectedLike === company ? 'active' : ''}`}
+              onClick={() => {
+                if (selectedLike !== company) {
+                  setSelectedOption(company);
+                  handleLikeSe(company);
+               }
+          }}>
+
             <LikeBox company={company} />
           </div>
         ))}
@@ -50,8 +60,13 @@ export default function LikeMenu  ({ selectLike, selectedLike,  })
     </>
 };
 
-const LikeBox = ({ company }) => {
-
+function LikeBox  ({ company }) {
+  const[compd, setcompd] = useState([])
+  const handleLikeSelect = (likeId) => {
+    return <>
+          {likeId}
+    </>
+  };
   useEffect(() => {
     const fetchData = async () => {
       console.log(company);
@@ -59,24 +74,25 @@ const LikeBox = ({ company }) => {
       const apiResponse = await getHTTPRequest("getCompanyInfox", param);
       const sortArray = JSON.parse(apiResponse);
       const selectedArray = sortArray[0];
-
+      console.log(selectedArray)
       // Extract student data into a single object
       const companyData = {
         name: selectedArray[1],
-        study: selectedArray[4],
-        graduation: selectedArray[5],
-        workingHours: selectedArray[9],
-        experience: selectedArray[9],
       };
+      
+      const menu = (
+        <div className="like-box" onClick={handleLikeSelect(company)}>
+          <h3>{companyData.name}</h3>
+          <p>Chatte jetzt mit {companyData.name} !</p>
+        </div>
+      );
+        setcompd(menu)
     }
-
-  return (
-    <div className="like-box">
-      <h3></h3>
-      <p>Description or preview here...</p>
-    </div>
-  );
-    }, []);
+    fetchData();
+    
+  
+}, []);
+return compd
 };
 
 

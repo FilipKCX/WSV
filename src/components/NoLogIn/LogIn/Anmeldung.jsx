@@ -10,10 +10,8 @@ import * as yup from 'yup';
 
 const validationSchema = yup.object({
   email: yup.string()
-    .email('E-Mail muss gültig sein.')
-    .required('E-Mail ist erforderlich.'),
+    .email('E-Mail muss gültig sein.'),
   password: yup.string()
-    .min(6, 'Das Passwort muss mindestens 6 Zeichen lang sein.')
     .required('Passwort ist erforderlich.'),
 });
 
@@ -24,7 +22,7 @@ const Anmeldung = () => {
 
   const handleLogInRequest = async (values) => {
     try {
-      const paramArray = [values.email, values.password];
+      const paramArray = [email, password];
       console.log(paramArray);
       const apiResponse = await getHTTPRequest('getLoginUser', paramArray);
       if (apiResponse === 'a') {
@@ -83,7 +81,7 @@ const Anmeldung = () => {
             <ErrorMessage name="password" component="div" className="error-message" />
           </Form.Group>
 
-          <Button type="submit" className='anmelde-button' variant="outline-primary">
+          <Button type="submit" className='anmelde-button' variant="outline-primary" onClick={handleLogInRequest}>
             Log In
           </Button>
         </Form>
