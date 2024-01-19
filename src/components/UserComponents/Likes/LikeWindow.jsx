@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import './LikeWindow.css';
 import ProfilePageCompanyStatic from '../../../pages/MainCompany/ProfilePageCompanyStatic';
+import ProfileViewStatic from '../../CompanyComponents/ProfilAnsichtCompany/ProfileViewStatic'
 
 function LikeWindow ({ selectedLike }) {
 
@@ -16,7 +17,7 @@ function LikeWindow ({ selectedLike }) {
     <div className="like-window">
 
         <div className="like-content">     
-            <ProfilePageCompanyStatic/>
+            <ProfileViewStatic/>
         </div>
     </div>
   );

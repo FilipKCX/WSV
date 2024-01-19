@@ -1,19 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Image, Card, Button, Form, Table } from 'react-bootstrap';
 import './UserProfileViewStatic.css';
 import { Link } from 'react-router-dom';
 
 
 const Profilansicht = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [telefon, setTelefon] = useState('');
-  const [studiengang, setStudiengang] = useState('');
-  const [semester, setSemester] = useState('');
-  const [profilbeschreibung, setProfilbeschreibung] = useState('');
-  const [werdegang, setWerdegang] = useState('');
-  const [berufserfahrung, setBerufserfahrung] = useState('');
-  const [faehigkeiten, setFaehigkeiten] = useState('');
+  const [CmProfile, setCmProfile] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [verfuegbarkeit, setVerfuegbarkeit] = useState({
     montag: { available: false, hours: 0 },
     dienstag: { available: false, hours: 0 },
@@ -53,34 +46,36 @@ const Profilansicht = () => {
     }
   };
 
-  // const saveProfile = () => {
-  //   console.log('Speichern der Profildaten...');
-  //   console.log('Name:', name);
-  //   console.log('E-Mail:', email);
-  //   console.log('Telefonnummer:', telefon);
-  //   console.log('Studiengang:', studiengang);
-  //   console.log('Aktuelles Semester:', semester);
-  //   console.log('Fähigkeiten:', faehigkeiten);
-  //   console.log('Profilbeschreibung:', profilbeschreibung);
-  //   console.log('Werdegang:', werdegang);
-  //   console.log('Verfügbarkeit:', verfuegbarkeit);
-  //   console.log('Berufserfahrung:', berufserfahrung);
-  //   alert('Profil gespeichert!'); // Für Demonstrationszwecke 
-  // };
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log(userId);
+      const param = [userId];
+      const apiResponse = await getHTTPRequest("getProfileInfo", param);
+      const sortArray = JSON.parse(apiResponse);
+      const selectedArray = sortArray[0];
 
-  // const [profilBild, setProfilBild] = useState(null);
+      // Extract student data into a single object
+      const studentData = {
+        name: selectedArray[1],
+        study: selectedArray[4],
+        graduation: selectedArray[5],
+        workingHours: selectedArray[9],
+        experience: selectedArray[9],
+      };
 
-  // const handleBildAuswahl = (event) => {
-  //   if (event.target.files && event.target.files[0]) {
-  //     setProfilBild(URL.createObjectURL(event.target.files[0]));
-  //   }
-  // };
+      const cID = sessionStorage.getItem('userID')
+      let params = [userId, cID]
+      const addToLikes = async () =>{
+         const apiResponse = await getHTTPRequest("addLike", params)
+         console.log(userId)
+         return 
+      }
 
   const triggerFileInput = () => {
     document.getElementById('user-profilbild-input-static').click();
   };
 
-  return (
+  const profile = (
     <Container className="profil-container">
         <Row className="justify-content-md-center profil-row">
             <Col md={6} className="profil-col">
@@ -187,7 +182,13 @@ const Profilansicht = () => {
             </Col>
         </Row>
     </Container>
-);
+  );
+      setIsLoading(false);
+      setStudentData(card);
+};
+
+    fetchData();
+  }, []);
 
 }
 
