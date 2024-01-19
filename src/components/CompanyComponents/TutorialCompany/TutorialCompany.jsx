@@ -2,6 +2,10 @@ import React from 'react';
 import { Container, Card, Row, Col, Carousel, Button } from 'react-bootstrap';
 import './TutorialCompany.css'
 import { Link } from 'react-router-dom';
+import HomePic from '../../../assets/Bildschirmfoto 2024-01-17 um 16.44.31.png'
+import ChatPic from '../../../assets/Bildschirmfoto 2024-01-17 um 16.49.26.png'
+import ProfilePic from '../../../assets/Bildschirmfoto 2024-01-17 um 16.49.57.png'
+
 
 const Tutorial = () => {
   return (
@@ -22,7 +26,7 @@ const Tutorial = () => {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src=""
+              src={HomePic}
               alt="Second slide"
             />
             <Carousel.Caption>
@@ -33,7 +37,7 @@ const Tutorial = () => {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src=""
+              src={ChatPic}
               alt="Second slide"
             />
             <Carousel.Caption>
@@ -55,7 +59,7 @@ const Tutorial = () => {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src=""
+              src={ProfilePic}
               alt="Second slide"
             />
             <Carousel.Caption>
