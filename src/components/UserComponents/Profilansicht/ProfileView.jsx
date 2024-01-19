@@ -32,6 +32,8 @@ const Profilansicht = () => {
   const [profilbeschreibung, setProfilbeschreibung] = useState('');
   const [werdegang, setWerdegang] = useState('');
   const [faehigkeiten, setFaehigkeiten] = useState('');
+  const [abschluss, setAbschluss] = useState('');
+  const [berufserfahrung, setBerufserfahrung] = useState('');
   const [logo, setLogo] = useState('none.jpg')
   const [verfuegbarkeit, setVerfuegbarkeit] = useState({
     montag: { available: false, hours: 0 },
@@ -98,8 +100,10 @@ const Profilansicht = () => {
     console.log('Name:', name);
     console.log('E-Mail:', email);
     console.log('Telefonnummer:', telefon);
+    console.log('Abschluss:', abschluss);
     console.log('Studiengang:', studiengang);
     console.log('Aktuelles Semester:', semester);
+    console.log('Berufserfahrung:', berufserfahrung);
     console.log('Fähigkeiten:', faehigkeiten);
     console.log('Profilbeschreibung:', profilbeschreibung);
     console.log('Werdegang:', werdegang);
@@ -110,19 +114,20 @@ const Profilansicht = () => {
 
   const calculateTotalWorkHours = () => {
     const weekdays = Object.keys(verfuegbarkeit);
-
-    const totalWorkHours = weekdays.reduce((total, weekday) => {
-      let abc = total + (verfuegbarkeit[weekday].available ? verfuegbarkeit[weekday].hours : 0);
-      if(abc >=20)
-      {
-        abc=20;
-      }
-      return abc;
-    }, 0);
-
-
-    return totalWorkHours;
+  
+    const result = weekdays.reduce((acc, weekday) => {
+      const hoursToAdd = verfuegbarkeit[weekday].available ? verfuegbarkeit[weekday].hours : 0;
+      const updatedHours = acc.totalHours + hoursToAdd;
+  
+      return {
+        totalHours: Math.min(updatedHours, 20), // Ensure total hours don't exceed 20
+        orderedDays: acc.orderedDays + (verfuegbarkeit[weekday].available ? weekday : ''), // Concatenate ordered days
+      };
+    }, { totalHours: 0, orderedDays: '' });
+  
+    return result;
   };
+  
 
   const totalWorkHours = calculateTotalWorkHours();
   console.log('Total Work Hours:', totalWorkHours);
@@ -205,6 +210,15 @@ const Profilansicht = () => {
                     <Form.Group>
                         <Form.Control
                             type="text"
+                            placeholder="Abschluss"
+                            value={abschluss}
+                            onChange={e => setAbschluss(e.target.value)}
+                            className="profil-input"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control
+                            type="text"
                             placeholder="Studiengang"
                             value={studiengang}
                             onChange={e => setStudiengang(e.target.value)}
@@ -217,6 +231,15 @@ const Profilansicht = () => {
                             placeholder="Aktuelles Semester"
                             value={semester}
                             onChange={e => setSemester(e.target.value)}
+                            className="profil-input"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control
+                            type="text"
+                            placeholder="Berufserfahrung (in Jahren)"
+                            value={berufserfahrung}
+                            onChange={e => setBerufserfahrung(e.target.value)}
                             className="profil-input"
                         />
                     </Form.Group>
@@ -254,19 +277,6 @@ const Profilansicht = () => {
                                 rows={3}
                                 value={werdegang}
                                 onChange={e => setWerdegang(e.target.value)}
-                                className="profil-input"
-                            />
-                        </Card.Body>
-                    </Card>
-                    <Card className="profil-card">
-                        <Card.Body>
-                            <Card.Title>Berufserfahrung</Card.Title>
-                            <Form.Control
-                                as="textarea"
-                                placeholder="Hier kommt Ihre Profilbeschreibung hin."
-                                rows={3}
-                                value={profilbeschreibung}
-                                onChange={e => setProfilbeschreibung(e.target.value)}
                                 className="profil-input"
                             />
                         </Card.Body>

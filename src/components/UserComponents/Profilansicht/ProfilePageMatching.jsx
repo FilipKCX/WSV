@@ -97,10 +97,16 @@ const Profilansicht = () => {
                     <div className="profil-input-static">{telefon || "Telefonnummer"}</div>
                 </Form.Group>
                 <Form.Group>
+                    <div className="profil-input-static">{abschluss || "Abschluss"}</div>
+                </Form.Group>
+                <Form.Group>
                     <div className="profil-input-static">{studiengang || "Studiengang"}</div>
                 </Form.Group>
                 <Form.Group>
                     <div className="profil-input-static">{semester || "Aktuelles Semester"}</div>
+                </Form.Group>
+                <Form.Group>
+                    <div className="profil-input-static">{berufserfahrung || "Berufserfahrung (in Jahren)"}</div>
                 </Form.Group>
                 <Form.Group>
                     <div className="profil-input-static">{faehigkeiten || <>Ihre Fähigkeiten (Mindestens 3 Sätze)<br />Zweite Zeile der Fähigkeiten.<br />Dritte Zeile der Fähigkeiten.</>}</div>
@@ -120,14 +126,6 @@ const Profilansicht = () => {
                         <Card.Title>Werdegang</Card.Title>
                         <div className="profil-input-static">
                             {werdegang || <>Hier können Sie Ihren beruflichen Werdegang darstellen.<br />Zweite Zeile des Werdegangs.<br />Dritte Zeile des Werdegangs.</>}
-                        </div>
-                    </Card.Body>
-                </Card>
-                <Card className="profil-card">
-                    <Card.Body>
-                        <Card.Title>Berufserfahrung</Card.Title>
-                        <div className="profil-input-static">
-                            {berufserfahrung || <>Hier können Sie Ihren beruflichen Werdegang darstellen.<br />Zweite Zeile des Werdegangs.<br />Dritte Zeile des Werdegangs.</>}
                         </div>
                     </Card.Body>
                 </Card>
