@@ -2,105 +2,67 @@ import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap'
 import './ProfileViewStatic.css';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getHTTPRequest } from '../../serverPackage';
 import { Link } from 'react-router-dom';
 
-
-
-
 const Unternehmensprofil = () => {
-    const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [standort, setStandort] = useState('');
-  const [wersw, setWersw] = useState('');
-  const [waswb, setWaswb] = useState('');
-  const [karriere, setKarriere] = useState('');
-  const [geschichte, setGeschichte] = useState('');
-  const [faehigkeiten, setFaehigkeiten] = useState('');
-  const [logo, setLogo] = useState('none.jpg')
-  const [selectedImagePath, setSelectedImagePath] = useState('');
-  
-    const saveCompanyProfile = (values) => {
-        console.log('Speichern der Unternehmensdaten...');
-        console.log('Profilbild:', profilbild);
-        console.log('Unternehmensname:', values.unternehmensName);
-        console.log('E-Mail:', values.email);
-        console.log('Standort:', values.standort);
-        console.log('Beschreibung:', values.beschreibung);
-        console.log('Was wir bieten:', values.angebote);
-        console.log('Unsere Geschichte:', values.geschichte);
-        console.log('Karrierechancen:', values.karriere);
-        alert('Unternehmensprofil gespeichert!');
-    };
+  const [CmProfile, setCmProfile] = useState([]);
 
-  const [profilBild, setProfilBild] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      const userId = sessionStorage.getItem('userID')
+      console.log(userId);
+      const param = [userId];
+      const apiResponse = await getHTTPRequest("getCompanyInfos", param);
+      const sortArray = JSON.parse(apiResponse);
+      const selectedArray = sortArray[0];
 
-  const handleImageSelection = (event) => {
-    const file = event.target.files[0];
-
-    if (file) {
-      const reader = new FileReader();
-      const fileName = file.name;
-      reader.onload = () => {
-        setSelectedImagePath(reader.result);
-        const imageData = reader.result;
-        const base64Image = `data:image/jpeg;base64,${imageData}`;
-        setProfilBild(base64Image);
-        setLogo(fileName)
+      // Extract student data into a single object
+      const studentData = {
+        uID: selectedArray[0],
+        name: selectedArray[1],
+        email: selectedArray[2],
+        standort: selectedArray[3],
+        wws: selectedArray[4],
+        wwb: selectedArray[5],
+        karriere: selectedArray[6],
+        geschihte: selectedArray[7],
+        logo: selectedArray[8],
+       
       };
-
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const triggerFileInput = () => {
-      document.getElementById('profilbild-input').click();
-  };
-  let usID = sessionStorage.getItem('userID')
-  let paramArray = [usID, name, email, standort, wersw, waswb, karriere, geschichte , logo];
-  console.log(paramArray)
-
-  async function handleProfileCreation() {
-    const apiResponse = await getHTTPRequest("createCompanyProfile", paramArray);
-    return;
-  }
-  return (
+  const logo = "./src/imagess/" + studentData.logo
+  const cprofile = (
     <Container className="profil-container">
       <Row className="justify-content-md-center profil-row">
         <Col md={6} className="profil-col">
-          <div className="profil-bild-container" onClick={triggerFileInput}>
-            <Image src={selectedImagePath || "platzhalter-bild-url.jpg"} roundedCircle className="profil-bild" />
-            <div>Klicken, um Foto hinzuzufügen</div>
-            <input type="file" id="profilbild-input" hidden onChange={handleImageSelection} />
+          <div className="profil-bild-container">
+            <Image src={logo || "platzhalter-bild-url.jpg"} roundedCircle className="profil-bild" />
           </div>
           <Form.Group>
             <Form.Control
               type="text"
-              placeholder="Unternehmensname"
+              placeholder={studentData.name}
               name="unternehmensName"
               className="profil-input"
-              onChange={e => setName(e.target.value)}
               readOnly
             />
           </Form.Group>
           <Form.Group>
             <Form.Control
               type="text"
-              placeholder="E-Mail"
+              placeholder={studentData.email}
               name="email"
               className="profil-input"
-              onChange={e => setEmail(e.target.value)}
               readOnly
             />
           </Form.Group>
           <Form.Group>
             <Form.Control
               type="text"
-              placeholder="Standort"
+              placeholder={studentData.standort}
               name="standort"
               className="profil-input"
-              onChange={e => setStandort(e.target.value)}
               readOnly
             />
           </Form.Group>
@@ -111,11 +73,10 @@ const Unternehmensprofil = () => {
               <Card.Title>Wer wir sind</Card.Title>
               <Form.Control
                 as="textarea"
-                placeholder="Kurze Beschreibung Ihres Unternehmens."
+                placeholder={studentData.wws}
                 rows={3}
                 name="beschreibung"
                 className="profil-input"
-                onChange={e => setWersw(e.target.value)}
                 readOnly
               />
             </Card.Body>
@@ -125,11 +86,11 @@ const Unternehmensprofil = () => {
               <Card.Title>Was wir bieten</Card.Title>
               <Form.Control
                 as="textarea"
-                placeholder="Beschreiben Sie, was Ihr Unternehmen Mitarbeitern bietet."
+                placeholder={studentData.wwb}
                 rows={3}
                 name="angebote"
                 className="profil-input"
-                onChange={e => setWaswb(e.target.value)}
+
                 readOnly
               />
             </Card.Body>
@@ -139,11 +100,10 @@ const Unternehmensprofil = () => {
               <Card.Title>Karrierechancen</Card.Title>
               <Form.Control
                 as="textarea"
-                placeholder="Beschreiben Sie die Karriereentwicklungsmöglichkeiten in Ihrem Unternehmen."
+                placeholder={studentData.karriere}
                 rows={3}
                 name="karriere"
                 className="profil-input"
-                onChange={e => setKarriere(e.target.value)}
                 readOnly
               />
             </Card.Body>
@@ -153,18 +113,17 @@ const Unternehmensprofil = () => {
               <Card.Title>Unsere Geschichte</Card.Title>
               <Form.Control
                 as="textarea"
-                placeholder="Geben Sie einen kurzen Überblick über die Geschichte Ihres Unternehmens."
+                placeholder={studentData.geschihte}
                 rows={3}
                 name="geschichte"
                 className="profil-input"
-                onChange={e => setGeschichte(e.target.value)}
                 readOnly
               />
             </Card.Body>
           </Card>
           <div className="d-flex justify-content-end mb-3">
             <Link to='/ProfilePageCompany'>
-            <Button type="submit" variant="primary" className="speichern-button" onClick={handleProfileCreation}>
+            <Button type="submit" variant="primary" className="speichern-button" >
               Zurück
             </Button>
             </Link>
@@ -173,7 +132,12 @@ const Unternehmensprofil = () => {
       </Row>
     </Container>
   );
-  
+  setCmProfile(cprofile);
+};
+
+    fetchData();
+  }, []);
+  return CmProfile
 };
 
 export default Unternehmensprofil;

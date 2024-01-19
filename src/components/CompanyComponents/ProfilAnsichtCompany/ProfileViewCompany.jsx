@@ -18,16 +18,8 @@ const Unternehmensprofil = () => {
   const [logo, setLogo] = useState('none.jpg')
   const [selectedImagePath, setSelectedImagePath] = useState('');
   
-    const saveCompanyProfile = (values) => {
-        console.log('Speichern der Unternehmensdaten...');
-        console.log('Profilbild:', profilbild);
-        console.log('Unternehmensname:', values.unternehmensName);
-        console.log('E-Mail:', values.email);
-        console.log('Standort:', values.standort);
-        console.log('Beschreibung:', values.beschreibung);
-        console.log('Was wir bieten:', values.angebote);
-        console.log('Unsere Geschichte:', values.geschichte);
-        console.log('Karrierechancen:', values.karriere);
+    const saveCompanyProfile = () => {
+        handleProfileCreation()
         alert('Unternehmensprofil gespeichert!');
     };
 
@@ -159,13 +151,13 @@ const Unternehmensprofil = () => {
             </Card.Body>
           </Card>
           <div className="d-flex justify-content-end mb-3">
-            <Button type="submit" variant="primary" className="speichern-button" onClick={handleProfileCreation} >
+            <Button type="submit" variant="primary" className="speichern-button" onClick={saveCompanyProfile} >
               Speichern
             </Button>
           </div>
           <div className="d-flex justify-content-end mb-3">
             <Link to='/ProfilePageCompanyStatic'>
-            <Button type="submit" variant="outline-primary" className="speichern-button" onClick={handleProfileCreation} >
+            <Button type="submit" variant="outline-primary" className="speichern-button"  >
               Profil Vorschau
             </Button>
             </Link>

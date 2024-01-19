@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Image, Card, Button, Form, Table } from 'react-bootstrap';
 import './UserProfileViewStatic.css';
 import { Link } from 'react-router-dom';
+import { getHTTPRequest } from '../../serverPackage';
 
 
 const Profilansicht = () => {
@@ -48,6 +49,7 @@ const Profilansicht = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const userId = sessionStorage.getItem('selectedProfile')
       console.log(userId);
       const param = [userId];
       const apiResponse = await getHTTPRequest("getProfileInfo", param);
@@ -56,60 +58,56 @@ const Profilansicht = () => {
 
       // Extract student data into a single object
       const studentData = {
+        uID: selectedArray[0],
         name: selectedArray[1],
-        study: selectedArray[4],
-        graduation: selectedArray[5],
-        workingHours: selectedArray[9],
-        experience: selectedArray[9],
+        email: selectedArray[2],
+        telefon: selectedArray[3],
+        abschluss: selectedArray[4],
+        studium: selectedArray[5],
+        semester: selectedArray[6],
+        berufserf: selectedArray[7],
+        skills: selectedArray[8],
+        profilb: selectedArray[9],
+        werdeg: selectedArray[10],
+        Stunden: selectedArray[11],
+        Logo: selectedArray[12],
       };
-
-      const cID = sessionStorage.getItem('userID')
-      let params = [userId, cID]
-      const addToLikes = async () =>{
-         const apiResponse = await getHTTPRequest("addLike", params)
-         console.log(userId)
-         return 
-      }
-
-  const triggerFileInput = () => {
-    document.getElementById('user-profilbild-input-static').click();
-  };
-
+  const logo = "./src/imagess/" + studentData.Logo
   const profile = (
     <Container className="profil-container">
         <Row className="justify-content-md-center profil-row">
             <Col md={6} className="profil-col">
                 <div className="profil-bild-container">
                     <Image
-                        src={''}
+                        src={logo}
                         roundedCircle
                         className="profil-bild"
                     />
                     {/* <div>Klicken, um Foto hinzuzufügen</div> */}
                 </div>
                 <Form.Group>
-                    <div className="profil-input-static">{name || "Name"}</div>
+                    <div className="profil-input-static">{studentData.name || "Name"}</div>
                 </Form.Group>
                 <Form.Group>
-                    <div className="profil-input-static">{email || "E-Mail"}</div>
+                    <div className="profil-input-static">{"E-Mail: " +studentData.email || "E-Mail"}</div>
                 </Form.Group>
                 <Form.Group>
-                    <div className="profil-input-static">{telefon || "Telefonnummer"}</div>
+                    <div className="profil-input-static">{"Telefonnummer: " +studentData.telefon || "Telefonnummer"}</div>
                 </Form.Group>
                 <Form.Group>
-                    <div className="profil-input-static">{abschluss || "Abschluss"}</div>
+                    <div className="profil-input-static">{"Abschluss: " +studentData.abschluss || "Abschluss"}</div>
                 </Form.Group>
                 <Form.Group>
-                    <div className="profil-input-static">{studiengang || "Studiengang"}</div>
+                    <div className="profil-input-static">{"Studium: " +studentData.studium || "Studiengang"}</div>
                 </Form.Group>
                 <Form.Group>
-                    <div className="profil-input-static">{semester || "Aktuelles Semester"}</div>
+                    <div className="profil-input-static">{ "Semester: " + studentData.semester  || "Aktuelles Semester"}</div>
                 </Form.Group>
                 <Form.Group>
-                    <div className="profil-input-static">{berufserfahrung || "Berufserfahrung (in Jahren)"}</div>
+                    <div className="profil-input-static">{"Berufserfahrung in Jahren: " + studentData.berufserf || "Berufserfahrung (in Jahren)"}</div>
                 </Form.Group>
                 <Form.Group>
-                    <div className="profil-input-static">{faehigkeiten || <>Ihre Fähigkeiten (Mindestens 3 Sätze)<br />Zweite Zeile der Fähigkeiten.<br />Dritte Zeile der Fähigkeiten.</>}</div>
+                    <div className="profil-input-static">{"Meine Skills: " +studentData.skills || <>Ihre Fähigkeiten (Mindestens 3 Sätze)<br />Zweite Zeile der Fähigkeiten.<br />Dritte Zeile der Fähigkeiten.</>}</div>
                 </Form.Group>
             </Col>
             <Col md={6}>
@@ -117,7 +115,7 @@ const Profilansicht = () => {
                     <Card.Body>
                         <Card.Title>Profilbeschreibung</Card.Title>
                         <div className="profil-input-static">
-                            {profilbeschreibung || <>Hier kommt Ihre Profilbeschreibung hin.<br /> Zweite Zeile der Profilbeschreibung <br />Dritte Zeile der Profilbeschreibung.</>}
+                            {studentData.profilb || <>Hier kommt Ihre Profilbeschreibung hin.<br /> Zweite Zeile der Profilbeschreibung <br />Dritte Zeile der Profilbeschreibung.</>}
                         </div>
                     </Card.Body>
                 </Card>
@@ -125,7 +123,7 @@ const Profilansicht = () => {
                     <Card.Body>
                         <Card.Title>Werdegang</Card.Title>
                         <div className="profil-input-static">
-                            {werdegang || <>Hier können Sie Ihren beruflichen Werdegang darstellen.<br />Zweite Zeile des Werdegangs.<br />Dritte Zeile des Werdegangs.</>}
+                            {studentData.werdeg || <>Hier können Sie Ihren beruflichen Werdegang darstellen.<br />Zweite Zeile des Werdegangs.<br />Dritte Zeile des Werdegangs.</>}
                         </div>
                     </Card.Body>
                 </Card>
@@ -182,12 +180,12 @@ const Profilansicht = () => {
     </Container>
   );
       setIsLoading(false);
-      setStudentData(card);
+      setCmProfile(profile);
 };
 
     fetchData();
   }, []);
-
+  return CmProfile
 }
 
 export default Profilansicht;

@@ -114,19 +114,16 @@ const Profilansicht = () => {
 
   const calculateTotalWorkHours = () => {
     const weekdays = Object.keys(verfuegbarkeit);
+    let totalHours = 0;
   
-    const result = weekdays.reduce((acc, weekday) => {
+    for (const weekday of weekdays) {
       const hoursToAdd = verfuegbarkeit[weekday].available ? verfuegbarkeit[weekday].hours : 0;
-      const updatedHours = acc.totalHours + hoursToAdd;
-      return updatedHours
+      totalHours += hoursToAdd;
+    }
   
-      return {
-        totalHours: Math.min(updatedHours, 20), // Ensure total hours don't exceed 20
-        orderedDays: acc.orderedDays + (verfuegbarkeit[weekday].available ? weekday : ''), // Concatenate ordered days
-      };
-    }, { totalHours: 0, orderedDays: '' });
+    totalHours = Math.min(totalHours, 20); // Ensure total hours don't exceed 20
   
-    return result;
+    return totalHours;
   };
   
 

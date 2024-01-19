@@ -81,10 +81,8 @@ function LikeWindow ({ selectedLike }) {
     <Container className="profil-containerl">
       <Row className="justify-content-md-center profil-row">
         <Col md={6} className="profil-col">
-          <div className="profil-bild-container" onClick={triggerFileInput}>
+          <div className="profil-bild-container">
             <Image src={selectedImagePath || "platzhalter-bild-url.jpg"} roundedCircle className="profil-bild" />
-            <div>Klicken, um Foto hinzuzufügen</div>
-            <input type="file" id="profilbild-input" hidden onChange={handleImageSelection} />
           </div>
           <Form.Group>
             <Form.Control
