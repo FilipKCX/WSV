@@ -4,6 +4,7 @@ import './ProfileView.css';
 import { getHTTPRequest } from '../../serverPackage';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 
 const validationSchema = Yup.object().shape({
@@ -258,6 +259,19 @@ const Profilansicht = () => {
                         </Card.Body>
                     </Card>
                     <Card className="profil-card">
+                        <Card.Body>
+                            <Card.Title>Berufserfahrung</Card.Title>
+                            <Form.Control
+                                as="textarea"
+                                placeholder="Hier kommt Ihre Profilbeschreibung hin."
+                                rows={3}
+                                value={profilbeschreibung}
+                                onChange={e => setProfilbeschreibung(e.target.value)}
+                                className="profil-input"
+                            />
+                        </Card.Body>
+                    </Card>
+                    <Card className="profil-card">
                       <Card.Body>
                         <Card.Title>Verfügbarkeit</Card.Title>
                         <Table responsive>
@@ -296,8 +310,13 @@ const Profilansicht = () => {
                           </Table>
                       </Card.Body>
                     </Card>
-                    <div className="d-flex justify-content-end mb-3">
+                    <div className="pvbutt mb-3">
                          <Button variant="primary" onClick={saveProfile}>Speichern</Button>
+                    </div>
+                    <div className="pvbutt mb-3">
+                      <Link to='/ProfilePageStatic'>
+                         <Button variant="outline-primary" >Profil Vorschau</Button>
+                         </Link>
                     </div>
                 </Col>
             </Row>

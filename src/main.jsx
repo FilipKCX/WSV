@@ -45,6 +45,9 @@ import ImpressumNoLogIn from './pages/StaticNoLogIn/ImpressumNoLogIn'
 import TutorialUser from './pages/MainNoLogIn/TutorialUser'
 import TutorialCompany from './pages/MainNoLogIn/TutorialCompany'
 import ProfilePageStatic from './pages/Main/ProfilePageStatic'
+import ProfilePageCompanyStatic from './pages/MainCompany/ProfilePageCompanyStatic'
+import ProfilePageMatching from './pages/MainCompany/ProfilePageMatching'
+
 
 import Testpage from './pages/Static/testpage'
 import TestComponent from './components/testcomponent'
@@ -166,6 +169,10 @@ const router = createBrowserRouter([
     path: "/ProfilePageCompany",
     element: <ProfilePageCompany/>
   },
+  {
+    path: "/MatchingProfile",
+    element: <ProfilePageMatching/>
+  },
   // {
   //   path: "/ProfileCreationCompany",
   //   element: <ProfileCreationCompany/>
@@ -193,6 +200,10 @@ const router = createBrowserRouter([
   {
     path: "/ProfilePageStatic",
     element: <ProfilePageStatic/>
+  },
+  {
+    path: "/ProfilePageCompanyStatic",
+    element: <ProfilePageCompanyStatic/>
   },
   {
     path: "/TutorialUser",

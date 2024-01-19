@@ -89,3 +89,8 @@
   color: red;
   margin-top: 5px;
 }
+
+.pvbutt{
+  display: flex;
+  justify-content: end;
+}
