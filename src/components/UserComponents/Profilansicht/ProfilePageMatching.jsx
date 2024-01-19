@@ -178,7 +178,7 @@ const Profilansicht = () => {
                   </Card.Body>
                 </Card>
                 <div className="pvsbutt mb-3">
-                  <Link to='/ProfilePage'>
+                  <Link to='/Matching'>
                     <Button variant="primary">
                         Zurück
                     </Button>
