@@ -118,6 +118,7 @@ const Profilansicht = () => {
     const result = weekdays.reduce((acc, weekday) => {
       const hoursToAdd = verfuegbarkeit[weekday].available ? verfuegbarkeit[weekday].hours : 0;
       const updatedHours = acc.totalHours + hoursToAdd;
+      return updatedHours
   
       return {
         totalHours: Math.min(updatedHours, 20), // Ensure total hours don't exceed 20
@@ -159,7 +160,7 @@ const Profilansicht = () => {
 
   const usID = sessionStorage.getItem('userID');
 
-  let paramArray = [usID, name, email, telefon, studiengang, semester, faehigkeiten, profilbeschreibung, werdegang, totalWorkHours, logo];
+  let paramArray = [usID, name, email, telefon, abschluss, studiengang, semester, berufserfahrung, faehigkeiten, profilbeschreibung, werdegang, totalWorkHours, logo];
   console.log(paramArray)
   async function handleProfileCreation() {
     const apiResponse = await getHTTPRequest("createProfile", paramArray);

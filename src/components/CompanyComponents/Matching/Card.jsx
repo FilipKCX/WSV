@@ -13,17 +13,17 @@ const DynamicCards = ({ userId }) => {
     const fetchData = async () => {
       console.log(userId);
       const param = [userId];
-      const apiResponse = await getHTTPRequest("getProfileInfo", param);
+      const apiResponse = await getHTTPRequest("getProfileInfox", param);
       const sortArray = JSON.parse(apiResponse);
       const selectedArray = sortArray[0];
 
       // Extract student data into a single object
       const studentData = {
         name: selectedArray[1],
-        study: selectedArray[4],
-        graduation: selectedArray[5],
-        workingHours: selectedArray[9],
-        experience: selectedArray[9],
+        study: selectedArray[2],
+        degree: selectedArray[3],
+        workingHours: selectedArray[4],
+        experience: selectedArray[5],
       };
       
       const cID = sessionStorage.getItem('userID')
@@ -37,7 +37,7 @@ const DynamicCards = ({ userId }) => {
 
       }
 
-      const logo = "./src/imagess/" + selectedArray[10]
+      const logo = "./src/imagess/" + selectedArray[6]
       console.log(logo)
       // Render a single card using the student data object
       const card = (
@@ -48,7 +48,7 @@ const DynamicCards = ({ userId }) => {
             </Card.Body>
             <ListGroup className="list-group-flush">
               <ListGroup.Item className='fixed-height'>Studium: {studentData.study}</ListGroup.Item>
-              <ListGroup.Item className='fixed-height'>Abschluss: {studentData.graduation} </ListGroup.Item>
+              <ListGroup.Item className='fixed-height'>Abschluss: {studentData.degree} </ListGroup.Item>
               <ListGroup.Item className='fixed-height'>Arbeitszeit: {studentData.workingHours} </ListGroup.Item>
               <ListGroup.Item className='fixed-height'>Berufserfahrung: {studentData.experience} </ListGroup.Item>
               <ListGroup.Item><Card.Link>Zum Profil</Card.Link></ListGroup.Item>
