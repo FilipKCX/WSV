@@ -4,9 +4,7 @@ import { Formik, Field, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import React, { useState } from 'react';
 import { getHTTPRequest } from '../../serverPackage';
-
-
-
+import { Link } from 'react-router-dom';
 
 const Unternehmensprofil = () => {
     const [name, setName] = useState('');
@@ -64,112 +62,119 @@ const Unternehmensprofil = () => {
     const apiResponse = await getHTTPRequest("createCompanyProfile", paramArray);
     return;
   }
-    return (
-        
-                <Container className="profil-container">
-                    <Row className="justify-content-md-center profil-row">
-                        <Col md={6} className="profil-col">
-                          <div className="profil-bild-container" onClick={triggerFileInput}>
-                            <Image src={selectedImagePath || "platzhalter-bild-url.jpg"} 
-                            roundedCircle
-                             className="profil-bild" />
-
-                            <div>Klicken, um Foto hinzuzufügen</div>
-                            <input type="file" id="profilbild-input" hidden onChange={handleImageSelection} />
-                          </div>
-                            <Form.Group>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Unternehmensname"
-                                    name="unternehmensName"
-                                    className="profil-input"
-                                    onChange={e => setName(e.target.value)}
-                                />
-                                
-                            </Form.Group>
-                            <Form.Group>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="E-Mail"
-                                    name="email"
-                                    className="profil-input"
-                                    onChange={e => setEmail(e.target.value)}
-                                />                              
-                            </Form.Group>
-                            <Form.Group>
-                                <Form.Control
-                                    type="text"
-                                    placeholder="Standort"
-                                    name="standort"
-                                    className="profil-input"
-                                    onChange={e => setStandort(e.target.value)}
-                                />
-                                
-                            </Form.Group>
-                        </Col>
-                        <Col md={6}>
-                            <Card className="profil-card">
-                                <Card.Body>
-                                    <Card.Title>Wer wir sind</Card.Title>
-                                    <Form.Control
-                                        as="textarea"
-                                        placeholder="Kurze Beschreibung Ihres Unternehmens."
-                                        rows={3}
-                                        name="beschreibung"
-                                        className="profil-input"
-                                        onChange={e => setWersw(e.target.value)}
-                                    />
-                                   
-                                </Card.Body>
-                            </Card>
-                            <Card className="profil-card">
-                                <Card.Body>
-                                    <Card.Title>Was wir bieten</Card.Title>
-                                    <Form.Control
-                                        as="textarea"
-                                        placeholder="Beschreiben Sie, was Ihr Unternehmen Mitarbeitern bietet."
-                                        rows={3}
-                                        name="angebote"
-                                        className="profil-input"
-                                        onChange={e => setWaswb(e.target.value)}
-                                    />
-                                </Card.Body>
-                            </Card>
-                            <Card className="profil-card">
-                                <Card.Body>
-                                    <Card.Title>Karrierechancen</Card.Title>
-                                    <Form.Control
-                                        as="textarea"
-                                        placeholder="Beschreiben Sie die Karriereentwicklungsmöglichkeiten in Ihrem Unternehmen."
-                                        rows={3}
-                                        name="karriere"
-                                        className="profil-input"
-                                        onChange={e => setKarriere(e.target.value)}
-                                    />
-                                </Card.Body>
-                            </Card>
-                            <Card className="profil-card">
-                                <Card.Body>
-                                    <Card.Title>Unsere Geschichte</Card.Title>
-                                    <Form.Control
-                                        as="textarea"
-                                        placeholder="Geben Sie einen kurzen Überblick über die Geschichte Ihres Unternehmens."
-                                        rows={3}
-                                        name="geschichte"
-                                        className="profil-input"
-                                        onChange={e => setGeschichte(e.target.value)}
-                                    />
-                                </Card.Body>
-                            </Card>
-                            <div className="d-flex justify-content-end mb-3">
-                                <Button type="submit" variant="primary" className="speichern-button" onClick={handleProfileCreation}>
-                                    Speichern
-                                </Button>
-                            </div>
-                        </Col>
-                    </Row>
-                </Container>
-    );
+  return (
+    <Container className="profil-container">
+      <Row className="justify-content-md-center profil-row">
+        <Col md={6} className="profil-col">
+          <div className="profil-bild-container" onClick={triggerFileInput}>
+            <Image src={selectedImagePath || "platzhalter-bild-url.jpg"} roundedCircle className="profil-bild" />
+            <div>Klicken, um Foto hinzuzufügen</div>
+            <input type="file" id="profilbild-input" hidden onChange={handleImageSelection} />
+          </div>
+          <Form.Group>
+            <Form.Control
+              type="text"
+              placeholder="Unternehmensname"
+              name="unternehmensName"
+              className="profil-input"
+              onChange={e => setName(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Control
+              type="text"
+              placeholder="E-Mail"
+              name="email"
+              className="profil-input"
+              onChange={e => setEmail(e.target.value)}
+              
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Control
+              type="text"
+              placeholder="Standort"
+              name="standort"
+              className="profil-input"
+              onChange={e => setStandort(e.target.value)}
+             
+            />
+          </Form.Group>
+        </Col>
+        <Col md={6}>
+          <Card className="profil-card">
+            <Card.Body>
+              <Card.Title>Wer wir sind</Card.Title>
+              <Form.Control
+                as="textarea"
+                placeholder="Kurze Beschreibung Ihres Unternehmens."
+                rows={3}
+                name="beschreibung"
+                className="profil-input"
+                onChange={e => setWersw(e.target.value)}
+                
+              />
+            </Card.Body>
+          </Card>
+          <Card className="profil-card">
+            <Card.Body>
+              <Card.Title>Was wir bieten</Card.Title>
+              <Form.Control
+                as="textarea"
+                placeholder="Beschreiben Sie, was Ihr Unternehmen Mitarbeitern bietet."
+                rows={3}
+                name="angebote"
+                className="profil-input"
+                onChange={e => setWaswb(e.target.value)}
+                
+              />
+            </Card.Body>
+          </Card>
+          <Card className="profil-card">
+            <Card.Body>
+              <Card.Title>Karrierechancen</Card.Title>
+              <Form.Control
+                as="textarea"
+                placeholder="Beschreiben Sie die Karriereentwicklungsmöglichkeiten in Ihrem Unternehmen."
+                rows={3}
+                name="karriere"
+                className="profil-input"
+                onChange={e => setKarriere(e.target.value)}
+                
+              />
+            </Card.Body>
+          </Card>
+          <Card className="profil-card">
+            <Card.Body>
+              <Card.Title>Unsere Geschichte</Card.Title>
+              <Form.Control
+                as="textarea"
+                placeholder="Geben Sie einen kurzen Überblick über die Geschichte Ihres Unternehmens."
+                rows={3}
+                name="geschichte"
+                className="profil-input"
+                onChange={e => setGeschichte(e.target.value)}
+                
+              />
+            </Card.Body>
+          </Card>
+          <div className="d-flex justify-content-end mb-3">
+            <Button type="submit" variant="primary" className="speichern-button" onClick={handleProfileCreation} >
+              Speichern
+            </Button>
+          </div>
+          <div className="d-flex justify-content-end mb-3">
+            <Link to='/ProfilePageCompanyStatic'>
+            <Button type="submit" variant="outline-primary" className="speichern-button" onClick={handleProfileCreation} >
+              Profil Vorschau
+            </Button>
+            </Link>
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  );
+  
 };
 
 export default Unternehmensprofil;
