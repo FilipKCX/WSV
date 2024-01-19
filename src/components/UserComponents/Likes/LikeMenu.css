@@ -35,6 +35,7 @@
 }
 
 .like-option:active {
+  border-color: #7289da;
   border-radius: 12px;
 }
 

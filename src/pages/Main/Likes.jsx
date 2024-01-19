@@ -5,22 +5,15 @@ import './Likes.css';
 import LikeWindow from '../../components/UserComponents/Likes/LikeWindow';
 
 const Likes = () => {
-  const [selectedLike, setSelectedLike] = useState('like1');
-
-  const handleLikeSelect = (likeId) => {
-    setSelectedLike(likeId);
-  };
-  
-
   return (
     <>
       <Navibar />
       <div className="like-app-container">
         <div className="like-mmenu">
-          <LikeMenu selectLike={handleLikeSelect} selectedLike={selectedLike} />
+          <LikeMenu/>
         </div>
         <div className="like-window"> 
-          <LikeWindow selectedLike={selectedLike} /> 
+          <LikeWindow/> 
         </div>
       </div>
     </>

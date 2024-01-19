@@ -14,19 +14,10 @@ function LikeWindow ({ selectedLike }) {
 
   return (
     <div className="like-window">
-      {selectedContent ? (
-        <div className="like-content">
-          {selectedContent.id === 'like1' ? (
+
+        <div className="like-content">     
             <ProfilePageCompanyStatic/>
-          ) : (
-            <p>{selectedContent.content}</p>
-          )}
         </div>
-      ) : (
-        <div className="no-content">
-          <p>No content selected</p>
-        </div>
-      )}
     </div>
   );
 };
