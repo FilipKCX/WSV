@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import './LikeWindow.css';
-import ProfilePageCompanyStatic from '../../../pages/MainCompany/ProfilePageCompanyStatic';
+import ProfilePageCompanyStatic from '../../CompanyComponents/ProfilAnsichtCompany/ProfileViewStatic';
 
 function LikeWindow ({ selectedLike }) {
 
