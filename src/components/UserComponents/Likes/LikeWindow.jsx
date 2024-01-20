@@ -1,30 +1,37 @@
-import React from 'react';
-import './LikeWindow.css'; 
+import React, { useState, useEffect } from 'react';
+import { getHTTPRequest } from '../../serverPackage';
 
 const LikeWindow = ({ selectedLike }) => {
-  
-  const likedContent = [
-    { id: 'like1', content: 'Liked Content 1' },
-    { id: 'like2', content: 'Liked Content 2' },
-    
-  ];
 
-  
-  const selectedContent = likedContent.find((item) => item.id === selectedLike);
+  const fetchLikeContent = async (likeId) => {
+    const response = await getHTTPRequest("getCompanyInfo", likeId);
+    const likeContent = JSON.parse(response);
+    console.log(likeContent)
+    return likeContent;
+  };
 
-  return (
-    <div className="like-window">
-      {selectedContent ? (
+  const selectedContent = likeItems.find((item) => item.id === selectedLike);
+
+  const renderLikeContent = async () => {
+    if (selectedContent) {
+      const likeContentData = await fetchLikeContent(selectedContent.id);
+      return (
         <div className="like-content">
-         
-          <p>{selectedContent.content}</p>
+          <p>{likeContentData.content}</p>
         </div>
-      ) : (
+      );
+    } else {
+      return (
         <div className="no-content">
           <p>No content selected</p>
         </div>
-      )}
+      );
+    }
+  };
 
+  return (
+    <div className="like-window">
+      {renderLikeContent()}
     </div>
   );
 };

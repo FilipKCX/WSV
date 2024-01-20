@@ -1,5 +1,3 @@
-import { common } from "@mui/material/colors";
-
 const getHTTPRequest = async (command, paramArray) => {
   let StringParams = "";
   if(paramArray != null)
@@ -29,12 +27,7 @@ const getHTTPRequest = async (command, paramArray) => {
 
 };
 
-const getDataMain = () => {
-  return 4;
-}
-
-
 export { getHTTPRequest }; 
-export { getDataMain };
+
 
 

@@ -1,35 +1,67 @@
-import React from 'react';
-import './LikeMenu.css'; 
+import React, { useState, useEffect } from 'react';
+import { getHTTPRequest } from '../../serverPackage';
+import LikeWindow from './LikeWindow';
 
-const LikeMenu = ({ selectLike, selectedLike }) => {
+
+const LikeOptions = ({ selectLike }) => {
+  
   const handleLikeSelect = (likeId) => {
     selectLike(likeId);
   };
 
-  return (
-    <div className="like-menu">
-      <div className="like-options">
-        <div
-          className={`like-option ${selectedLike === 'like1' ? 'active' : ''}`}
-          onClick={() => handleLikeSelect('like1')}
-        >
-          <div className="like-box">
-            <h3>Like 1</h3>
-            <p>Description or preview here...</p>
-          </div>
-        </div>
-        <div
-          className={`like-option ${selectedLike === 'like2' ? 'active' : ''}`}
-          onClick={() => handleLikeSelect('like2')}
-        >
-          <div className="like-box">
-            <h3>Like 2</h3>
-            <p>Description or preview here...</p>
-          </div>
+  const [likeItems, setLikeItems] = useState([]);
+
+  const fetchLikesData = async () => {
+    const uID = sessionStorage.getItem('userID');
+    const response = await getHTTPRequest('getLikes', [uID]);
+    const processedLikes = await processLikes(JSON.parse(response));
+    console.log(processedLikes)
+    setLikeItems(processedLikes);
+  };
+
+  const processLikes = async (likesData) => {
+    const likeItems = [];
+    for (const likeData of likesData) {
+      const companyID = likeData;
+      const companyName = await fetchCompanyName(companyID);
+      const likeItem = {
+        id: likeData,
+        content: companyName,
+      };
+      likeItems.push(likeItem);
+    }
+    return likeItems;
+  };
+
+  async function fetchCompanyName(companyID) {
+    const response = await getHTTPRequest('getCompanyInfox', [companyID]);
+    const companyProfile = JSON.parse(response);
+    return companyProfile[0];
+  }
+
+  useEffect(() => {
+    fetchLikesData();
+  }, []);
+
+  const renderLikeOptions = () => {
+    return likeItems.map((likeItem) => (
+      <div
+        key={likeItem.id}
+        className={`like-option ${likeItems.selectedLike === likeItem.id ? 'active' : ''}`}
+        onClick={() => handleLikeSelect(likeItem.id)}
+      >
+        <div className="like-box">
+          <h3>{likeItem.content}</h3>
         </div>
       </div>
+    ));
+  };
+
+  return (
+    <div className="like-menu">
+      {renderLikeOptions()}
     </div>
   );
 };
 
-export default LikeMenu;
+export default LikeOptions;

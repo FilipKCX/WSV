@@ -5,7 +5,7 @@ import './Likes.css';
 import LikeWindow from '../../components/UserComponents/Likes/LikeWindow';
 
 const Likes = () => {
-  const [selectedLike, setSelectedLike] = useState('like1');
+  const [selectedLike, setSelectedLike] = useState('');
 
   const handleLikeSelect = (likeId) => {
     setSelectedLike(likeId);
