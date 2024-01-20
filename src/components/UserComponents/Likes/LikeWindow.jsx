@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getHTTPRequest } from '../../serverPackage';
+import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap';
+import { Formik, Field, ErrorMessage } from 'formik';
 
 const LikeWindow = ({ selectedLike }) => {
   const [likeContent, setLikeContent] = useState(null);
@@ -29,8 +31,110 @@ const LikeWindow = ({ selectedLike }) => {
   return (
     <div className="like-window">
       {likeContent ? (
-        <div className="like-content">
-          <p>{likeContent} + " aaa"</p>
+        <div className='profil-containerl'>
+        <Container className="profil-containerl">
+          <Row className="justify-content-md-center profil-row">
+            <Col md={6} className="profil-col">
+              <div className="profil-bild-container">
+                <Image src={ "./src/images/" + likeContent[0][8]} roundedCircle className="profil-bild" />
+              </div>
+              <Form.Group>
+                <Form.Control
+                  type="text"
+                  placeholder={likeContent[0][1]}
+                  name={likeContent[0][1]}
+                  className="profil-input"
+                  readOnly
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Control
+                  type="text"
+                  placeholder= {likeContent[0][2]}
+                  name="email"
+                  className="profil-input"
+                  readOnly
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Control
+                  type="text"
+                  placeholder= {likeContent[0][3]}
+                  name="standort"
+                  className="profil-input"
+                  readOnly
+                />
+              </Form.Group>
+            </Col>
+            <Col md={6}>
+              <Card className="profil-card">
+                <Card.Body>
+                  <Card.Title>Wer wir sind</Card.Title>
+                  <Form.Control
+                    as="textarea"
+                    placeholder={likeContent[0][4]}
+                    rows={3}
+                    name="beschreibung"
+                    className="profil-input"
+                    readOnly
+                  />
+                </Card.Body>
+              </Card>
+              <Card className="profil-card">
+                <Card.Body>
+                  <Card.Title>Was wir bieten</Card.Title>
+                  <Form.Control
+                    as="textarea"
+                    placeholder={likeContent[0][5]}
+                    rows={3}
+                    name="angebote"
+                    className="profil-input"
+                    readOnly
+                  />
+                </Card.Body>
+              </Card>
+              <Card className="profil-card">
+                <Card.Body>
+                  <Card.Title>Karrierechancen</Card.Title>
+                  <Form.Control
+                    as="textarea"
+                    placeholder= {likeContent[0][6]}
+                    rows={3}
+                    name="karriere"
+                    className="profil-input"
+                    readOnly
+                  />
+                </Card.Body>
+              </Card>
+              <Card className="profil-card">
+                <Card.Body>
+                  <Card.Title>Unsere Geschichte</Card.Title>
+                  <Form.Control
+                    as="textarea"
+                    placeholder={likeContent[0][7]}
+                    rows={3}
+                    name="geschichte"
+                    className="profil-input"
+                    readOnly
+                  />
+                </Card.Body>
+              </Card>
+             
+        
+            </Col>
+            <div style={{ backgroundColor: 'lightgray', height: '100px', width: '100%'}}>
+           <div className='d-flex justify-content-center align-items-center'>
+              <Button>
+                 </Button>
+                <Button variant="danger" className="round-btn">
+                </Button>
+                </div>
+          </div>
+            
+          </Row>
+          
+        </Container>
+        
         </div>
       ) : (
         <div className="no-content">

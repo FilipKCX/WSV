@@ -30,3 +30,115 @@
     flex: 1;
     margin-right: 10px; 
   }
+  .like-window {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .profil-container{
+    max-width: 500px;
+  }
+  
+  .round-btn {
+    margin-top: 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    background-color: transparent;
+    border: none;
+    font-size: 50px;
+    margin-right: 200px;
+  }
+  
+  .round-btn:hover {
+    background-color: transparent;
+  }
+  
+  .round-btn:last-child {
+    margin-right: 0;
+  }
+  
+  
+  .profil-container {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      background-color: #f4f4f4; /* Hintergrundfarbe des Containers */
+      min-height: 100vh;
+  }
+  
+  .profil-row {
+      background-color: #fff; /* Hintergrundfarbe der Zeile */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+      border-radius: 10px; 
+      overflow: hidden;
+      min-height: 100vh;
+  }
+  
+  /* Styling für das Logo-Container */
+  .profil-bild-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #eaeaea; 
+    cursor: pointer; 
+    position: relative;
+  }
+  
+  /* Styling für den Klick-Hinweis */
+  .profil-bild-container div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #007bff; /* Farbe des Klick-Hinweises */
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 5px;
+    border-radius: 5px;
+    display: none; /* Standardmäßig versteckt */
+  }
+  
+  /* Zeigt den Klick-Hinweis beim Hover an */
+  .profil-bild-container:hover div {
+    display: block;
+  }
+  
+  /* Styling für das Unternehmenslogo */
+  .profil-bild {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border: 3px solid #007bff; 
+  }
+  
+  /* Styling für die Karten */
+  .profil-card {
+      margin-bottom: 20px;
+      transition: transform 0.3s ease; /* Übergangseffekt für Hover */
+  }
+  
+  /* Hover-Effekt für Karten */
+  .profil-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
+  }
+  
+  /* Styling für Eingabefelder */
+  .profil-input {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    width: 100%; 
+    box-sizing: border-box; 
+    color: grey; 
+  }
+  
+  /* Stil für den Platzhaltertext */
+  .profil-input::placeholder {
+    color: grey; 
+  }
+  
+  /* Stil für den Text, wenn der Benutzer anfängt zu schreiben */
+  .profil-input:focus {
+    color: black; /* Farbe des Textes bei Fokus */
+  }

@@ -44,11 +44,11 @@ const LikeOptions = ({ selectLike }) => {
     fetchLikesData();
   }, []);
 
-  const renderLikeOptions = () => {
+  const renderLikeOptions =  () => {
     return likeItems.map((likeItem) => (
       <div
         key={likeItem.id}
-        className={`like-option ${likeItems.selectedLike === likeItem.id ? 'active' : ''}`}
+        className={`like-option ${sessionStorage.getItem('selectedLike') == likeItem.id ? 'active' : ''}`}
         onClick={() => handleLikeSelect(likeItem.id)}
       >
         <div className="like-box">
