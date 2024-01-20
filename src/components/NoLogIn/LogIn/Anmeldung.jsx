@@ -56,8 +56,9 @@ async function handleLogInRequest() {
     return;
   }    
   sessionStorage.setItem('userID', apiResponse);
-
-  if ( sessionStorage.getItem('isUser') == "1") {
+  const apiResponse2 = await getHTTPRequest("getIsUser", [apiResponse])
+  console.log(apiResponse2)
+  if ( apiResponse2 == "1") {
     navigate("/HomeUser");
   }
   else

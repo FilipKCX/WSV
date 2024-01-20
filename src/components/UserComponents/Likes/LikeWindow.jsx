@@ -2,36 +2,41 @@ import React, { useState, useEffect } from 'react';
 import { getHTTPRequest } from '../../serverPackage';
 
 const LikeWindow = ({ selectedLike }) => {
+  const [likeContent, setLikeContent] = useState(null);
 
-  const fetchLikeContent = async (likeId) => {
-    const response = await getHTTPRequest("getCompanyInfo", likeId);
-    const likeContent = JSON.parse(response);
-    console.log(likeContent)
-    return likeContent;
-  };
+  useEffect(() => {
+    const fetchLikeContent = async (likeId) => {
+      try {
+        const response = await getHTTPRequest("getCompanyInfos", [likeId]);
+        const parsedContent = JSON.parse(response);
+        setLikeContent(parsedContent);
+      } catch (error) {
+        console.error('Error fetching like content:', error);
+        setLikeContent(null);
+      }
+    };
 
-  const selectedContent = likeItems.find((item) => item.id === selectedLike);
-
-  const renderLikeContent = async () => {
-    if (selectedContent) {
-      const likeContentData = await fetchLikeContent(selectedContent.id);
-      return (
-        <div className="like-content">
-          <p>{likeContentData.content}</p>
-        </div>
-      );
+    const selectedContent = sessionStorage.getItem('selectedLike');
+    
+    if (selectedContent != null && selectedContent !== (selectedLike +2 ).toString()) {
+      fetchLikeContent(selectedContent);
     } else {
-      return (
-        <div className="no-content">
-          <p>No content selected</p>
-        </div>
-      );
+      // Reset likeContent when no content is selected
+      setLikeContent(null);
     }
-  };
+  }, [selectedLike]);
 
   return (
     <div className="like-window">
-      {renderLikeContent()}
+      {likeContent ? (
+        <div className="like-content">
+          <p>{likeContent}</p>
+        </div>
+      ) : (
+        <div className="no-content">
+          <p>No content selected</p>
+        </div>
+      )}
     </div>
   );
 };
