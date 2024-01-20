@@ -25,12 +25,12 @@ const LikeWindow = ({ selectedLike }) => {
       setLikeContent(null);
     }
   }, [selectedLike]);
-
+  console.log(likeContent)
   return (
     <div className="like-window">
       {likeContent ? (
         <div className="like-content">
-          <p>{likeContent}</p>
+          <p>{likeContent} + " aaa"</p>
         </div>
       ) : (
         <div className="no-content">
