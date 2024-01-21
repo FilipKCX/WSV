@@ -4,20 +4,43 @@ import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap'
 import { Formik, Field, ErrorMessage } from 'formik';
 
 const LikeWindow = ({ selectedLike }) => {
+
   const [likeContent, setLikeContent] = useState(null);
+  let params = [sessionStorage.getItem('userID'),sessionStorage.getItem('selectedLike') ]
+
+    const handleChatLike = () => {
+      const AddChat = getHTTPRequest("addChats", params)
+      const freeemeee = getHTTPRequest("deleteLike", params)
+      setLikeContent(null)
+    }
+    const handleChatDislike = () => {
+      const AddChat = getHTTPRequest("deleteLike", params)
+      setLikeContent(null)
+    } 
 
   useEffect(() => {
     const fetchLikeContent = async (likeId) => {
       try {
+        if(sessionStorage.getItem('leere') != 0)
+        {
         const response = await getHTTPRequest("getCompanyInfos", [likeId]);
         const parsedContent = JSON.parse(response);
         setLikeContent(parsedContent);
+        }
+        else{
+          setLikeContent(null)
+        }
+
       } catch (error) {
         console.error('Error fetching like content:', error);
         setLikeContent(null);
       }
     };
 
+
+    
+
+    
     const selectedContent = sessionStorage.getItem('selectedLike');
     
     if (selectedContent != null && selectedContent !== (selectedLike +2 ).toString()) {
@@ -124,9 +147,9 @@ const LikeWindow = ({ selectedLike }) => {
             </Col>
             <div style={{ backgroundColor: 'lightgray', height: '100px', width: '100%'}}>
            <div className='d-flex justify-content-center align-items-center'>
-              <Button>
+              <Button className='round-btn' onClick={handleChatLike}> 
                  </Button>
-                <Button variant="danger" className="round-btn">
+                <Button variant="danger" className="round-btn" onClick={handleChatDislike}>
                 </Button>
                 </div>
           </div>

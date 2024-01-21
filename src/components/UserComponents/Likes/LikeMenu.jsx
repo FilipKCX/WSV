@@ -15,6 +15,13 @@ const LikeOptions = ({ selectLike }) => {
   const fetchLikesData = async () => {
     const uID = sessionStorage.getItem('userID');
     const response = await getHTTPRequest('getLikes', [uID]);
+    if(response == "None")
+    {
+      sessionStorage.setItem('leere', 0)
+    }
+    else{
+      sessionStorage.setItem('leere', 1)
+    }
     const processedLikes = await processLikes(JSON.parse(response));
     console.log(processedLikes)
     setLikeItems(processedLikes);
@@ -45,6 +52,8 @@ const LikeOptions = ({ selectLike }) => {
   }, []);
 
   const renderLikeOptions =  () => {
+    const selectedLikeId = sessionStorage.getItem('selectedLike');
+    console.log(selectedLikeId)
     return likeItems.map((likeItem) => (
       <div
         key={likeItem.id}
