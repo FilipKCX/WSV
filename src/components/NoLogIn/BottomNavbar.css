@@ -1,13 +1,11 @@
 .bottomnav{
     color: black;
-    position: absolute;
-    bottom: 10px;
+    position: relative;
     height: 30px;
     display: flex;
     justify-content: center;
     width: 100%;
     gap: 30px;
-   
   }
  
   .bottom a{

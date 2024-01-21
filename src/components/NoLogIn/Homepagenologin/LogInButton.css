@@ -5,7 +5,7 @@
     background-color: #ffffff !important;
     color: #0074cc !important;
     font-size: 18px !important;
-    position: fixed;
+    position: absolute;
     right: 300px; 
     top: 30px;
   }

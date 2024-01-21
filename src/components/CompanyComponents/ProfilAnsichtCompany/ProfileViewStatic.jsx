@@ -6,130 +6,77 @@ import React, { useState, useEffect } from 'react';
 import { getHTTPRequest } from '../../serverPackage';
 import { Link } from 'react-router-dom';
 
-const Unternehmensprofil = () => {
-  const [CmProfile, setCmProfile] = useState([]);
+const ProfilePage = () => {
+  return (
+    <Container className="profile-container">
+  
+      <div className="left-aligned-content">
+        <Image
+          src="https://img.freepik.com/vektoren-premium/blaues-social-media-logo_197792-1759.jpg"  
+          alt="Profile"
+          roundedCircle
+          style={{
+            width: '200px',
+             height: '200px',
+  
+          }}
+        />
+        <h2 className="mt-0">John Doe</h2>
+        <Card className="mt-4" style={{ width: '1000px' }}>
+          <Card.Body>
+            <Card.Title>Kontakt</Card.Title>
+            <Card.Text>
+              E-Mail: <br/>
+              Telefon: <br/>
+              Standort:
+            </Card.Text>
+          </Card.Body>
+        </Card>
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const userId = sessionStorage.getItem('userID')
-      console.log(userId);
-      const param = [userId];
-      const apiResponse = await getHTTPRequest("getCompanyInfos", param);
-      const sortArray = JSON.parse(apiResponse);
-      const selectedArray = sortArray[0];
+        <Card className="mt-3" style={{ width: '1000px' }}>
+          <Card.Body>
+            <Card.Title>Beschreibung</Card.Title>
+            <Card.Text>
+              Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+            </Card.Text>
+          </Card.Body>
+        </Card>
 
-      // Extract student data into a single object
-      const studentData = {
-        uID: selectedArray[0],
-        name: selectedArray[1],
-        email: selectedArray[2],
-        standort: selectedArray[3],
-        wws: selectedArray[4],
-        wwb: selectedArray[5],
-        karriere: selectedArray[6],
-        geschihte: selectedArray[7],
-        logo: selectedArray[8],
-       
-      };
-  const logo = "./src/imagess/" + studentData.logo
-  const cprofile = (
-    <Container className="profil-container">
-      <Row className="justify-content-md-center profil-row">
-        <Col md={6} className="profil-col">
-          <div className="profil-bild-container">
-            <Image src={logo || "platzhalter-bild-url.jpg"} roundedCircle className="profil-bild" />
-          </div>
-          <Form.Group>
-            <Form.Control
-              type="text"
-              placeholder={studentData.name}
-              name="unternehmensName"
-              className="profil-input"
-              readOnly
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Control
-              type="text"
-              placeholder={studentData.email}
-              name="email"
-              className="profil-input"
-              readOnly
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Control
-              type="text"
-              placeholder={studentData.standort}
-              name="standort"
-              className="profil-input"
-              readOnly
-            />
-          </Form.Group>
-        </Col>
-        <Col md={6}>
-          <Card className="profil-card">
-            <Card.Body>
-              <Card.Title>Wer wir sind</Card.Title>
-              <Form.Control
-                as="textarea"
-                placeholder={studentData.wws}
-                rows={3}
-                name="beschreibung"
-                className="profil-input"
-                readOnly
-              />
-            </Card.Body>
-          </Card>
-          <Card className="profil-card">
-            <Card.Body>
-              <Card.Title>Was wir bieten</Card.Title>
-              <Form.Control
-                as="textarea"
-                placeholder={studentData.wwb}
-                rows={3}
-                name="angebote"
-                className="profil-input"
+        <Card className="mt-4" style={{ width: '1000px' }}>
+          <Card.Body>
+            <Card.Title>Was wir bieten:</Card.Title>
+            <Card.Text>
+              With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+            </Card.Text>
+          </Card.Body>
+        </Card>
 
-                readOnly
-              />
-            </Card.Body>
-          </Card>
-          <Card className="profil-card">
-            <Card.Body>
-              <Card.Title>Karrierechancen</Card.Title>
-              <Form.Control
-                as="textarea"
-                placeholder={studentData.karriere}
-                rows={3}
-                name="karriere"
-                className="profil-input"
-                readOnly
-              />
-            </Card.Body>
-          </Card>
-          <Card className="profil-card">
-            <Card.Body>
-              <Card.Title>Unsere Geschichte</Card.Title>
-              <Form.Control
-                as="textarea"
-                placeholder={studentData.geschihte}
-                rows={3}
-                name="geschichte"
-                className="profil-input"
-                readOnly
-              />
-            </Card.Body>
-          </Card>
-          <div className="d-flex justify-content-end mb-3">
-            <Link to='/ProfilePageCompany'>
-            <Button type="submit" variant="primary" className="speichern-button" >
-              Zurück
-            </Button>
-            </Link>
-          </div>
-        </Col>
-      </Row>
+      <Card className="mt-4" style={{ width: '1000px' }}>
+          <Card.Body>
+            <Card.Title>Unsere Geschichte</Card.Title>
+            <Card.Text>
+              With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+
+        <Card className="mt-3" style={{ width: '1000px' }}>
+          <Card.Body>
+            <Card.Title>Karrierechancen</Card.Title>
+            <Card.Text>
+              Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </div>
+     
+      <div className="pvsbuttus mb-3">
+                  <Link to='/ProfilePageCompany'>
+                    <Button variant="primary">
+                        Zurück
+                    </Button>
+                    </Link>
+                </div>
     </Container>
   );
   setCmProfile(cprofile);
@@ -140,4 +87,4 @@ const Unternehmensprofil = () => {
   return CmProfile
 };
 
-export default Unternehmensprofil;
+export default ProfilePage;

@@ -75,123 +75,80 @@ function LikeWindow ({ selectedLike }) {
   
   const selectedContent = likedContent.find((item) => item.id === selectedLike);
 
-  return (
-    
-    <div className='profil-containerl'>
-    <Container className="profil-containerl">
-      <Row className="justify-content-md-center profil-row">
-        <Col md={6} className="profil-col">
-          <div className="profil-bild-container">
-            <Image src={selectedImagePath || "platzhalter-bild-url.jpg"} roundedCircle className="profil-bild" />
-          </div>
-          <Form.Group>
-            <Form.Control
-              type="text"
-              placeholder="Unternehmensname"
-              name="unternehmensName"
-              className="profil-input"
-              onChange={e => setName(e.target.value)}
-              readOnly
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Control
-              type="text"
-              placeholder="E-Mail"
-              name="email"
-              className="profil-input"
-              onChange={e => setEmail(e.target.value)}
-              readOnly
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Control
-              type="text"
-              placeholder="Standort"
-              name="standort"
-              className="profil-input"
-              onChange={e => setStandort(e.target.value)}
-              readOnly
-            />
-          </Form.Group>
-        </Col>
-        <Col md={6}>
-          <Card className="profil-card">
-            <Card.Body>
-              <Card.Title>Wer wir sind</Card.Title>
-              <Form.Control
-                as="textarea"
-                placeholder="Kurze Beschreibung Ihres Unternehmens."
-                rows={3}
-                name="beschreibung"
-                className="profil-input"
-                onChange={e => setWersw(e.target.value)}
-                readOnly
-              />
-            </Card.Body>
-          </Card>
-          <Card className="profil-card">
-            <Card.Body>
-              <Card.Title>Was wir bieten</Card.Title>
-              <Form.Control
-                as="textarea"
-                placeholder="Beschreiben Sie, was Ihr Unternehmen Mitarbeitern bietet."
-                rows={3}
-                name="angebote"
-                className="profil-input"
-                onChange={e => setWaswb(e.target.value)}
-                readOnly
-              />
-            </Card.Body>
-          </Card>
-          <Card className="profil-card">
-            <Card.Body>
-              <Card.Title>Karrierechancen</Card.Title>
-              <Form.Control
-                as="textarea"
-                placeholder="Beschreiben Sie die Karriereentwicklungsmöglichkeiten in Ihrem Unternehmen."
-                rows={3}
-                name="karriere"
-                className="profil-input"
-                onChange={e => setKarriere(e.target.value)}
-                readOnly
-              />
-            </Card.Body>
-          </Card>
-          <Card className="profil-card">
-            <Card.Body>
-              <Card.Title>Unsere Geschichte</Card.Title>
-              <Form.Control
-                as="textarea"
-                placeholder="Geben Sie einen kurzen Überblick über die Geschichte Ihres Unternehmens."
-                rows={3}
-                name="geschichte"
-                className="profil-input"
-                onChange={e => setGeschichte(e.target.value)}
-                readOnly
-              />
-            </Card.Body>
-          </Card>
-         
-    
-        </Col>
-        <div style={{ backgroundColor: 'lightgray', height: '100px', width: '100%'}}>
-       <div className='d-flex justify-content-center align-items-center'>
-          <Button variant="primary" className="round-btn">
-            <span role="img" aria-label="heart">&#10084;</span>
-             </Button>
-            <Button variant="danger" className="round-btn">
-            <span role="img" aria-label="x">&#10060;</span>
-            </Button>
-            </div>
-      </div>
-        
-      </Row>
-      
-    </Container>
+return (
+  <Container className="profile-containerlike">
+    <div className="left-aligned-content">
+      <Image
+        src="https://img.freepik.com/vektoren-premium/blaues-social-media-logo_197792-1759.jpg"  
+        alt="Profile"
+        roundedCircle
+        style={{
+          width: '200px',
+           height: '200px',
+        }}
+      />
+      <h2 className="mt-0">John Doe</h2>
+      <Card className="mt-4" style={{ width: '1000px' }}>
+        <Card.Body>
+          <Card.Title>Kontakt</Card.Title>
+          <Card.Text>
+            E-Mail: <br/>
+            Telefon: <br/>
+            Standort:
+          </Card.Text>
+        </Card.Body>
+      </Card>
+
+      <Card className="mt-3" style={{ width: '1000px' }}>
+        <Card.Body>
+          <Card.Title>Beschreibung</Card.Title>
+          <Card.Text>
+            Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+          </Card.Text>
+        </Card.Body>
+      </Card>
+
+      <Card className="mt-4" style={{ width: '1000px' }}>
+        <Card.Body>
+          <Card.Title>Was wir bieten:</Card.Title>
+          <Card.Text>
+            With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+          </Card.Text>
+        </Card.Body>
+      </Card>
+
+    <Card className="mt-4" style={{ width: '1000px' }}>
+        <Card.Body>
+          <Card.Title>Unsere Geschichte</Card.Title>
+          <Card.Text>
+            With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+          </Card.Text>
+        </Card.Body>
+      </Card>
+
+      <Card className="mt-3" style={{ width: '1000px' }}>
+        <Card.Body>
+          <Card.Title>Karrierechancen</Card.Title>
+          <Card.Text>
+            Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    </div>
+   
+    <div className="text-left">
     
     </div>
-  );
+    <div className="text-center mt-4 mb-3">
+        <Button variant="success" size="lg" className="mr-5" style={{ backgroundColor: '#39e75f', borderColor: '#39e75f' }}>
+          Like
+        </Button>
+        <Button variant="danger" size="lg">
+          Dislike
+        </Button>
+      </div>
+  </Container>
+);
 };
 
 export default LikeWindow;

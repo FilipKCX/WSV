@@ -4,27 +4,9 @@
   height: 100%;
 }
 
-.profil-container{
-  max-width: 500px;
-}
-
-.round-btn {
-  margin-top: 10px;
-  width: 80px;
-  height: 80px;
-  border-radius: 100%;
-  background-color: transparent;
-  border: none;
-  font-size: 50px;
-  margin-right: 200px;
-}
-
-.round-btn:hover {
-  background-color: transparent;
-}
-
-.round-btn:last-child {
-  margin-right: 0;
+.profile-containerlike{
+  border: 2px solid #ddd; /* Light gray border */
+  border-radius: 15px; /* Rounded corners */
 }
 
 

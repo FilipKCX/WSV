@@ -10,8 +10,8 @@
     transform: translate(-50%, -60%);
     font-weight: lighter;
     text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 400px;
+    position: relative;
   }
   
   .anmeldung-container h1 {

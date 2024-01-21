@@ -5,7 +5,6 @@ import { Button, Form } from 'react-bootstrap';
 import { useState } from 'react';
 import { getHTTPRequest } from '/src/components/serverPackage';
 import { useNavigate } from "react-router-dom";
-import { Formik, Field, ErrorMessage } from 'formik';
 
 
 const Anmeldung = () => {

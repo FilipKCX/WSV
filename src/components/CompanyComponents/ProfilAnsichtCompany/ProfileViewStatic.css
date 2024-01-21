@@ -1,97 +1,23 @@
-.profil-container {
-  padding-top: 0px;
-  padding-bottom: 0px;
-  background-color: #f4f4f4; /* Hintergrundfarbe des Containers */
-  min-height: 100vh;
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #ddd; /* Light gray border */
+  border-radius: 15px; /* Rounded corners */
+  overflow: hidden; /* Ensure rounded corners are visible */
+  margin-top: 10px;
+  width: calc(100% - 430px); /* Adjust the width by subtracting the total left and right margins (40px in this case) */
 }
 
-.profil-row {
-  background-color: #fff; /* Hintergrundfarbe der Zeile */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-  border-radius: 10px; 
-  overflow: hidden;
-  min-height: 100vh;
+.left-aligned-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.pvsbuttus{
+  display: flex;
+  flex-direction: end;
+  align-items: flex-end;
 }
 
-/* Styling für das Logo-Container */
-.profil-bild-container {
-text-align: center;
-padding: 20px;
-background-color: #eaeaea; 
-cursor: pointer; 
-position: relative;
-}
-
-/* Styling für den Klick-Hinweis */
-.profil-bild-container div {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-color: #007bff; /* Farbe des Klick-Hinweises */
-background-color: rgba(255, 255, 255, 0.8); 
-padding: 5px;
-border-radius: 5px;
-display: none; /* Standardmäßig versteckt */
-}
-
-/* Zeigt den Klick-Hinweis beim Hover an */
-.profil-bild-container:hover div {
-display: block;
-}
-
-/* Styling für das Unternehmenslogo */
-.profil-bild {
-width: 180px;
-height: 180px;
-object-fit: cover;
-border: 3px solid #007bff; 
-}
-
-/* Styling für die Karten */
-.profil-card {
-  margin-bottom: 20px;
-  transition: transform 0.3s ease; /* Übergangseffekt für Hover */
-}
-
-/* Hover-Effekt für Karten */
-.profil-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
-}
-
-/* Styling für Eingabefelder */
-.profil-input {
-padding: 10px;
-margin: 5px 0;
-border: 1px solid #ccc; 
-border-radius: 5px; 
-width: 100%; 
-box-sizing: border-box; 
-color: grey; 
-}
-
-/* Stil für den Platzhaltertext */
-.profil-input::placeholder {
-color: grey; 
-}
-
-/* Stil für den Text, wenn der Benutzer anfängt zu schreiben */
-.profil-input:focus {
-color: black; /* Farbe des Textes bei Fokus */
-}
-/* 
-.speichern-button {
-background-color: #0074cc !important;
-color: white !important;
-padding: 10px !important;
-border-radius: 20px !important;
-width: 100% !important;
-font-size: 20px !important;
-margin-bottom: 10px;
-}
-
-.speichern-button:hover {
-background-color: #fff !important;
-color: #0074cc !important;
-} */

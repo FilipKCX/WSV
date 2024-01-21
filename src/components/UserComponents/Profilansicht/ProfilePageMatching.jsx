@@ -17,44 +17,44 @@ const Profilansicht = () => {
   });
 
   // Funktion zum Umschalten der Verfügbarkeit
-  const toggleVerfuegbarkeit = (tag) => {
-    setVerfuegbarkeit(prevState => ({
-      ...prevState,
-      [tag]: {
-        ...prevState[tag],
-        available: !prevState[tag].available
-      }
-    }));
-  };
+  // const toggleVerfuegbarkeit = (tag) => {
+  //   setVerfuegbarkeit(prevState => ({
+  //     ...prevState,
+  //     [tag]: {
+  //       ...prevState[tag],
+  //       available: !prevState[tag].available
+  //     }
+  //   }));
+  // };
 
   // Funktion um Stundenanzahl zu aktualisieren
-  const handleChangeHours = (tag, value) => {
-    const hours = Number(value); // Stellt sicher, dass die Eingabe als Zahl gespeichert wird
-    setVerfuegbarkeit(prevState => ({
-      ...prevState,
-      [tag]: {
-        ...prevState[tag],
-        hours: hours >= 0 ? hours : 0 // Verhindert negative Stundenanzahlen
-      }
-    }));
-  };
+  // const handleChangeHours = (tag, value) => {
+  //   const hours = Number(value); // Stellt sicher, dass die Eingabe als Zahl gespeichert wird
+  //   setVerfuegbarkeit(prevState => ({
+  //     ...prevState,
+  //     [tag]: {
+  //       ...prevState[tag],
+  //       hours: hours >= 0 ? hours : 0 // Verhindert negative Stundenanzahlen
+  //     }
+  //   }));
+  // };
 
   // Funktion um zu verhindern, dass Zahlen bei "Stunden" eingegeben werden können
-  const handleKeyDown = (e) => {
-    // Erlaube nur das Benutzen der Pfeiltasten
-    if (e.key !== "ArrowUp" && e.key !== "ArrowDown") {
-      e.preventDefault();
-    }
-  };
+  // const handleKeyDown = (e) => {
+  //   // Erlaube nur das Benutzen der Pfeiltasten
+  //   if (e.key !== "ArrowUp" && e.key !== "ArrowDown") {
+  //     e.preventDefault();
+  //   }
+  // };
 
-  useEffect(() => {
-    const fetchData = async () => {
+  // useEffect(() => {
+  //   const fetchData = async () => {
       const userId = sessionStorage.getItem('selectedProfile')
-      console.log(userId);
-      const param = [userId];
-      const apiResponse = await getHTTPRequest("getProfileInfo", param);
-      const sortArray = JSON.parse(apiResponse);
-      const selectedArray = sortArray[0];
+  //     console.log(userId);
+  //     const param = [userId];
+  //     const apiResponse = await getHTTPRequest("getProfileInfo", param);
+  //     const sortArray = JSON.parse(apiResponse);
+  //     const selectedArray = sortArray[0];
 
       // Extract student data into a single object
       const studentData = {
@@ -74,109 +74,87 @@ const Profilansicht = () => {
       };
   const logo = "./src/imagess/" + studentData.Logo
   const profile = (
-    <Container className="profil-container">
-        <Row className="justify-content-md-center profil-row">
-            <Col md={6} className="profil-col">
-                <div className="profil-bild-container">
-                    <Image
-                        src={logo}
-                        roundedCircle
-                        className="profil-bild"
-                    />
-                    {/* <div>Klicken, um Foto hinzuzufügen</div> */}
-                </div>
-                <Form.Group>
-                    <div className="profil-input-static">{studentData.name || "Name"}</div>
-                </Form.Group>
-                <Form.Group>
-                    <div className="profil-input-static">{"E-Mail: " +studentData.email || "E-Mail"}</div>
-                </Form.Group>
-                <Form.Group>
-                    <div className="profil-input-static">{"Telefonnummer: " +studentData.telefon || "Telefonnummer"}</div>
-                </Form.Group>
-                <Form.Group>
-                    <div className="profil-input-static">{"Abschluss: " +studentData.abschluss || "Abschluss"}</div>
-                </Form.Group>
-                <Form.Group>
-                    <div className="profil-input-static">{"Studium: " +studentData.studium || "Studiengang"}</div>
-                </Form.Group>
-                <Form.Group>
-                    <div className="profil-input-static">{ "Semester: " + studentData.semester  || "Aktuelles Semester"}</div>
-                </Form.Group>
-                <Form.Group>
-                    <div className="profil-input-static">{"Berufserfahrung in Jahren: " + studentData.berufserf || "Berufserfahrung (in Jahren)"}</div>
-                </Form.Group>
-                <Form.Group>
-                    <div className="profil-input-static">{"Meine Skills: " +studentData.skills || <>Ihre Fähigkeiten (Mindestens 3 Sätze)<br />Zweite Zeile der Fähigkeiten.<br />Dritte Zeile der Fähigkeiten.</>}</div>
-                </Form.Group>
-            </Col>
-            <Col md={6}>
-                <Card className="profil-card">
-                    <Card.Body>
-                        <Card.Title>Profilbeschreibung</Card.Title>
-                        <div className="profil-input-static">
-                            {studentData.profilb || <>Hier kommt Ihre Profilbeschreibung hin.<br /> Zweite Zeile der Profilbeschreibung <br />Dritte Zeile der Profilbeschreibung.</>}
-                        </div>
-                    </Card.Body>
-                </Card>
-                <Card className="profil-card">
-                    <Card.Body>
-                        <Card.Title>Werdegang</Card.Title>
-                        <div className="profil-input-static">
-                            {studentData.werdeg || <>Hier können Sie Ihren beruflichen Werdegang darstellen.<br />Zweite Zeile des Werdegangs.<br />Dritte Zeile des Werdegangs.</>}
-                        </div>
-                    </Card.Body>
-                </Card>
-                <Card className="profil-card">
-                  <Card.Body>
-                    <Card.Title>Verfügbarkeit</Card.Title>
-                    <Table responsive>
-                      <thead>
-                        <tr>
-                          <th>Wochentag</th>
-                          <th className="th-verfuegbar">Verfügbar</th>
-                          <th>Stunden</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {Object.keys(verfuegbarkeit).map(tag => (
-                          <tr key={tag}>
-                            <td>{tag.charAt(0).toUpperCase() + tag.slice(1)}</td>
-                            <td className="td-verfuegbar">
-                              <div className="form-check">
-                                <Form.Check
-                                  type="checkbox"
-                                  checked={verfuegbarkeit[tag].available}
-                                  onChange={() => toggleVerfuegbarkeit(tag)}
-                                  disabled
-                                />
-                              </div>
-                            </td>
-                            <td>
-                              <Form.Control
-                                type="number"
-                                value={verfuegbarkeit[tag].hours}
-                                onChange={e => handleChangeHours(tag, e.target.value)}
-                                onKeyDown={handleKeyDown}
-                                disabled={!verfuegbarkeit[tag].available}
-                                readOnly
-                              />
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </Table>
-                  </Card.Body>
-                </Card>
-                <div className="pvsbutt mb-3">
+    <Container className="profile-container">
+  
+      <div className="left-aligned-content">
+        <Image
+          src="https://img.freepik.com/vektoren-premium/blaues-social-media-logo_197792-1759.jpg"  
+          alt="Profile"
+          roundedCircle
+          style={{
+            width: '200px',
+             height: '200px',
+  
+          }}
+        />
+        <h2 className="mt-0">John Doe</h2>
+        <Card className="mt-4" style={{ width: '1000px' }}>
+          <Card.Body>
+            <Card.Title>Kontakt</Card.Title>
+            <Card.Text>
+              E-Mail: <br/>
+              Telefon: <br/>
+              Standort:
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card className="mt-4" style={{ width: '1000px' }}>
+          <Card.Body>
+            <Card.Title>Info</Card.Title>
+            <Card.Text>
+              Abschluss: <br/>
+              Studiengang: <br/>
+              Semester:<br/>
+              Berufserfahrung (in Jahren):
+            </Card.Text>
+          </Card.Body>
+        </Card>
+
+        <Card className="mt-3" style={{ width: '1000px' }}>
+          <Card.Body>
+            <Card.Title>Fähigkeiten</Card.Title>
+            <Card.Text>
+              Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+
+        <Card className="mt-4" style={{ width: '1000px' }}>
+          <Card.Body>
+            <Card.Title>Profilbeschreibung</Card.Title>
+            <Card.Text>
+              With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+
+      <Card className="mt-4" style={{ width: '1000px' }}>
+          <Card.Body>
+            <Card.Title>Werdegang</Card.Title>
+            <Card.Text>
+              With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+
+        <Card className="mt-3" style={{ width: '1000px' }}>
+          <Card.Body>
+            <Card.Title>Verfügbarkeit</Card.Title>
+            <Card.Text>
+              Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+            </Card.Text>
+          </Card.Body>
+        </Card>
+      </div>
+     
+      
+      <div className="pvsbuttus mb-3">
                   <Link to='/Matching'>
                     <Button variant="primary">
                         Zurück
                     </Button>
                     </Link>
                 </div>
-            </Col>
-        </Row>
     </Container>
   );
       setIsLoading(false);
