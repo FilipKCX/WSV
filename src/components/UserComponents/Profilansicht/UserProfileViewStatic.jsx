@@ -45,34 +45,33 @@ const Profilansicht = () => {
     }
   };
 
-  // const saveProfile = () => {
-  //   console.log('Speichern der Profildaten...');
-  //   console.log('Name:', name);
-  //   console.log('E-Mail:', email);
-  //   console.log('Telefonnummer:', telefon);
-  //   console.log('Studiengang:', studiengang);
-  //   console.log('Aktuelles Semester:', semester);
-  //   console.log('Fähigkeiten:', faehigkeiten);
-  //   console.log('Profilbeschreibung:', profilbeschreibung);
-  //   console.log('Werdegang:', werdegang);
-  //   console.log('Verfügbarkeit:', verfuegbarkeit);
-  //   console.log('Berufserfahrung:', berufserfahrung);
-  //   alert('Profil gespeichert!'); // Für Demonstrationszwecke 
-  // };
+  useEffect(() => {
+    const fetchData = async () => {
+      const userId = sessionStorage.getItem('userID')
+      console.log(userId);
+      const param = [userId];
+      const apiResponse = await getHTTPRequest("getProfileInfo", param);
+      const sortArray = JSON.parse(apiResponse);
+      const selectedArray = sortArray[0];
 
-  // const [profilBild, setProfilBild] = useState(null);
+      // Extract student data into a single object
+      const studentData = {
+        uID: selectedArray[0],
+        name: selectedArray[1],
+        email: selectedArray[2],
+        telefon: selectedArray[3],
+        abschluss: selectedArray[4],
+        studium: selectedArray[5],
+        semester: selectedArray[6],
+        berufserf: selectedArray[7],
+        skills: selectedArray[8],
+        profilb: selectedArray[9],
+        werdeg: selectedArray[10],
+        Stunden: selectedArray[11],
+        Logo: selectedArray[12],
+      };
 
-  // const handleBildAuswahl = (event) => {
-  //   if (event.target.files && event.target.files[0]) {
-  //     setProfilBild(URL.createObjectURL(event.target.files[0]));
-  //   }
-  // };
-
-  const triggerFileInput = () => {
-    document.getElementById('user-profilbild-input-static').click();
-  };
-
-  return (
+  const profile = (
     <Container className="profile-container">
   
       <div className="left-aligned-content">

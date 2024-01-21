@@ -7,28 +7,53 @@ import { getHTTPRequest } from '../../serverPackage';
 import { Link } from 'react-router-dom';
 
 const ProfilePage = () => {
-  return (
+  const [CmProfile, setCmProfile] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const userId = sessionStorage.getItem('userID')
+      console.log(userId);
+      const param = [userId];
+      const apiResponse = await getHTTPRequest("getCompanyInfos", param);
+      const sortArray = JSON.parse(apiResponse);
+      const selectedArray = sortArray[0];
+
+      // Extract student data into a single object
+      const studentData = {
+        uID: selectedArray[0],
+        name: selectedArray[1],
+        email: selectedArray[2],
+        standort: selectedArray[3],
+        wws: selectedArray[4],
+        wwb: selectedArray[5],
+        karriere: selectedArray[6],
+        geschihte: selectedArray[7],
+        logo: selectedArray[8],
+       
+      };
+  const logo = "./src/imagess/" + studentData.logo
+  const cprofile = (
+
     <Container className="profile-container">
   
       <div className="left-aligned-content">
         <Image
-          src="https://img.freepik.com/vektoren-premium/blaues-social-media-logo_197792-1759.jpg"  
+          src={logo}  
           alt="Profile"
           roundedCircle
           style={{
             width: '200px',
-             height: '200px',
+            height: '200px',
   
           }}
         />
-        <h2 className="mt-0">John Doe</h2>
+        <h2 className="mt-0">{studentData.name}</h2>
         <Card className="mt-4" style={{ width: '1000px' }}>
           <Card.Body>
             <Card.Title>Kontakt</Card.Title>
             <Card.Text>
-              E-Mail: <br/>
-              Telefon: <br/>
-              Standort:
+              E-Mail: {studentData.email}<br/>
+              Standort:{studentData.standort}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -37,7 +62,7 @@ const ProfilePage = () => {
           <Card.Body>
             <Card.Title>Beschreibung</Card.Title>
             <Card.Text>
-              Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+            {studentData.wws}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -46,7 +71,7 @@ const ProfilePage = () => {
           <Card.Body>
             <Card.Title>Was wir bieten:</Card.Title>
             <Card.Text>
-              With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+            {studentData.wwb}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -55,7 +80,7 @@ const ProfilePage = () => {
           <Card.Body>
             <Card.Title>Unsere Geschichte</Card.Title>
             <Card.Text>
-              With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+            {studentData.geschihte}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -64,7 +89,7 @@ const ProfilePage = () => {
           <Card.Body>
             <Card.Title>Karrierechancen</Card.Title>
             <Card.Text>
-              Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+            {studentData.karriere}
             </Card.Text>
           </Card.Body>
         </Card>

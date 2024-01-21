@@ -47,14 +47,14 @@ const Profilansicht = () => {
   //   }
   // };
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
+  useEffect(() => {
+    const fetchData = async () => {
       const userId = sessionStorage.getItem('selectedProfile')
-  //     console.log(userId);
-  //     const param = [userId];
-  //     const apiResponse = await getHTTPRequest("getProfileInfo", param);
-  //     const sortArray = JSON.parse(apiResponse);
-  //     const selectedArray = sortArray[0];
+      console.log(userId);
+      const param = [userId];
+      const apiResponse = await getHTTPRequest("getProfileInfo", param);
+      const sortArray = JSON.parse(apiResponse);
+      const selectedArray = sortArray[0];
 
       // Extract student data into a single object
       const studentData = {
@@ -78,16 +78,17 @@ const Profilansicht = () => {
   
       <div className="left-aligned-content">
         <Image
-          src="https://img.freepik.com/vektoren-premium/blaues-social-media-logo_197792-1759.jpg"  
+          src={logo}  
           alt="Profile"
           roundedCircle
           style={{
             width: '200px',
              height: '200px',
+             marginTop: '20px'
   
           }}
         />
-        <h2 className="mt-0">John Doe</h2>
+        <h2 className="mt-3">{studentData.name}</h2>
         <Card className="mt-4" style={{ width: '1000px' }}>
           <Card.Body>
             <Card.Title>Kontakt</Card.Title>
