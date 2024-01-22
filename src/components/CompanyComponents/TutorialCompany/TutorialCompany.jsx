@@ -2,7 +2,20 @@ import React, { useRef } from 'react';
 import { Container, Carousel, Button, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const Tutorial = () => {
+  const TutorialCompany = () => {
+    const carouselRef = useRef(null);
+  
+    const handleNext = () => {
+      if (carouselRef.current) {
+        carouselRef.current.next();
+      }
+    };
+  
+    const handlePrev = () => {
+      if (carouselRef.current) {
+        carouselRef.current.prev();
+      }
+    };
   return (
     <div className="tutorial-container">
       <div className="tutorial-centered-container">
@@ -10,7 +23,7 @@ const Tutorial = () => {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="src/assets/pexels-vlada-karpovich-4050319.jpg"
+              src="./src/assets/npcbild.jpg"
               alt="First Slide"
             />
             <Carousel.Caption>

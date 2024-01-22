@@ -39,6 +39,7 @@
   
   
   .sender-chat {
+    size-adjust: content;
     margin-left: 51vh;
     background-color: #7289da; 
     align-self: flex-end;
@@ -51,6 +52,7 @@
   
   
   .chat-message {
+    size-adjust: content;
     margin: 0;
     color: #000;
   }
@@ -78,7 +80,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    margin-left: 20vh;
+    margin-left: 10vh;
     position: fixed;
     bottom: 30px;
     width: calc(70% - 40px); 

@@ -47,7 +47,6 @@ const Registrierung = () => {
     const apiResponse = await getHTTPRequest("createUser", paramArray);    
     sessionStorage.setItem('userID', apiResponse);
     
-    alert(sessionStorage.getItem("userID"));
     let userArray = [sessionStorage.getItem('userID')]
     const apiResponse2 = await getHTTPRequest("getIsUser", userArray);
     //alert(apiResponse2)
@@ -57,10 +56,10 @@ const Registrierung = () => {
     const condition = true; 
 
     if ( sessionStorage.getItem('isUser') == "1") {
-      navigate("/HomeUser");
+      navigate("/TutorialUser");
     }
     else{
-      navigate("/HomeCompany");
+      navigate("/TutorialUser");
     } 
     
 
