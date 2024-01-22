@@ -6,12 +6,14 @@ import { getHTTPRequest } from '../../serverPackage';
 
 const Profilansicht = () => {
   const [CmProfile, setCmProfile] = useState([]);
+  const [Stunden, setStunden]= useState([])
   const [verfuegbarkeit, setVerfuegbarkeit] = useState({
     montag: { available: false, hours: 0 },
     dienstag: { available: false, hours: 0 },
     mittwoch: { available: false, hours: 0 },
     donnerstag: { available: false, hours: 0 },
     freitag: { available: false, hours: 0 },
+    
   });
 
   // Funktion zum Umschalten der Verfügbarkeit
@@ -60,15 +62,17 @@ const Profilansicht = () => {
 
       const userTage = {
 
-        mo: tage[0],
-        di: tage[1],
-        mi: tage[2],
-        do: tage[3],
-        fr: tage[4],
+        montag: tage[0],
+        dienstag: tage[1],
+        mittwoch: tage[2],
+        donnerstag: tage[3],
+        freitag: tage[4],
 
 
       }
-
+      console.log(userTage)
+        
+    
     const StudentData = 'hallo';
 
       const studentData = {
@@ -162,8 +166,8 @@ const Profilansicht = () => {
         </Card>
 
         <Card.Body>
-    <Card.Title>Verfügbarkeit</Card.Title>
-    <Table responsive>
+    <Card.Title style={{marginTop:"25px"}}>Verfügbarkeit</Card.Title>
+    <Table responsive style={{marginTop:"20px"}}>
       <thead>
         <tr>
           <th>Wochentag</th>
@@ -175,13 +179,10 @@ const Profilansicht = () => {
         {Object.keys(verfuegbarkeit).map(tag => (
           <tr key={tag}>
             <td>{tag.charAt(0).toUpperCase() + tag.slice(1)}</td>
-            {/* <td className="td-verfuegbar">
-              {verfuegbarkeit[tag].available ? 'Ja' : 'Nein'}
-            </td> */}
             <td>
               <Form.Control
                 type="number"
-                value={verfuegbarkeit[tag].hours}
+                value={userTage[tag]}
                 readOnly // Set input field to read-only
               />
             </td>

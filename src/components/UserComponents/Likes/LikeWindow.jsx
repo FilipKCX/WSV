@@ -1,12 +1,13 @@
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { getHTTPRequest } from '../../serverPackage';
 import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap';
 import { Formik, Field, ErrorMessage } from 'formik';
 import './LikeWindow.css'
 
 const LikeWindow = ({ selectedLike }) => {
-
+  const navigate = useNavigate();
   const [likeContent, setLikeContent] = useState(null);
   let params = [sessionStorage.getItem('userID'),sessionStorage.getItem('selectedLike') ]
 
@@ -15,11 +16,15 @@ const LikeWindow = ({ selectedLike }) => {
       const freeemeee = getHTTPRequest("deleteLike", params)
       
       setLikeContent(null)
+      sessionStorage.removeItem('selectedLike')
+      window.location.reload()
+      
     }
     const handleChatDislike = () => {
       const AddChat = getHTTPRequest("deleteLike", params)
       setLikeContent(null)
-      sessionStorage.setItem('leere', 0)
+      sessionStorage.removeItem('selectedLike')
+      window.location.reload()
     } 
 
   useEffect(() => {

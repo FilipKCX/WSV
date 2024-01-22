@@ -53,8 +53,23 @@ const Profilansicht = () => {
       console.log(userId);
       const param = [userId];
       const apiResponse = await getHTTPRequest("getProfileInfo", param);
+      const apiResponse3 = await getHTTPRequest('getTage', param)
       const sortArray = JSON.parse(apiResponse);
       const selectedArray = sortArray[0];
+      console.log(apiResponse3)
+      const sortTage = JSON.parse(apiResponse3)
+      const tage = sortTage[0]
+
+      const userTage = {
+
+        montag: tage[0],
+        dienstag: tage[1],
+        mittwoch: tage[2],
+        donnerstag: tage[3],
+        freitag: tage[4],
+
+
+      }
 
       // Extract student data into a single object
       const studentData = {
@@ -148,8 +163,8 @@ const Profilansicht = () => {
         </Card>
 
         <Card.Body>
-    <Card.Title>Verfügbarkeit</Card.Title>
-    <Table responsive>
+    <Card.Title style={{marginTop:"25px"}}>Verfügbarkeit</Card.Title>
+    <Table responsive style={{marginTop:"20px"}}>
       <thead>
         <tr>
           <th>Wochentag</th>
@@ -167,7 +182,7 @@ const Profilansicht = () => {
             <td>
               <Form.Control
                 type="number"
-                value={verfuegbarkeit[tag].hours}
+                value={userTage[tag]}
                 readOnly // Set input field to read-only
               />
             </td>
