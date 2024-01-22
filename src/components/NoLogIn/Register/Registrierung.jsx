@@ -59,7 +59,7 @@ const Registrierung = () => {
       navigate("/TutorialUser");
     }
     else{
-      navigate("/TutorialUser");
+      navigate("/TutorialComnpany");
     } 
     
 
