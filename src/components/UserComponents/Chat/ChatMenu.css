@@ -1,6 +1,6 @@
 .chat-menu {
   height: 100%;
-  width: 25%;
+  width: 50vh;
   background-color: #f0f0f0cc;
   padding: 20px;
   border-radius: 12px;
@@ -14,6 +14,7 @@
 }
 
 .chat-option {
+
   margin-bottom: 15px;
   border-radius: 12px;
 }
@@ -34,7 +35,7 @@
 }
 
 .chat-option.active .chat-box {
-  background-color: #7289da;
+
   border-radius: 12px;
 }
 

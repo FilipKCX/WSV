@@ -8,7 +8,8 @@ const ChatMenu = ({ selectChat }) => {
   sessionStorage.setItem('selectedChat', selectChat)
   const fetchChatsData = async () => {
     const uID = sessionStorage.getItem('userID');
-    const response = await getHTTPRequest('getChats', [uID]);
+    const response = await getHTTPRequest('getallChats', [uID]);
+    console.log(response)
     const processedChats = await processChats(JSON.parse(response));
     setChatItems(processedChats);
   };
