@@ -6,6 +6,7 @@ import LikeWindow from './LikeWindow';
 const LikeOptions = ({ selectLike }) => {
   
   const handleLikeSelect = (likeId) => {
+    sessionStorage.setItem('currentLike', likeId)
     sessionStorage.setItem('selectedLike', likeId)
     selectLike(likeId);
   };

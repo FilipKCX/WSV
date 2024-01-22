@@ -9,20 +9,20 @@ import './LikeWindow.css'
 const LikeWindow = ({ selectedLike }) => {
   const navigate = useNavigate();
   const [likeContent, setLikeContent] = useState(null);
-  let params = [sessionStorage.getItem('userID'),sessionStorage.getItem('selectedLike') ]
+  let params = [sessionStorage.getItem('userID'),sessionStorage.getItem('currentLike'), " " ]
 
-    const handleChatLike = () => {
-      const AddChat = getHTTPRequest("addChats", params)
-      const freeemeee = getHTTPRequest("deleteLike", params)
-      
-      setLikeContent(null)
+    const handleChatLike = async  () => {
+      const AddChat = await getHTTPRequest("createMessage", params)
+      const freeemeee = await getHTTPRequest("deleteLike", params)
       sessionStorage.removeItem('selectedLike')
+      setLikeContent(null)
       window.location.reload()
       
     }
-    const handleChatDislike = () => {
-      const AddChat = getHTTPRequest("deleteLike", params)
+    const handleChatDislike = async  () => {
+      const AddChat = await getHTTPRequest("deleteLike", params)
       setLikeContent(null)
+
       sessionStorage.removeItem('selectedLike')
       window.location.reload()
     } 
