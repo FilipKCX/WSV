@@ -93,9 +93,9 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Kontakt</Card.Title>
             <Card.Text>
-              E-Mail: <br/>
-              Telefon: <br/>
-              Standort:
+              E-Mail: {studentData.email}<br/>
+              Telefon: {studentData.telefon}<br/>
+
             </Card.Text>
           </Card.Body>
         </Card>
@@ -103,10 +103,10 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Info</Card.Title>
             <Card.Text>
-              Abschluss: <br/>
-              Studiengang: <br/>
-              Semester:<br/>
-              Berufserfahrung (in Jahren):
+              Abschluss: {studentData.abschluss}<br/>
+              Studiengang: {studentData.studium}<br/>
+              Semester: {studentData.semester}<br/>
+              Berufserfahrung (in Jahren): {studentData.berufserf}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -115,7 +115,7 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Fähigkeiten</Card.Title>
             <Card.Text>
-              Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+              {studentData.skills}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -124,7 +124,7 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Profilbeschreibung</Card.Title>
             <Card.Text>
-              With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+            {studentData.profilb}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -133,7 +133,7 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Werdegang</Card.Title>
             <Card.Text>
-              With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+             {studentData.werdeg}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -142,7 +142,7 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Verfügbarkeit</Card.Title>
             <Card.Text>
-              Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+              {studentData.Stunden}
             </Card.Text>
           </Card.Body>
         </Card>

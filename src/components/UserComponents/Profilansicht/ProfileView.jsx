@@ -64,15 +64,30 @@ const Profilansicht = () => {
 
   // Funktion zum Umschalten der Verfügbarkeit
   const toggleVerfuegbarkeit = (tag) => {
-    setVerfuegbarkeit(prevState => ({
-      ...prevState,
-      [tag]: {
-        ...prevState[tag],
-        available: !prevState[tag].available
-      }
-    }));
+    setVerfuegbarkeit(prevState => {
+      const isAvailable = !prevState[tag].available;
+      const updatedHours = isAvailable ? prevState[tag].hours : 0;
+      return {
+        ...prevState,
+        [tag]: {
+          available: isAvailable,
+          hours: updatedHours
+        }
+      };
+    });
   };
 
+  const extractHoursAsArray = () => {
+    const hoursArray = Object.keys(verfuegbarkeit).map(tag => verfuegbarkeit[tag].hours);
+
+    console.log('Verfügbare Stunden:', hoursArray);
+
+    return hoursArray;
+  };
+  useEffect(() => {
+    extractHoursAsArray();
+  }, [verfuegbarkeit]);
+  console.log(extractHoursAsArray)
   // Funktion um Stundenanzahl zu aktualisieren
   const handleChangeHours = (tag, value) => {
     let hours = Number(value); // Stellt sicher, dass die Eingabe als Zahl gespeichert wird
@@ -108,6 +123,7 @@ const Profilansicht = () => {
     console.log('Profilbeschreibung:', profilbeschreibung);
     console.log('Werdegang:', werdegang);
     console.log('Verfügbarkeit:', verfuegbarkeit);
+    console.log(extractHoursAsArray())
     handleProfileCreation();
     alert('Profil gespeichert!'); // Für Demonstrationszwecke 
   };
@@ -154,13 +170,13 @@ const Profilansicht = () => {
   const triggerFileInput = () => {
     document.getElementById('profilbild-input').click();
   };
-
-  const usID = sessionStorage.getItem('userID');
-
+  const usID = sessionStorage.getItem('userID')
+  const Tage = extractHoursAsArray()
   let paramArray = [usID, name, email, telefon, abschluss, studiengang, semester, berufserfahrung, faehigkeiten, profilbeschreibung, werdegang, totalWorkHours, logo];
   console.log(paramArray)
   async function handleProfileCreation() {
     const apiResponse = await getHTTPRequest("createProfile", paramArray);
+    const apiResponse2 = await getHTTPRequest("setTage", [usID,...Tage])
     return;
   }
 

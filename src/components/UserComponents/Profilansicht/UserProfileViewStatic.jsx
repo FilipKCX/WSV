@@ -51,10 +51,26 @@ const Profilansicht = () => {
       console.log(userId);
       const param = [userId];
       const apiResponse = await getHTTPRequest("getProfileInfo", param);
+      const apiResponse3 = await getHTTPRequest('getTage', param)
       const sortArray = JSON.parse(apiResponse);
       const selectedArray = sortArray[0];
+      console.log(apiResponse3)
+      const sortTage = JSON.parse(apiResponse3)
+      const tage = sortTage[0]
 
-      // Extract student data into a single object
+      const userTage = {
+
+        mo: tage[0],
+        di: tage[1],
+        mi: tage[2],
+        do: tage[3],
+        fr: tage[4],
+
+
+      }
+
+
+
       const studentData = {
         uID: selectedArray[0],
         name: selectedArray[1],
@@ -76,23 +92,25 @@ const Profilansicht = () => {
   
       <div className="left-aligned-content">
         <Image
-          src="https://img.freepik.com/vektoren-premium/blaues-social-media-logo_197792-1759.jpg"  
+          src={"./src/imagess/"+studentData.Logo}
           alt="Profile"
           roundedCircle
           style={{
             width: '200px',
              height: '200px',
+             marginTop: '20px',
+             marginBottom: '20px'
+
   
           }}
         />
-        <h2 className="mt-0">John Doe</h2>
+        <h2 className="mt-0">{studentData.name} </h2>
         <Card className="mt-4" style={{ width: '1000px' }}>
           <Card.Body>
             <Card.Title>Kontakt</Card.Title>
             <Card.Text>
-              E-Mail: <br/>
-              Telefon: <br/>
-              Standort:
+              E-Mail: {studentData.email} <br/>
+              Telefon:{studentData.telefon}  <br/>
             </Card.Text>
           </Card.Body>
         </Card>
@@ -100,10 +118,10 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Info</Card.Title>
             <Card.Text>
-              Abschluss: <br/>
-              Studiengang: <br/>
-              Semester:<br/>
-              Berufserfahrung (in Jahren):
+              Abschluss: {studentData.abschluss} <br/>
+              Studiengang: {studentData.studium}<br/>
+              Semester: {studentData.semester}<br/>
+              Berufserfahrung (in Jahren): {studentData.berufserf}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -112,7 +130,7 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Fähigkeiten</Card.Title>
             <Card.Text>
-              Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+               {studentData.skills}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -121,7 +139,7 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Profilbeschreibung</Card.Title>
             <Card.Text>
-              With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+              {studentData.profilb}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -130,7 +148,7 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Werdegang</Card.Title>
             <Card.Text>
-              With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+              {studentData.werdeg}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -139,7 +157,7 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Verfügbarkeit</Card.Title>
             <Card.Text>
-              Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+              {userTage.mo}
             </Card.Text>
           </Card.Body>
         </Card>

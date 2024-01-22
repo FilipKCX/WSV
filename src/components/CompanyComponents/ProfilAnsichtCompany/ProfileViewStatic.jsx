@@ -44,6 +44,8 @@ const ProfilePage = () => {
           style={{
             width: '200px',
             height: '200px',
+            marginTop: '20px',
+            marginBottom: '20px'
   
           }}
         />
