@@ -1,35 +1,98 @@
+.tutorial-centered-container {
+  margin-top: 80px;
+  margin-left: 250px;
+  margin-right: 250px;
+}
+
+.tutorial-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.tutorial-buttons {
+  background-color: #0074cc !important;
+  color: white !important;
+  padding: 10px !important;
+  border-radius: 20px !important;
+  font-size: 20px !important;
+}
+
+#tutorial-back-button {
+  background-color: #0074cc !important;
+  color: white !important;
+  padding: 10px !important;
+  border-radius: 20px !important;
+  font-size: 20px !important;
+  width: 15% !important;
+  margin-right: 20px;
+}
+
+#tutorial-next-button {
+  background-color: #0074cc !important;
+  color: white !important;
+  padding: 10px !important;
+  border-radius: 20px !important;
+  font-size: 20px !important;
+  width: 15% !important;
+}
+
+#tutorial-end-button {
+  position: absolute;
+  bottom: 65px;
+  right: 30px;
+}
+
+.tutorial-buttons:hover {
+  background-color: #fff !important;
+  color: #0074cc !important;
+}
+
 .tutorial-container {
-   border-radius: 8px;
-   margin-top: 100px;
-  }
-  
-  .tutorial-container h3{
-    color: black;
-  }
+  position: relative;
+  height: 90vh;
+  border-radius: 8px;
+}
 
-  .tutorial-container p{
-    color: black;
-  }
+.carousel-inner {
+  border: 2px solid #0074cc;
+  border-radius: 22px;
+}
 
-  .bg-light-text-center-py-3
-  {
+.carousel-buttons {
+  display: flex;
+  justify-content: center;
+}
 
-   display: flex;
-   justify-content: center;
-  }
-  
-  .carousel-item img {
-    height: 650px; 
-  }
-  
-  .tutorial-end-button {
-    position: absolute;
-  
-    right: 20px;
-    margin-top: 100px;
-  }
-  
-  
-  
-  
-  
+.tutorial-container h3 {
+  color: #000000;
+  font-size: 50px;
+}
+
+.tutorial-container p {
+  color: #222222;
+  line-height: 1.5;
+}
+
+.carousel-item img {
+  height: 650px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.carousel-caption {
+  background-color: rgba(7, 7, 7, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.carousel-caption h3 {
+  color: #fff;
+}
+
+.carousel-caption p {
+  color: #fff;
+  font-size: 23px;
+}
+

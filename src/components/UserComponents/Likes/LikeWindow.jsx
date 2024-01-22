@@ -57,27 +57,37 @@ return (
   {likeContent ? (
   <Container className="profile-containerlike">
     <div className="left-aligned-content">
-      <Image
-        src={ "./src/imagess/" + likeContent[0][8]} 
-        alt="Profile"
-        roundedCircle
-        style={{
-          width: '200px',
-           height: '200px',
-           marginTop: '10px',
-           marginBottom: '1opx'
-        }}
-      />
-      <h2 className="mt-0"> {likeContent[0][1]} </h2>
-      <Card className="mt-4" style={{ width: '1000px' }}>
-        <Card.Body>
-          <Card.Title>Kontakt</Card.Title>
-          <Card.Text>
-            E-Mail: {likeContent[0][2]}<br/>
+    <Row className="align-items-center">
+        <Col md={3}>
+          <div>
+            <Image
+               src={"./src/imagess/"+likeContent[0][8]}
+              alt="Profile"
+              rounded
+              style={{
+                width: '200px',
+                height: '200px',
+                marginTop: '20px',
+                marginBottom: '20px',
+                objectFit: 'cover', // Maintain aspect ratio
+                borderRadius: '50%', // Make it a circle
+              }}
+            />
+            <h2 className="mt-0">{likeContent[0][1]}</h2>
+          </div>
+        </Col>
+        <Col md={9}>
+          <Card className="mt-4" style={{ width: '750px'}}>
+            <Card.Body>
+              <Card.Title>Kontakt</Card.Title>
+              <Card.Text>
+              E-Mail: {likeContent[0][2]}<br/>
             Standort: {likeContent[0][3]} <br/>
-          </Card.Text>
-        </Card.Body>
-      </Card>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
 
       <Card className="mt-3" style={{ width: '1000px' }}>
         <Card.Body>

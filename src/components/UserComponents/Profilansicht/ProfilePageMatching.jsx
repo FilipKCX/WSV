@@ -77,28 +77,37 @@ const Profilansicht = () => {
     <Container className="profile-container">
   
       <div className="left-aligned-content">
-        <Image
-          src={logo}  
-          alt="Profile"
-          roundedCircle
-          style={{
-            width: '200px',
-             height: '200px',
-             marginTop: '20px'
-  
-          }}
-        />
-        <h2 className="mt-3">{studentData.name}</h2>
-        <Card className="mt-4" style={{ width: '1000px' }}>
-          <Card.Body>
-            <Card.Title>Kontakt</Card.Title>
-            <Card.Text>
-              E-Mail: {studentData.email}<br/>
-              Telefon: {studentData.telefon}<br/>
-
-            </Card.Text>
-          </Card.Body>
-        </Card>
+       <Row className="align-items-center">
+        <Col md={3}>
+          <div>
+            <Image
+               src={"./src/imagess/"+studentData.Logo}
+              alt="Profile"
+              rounded
+              style={{
+                width: '200px',
+                height: '200px',
+                marginTop: '20px',
+                marginBottom: '20px',
+                objectFit: 'cover', // Maintain aspect ratio
+                borderRadius: '50%', // Make it a circle
+              }}
+            />
+            <h2 className="mt-0">{studentData.name}</h2>
+          </div>
+        </Col>
+        <Col md={9}>
+          <Card className="mt-4" style={{ width: '750px'}}>
+            <Card.Body>
+              <Card.Title>Kontakt</Card.Title>
+              <Card.Text>
+                E-Mail: {studentData.email} <br/>
+                Telefon:{studentData.telefon}  <br/>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
         <Card className="mt-4" style={{ width: '1000px' }}>
           <Card.Body>
             <Card.Title>Info</Card.Title>
@@ -138,14 +147,35 @@ const Profilansicht = () => {
           </Card.Body>
         </Card>
 
-        <Card className="mt-3" style={{ width: '1000px' }}>
-          <Card.Body>
-            <Card.Title>Verfügbarkeit</Card.Title>
-            <Card.Text>
-              {studentData.Stunden}
-            </Card.Text>
-          </Card.Body>
-        </Card>
+        <Card.Body>
+    <Card.Title>Verfügbarkeit</Card.Title>
+    <Table responsive>
+      <thead>
+        <tr>
+          <th>Wochentag</th>
+          {/* <th className="th-verfuegbar">Verfügbar</th> */}
+          <th>Stunden</th>
+        </tr>
+      </thead>
+      <tbody>
+        {Object.keys(verfuegbarkeit).map(tag => (
+          <tr key={tag}>
+            <td>{tag.charAt(0).toUpperCase() + tag.slice(1)}</td>
+            {/* <td className="td-verfuegbar">
+              {verfuegbarkeit[tag].available ? 'Ja' : 'Nein'}
+            </td> */}
+            <td>
+              <Form.Control
+                type="number"
+                value={verfuegbarkeit[tag].hours}
+                readOnly // Set input field to read-only
+              />
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </Table>
+  </Card.Body>
       </div>
      
       

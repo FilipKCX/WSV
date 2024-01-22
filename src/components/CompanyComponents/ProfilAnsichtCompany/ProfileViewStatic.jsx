@@ -37,29 +37,37 @@ const ProfilePage = () => {
     <Container className="profile-container">
   
       <div className="left-aligned-content">
-        <Image
-          src={logo}  
-          alt="Profile"
-          roundedCircle
-          style={{
-            width: '200px',
-            height: '200px',
-            marginTop: '20px',
-            marginBottom: '20px'
-  
-          }}
-        />
-        <h2 className="mt-0">{studentData.name}</h2>
-        <Card className="mt-4" style={{ width: '1000px' }}>
-          <Card.Body>
-            <Card.Title>Kontakt</Card.Title>
-            <Card.Text>
+      <Row className="align-items-center">
+        <Col md={3}>
+          <div>
+            <Image
+               src={logo}
+              alt="Profile"
+              rounded
+              style={{
+                width: '200px',
+                height: '200px',
+                marginTop: '20px',
+                marginBottom: '20px',
+                objectFit: 'cover', // Maintain aspect ratio
+                borderRadius: '50%', // Make it a circle
+              }}
+            />
+            <h2 className="mt-0">{studentData.name}</h2>
+          </div>
+        </Col>
+        <Col md={9}>
+          <Card className="mt-4" style={{ width: '750px'}}>
+            <Card.Body>
+              <Card.Title>Kontakt</Card.Title>
+              <Card.Text>
               E-Mail: {studentData.email}<br/>
-              Standort:{studentData.standort}
-            </Card.Text>
-          </Card.Body>
-        </Card>
-
+            Standort: {studentData.standort} <br/>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
         <Card className="mt-3" style={{ width: '1000px' }}>
           <Card.Body>
             <Card.Title>Beschreibung</Card.Title>
