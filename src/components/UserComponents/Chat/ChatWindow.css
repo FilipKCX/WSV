@@ -1,6 +1,7 @@
 .chat-app-container {
     display: flex;
     height: 100vh; 
+    border-radius: 10px;
   }
   
   .chat-option {
@@ -25,6 +26,7 @@
     flex: 1;
     padding: 20px;
     overflow-y: auto; 
+    border-radius: 10px;
   }
   
   
@@ -37,13 +39,14 @@
   
   
   .sender-chat {
+    margin-left: 51vh;
     background-color: #7289da; 
     align-self: flex-end;
   }
   
   
   .receiver-chat {
-    background-color: white; 
+    background-color: rgb(173, 172, 172); 
   }
   
   
@@ -75,6 +78,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    margin-left: 20vh;
     position: fixed;
     bottom: 30px;
     width: calc(70% - 40px); 
@@ -83,6 +87,7 @@
   .text-input input {
     flex: 1;
     padding: 10px;
+    align-self: center;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-right: 10px;
@@ -93,6 +98,7 @@
   .text-input button {
     padding: 10px 20px;
     border: none;
+    align-items: center;
     background-color: #7289da;
     color: #fff;
     border-radius: 5px;

@@ -1,82 +1,78 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './LikeMenu.css';
 import { getHTTPRequest } from '../../serverPackage';
-import { useState , useEffect} from 'react';
+import LikeWindow from './LikeWindow';
 
-export default function LikeMenu  ({ selectLike, selectedLike,  })  
-{
-  const [isLoading, setIsLoading] = useState(true);
-  const [likeUsers, setLikeUsers] = useState([12, 16 , 18]);
-  const uID = sessionStorage.getItem('userID');
-  const param = [uID];
-
+const LikeOptions = ({ selectLike }) => {
+  
   const handleLikeSelect = (likeId) => {
+    sessionStorage.setItem('currentLike', likeId)
+    sessionStorage.setItem('selectedLike', likeId)
     selectLike(likeId);
   };
-  
-  
-  useEffect(() => {
-    const fetchUsers = async () => {
-           const apiResponse = await getHTTPRequest("getLikes", param);
-           const newArray = JSON.parse(apiResponse)
-           console.log(newArray)
-           setIsLoading(false)
-           //setLikeUsers(newArray);        
-         }
-    fetchUsers();
-    
-       },[]); 
 
+  const [likeItems, setLikeItems] = useState([]);
 
-       if (isLoading) {
-        return <div>Loading...</div>;
-      }
-
-  return <>
-
-    <div className="like-menu">
-      <div className="like-options">
-        {likeUsers.map((company) => (
-          <div
-            key={company}
-            className={`like-option ${selectedLike === company ? 'active' : ''}`}
-            onClick={() => handleLikeSelect(company)}
-          >
-            <LikeBox company={company} />
-          </div>
-        ))}
-      </div>
-    </div>
-    </>
-};
-
-const LikeBox = ({ company }) => {
-
-  useEffect(() => {
-    const fetchData = async () => {
-      console.log(company);
-      const param = [company];
-      const apiResponse = await getHTTPRequest("getCompanyInfox", param);
-      const sortArray = JSON.parse(apiResponse);
-      const selectedArray = sortArray[0];
-
-      // Extract student data into a single object
-      const companyData = {
-        name: selectedArray[1],
-        study: selectedArray[4],
-        graduation: selectedArray[5],
-        workingHours: selectedArray[9],
-        experience: selectedArray[9],
-      };
+  const fetchLikesData = async () => {
+    const uID = sessionStorage.getItem('userID');
+    const response = await getHTTPRequest('getLikes', [uID]);
+    if(response == "None")
+    {
+      sessionStorage.setItem('leere', 0)
     }
+    else{
+      sessionStorage.setItem('leere', 1)
+    }
+    const processedLikes = await processLikes(JSON.parse(response));
+    console.log(processedLikes)
+    setLikeItems(processedLikes);
+  };
+
+  const processLikes = async (likesData) => {
+    const likeItems = [];
+    for (const likeData of likesData) {
+      const companyID = likeData;
+      const companyName = await fetchCompanyName(companyID);
+      const likeItem = {
+        id: likeData,
+        content: companyName,
+      };
+      likeItems.push(likeItem);
+    }
+    return likeItems;
+  };
+
+  async function fetchCompanyName(companyID) {
+    const response = await getHTTPRequest('getCompanyInfox', [companyID]);
+    const companyProfile = JSON.parse(response);
+    return companyProfile[0];
+  }
+
+  useEffect(() => {
+    fetchLikesData();
+  }, []);
+
+  const renderLikeOptions =  () => {
+    const selectedLikeId = sessionStorage.getItem('selectedLike');
+    console.log(selectedLikeId)
+    return likeItems.map((likeItem) => (
+      <div
+        key={likeItem.id}
+        className={`like-option ${sessionStorage.getItem('selectedLike') == likeItem.id ? 'active' : ''}`}
+        onClick={() => handleLikeSelect(likeItem.id)}
+      >
+        <div className="like-box">
+          <h3>{likeItem.content}</h3>
+        </div>
+      </div>
+    ));
+  };
 
   return (
-    <div className="like-box">
-      <h3></h3>
-      <p>Description or preview here...</p>
+    <div className="like-menu">
+      {renderLikeOptions()}
     </div>
   );
-    }, []);
 };
 
-
+export default LikeOptions;

@@ -1,65 +1,92 @@
-import React, { useState, useEffect } from 'react';
-import './chatWindow.css'; 
+import React, { useState, useEffect, useRef } from 'react';
+import { getHTTPRequest } from '../../serverPackage';
+import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
+import './ChatWindow.css';
 
 const ChatWindow = ({ selectedChat }) => {
-  const [messages, setMessages] = useState([]);
-  const [newMessage, setNewMessage] = useState('');
+  const [chatContent, setChatContent] = useState([]);
+  const [messageInput, setMessageInput] = useState('');
+  const chatContainerRef = useRef(null);
 
+  const params = [sessionStorage.getItem('userID'), sessionStorage.getItem('selectedChat')];
+
+  const handleChatRemove = async () => {
+    try {
+      await getHTTPRequest('deleteChat', params);
+      setChatContent([]);
+    } catch (error) {
+      console.error('Error removing chat:', error);
+    }
+  };
+
+  const handleSendMessage = async () => {
+    try {
+      // Assuming there's a server API endpoint to send messages
+      await getHTTPRequest('sendMessage', [selectedChat.id, messageInput]);
+      // Refresh chat content after sending a message
+      fetchChatContent(sessionStorage.getItem('selectedChat'));
+      setMessageInput('');
+    } catch (error) {
+      console.error('Error sending message:', error);
+    }
+  };
+
+  const fetchChatContent = async (chatId) => {
+    try {
+      const response = await getHTTPRequest('getCompanyInfos', [chatId]);
+      const parsedContent = JSON.parse(response);
+      setChatContent(parsedContent.messages || []);
+      // Scroll to the bottom of the chat container after updating content
+      chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
+    } catch (error) {
+      console.error('Error fetching chat content:', error);
+      setChatContent([]);
+    }
+  };
 
   useEffect(() => {
-    let dataFromBackend = [];
-    if (selectedChat === 'chat1') {
-      dataFromBackend = [
-        { id: 1, text: 'Hello from Chat 1!', sender: 'user1' },
-        { id: 2, text: 'How are you?', sender: 'user1' },
-      ];
-    } else if (selectedChat === 'chat2') {
-      dataFromBackend = [
-        { id: 1, text: 'Hey there from Chat 2!', sender: 'user2' },
-        { id: 2, text: 'Nice to meet you.', sender: 'user2' },
-        { id: 3, text: 'What\'s up?', sender: 'user2' },
-      ];
+    const selectedContent = sessionStorage.getItem('selectedChat');
+
+    if (selectedContent != null && selectedContent !== selectedChat.id) {
+      fetchChatContent(selectedContent);
+    } else {
+      // Reset chatContent when no content is selected
+      setChatContent([]);
     }
-    setMessages(dataFromBackend);
   }, [selectedChat]);
 
-  const handleInputChange = (e) => {
-    setNewMessage(e.target.value);
-  };
-
-  const handleSendMessage = () => {
-
-    const updatedMessages = [
-      ...messages,
-      { id: messages.length + 1, text: newMessage, sender: 'user1' }, 
-    ];
-    setMessages(updatedMessages);
-    setNewMessage(''); 
-  };
-
   return (
-    <div className="chat-window">
-      <div className="chat-messages">
-        {messages.map((message) => (
-          <div
-            key={message.id}
-            className={`chat-bubble ${message.sender === 'user1' ? 'sender-chat' : 'receiver-chat'}`}
-          >
-            <p className="chat-message">{message.text}</p>
-          </div>
-        ))}
-      </div>
-      <div className="text-input" >
-        <input
-          type="text"
-          placeholder="Type a message..."
-          value={newMessage}
-          onChange={handleInputChange}
-        />
-        <button onClick={handleSendMessage}>Send</button>
-      </div>
+    <div className="chat-window-container">
+      <Container>
+        <Row>
+          <Col md={8} className="mx-auto">
+            <Card className="mt-4">
+              <Card.Body ref={chatContainerRef} className="chat-container">
+                {chatContent.map((message, index) => (
+                  <div key={index} className="chat-bubble">
+                    {message.sender}: {message.text}
+                  </div>
+                ))}
+              </Card.Body>
+              <Form className="message-input-form">
+                <Form.Control
+                  type="text"
+                  placeholder="Type your message..."
+                  value={messageInput}
+                  onChange={(e) => setMessageInput(e.target.value)}
+                />
+                <Button variant="primary" onClick={handleSendMessage}>
+                  Send
+                </Button>
+              </Form>
+              <Button variant="danger" onClick={handleChatRemove}>
+                Remove Chat
+              </Button>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
     </div>
-    
   );
 };
 

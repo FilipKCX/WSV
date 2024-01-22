@@ -95,3 +95,50 @@
   color: #fff;
   font-size: 23px;
 }
+
+
+  position: relative;
+  height: 90vh;
+  border-radius: 8px;
+}
+
+.carousel-inner {
+  border: 2px solid #0074cc;
+  border-radius: 22px;
+}
+
+.carousel-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.tutorial-container h3 {
+  color: #000000;
+  font-size: 50px;
+}
+
+.tutorial-container p {
+  color: #222222;
+  line-height: 1.5;
+}
+
+.carousel-item img {
+  height: 650px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.carousel-caption {
+  background-color: rgba(7, 7, 7, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.carousel-caption h3 {
+  color: #fff;
+}
+
+.carousel-caption p {
+  color: #fff;
+  font-size: 23px;
+}

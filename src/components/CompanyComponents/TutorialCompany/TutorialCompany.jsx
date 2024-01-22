@@ -1,23 +1,8 @@
 import React, { useRef } from 'react';
 import { Container, Carousel, Button, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './TutorialCompany.css';
 
-const TutorialCompany = () => {
-  const carouselRef = useRef(null);
-
-  const handleNext = () => {
-    if (carouselRef.current) {
-      carouselRef.current.next();
-    }
-  };
-
-  const handlePrev = () => {
-    if (carouselRef.current) {
-      carouselRef.current.prev();
-    }
-  };
-
+const Tutorial = () => {
   return (
     <div className="tutorial-container">
       <div className="tutorial-centered-container">
@@ -106,3 +91,4 @@ const TutorialCompany = () => {
 };
 
 export default TutorialCompany;
+

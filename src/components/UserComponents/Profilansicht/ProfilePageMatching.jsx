@@ -4,52 +4,52 @@ import './UserProfileViewStatic.css';
 import { Link } from 'react-router-dom';
 import { getHTTPRequest } from '../../serverPackage';
 
+
 const Profilansicht = () => {
   const [CmProfile, setCmProfile] = useState([]);
-  const [Stunden, setStunden]= useState([])
+  const [isLoading, setIsLoading] = useState(true);
   const [verfuegbarkeit, setVerfuegbarkeit] = useState({
     montag: { available: false, hours: 0 },
     dienstag: { available: false, hours: 0 },
     mittwoch: { available: false, hours: 0 },
     donnerstag: { available: false, hours: 0 },
     freitag: { available: false, hours: 0 },
-    
   });
 
   // Funktion zum Umschalten der Verfügbarkeit
-  const toggleVerfuegbarkeit = (tag) => {
-    setVerfuegbarkeit(prevState => ({
-      ...prevState,
-      [tag]: {
-        ...prevState[tag],
-        available: !prevState[tag].available
-      }
-    }));
-  };
+  // const toggleVerfuegbarkeit = (tag) => {
+  //   setVerfuegbarkeit(prevState => ({
+  //     ...prevState,
+  //     [tag]: {
+  //       ...prevState[tag],
+  //       available: !prevState[tag].available
+  //     }
+  //   }));
+  // };
 
   // Funktion um Stundenanzahl zu aktualisieren
-  const handleChangeHours = (tag, value) => {
-    const hours = Number(value); // Stellt sicher, dass die Eingabe als Zahl gespeichert wird
-    setVerfuegbarkeit(prevState => ({
-      ...prevState,
-      [tag]: {
-        ...prevState[tag],
-        hours: hours >= 0 ? hours : 0 // Verhindert negative Stundenanzahlen
-      }
-    }));
-  };
+  // const handleChangeHours = (tag, value) => {
+  //   const hours = Number(value); // Stellt sicher, dass die Eingabe als Zahl gespeichert wird
+  //   setVerfuegbarkeit(prevState => ({
+  //     ...prevState,
+  //     [tag]: {
+  //       ...prevState[tag],
+  //       hours: hours >= 0 ? hours : 0 // Verhindert negative Stundenanzahlen
+  //     }
+  //   }));
+  // };
 
   // Funktion um zu verhindern, dass Zahlen bei "Stunden" eingegeben werden können
-  const handleKeyDown = (e) => {
-    // Erlaube nur das Benutzen der Pfeiltasten
-    if (e.key !== "ArrowUp" && e.key !== "ArrowDown") {
-      e.preventDefault();
-    }
-  };
+  // const handleKeyDown = (e) => {
+  //   // Erlaube nur das Benutzen der Pfeiltasten
+  //   if (e.key !== "ArrowUp" && e.key !== "ArrowDown") {
+  //     e.preventDefault();
+  //   }
+  // };
 
   useEffect(() => {
     const fetchData = async () => {
-      const userId = sessionStorage.getItem('userID')
+      const userId = sessionStorage.getItem('selectedProfile')
       console.log(userId);
       const param = [userId];
       const apiResponse = await getHTTPRequest("getProfileInfo", param);
@@ -70,11 +70,8 @@ const Profilansicht = () => {
 
 
       }
-      console.log(userTage)
-        
-    
-    const StudentData = 'hallo';
 
+      // Extract student data into a single object
       const studentData = {
         uID: selectedArray[0],
         name: selectedArray[1],
@@ -90,12 +87,12 @@ const Profilansicht = () => {
         Stunden: selectedArray[11],
         Logo: selectedArray[12],
       };
-
+  const logo = "./src/imagess/" + studentData.Logo
   const profile = (
     <Container className="profile-container">
   
       <div className="left-aligned-content">
-      <Row className="align-items-center">
+       <Row className="align-items-center">
         <Col md={3}>
           <div>
             <Image
@@ -130,7 +127,7 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Info</Card.Title>
             <Card.Text>
-              Abschluss: {studentData.abschluss} <br/>
+              Abschluss: {studentData.abschluss}<br/>
               Studiengang: {studentData.studium}<br/>
               Semester: {studentData.semester}<br/>
               Berufserfahrung (in Jahren): {studentData.berufserf}
@@ -142,7 +139,7 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Fähigkeiten</Card.Title>
             <Card.Text>
-               {studentData.skills}
+              {studentData.skills}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -151,7 +148,7 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Profilbeschreibung</Card.Title>
             <Card.Text>
-              {studentData.profilb}
+            {studentData.profilb}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -160,7 +157,7 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Werdegang</Card.Title>
             <Card.Text>
-              {studentData.werdeg}
+             {studentData.werdeg}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -179,6 +176,9 @@ const Profilansicht = () => {
         {Object.keys(verfuegbarkeit).map(tag => (
           <tr key={tag}>
             <td>{tag.charAt(0).toUpperCase() + tag.slice(1)}</td>
+            {/* <td className="td-verfuegbar">
+              {verfuegbarkeit[tag].available ? 'Ja' : 'Nein'}
+            </td> */}
             <td>
               <Form.Control
                 type="number"
@@ -195,7 +195,7 @@ const Profilansicht = () => {
      
       
       <div className="pvsbuttus mb-3">
-                  <Link to='/ProfilePage'>
+                  <Link to='/Matching'>
                     <Button variant="primary">
                         Zurück
                     </Button>
@@ -203,6 +203,7 @@ const Profilansicht = () => {
                 </div>
     </Container>
   );
+      setIsLoading(false);
       setCmProfile(profile);
 };
 

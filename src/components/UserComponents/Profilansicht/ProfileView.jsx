@@ -4,6 +4,7 @@ import './ProfileView.css';
 import { getHTTPRequest } from '../../serverPackage';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 
 const validationSchema = Yup.object().shape({
@@ -31,6 +32,8 @@ const Profilansicht = () => {
   const [profilbeschreibung, setProfilbeschreibung] = useState('');
   const [werdegang, setWerdegang] = useState('');
   const [faehigkeiten, setFaehigkeiten] = useState('');
+  const [abschluss, setAbschluss] = useState('');
+  const [berufserfahrung, setBerufserfahrung] = useState('');
   const [logo, setLogo] = useState('none.jpg')
   const [verfuegbarkeit, setVerfuegbarkeit] = useState({
     montag: { available: false, hours: 0 },
@@ -61,15 +64,30 @@ const Profilansicht = () => {
 
   // Funktion zum Umschalten der Verfügbarkeit
   const toggleVerfuegbarkeit = (tag) => {
-    setVerfuegbarkeit(prevState => ({
-      ...prevState,
-      [tag]: {
-        ...prevState[tag],
-        available: !prevState[tag].available
-      }
-    }));
+    setVerfuegbarkeit(prevState => {
+      const isAvailable = !prevState[tag].available;
+      const updatedHours = isAvailable ? prevState[tag].hours : 0;
+      return {
+        ...prevState,
+        [tag]: {
+          available: isAvailable,
+          hours: updatedHours
+        }
+      };
+    });
   };
 
+  const extractHoursAsArray = () => {
+    const hoursArray = Object.keys(verfuegbarkeit).map(tag => verfuegbarkeit[tag].hours);
+
+    console.log('Verfügbare Stunden:', hoursArray);
+
+    return hoursArray;
+  };
+  useEffect(() => {
+    extractHoursAsArray();
+  }, [verfuegbarkeit]);
+  console.log(extractHoursAsArray)
   // Funktion um Stundenanzahl zu aktualisieren
   const handleChangeHours = (tag, value) => {
     let hours = Number(value); // Stellt sicher, dass die Eingabe als Zahl gespeichert wird
@@ -97,31 +115,33 @@ const Profilansicht = () => {
     console.log('Name:', name);
     console.log('E-Mail:', email);
     console.log('Telefonnummer:', telefon);
+    console.log('Abschluss:', abschluss);
     console.log('Studiengang:', studiengang);
     console.log('Aktuelles Semester:', semester);
+    console.log('Berufserfahrung:', berufserfahrung);
     console.log('Fähigkeiten:', faehigkeiten);
     console.log('Profilbeschreibung:', profilbeschreibung);
     console.log('Werdegang:', werdegang);
     console.log('Verfügbarkeit:', verfuegbarkeit);
+    console.log(extractHoursAsArray())
     handleProfileCreation();
     alert('Profil gespeichert!'); // Für Demonstrationszwecke 
   };
 
   const calculateTotalWorkHours = () => {
     const weekdays = Object.keys(verfuegbarkeit);
-
-    const totalWorkHours = weekdays.reduce((total, weekday) => {
-      let abc = total + (verfuegbarkeit[weekday].available ? verfuegbarkeit[weekday].hours : 0);
-      if(abc >=20)
-      {
-        abc=20;
-      }
-      return abc;
-    }, 0);
-
-
-    return totalWorkHours;
+    let totalHours = 0;
+  
+    for (const weekday of weekdays) {
+      const hoursToAdd = verfuegbarkeit[weekday].available ? verfuegbarkeit[weekday].hours : 0;
+      totalHours += hoursToAdd;
+    }
+  
+    totalHours = Math.min(totalHours, 20); // Ensure total hours don't exceed 20
+  
+    return totalHours;
   };
+  
 
   const totalWorkHours = calculateTotalWorkHours();
   console.log('Total Work Hours:', totalWorkHours);
@@ -150,13 +170,13 @@ const Profilansicht = () => {
   const triggerFileInput = () => {
     document.getElementById('profilbild-input').click();
   };
-
-  const usID = sessionStorage.getItem('userID');
-
-  let paramArray = [usID, name, email, telefon, studiengang, semester, faehigkeiten, profilbeschreibung, werdegang, totalWorkHours, logo];
+  const usID = sessionStorage.getItem('userID')
+  const Tage = extractHoursAsArray()
+  let paramArray = [usID, name, email, telefon, abschluss, studiengang, semester, berufserfahrung, faehigkeiten, profilbeschreibung, werdegang, totalWorkHours, logo];
   console.log(paramArray)
   async function handleProfileCreation() {
     const apiResponse = await getHTTPRequest("createProfile", paramArray);
+    const apiResponse2 = await getHTTPRequest("setTage", [usID,...Tage])
     return;
   }
 
@@ -204,6 +224,15 @@ const Profilansicht = () => {
                     <Form.Group>
                         <Form.Control
                             type="text"
+                            placeholder="Abschluss"
+                            value={abschluss}
+                            onChange={e => setAbschluss(e.target.value)}
+                            className="profil-input"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control
+                            type="text"
                             placeholder="Studiengang"
                             value={studiengang}
                             onChange={e => setStudiengang(e.target.value)}
@@ -216,6 +245,15 @@ const Profilansicht = () => {
                             placeholder="Aktuelles Semester"
                             value={semester}
                             onChange={e => setSemester(e.target.value)}
+                            className="profil-input"
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Control
+                            type="text"
+                            placeholder="Berufserfahrung (in Jahren)"
+                            value={berufserfahrung}
+                            onChange={e => setBerufserfahrung(e.target.value)}
                             className="profil-input"
                         />
                     </Form.Group>
@@ -296,8 +334,13 @@ const Profilansicht = () => {
                           </Table>
                       </Card.Body>
                     </Card>
-                    <div className="d-flex justify-content-end mb-3">
+                    <div className="pvbutt mb-3">
                          <Button variant="primary" onClick={saveProfile}>Speichern</Button>
+                    </div>
+                    <div className="pvbutt mb-3">
+                      <Link to='/ProfilePageStatic'>
+                         <Button variant="outline-primary" >Profil Vorschau</Button>
+                         </Link>
                     </div>
                 </Col>
             </Row>

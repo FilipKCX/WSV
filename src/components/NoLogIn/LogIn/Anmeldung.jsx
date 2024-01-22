@@ -5,26 +5,16 @@ import { Button, Form } from 'react-bootstrap';
 import { useState } from 'react';
 import { getHTTPRequest } from '/src/components/serverPackage';
 import { useNavigate } from "react-router-dom";
-import { Formik, Field, ErrorMessage } from 'formik';
-import * as yup from 'yup';
 
-const validationSchema = yup.object({
-  email: yup.string()
-    .email('E-Mail muss gültig sein.')
-    .required('E-Mail ist erforderlich.'),
-  password: yup.string()
-    .min(6, 'Das Passwort muss mindestens 6 Zeichen lang sein.')
-    .required('Passwort ist erforderlich.'),
-});
 
 const Anmeldung = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogInRequest = async (values) => {
+  const handleLogInRequest = async () => {
     try {
-      const paramArray = [values.email, values.password];
+      const paramArray = [email, password];
       console.log(paramArray);
       const apiResponse = await getHTTPRequest('getLoginUser', paramArray);
       if (apiResponse === 'a') {
@@ -32,11 +22,18 @@ const Anmeldung = () => {
         return;
       }
       sessionStorage.setItem('userID', apiResponse);
+      const apiResponse2 = await getHTTPRequest("getIsUser", [apiResponse]);
+      sessionStorage.setItem("isUser", apiResponse2);
+      
 
       if (sessionStorage.getItem('isUser') === '1') {
+
         navigate('/HomeUser');
+
       } else {
+
         navigate('/HomeCompany');
+
       }
     } catch (error) {
       console.error('Error:', error);
@@ -49,45 +46,31 @@ const Anmeldung = () => {
       <h1>Log In</h1>
 
       <p className='erober'>Erobere die Arbeitswelt mit nur wenigen Klicks!</p>
-
-      <Formik
-        initialValues={{
-          email: '',
-          password: '',
-        }}
-        validationSchema={validationSchema}
-        onSubmit={(values) => handleLogInRequest(values)}
-      >
-        <Form>
           <Form.Group controlId="formEmail" className="input-container">
-            <Field
-              type="email"
-              placeholder="E-Mail"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              as={Form.Control}
-            />
-            <ErrorMessage name="email" component="div" className="error-message" />
+
+            <Form.Control
+            type="email"
+            placeholder="E-Mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
           </Form.Group>
 
           <Form.Group controlId="formPassword" className="input-container">
-            <Field
-              type="password"
-              placeholder="Passwort"
-              name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              as={Form.Control}
-            />
-            <ErrorMessage name="password" component="div" className="error-message" />
+
+            <Form.Control
+            type="password"
+            placeholder="Passwort"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
           </Form.Group>
 
-          <Button type="submit" className='anmelde-button' variant="outline-primary">
+          <Button type="submit" className='anmelde-button' variant="outline-primary" onClick={handleLogInRequest}>
             Log In
           </Button>
-        </Form>
-      </Formik>
+        
 
       <p className="anmeldung-text">
         Durch Klicken auf "Log In" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie
