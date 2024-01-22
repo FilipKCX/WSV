@@ -47,7 +47,6 @@ const Registrierung = () => {
     const apiResponse = await getHTTPRequest("createUser", paramArray);    
     sessionStorage.setItem('userID', apiResponse);
     
-    alert(sessionStorage.getItem("userID"));
     let userArray = [sessionStorage.getItem('userID')]
     const apiResponse2 = await getHTTPRequest("getIsUser", userArray);
     //alert(apiResponse2)
