@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { getHTTPRequest } from '../../serverPackage';
 import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap';
 import { Formik, Field, ErrorMessage } from 'formik';
+import './LikeWindow.css'
 
 const LikeWindow = ({ selectedLike }) => {
 
@@ -12,11 +13,13 @@ const LikeWindow = ({ selectedLike }) => {
     const handleChatLike = () => {
       const AddChat = getHTTPRequest("addChats", params)
       const freeemeee = getHTTPRequest("deleteLike", params)
+      
       setLikeContent(null)
     }
     const handleChatDislike = () => {
       const AddChat = getHTTPRequest("deleteLike", params)
       setLikeContent(null)
+      sessionStorage.setItem('leere', 0)
     } 
 
   useEffect(() => {
@@ -37,10 +40,6 @@ const LikeWindow = ({ selectedLike }) => {
         setLikeContent(null);
       }
     };
-
-
-    
-
     
     const selectedContent = sessionStorage.getItem('selectedLike');
     
@@ -59,22 +58,23 @@ return (
   <Container className="profile-containerlike">
     <div className="left-aligned-content">
       <Image
-        src="https://img.freepik.com/vektoren-premium/blaues-social-media-logo_197792-1759.jpg"  
+        src={ "./src/imagess/" + likeContent[0][8]} 
         alt="Profile"
         roundedCircle
         style={{
           width: '200px',
            height: '200px',
+           marginTop: '10px',
+           marginBottom: '1opx'
         }}
       />
-      <h2 className="mt-0">John Doe</h2>
+      <h2 className="mt-0"> {likeContent[0][1]} </h2>
       <Card className="mt-4" style={{ width: '1000px' }}>
         <Card.Body>
           <Card.Title>Kontakt</Card.Title>
           <Card.Text>
-            E-Mail: <br/>
-            Telefon: <br/>
-            Standort:
+            E-Mail: {likeContent[0][2]}<br/>
+            Standort: {likeContent[0][3]} <br/>
           </Card.Text>
         </Card.Body>
       </Card>
@@ -83,7 +83,7 @@ return (
         <Card.Body>
           <Card.Title>Beschreibung</Card.Title>
           <Card.Text>
-            Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+            {likeContent[0][4]}
           </Card.Text>
         </Card.Body>
       </Card>
@@ -92,7 +92,8 @@ return (
         <Card.Body>
           <Card.Title>Was wir bieten:</Card.Title>
           <Card.Text>
-            With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+          {likeContent[0][5]}
+
           </Card.Text>
         </Card.Body>
       </Card>
@@ -101,7 +102,7 @@ return (
         <Card.Body>
           <Card.Title>Unsere Geschichte</Card.Title>
           <Card.Text>
-            With a love for coding and problem-solving, I enjoy building innovative solutions that make a difference.
+          {likeContent[0][6]}
           </Card.Text>
         </Card.Body>
       </Card>
@@ -110,7 +111,7 @@ return (
         <Card.Body>
           <Card.Title>Karrierechancen</Card.Title>
           <Card.Text>
-            Outside of coding, I love exploring new places, trying exotic cuisines, and embarking on exciting adventures.
+          {likeContent[0][7]}
           </Card.Text>
         </Card.Body>
       </Card>
@@ -120,10 +121,10 @@ return (
     
     </div>
     <div className="text-center mt-4 mb-3">
-        <Button variant="success" size="lg" className="mr-5" style={{ backgroundColor: '#39e75f', borderColor: '#39e75f' }}>
+        <Button variant="success" size="lg" className="mr-5" onClick={handleChatLike} style={{ backgroundColor: '#39e75f', borderColor: '#39e75f' }}>
           Like
         </Button>
-        <Button variant="danger" size="lg">
+        <Button variant="danger" size="lg" onClick={handleChatDislike}>
           Dislike
         </Button>
       </div>

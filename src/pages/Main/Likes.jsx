@@ -5,10 +5,21 @@ import './Likes.css';
 import LikeWindow from '../../components/UserComponents/Likes/LikeWindow';
 
 const Likes = () => {
-  const [selectedLike, setSelectedLike] = useState('');
+  const [selectedLike, setSelectedLike] = useState(null);
+  const [likes, setLikes] = useState([]);
 
-  const handleLikeSelect = (likeId) => {
-    setSelectedLike(likeId);
+  const handleLikeSelect = (likeId, likeContent) => {
+    setSelectedLike({ id: likeId, content: likeContent });
+  };
+
+  const handleRemoveLike = (likeId) => {
+    // Update the likes state to remove the selected like
+    setLikes((prevLikes) => prevLikes.filter((like) => like.id !== likeId));
+
+    // If the removed like is the currently selected like, clear the selectedLike state
+    if (selectedLike && selectedLike.id === likeId) {
+      setSelectedLike(null);
+    }
   };
 
   return (
@@ -16,7 +27,7 @@ const Likes = () => {
       <Navibar />
       <div className="like-app-container">
         <div className="like-mmenu">
-          <LikeMenu selectLike={handleLikeSelect} selectedLike={selectedLike} />
+          <LikeMenu likes={likes} selectLike={handleLikeSelect} onRemoveLike={handleRemoveLike} selectedLike={selectedLike} />
         </div>
         <div className="like-window"> 
           <LikeWindow selectedLike={selectedLike} /> 

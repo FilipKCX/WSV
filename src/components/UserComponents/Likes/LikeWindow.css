@@ -9,4 +9,8 @@
   border-radius: 15px; /* Rounded corners */
 }
 
-
+.no-content{
+  margin-top: 40vh;
+  text-size-adjust: '30px';
+  text-align: center;
+}
