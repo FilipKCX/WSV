@@ -1,81 +1,61 @@
 
-import './LikeWindow.css';
-// import ProfilePageCompanyStatic from '../../CompanyComponents/ProfilAnsichtCompany/ProfileViewStatic';
+import React, { useState, useEffect } from 'react';
+import { getHTTPRequest } from '../../serverPackage';
 import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap';
-// import './ProfileViewStatic.css';
 import { Formik, Field, ErrorMessage } from 'formik';
 
-import React, { useState } from 'react';
-// import { getHTTPRequest } from '../../serverPackage';
-import { Link } from 'react-router-dom';
+const LikeWindow = ({ selectedLike }) => {
 
+  const [likeContent, setLikeContent] = useState(null);
+  let params = [sessionStorage.getItem('userID'),sessionStorage.getItem('selectedLike') ]
 
-function LikeWindow ({ selectedLike }) {
+    const handleChatLike = () => {
+      const AddChat = getHTTPRequest("addChats", params)
+      const freeemeee = getHTTPRequest("deleteLike", params)
+      setLikeContent(null)
+    }
+    const handleChatDislike = () => {
+      const AddChat = getHTTPRequest("deleteLike", params)
+      setLikeContent(null)
+    } 
 
-  const likedContent = [
-    { id: 'like1', content: 'ProfilePageCompanyStatic' },
-    { id: 'like2', content: 'Liked Content 2' },
-  ];
+  useEffect(() => {
+    const fetchLikeContent = async (likeId) => {
+      try {
+        if(sessionStorage.getItem('leere') != 0)
+        {
+        const response = await getHTTPRequest("getCompanyInfos", [likeId]);
+        const parsedContent = JSON.parse(response);
+        setLikeContent(parsedContent);
+        }
+        else{
+          setLikeContent(null)
+        }
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [standort, setStandort] = useState('');
-  const [wersw, setWersw] = useState('');
-  const [waswb, setWaswb] = useState('');
-  const [karriere, setKarriere] = useState('');
-  const [geschichte, setGeschichte] = useState('');
-  const [faehigkeiten, setFaehigkeiten] = useState('');
-  const [logo, setLogo] = useState('none.jpg')
-  const [selectedImagePath, setSelectedImagePath] = useState('');
-  
-    const saveCompanyProfile = (values) => {
-        console.log('Speichern der Unternehmensdaten...');
-        console.log('Profilbild:', profilbild);
-        console.log('Unternehmensname:', values.unternehmensName);
-        console.log('E-Mail:', values.email);
-        console.log('Standort:', values.standort);
-        console.log('Beschreibung:', values.beschreibung);
-        console.log('Was wir bieten:', values.angebote);
-        console.log('Unsere Geschichte:', values.geschichte);
-        console.log('Karrierechancen:', values.karriere);
-        alert('Unternehmensprofil gespeichert!');
+      } catch (error) {
+        console.error('Error fetching like content:', error);
+        setLikeContent(null);
+      }
     };
 
-  const [profilBild, setProfilBild] = useState(null);
 
-  const handleImageSelection = (event) => {
-    const file = event.target.files[0];
+    
 
-    if (file) {
-      const reader = new FileReader();
-      const fileName = file.name;
-      reader.onload = () => {
-        setSelectedImagePath(reader.result);
-        const imageData = reader.result;
-        const base64Image = `data:image/jpeg;base64,${imageData}`;
-        setProfilBild(base64Image);
-        setLogo(fileName)
-      };
-
-      reader.readAsDataURL(file);
+    
+    const selectedContent = sessionStorage.getItem('selectedLike');
+    
+    if (selectedContent != null && selectedContent !== (selectedLike +2 ).toString()) {
+      fetchLikeContent(selectedContent);
+    } else {
+      // Reset likeContent when no content is selected
+      setLikeContent(null);
     }
-  };
-
-  const triggerFileInput = () => {
-      document.getElementById('profilbild-input').click();
-  };
-  let usID = sessionStorage.getItem('userID')
-  let paramArray = [usID, name, email, standort, wersw, waswb, karriere, geschichte , logo];
-  console.log(paramArray)
-
-  async function handleProfileCreation() {
-    const apiResponse = await getHTTPRequest("createCompanyProfile", paramArray);
-    return;
-  }
-  
-  const selectedContent = likedContent.find((item) => item.id === selectedLike);
+  }, [selectedLike]);
+  console.log(likeContent)
 
 return (
+  <div>
+  {likeContent ? (
   <Container className="profile-containerlike">
     <div className="left-aligned-content">
       <Image
@@ -148,6 +128,12 @@ return (
         </Button>
       </div>
   </Container>
+  ) : (
+    <div className="no-content">
+      <p>Kein Like ausgewählt </p>
+    </div>
+  )}
+  </div>
 );
 };
 

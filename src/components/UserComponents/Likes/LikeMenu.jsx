@@ -3,80 +3,75 @@ import './LikeMenu.css';
 import { getHTTPRequest } from '../../serverPackage';
 import LikeWindow from './LikeWindow';
 
-export default function LikeMenu() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [likeUsers, setLikeUsers] = useState([]);
-  const [activeLikeBox, setActiveLikeBox] = useState(null);
+const LikeOptions = ({ selectLike }) => {
+  
+  const handleLikeSelect = (likeId) => {
+    sessionStorage.setItem('selectedLike', likeId)
+    selectLike(likeId);
+  };
 
-  const uID = sessionStorage.getItem('userID');
-  const param = [uID];
+  const [likeItems, setLikeItems] = useState([]);
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const apiResponse = await getHTTPRequest("getLikes", param);
-      const newArray = JSON.parse(apiResponse);
-      setIsLoading(false);
-      setLikeUsers(newArray);
-    };
+  const fetchLikesData = async () => {
+    const uID = sessionStorage.getItem('userID');
+    const response = await getHTTPRequest('getLikes', [uID]);
+    if(response == "None")
+    {
+      sessionStorage.setItem('leere', 0)
+    }
+    else{
+      sessionStorage.setItem('leere', 1)
+    }
+    const processedLikes = await processLikes(JSON.parse(response));
+    console.log(processedLikes)
+    setLikeItems(processedLikes);
+  };
 
-    fetchUsers();
-  }, []);
+  const processLikes = async (likesData) => {
+    const likeItems = [];
+    for (const likeData of likesData) {
+      const companyID = likeData;
+      const companyName = await fetchCompanyName(companyID);
+      const likeItem = {
+        id: likeData,
+        content: companyName,
+      };
+      likeItems.push(likeItem);
+    }
+    return likeItems;
+  };
 
-  if (isLoading) {
-    return <div>Loading...</div>;
+  async function fetchCompanyName(companyID) {
+    const response = await getHTTPRequest('getCompanyInfox', [companyID]);
+    const companyProfile = JSON.parse(response);
+    return companyProfile[0];
   }
 
-  const handleLikeBoxClick = (index) => {
-    setActiveLikeBox(index);
+  useEffect(() => {
+    fetchLikesData();
+  }, []);
+
+  const renderLikeOptions =  () => {
+    const selectedLikeId = sessionStorage.getItem('selectedLike');
+    console.log(selectedLikeId)
+    return likeItems.map((likeItem) => (
+      <div
+        key={likeItem.id}
+        className={`like-option ${sessionStorage.getItem('selectedLike') == likeItem.id ? 'active' : ''}`}
+        onClick={() => handleLikeSelect(likeItem.id)}
+      >
+        <div className="like-box">
+          <h3>{likeItem.content}</h3>
+        </div>
+      </div>
+    ));
   };
 
   return (
     <div className="like-menu">
-      
-        {likeUsers.map((company, index) => (
-          <div key={company}>
-            <LikeBox
-              company={company}
-              isActive={company === activeLikeBox}
-              onClick={() => handleLikeBoxClick(company)}
-            />
-          </div>
-        ))}
-      </div>
+      {renderLikeOptions()}
+    </div>
   );
-}
+};
 
-function LikeBox({ company, isActive, onClick }) {
-  const [compd, setcompd] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const param = [company];
-      const apiResponse = await getHTTPRequest("getCompanyInfox", param);
-      const sortArray = JSON.parse(apiResponse);
-      const selectedArray = sortArray[0];
-
-      const companyData = {
-        name: selectedArray[1],
-      };
-
-      const menu = (
-        <div className="like-options">
-        <div
-          className={`like-box ${isActive ? 'active' : ''}`}
-          onClick={onClick}
-        >
-          <h3>{companyData.name}</h3>
-          <p>Chatte jetzt mit {companyData.name} !</p>
-        </div>
-        </div>
-      );
-
-      setcompd(menu);
-    };
-
-    fetchData();
-  }, [company, isActive, onClick]);
-
-  return compd;
-}
+export default LikeOptions;
