@@ -40,7 +40,7 @@ import DatenschutzNoLogIn from './pages/StaticNoLogIn/DatenschutzNoLogIn'
 import KontaktNoLogIn from './pages/StaticNoLogIn/KontaktNoLogIn'
 import AGBNoLogIn from './pages/StaticNoLogIn/AGBNoLogIn'
 import HinweiseNoLogIn from './pages/StaticNoLogIn/HinweiseNoLogIn'
-import ImpressumNoLogIn from './pages/StaticNoLogIn/ImpressumNoLogIn'
+import ImpressumNoLogIn from './pages/StaticNoLogIn/ImpressumNoLogin'
 
 import TutorialUser from './pages/MainNoLogIn/TutorialUser'
 import TutorialCompany from './pages/MainNoLogIn/TutorialCompany'

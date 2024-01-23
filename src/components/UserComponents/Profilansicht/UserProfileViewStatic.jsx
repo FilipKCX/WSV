@@ -16,7 +16,7 @@ const Profilansicht = () => {
     
   });
 
-  // Funktion zum Umschalten der Verfügbarkeit
+  
   const toggleVerfuegbarkeit = (tag) => {
     setVerfuegbarkeit(prevState => ({
       ...prevState,
@@ -27,21 +27,21 @@ const Profilansicht = () => {
     }));
   };
 
-  // Funktion um Stundenanzahl zu aktualisieren
+  
   const handleChangeHours = (tag, value) => {
-    const hours = Number(value); // Stellt sicher, dass die Eingabe als Zahl gespeichert wird
+    const hours = Number(value);
     setVerfuegbarkeit(prevState => ({
       ...prevState,
       [tag]: {
         ...prevState[tag],
-        hours: hours >= 0 ? hours : 0 // Verhindert negative Stundenanzahlen
+        hours: hours >= 0 ? hours : 0 
       }
     }));
   };
 
-  // Funktion um zu verhindern, dass Zahlen bei "Stunden" eingegeben werden können
+  
   const handleKeyDown = (e) => {
-    // Erlaube nur das Benutzen der Pfeiltasten
+    
     if (e.key !== "ArrowUp" && e.key !== "ArrowDown") {
       e.preventDefault();
     }
@@ -107,8 +107,8 @@ const Profilansicht = () => {
                 height: '200px',
                 marginTop: '20px',
                 marginBottom: '20px',
-                objectFit: 'cover', // Maintain aspect ratio
-                borderRadius: '50%', // Make it a circle
+                objectFit: 'cover', 
+                borderRadius: '50%', 
               }}
             />
             <h2 className="mt-0">{studentData.name}</h2>
@@ -183,7 +183,7 @@ const Profilansicht = () => {
               <Form.Control
                 type="number"
                 value={userTage[tag]}
-                readOnly // Set input field to read-only
+                readOnly 
               />
             </td>
           </tr>

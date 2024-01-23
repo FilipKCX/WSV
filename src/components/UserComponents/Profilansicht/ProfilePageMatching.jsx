@@ -71,7 +71,7 @@ const Profilansicht = () => {
 
       }
 
-      // Extract student data into a single object
+      
       const studentData = {
         uID: selectedArray[0],
         name: selectedArray[1],
@@ -104,8 +104,8 @@ const Profilansicht = () => {
                 height: '200px',
                 marginTop: '20px',
                 marginBottom: '20px',
-                objectFit: 'cover', // Maintain aspect ratio
-                borderRadius: '50%', // Make it a circle
+                objectFit: 'cover', 
+                borderRadius: '50%', 
               }}
             />
             <h2 className="mt-0">{studentData.name}</h2>
@@ -183,7 +183,7 @@ const Profilansicht = () => {
               <Form.Control
                 type="number"
                 value={userTage[tag]}
-                readOnly // Set input field to read-only
+                readOnly 
               />
             </td>
           </tr>

@@ -78,7 +78,7 @@ const Anmeldung = () => {
       </p>
 
       <Link to='/passwortanfordern'>
-        <p className="password-link">Password vergessen?</p>
+        <p className="password-link">Passwort vergessen?</p>
       </Link>
 
       <Link to='/register'>

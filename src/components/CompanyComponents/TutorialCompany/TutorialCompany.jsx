@@ -2,20 +2,20 @@ import React, { useRef } from 'react';
 import { Container, Carousel, Button, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-  const TutorialCompany = () => {
-    const carouselRef = useRef(null);
-  
-    const handleNext = () => {
-      if (carouselRef.current) {
-        carouselRef.current.next();
-      }
-    };
-  
-    const handlePrev = () => {
-      if (carouselRef.current) {
-        carouselRef.current.prev();
-      }
-    };
+const TutorialCompany = () => {
+  const carouselRef = useRef(null);
+
+  const handleNext = () => {
+    if (carouselRef.current) {
+      carouselRef.current.next();
+    }
+  };
+
+  const handlePrev = () => {
+    if (carouselRef.current) {
+      carouselRef.current.prev();
+    }
+  };
   return (
     <div className="tutorial-container">
       <div className="tutorial-centered-container">
@@ -23,7 +23,7 @@ import { Link } from 'react-router-dom';
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="./src/assets/npcbild.jpg"
+              src="./src/assets/welcomecompany.jpg"
               alt="First Slide"
             />
             <Carousel.Caption>
@@ -35,12 +35,36 @@ import { Link } from 'react-router-dom';
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://via.placeholder.com/1200x600"
+              src="./src/assets/companyhome.png"
               alt="Second Slide"
             />
             <Carousel.Caption>
               <h3>Home</h3>
               <p>Entdecken Sie wöchentlich neue spannende Artikel auf der Homepage. Über die Navigationsbar kommen Sie zu den wichtigsten Funktionalitäten!</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="src/assets/companyprofile.png"
+              alt="Fifth Slide"
+            />
+            <Carousel.Caption>
+              <h3>Profil</h3>
+              <p>Beschreiben Sie Ihr Unternehmen über die Profilfunktion!</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="src/assets/matching.png"
+              alt="Fourth Slide"
+            />
+            <Carousel.Caption>
+              <h3>Matching</h3>
+              <p>Stöbern Sie durch interessante Studentenprofile, um den richtigen Werkstudenten für Ihr Unternehmen zu finden!</p>
             </Carousel.Caption>
           </Carousel.Item>
 
@@ -56,28 +80,6 @@ import { Link } from 'react-router-dom';
             </Carousel.Caption>
           </Carousel.Item>
 
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="https://via.placeholder.com/1200x600"
-              alt="Fourth Slide"
-            />
-            <Carousel.Caption>
-              <h3>Matching</h3>
-              <p>Stöbern Sie durch interessante Studentenprofile, um den richtigen Werkstudenten für Ihr Unternehmen zu finden!</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="src/assets/profil.png"
-              alt="Fifth Slide"
-            />
-            <Carousel.Caption>
-              <h3>Profil</h3>
-              <p>Beschreiben Sie Ihr Unternehmen über die Profilfunktion!</p>
-            </Carousel.Caption>
-          </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"

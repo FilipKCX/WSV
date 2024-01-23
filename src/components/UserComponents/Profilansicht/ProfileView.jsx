@@ -57,12 +57,12 @@ const Profilansicht = () => {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       console.log('Form values:', values);
-      // handle your form submission logic here
+      
       saveProfile();
     },
   });
 
-  // Funktion zum Umschalten der Verfügbarkeit
+  
   const toggleVerfuegbarkeit = (tag) => {
     setVerfuegbarkeit(prevState => {
       const isAvailable = !prevState[tag].available;
@@ -88,23 +88,23 @@ const Profilansicht = () => {
     extractHoursAsArray();
   }, [verfuegbarkeit]);
   console.log(extractHoursAsArray)
-  // Funktion um Stundenanzahl zu aktualisieren
+  
   const handleChangeHours = (tag, value) => {
-    let hours = Number(value); // Stellt sicher, dass die Eingabe als Zahl gespeichert wird
+    let hours = Number(value); 
     hours = Math.max(0, Math.min(hours, 9));
     setVerfuegbarkeit(prevState => ({
       ...prevState,
       [tag]: {
         ...prevState[tag],
-        hours: hours // Setzt die Stunden mit der beschränkten Zahl
+        hours: hours 
       }
     }));
   };
 
 
-  // Funktion um zu verhindern, dass Zahlen bei "Stunden" eingegeben werden können
+  
   const handleKeyDown = (e) => {
-    // Erlaube nur das Benutzen der Pfeiltasten
+    
     if (e.key !== "ArrowUp" && e.key !== "ArrowDown") {
       e.preventDefault();
     }
@@ -125,7 +125,7 @@ const Profilansicht = () => {
     console.log('Verfügbarkeit:', verfuegbarkeit);
     console.log(extractHoursAsArray())
     handleProfileCreation();
-    alert('Profil gespeichert!'); // Für Demonstrationszwecke 
+    alert('Profil gespeichert!'); 
   };
 
   const calculateTotalWorkHours = () => {
@@ -137,7 +137,7 @@ const Profilansicht = () => {
       totalHours += hoursToAdd;
     }
   
-    totalHours = Math.min(totalHours, 20); // Ensure total hours don't exceed 20
+    totalHours = Math.min(totalHours, 20); 
   
     return totalHours;
   };
@@ -324,7 +324,7 @@ const Profilansicht = () => {
                                     type="number"
                                     value={verfuegbarkeit[tag].hours}
                                     onChange={e => handleChangeHours(tag, e.target.value)}
-                                    onKeyDown={handleKeyDown} // Event-Handler hinzufügen
+                                    onKeyDown={handleKeyDown} 
                                     disabled={!verfuegbarkeit[tag].available}
                                     />
                                   </td>

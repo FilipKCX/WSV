@@ -13,10 +13,10 @@ const Likes = () => {
   };
 
   const handleRemoveLike = (likeId) => {
-    // Update the likes state to remove the selected like
+    
     setLikes((prevLikes) => prevLikes.filter((like) => like.id !== likeId));
 
-    // If the removed like is the currently selected like, clear the selectedLike state
+    
     if (selectedLike && selectedLike.id === likeId) {
       setSelectedLike(null);
     }

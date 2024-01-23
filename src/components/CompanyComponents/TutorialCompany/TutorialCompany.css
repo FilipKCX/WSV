@@ -147,12 +147,6 @@
   font-size: 23px;
 }
 
-
-  position: relative;
-  height: 90vh;
-  border-radius: 8px;
-}
-
 .carousel-inner {
   border: 2px solid #0074cc;
   border-radius: 22px;

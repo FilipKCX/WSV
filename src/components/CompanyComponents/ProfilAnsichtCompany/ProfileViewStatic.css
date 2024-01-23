@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 2px solid #ddd; /* Light gray border */
-  border-radius: 15px; /* Rounded corners */
-  overflow: hidden; /* Ensure rounded corners are visible */
+  border: 2px solid #ddd; 
+  border-radius: 15px; 
+  overflow: hidden; 
   margin-top: 10px;
-  width: calc(100% - 430px); /* Adjust the width by subtracting the total left and right margins (40px in this case) */
+  width: calc(100% - 430px); 
 }
 
 .left-aligned-content {

@@ -1,19 +1,19 @@
 .profil-container {
     padding-top: 0px;
     padding-bottom: 0px;
-    background-color: #f4f4f4; /* Hintergrundfarbe des Containers */
+    background-color: #f4f4f4; 
     min-height: 100vh;
 }
 
 .profil-row {
-    background-color: #fff; /* Hintergrundfarbe der Zeile */
+    background-color: #fff; 
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
     border-radius: 10px; 
     overflow: hidden;
     min-height: 100vh;
 }
 
-/* Styling für das Logo-Container */
+
 .profil-bild-container {
   text-align: center;
   padding: 20px;
@@ -22,25 +22,24 @@
   position: relative;
 }
 
-/* Styling für den Klick-Hinweis */
 .profil-bild-container div {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #007bff; /* Farbe des Klick-Hinweises */
+  color: #007bff; 
   background-color: rgba(255, 255, 255, 0.8); 
   padding: 5px;
   border-radius: 5px;
-  display: none; /* Standardmäßig versteckt */
+  display: none; 
 }
 
-/* Zeigt den Klick-Hinweis beim Hover an */
+
 .profil-bild-container:hover div {
   display: block;
 }
 
-/* Styling für das Unternehmenslogo */
+
 .profil-bild {
   width: 180px;
   height: 180px;
@@ -48,19 +47,19 @@
   border: 3px solid #007bff; 
 }
 
-/* Styling für die Karten */
+
 .profil-card {
     margin-bottom: 20px;
-    transition: transform 0.3s ease; /* Übergangseffekt für Hover */
+    transition: transform 0.3s ease; 
 }
 
-/* Hover-Effekt für Karten */
+
 .profil-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15); 
 }
 
-/* Styling für Eingabefelder */
+
 .profil-input {
   padding: 10px;
   margin: 5px 0;
@@ -71,14 +70,13 @@
   color: grey; 
 }
 
-/* Stil für den Platzhaltertext */
 .profil-input::placeholder {
   color: grey; 
 }
 
-/* Stil für den Text, wenn der Benutzer anfängt zu schreiben */
+
 .profil-input:focus {
-  color: black; /* Farbe des Textes bei Fokus */
+  color: black;
 }
 /* 
 .speichern-button {
