@@ -1,5 +1,6 @@
 .checkbox-wrapper-35 .switch {
     display: none;
+    
   }
   
   .checkbox-wrapper-35 .switch + label {
@@ -14,7 +15,7 @@
     display: -ms-flexbox;
     display: flex;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 12px;
+    font-size: 18px;
     line-height: 15px;
     position: relative;
     -webkit-user-select: none;
@@ -22,6 +23,8 @@
     -ms-user-select: none;
     user-select: none;
     width: auto;
+    margin-right: 40px;
+    margin-bottom: 20px;
   }
   
   .checkbox-wrapper-35 .switch + label::before,
@@ -65,7 +68,7 @@
     display: block;
     font-weight: bold;
     height: 15px;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
     width: 80px;
   }

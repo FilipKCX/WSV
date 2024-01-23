@@ -1,7 +1,7 @@
 import React from 'react';
 import './Anmeldung.css';
 import { Link } from 'react-router-dom';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Toast } from 'react-bootstrap';
 import { useState } from 'react';
 import { getHTTPRequest } from '/src/components/serverPackage';
 import { useNavigate } from "react-router-dom";
@@ -10,7 +10,9 @@ import { useNavigate } from "react-router-dom";
 const Anmeldung = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
   const navigate = useNavigate();
+  const [showToast, setShowToast] = useState(false);
 
   const handleLogInRequest = async () => {
     try {
@@ -18,7 +20,7 @@ const Anmeldung = () => {
       console.log(paramArray);
       const apiResponse = await getHTTPRequest('getLoginUser', paramArray);
       if (apiResponse === 'a') {
-        alert('Die Email oder das Passwort ist falsch!');
+        setShowToast(true);
         return;
       }
       sessionStorage.setItem('userID', apiResponse);
@@ -41,6 +43,16 @@ const Anmeldung = () => {
     }
   };
 
+  const validateEmail = () => {
+    // Simple email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setEmailError('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+    } else {
+      setEmailError('');
+    }
+  };
+
   return (
     <div className="anmeldung-container">
       <h1>Log In</h1>
@@ -53,7 +65,9 @@ const Anmeldung = () => {
             placeholder="E-Mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            onBlur={validateEmail} // Validate email format onBlur
           />
+           {emailError && <Form.Text className="text-danger">{emailError}</Form.Text>}
           </Form.Group>
 
           <Form.Group controlId="formPassword" className="input-container">
@@ -86,6 +100,12 @@ const Anmeldung = () => {
           Noch kein WorkingStudent oder auf der Suche nach WorkingStudents? Hier registrieren!
         </p>
       </Link>
+      <Toast show={showToast} onClose={() => setShowToast(false)} delay={3000} autohide className="toast-righta">
+        <Toast.Header>
+          <strong className="mr-auto">Fehler beim Anmelden!</strong>
+        </Toast.Header>
+        <Toast.Body>Die Email oder das Passwort ist falsch!</Toast.Body>
+      </Toast>
     </div>
   );
 };

@@ -78,6 +78,13 @@
 .profil-input:focus {
   color: black;
 }
+
+.toast-rightpvc {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-left: 30px; /* Adjust this value as needed to avoid overlapping with other elements */
+}
 /* 
 .speichern-button {
   background-color: #0074cc !important;
