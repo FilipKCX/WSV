@@ -43,7 +43,7 @@ const ChatMenu = ({ selectChat }) => {
     return chatItems.map((chatItem) => (
       <div
         key={chatItem.id}
-        className={`chat-option ${selectedChat === chatItem.id ? 'active' : ''}`}
+        className={`chat-option ${sessionStorage.getItem('SelectedChat') == chatItem.chatid ? 'active' : ''}`}
         onClick={() => handleChatClick(chatItem.id, chatItem.content, chatItem.chatid)}
       >
         <div className="chat-box">
@@ -52,7 +52,7 @@ const ChatMenu = ({ selectChat }) => {
       </div>
     ));
   };
-
+  
   const handleChatClick = (cId, chatContent, chatid) => {
     sessionStorage.setItem('SelectedCompany', cId);
     sessionStorage.setItem('SelectedChat', chatid);

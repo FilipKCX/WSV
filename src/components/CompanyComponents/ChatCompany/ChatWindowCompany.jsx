@@ -77,7 +77,7 @@ const ChatWindow = ({ selectedChat }) => {
   console.log(chatContent)
   return (
     <div className="chat-window-container">
-      {chatContent.length != null ? (
+      {chatContent != null ? (
         renderChatContent()
       ) : (
         <div className="no-content" >

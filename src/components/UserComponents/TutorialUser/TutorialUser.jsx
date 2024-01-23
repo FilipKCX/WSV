@@ -82,17 +82,7 @@ const Tutorial = () => {
             </Carousel.Caption>
           </Carousel.Item>
 
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="src/assets/kontakt.png"
-              alt="Sixth Slide"
-            />
-            <Carousel.Caption>
-              <h3>Kontakt</h3>
-              <p>Gerne nehmen wir Ihre Fragen, Anregungen oder Anfragen entgegen und stehen zur Verfügung!</p>
-            </Carousel.Caption>
-          </Carousel.Item>
+        
         </Carousel>
       </div>
 
