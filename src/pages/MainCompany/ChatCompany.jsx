@@ -4,31 +4,25 @@ import ChatWindow from '../../components/CompanyComponents/ChatCompany/ChatWindo
 import Navibar from '../../components/CompanyComponents/NavbarCompany';
 
 const Chat = () => {
-  const [selectedChat, setSelectedChat] = useState('chat1');
+  const [selectedChat, setSelectedChat] = useState(null);
+  const [chats, setChats] = useState([]);
 
-  const handleChatSelect = (chatId) => {
-    setSelectedChat(chatId);
+  const handleChatSelect = (chatId, chatContent) => {
+    setSelectedChat({ id: chatId, content: chatContent });
   };
-
-  return <>
-  <Navibar/>
-  <div class="chat-app-container">
-      <div class="chat-menu">
-        <ChatMenu selectChat={handleChatSelect} selectedChat={selectedChat} />
+  return (
+    <>
+      <Navibar />
+      <div className="chat-app-container">
+        <div className="chat-menu">
+          <ChatMenu chats={chats} selectChat={handleChatSelect} selectedChat={selectedChat} />
+        </div>
+        <div className="chat-window">
+          <ChatWindow selectedChat={selectedChat} />
+        </div>
       </div>
-      <div class="chat-window">
-        <ChatWindow selectedChat={selectedChat} />
-      </div>
-  </div>
-  
-  
-  </>
-    
-    
-      
-      
- 
-;
+    </>
+  );
 };
 
 export default Chat;

@@ -1,6 +1,6 @@
 .chat-menu {
   height: 100%;
-  width: 50vh;
+  width: 250px; /* Adjust width to your preference */
   background-color: #f0f0f0cc;
   padding: 20px;
   border-radius: 12px;
@@ -14,7 +14,6 @@
 }
 
 .chat-option {
-
   margin-bottom: 15px;
   border-radius: 12px;
 }
@@ -23,7 +22,7 @@
   border: 1px solid transparent;
   border-radius: 12px;
   padding: 10px;
-  width: 200px;
+  width: 100%; /* Adjust width to fill the container */
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s, border-color 0.2s;
   margin-bottom: 10px;
@@ -35,8 +34,9 @@
 }
 
 .chat-option.active .chat-box {
-
   border-radius: 12px;
+
+  color: #fff; /* Adjust text color for active state */
 }
 
 .chat-box.active {
@@ -47,9 +47,11 @@
   margin-top: 0;
   margin-bottom: 5px;
   font-size: 18px;
+  color: #333; /* Adjust text color */
 }
 
 .chat-box p {
   margin: 0;
   font-size: 14px;
+  color: #666; /* Adjust text color */
 }
