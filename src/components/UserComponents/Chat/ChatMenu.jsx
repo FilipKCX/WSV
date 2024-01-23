@@ -1,37 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import './ChatMenu.css';
 import { getHTTPRequest } from '../../serverPackage';
-import ChatWindow from './ChatWindow';
 
 const ChatMenu = ({ selectChat }) => {
   const [chatItems, setChatItems] = useState([]);
-  sessionStorage.setItem('selectedChat', selectChat)
+  const [selectedChat, setSelectedChat] = useState(sessionStorage.getItem('selectedChat'));
+  const userID = sessionStorage.getItem('userID');
+
   const fetchChatsData = async () => {
     const uID = sessionStorage.getItem('userID');
-    const response = await getHTTPRequest('getallChats', [uID]);
-    console.log(response)
+    const response = await getHTTPRequest('getChats', [uID]);
+
     const processedChats = await processChats(JSON.parse(response));
     setChatItems(processedChats);
   };
 
   const processChats = async (chatsData) => {
-    const chatItems = [];
-    for (const chatData of chatsData) {
+    const mappedChats = chatsData.map(async (chatData) => {
       const companyId = chatData;
-      const companyName = await fetchCompanyName(companyId);
-      const chatItem = {
-        id: chatData,
+      const companyName = await fetchCompanyName(chatData[0]);
+      return {
+        id: chatData[0],
         content: companyName,
+        chatid: chatData[1]
       };
-      chatItems.push(chatItem);
-    }
-    return chatItems;
+    });
+
+    return Promise.all(mappedChats);
   };
 
   async function fetchCompanyName(companyId) {
     const response = await getHTTPRequest('getCompanyInfox', [companyId]);
     const companyProfile = JSON.parse(response);
-    return companyProfile[0];
+    return companyProfile[0][0];
   }
 
   useEffect(() => {
@@ -42,8 +43,8 @@ const ChatMenu = ({ selectChat }) => {
     return chatItems.map((chatItem) => (
       <div
         key={chatItem.id}
-        className={`chat-option ${sessionStorage.getItem('selectedChat') == chatItem.id ? 'active' : ''}`}
-        onClick={() => selectChat(chatItem.id, chatItem.content)}
+        className={`chat-option ${selectedChat === chatItem.id ? 'active' : ''}`}
+        onClick={() => handleChatClick(chatItem.id, chatItem.content, chatItem.chatid)}
       >
         <div className="chat-box">
           <h3>{chatItem.content}</h3>
@@ -52,7 +53,15 @@ const ChatMenu = ({ selectChat }) => {
     ));
   };
 
-  return <div >{renderChatOptions()}</div>;
+  const handleChatClick = (cId, chatContent, chatid) => {
+    sessionStorage.setItem('SelectedCompany', cId);
+    sessionStorage.setItem('SelectedChat', chatid);
+    console.log(chatid)
+    setSelectedChat(cId);
+    selectChat(cId, chatContent);
+  };
+
+  return <div>{renderChatOptions()}</div>;
 };
 
 export default ChatMenu;

@@ -6,6 +6,7 @@ import './MatchingCompany.css';
 import { getHTTPRequest } from '/src/components/serverPackage';
 import TestComponent from '../../components/testcomponent';
 import CardTest from '../../components/CompanyComponents/Matching/CardTest';
+import { element } from 'prop-types';
 
 export default function  Matching () 
 {
@@ -13,12 +14,26 @@ export default function  Matching ()
   const [userArray, setUserArray]=  useState([]);
   useEffect(() => {
    const fetchUsers = async () => {
+          const usID = sessionStorage.getItem('userID')
+          const ApiResponse2 = await getHTTPRequest("getAlreadyLiked", [usID])
+          console.log(ApiResponse2)
           const apiResponse = await getHTTPRequest("getUsers");
           console.log(apiResponse)
+          
           const newArray = JSON.parse(apiResponse)
-          console.log("Hier" + newArray)
+          let fArray = []
+          if(ApiResponse2 === "None" )
+          {  
+            fArray = newArray 
+          }
+          else
+          {          
+            const usersToExclude = JSON.parse(ApiResponse2);   
+            fArray = newArray.filter(element => !usersToExclude.includes(element));
+          }
+          console.log(newArray)
           setIsLoading(false)
-          setUserArray(newArray);        
+          setUserArray(fArray);        
         }
    fetchUsers();
    

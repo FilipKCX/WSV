@@ -30,13 +30,21 @@ const DynamicCards = ({ userId }) => {
       const cID = sessionStorage.getItem('userID')
       let params = [userId, cID]
       console.log(params)
-      const addToLikes = async () =>{
 
+      const addToLikes = async () =>{
+        const apiResponse5 = await getHTTPRequest("alreadyLiked", params)
          const apiResponse = await getHTTPRequest("addLike", params)
          console.log(userId)
+         window.location.reload()
          return 
 
       }
+      const dislike = async () => {
+        const apiResponse5 = await getHTTPRequest("alreadyLiked", params)
+        window.location.reload()
+        return
+      }
+
       function showProfile() {
         sessionStorage.setItem('selectedProfile', userId )
         navigate("/MatchingProfile")
@@ -58,7 +66,7 @@ const DynamicCards = ({ userId }) => {
               <ListGroup.Item><Card.Link onClick={showProfile}>Zum Profil!</Card.Link></ListGroup.Item>
             </ListGroup>
             <Card.Body className="card-buttons">
-              <button className="roundmatch-button x-button">×</button>
+              <button className="roundmatch-button x-button" onClick={dislike}>×</button>
               <button className="roundmatch-button check-button" onClick={addToLikes}>✓</button>
             </Card.Body>
             </Card>
@@ -73,7 +81,7 @@ const DynamicCards = ({ userId }) => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div>.</div>;
   }
 
   return student;

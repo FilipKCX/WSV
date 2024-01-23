@@ -7,12 +7,11 @@ import { Formik, Field, ErrorMessage } from 'formik';
 import './LikeWindow.css'
 
 const LikeWindow = ({ selectedLike }) => {
-  const navigate = useNavigate();
   const [likeContent, setLikeContent] = useState(null);
-  let params = [sessionStorage.getItem('userID'),sessionStorage.getItem('currentLike'), " " ]
+  let params = [sessionStorage.getItem('userID'),sessionStorage.getItem('currentLike') ]
 
     const handleChatLike = async  () => {
-      const AddChat = await getHTTPRequest("createMessage", params)
+      const AddChat = await getHTTPRequest("addChats", params)
       const freeemeee = await getHTTPRequest("deleteLike", params)
       sessionStorage.removeItem('selectedLike')
       setLikeContent(null)

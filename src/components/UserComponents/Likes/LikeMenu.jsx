@@ -16,6 +16,7 @@ const LikeOptions = ({ selectLike }) => {
   const fetchLikesData = async () => {
     const uID = sessionStorage.getItem('userID');
     const response = await getHTTPRequest('getLikes', [uID]);
+    console.log(response)
     if(response == "None")
     {
       sessionStorage.setItem('leere', 0)
