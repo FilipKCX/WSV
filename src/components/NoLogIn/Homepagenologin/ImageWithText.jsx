@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 
 const HomePage = () => {
   const containerStyle = {
-    marginTop: '100px', // Adjust this value to your desired top margin
+    marginTop: '100px', 
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -19,8 +19,8 @@ const HomePage = () => {
       <Container style={containerStyle}>
         <Row>
           <Col>
-            <h1 >Willkommen bei WorkingStudent</h1>
-            <p>Finden Sie den perfekten Job oder Werkstudenten für Sie.</p>
+            <h1 >Willkommen bei WorkingStudent!</h1>
+            <p>WorkingStudent: Dein Tor zur beruflichen Zukunft!</p>
           </Col>
         </Row>
       </Container>
@@ -37,7 +37,7 @@ const HomePage = () => {
               <Card.Body>
                 <Card.Title className="text-left">Wieso WorkingStudent?</Card.Title>
                 <Card.Text className="text-left">
-                  WorkingStudent verbindet talentierte Studententen mit den besten Arbeitgebern und das auf eine komplett neue Art!
+                  WorkingStudent verbindet talentierte Studenten mit den besten Arbeitgebern und das auf eine komplett neue Art!
                 </Card.Text>
               </Card.Body>
             </Card>
@@ -47,7 +47,7 @@ const HomePage = () => {
         <Row className="mt-3 mb-4">
           <Col>
             <h2 className="text-left">Finde den passenden Job!</h2>
-            <p className="text-left">Erstelle dein individuelles Profil und präsentiere deine Fähigkeiten, Interessen und bisherigen Erfahrungen. Je detaillierter dein Profil, desto besser können Unternehmen erkennen, wie gut du zu ihren Anforderungen passt.
+            <p className="text-left">Erstellen Sie Ihr individuelles Profil und präsentieren Sie Ihre Fähigkeiten, Interessen und bisherigen Erfahrungen. Je detaillierter Ihr Profil, desto besser können Unternehmen erkennen, wie gut Sie zu ihren Anforderungen passt.
 
             </p>
           </Col>

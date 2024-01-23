@@ -18,7 +18,7 @@ const DynamicCards = ({ userId }) => {
       const sortArray = JSON.parse(apiResponse);
       const selectedArray = sortArray[0];
 
-      // Extract student data into a single object
+      
       const studentData = {
         name: selectedArray[1],
         study: selectedArray[2],
@@ -51,7 +51,7 @@ const DynamicCards = ({ userId }) => {
       }
       const logo = "./src/imagess/" + selectedArray[6]
       console.log(logo)
-      // Render a single card using the student data object
+      
       const card = (
             <Card className="custom-card">
             <Card.Img variant="top" src={logo} className="rounded-image"/>

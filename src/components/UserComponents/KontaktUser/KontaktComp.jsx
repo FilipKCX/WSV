@@ -16,18 +16,18 @@ const Kontakt = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
 
-        // Additional validation for email, vorname, and nachname
+        
         let updatedValue = value;
 
         if (name === 'email') {
-            // Validate email format
+            
             updatedValue = value.replace(/[^a-zA-Z0-9@.]/g, '');
         } else if (name === 'vorname' || name === 'nachname') {
-            // Allow only letters
+            
             updatedValue = value.replace(/[^a-zA-Z]/g, '');
         } else {
-            // For other fields, allow any input
-            updatedValue = value.replace(/&/g, ''); // Remove '&'
+            
+            updatedValue = value.replace(/&/g, ''); 
         }
 
         setForm({ ...form, [name]: updatedValue });

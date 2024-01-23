@@ -14,7 +14,7 @@ const Articles = () => {
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>Steigern Sie Ihre Unternehmensdynamik</h3>
+              <h3>Steigern Sie Ihre Unternehmensdynamik.</h3>
               <p>Investieren Sie in die Zukunft Ihres Unternehmens und profitieren Sie von frischem, dynamischem Talent!</p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -25,7 +25,7 @@ const Articles = () => {
               alt="Second slide"
             />
             <Carousel.Caption>
-              <h3>Werkstudenten willkommen: Gemeinsam auf Erfolgskurs in die Zukunft</h3>
+              <h3>Werkstudenten willkommen: Gemeinsam auf Erfolgskurs in die Zukunft.</h3>
               <p>Mit der Einstellung von Werkstudenten legen Sie den Grundstein für eine erfolgsversprechende Zukunft Ihres Unternehmens</p>
             </Carousel.Caption>
           </Carousel.Item>
@@ -54,7 +54,7 @@ const Articles = () => {
                 <Card.Title>Our Services</Card.Title>
                 <Card.Text>
                 Unsere Dienstleistungen richten sich darauf aus, angehende Fachkräfte mit passenden Unternehmen zu verbinden. 
-                Wir bieten umfassende Vermittlungsdienste für Working Students an, um individuelle Fähigkeiten und 
+                Wir bieten umfassende Vermittlungsdienste für Werkstudenten an, um individuelle Fähigkeiten und 
                 Talente mit den Bedürfnissen unserer Partnerunternehmen in Einklang zu bringen. 
                 Von maßgeschneiderten Praktika bis hin zu gezielten Karriereberatungen – wir begleiten dich auf dem Weg 
                 zu erfolgreichen beruflichen Erfahrungen während deines Studiums.

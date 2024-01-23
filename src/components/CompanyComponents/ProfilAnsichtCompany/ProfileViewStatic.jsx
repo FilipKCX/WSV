@@ -18,7 +18,7 @@ const ProfilePage = () => {
       const sortArray = JSON.parse(apiResponse);
       const selectedArray = sortArray[0];
 
-      // Extract student data into a single object
+      
       const studentData = {
         uID: selectedArray[0],
         name: selectedArray[1],
@@ -49,8 +49,8 @@ const ProfilePage = () => {
                 height: '200px',
                 marginTop: '20px',
                 marginBottom: '20px',
-                objectFit: 'cover', // Maintain aspect ratio
-                borderRadius: '50%', // Make it a circle
+                objectFit: 'cover', 
+                borderRadius: '50%', 
               }}
             />
             <h2 className="mt-0">{studentData.name}</h2>

@@ -50,7 +50,7 @@ const LikeWindow = ({ selectedLike }) => {
     if (selectedContent != null && selectedContent !== (selectedLike +2 ).toString()) {
       fetchLikeContent(selectedContent);
     } else {
-      // Reset likeContent when no content is selected
+      
       setLikeContent(null);
     }
   }, [selectedLike]);
@@ -73,8 +73,8 @@ return (
                 height: '200px',
                 marginTop: '20px',
                 marginBottom: '20px',
-                objectFit: 'cover', // Maintain aspect ratio
-                borderRadius: '50%', // Make it a circle
+                objectFit: 'cover', 
+                borderRadius: '50%', 
               }}
             />
             <h2 className="mt-0">{likeContent[0][1]}</h2>
