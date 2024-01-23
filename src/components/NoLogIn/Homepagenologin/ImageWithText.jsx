@@ -52,8 +52,8 @@ const HomePage = () => {
             </p>
           </Col>
           <Col>
-            <h2 className="text-left">Finden Sie Werkstudenten!</h2>
-            <p className="text-left">Durchsuchen Sie Profile von hochqualifizierten Studierenden, die auf der Suche nach Werkstudentenmöglichkeiten sind. Unser Portal ermöglicht es Ihnen, gezielt nach Kandidaten zu suchen, die Ihren Anforderungen entsprechen.</p>
+            <h2 className="text-right">Finden Sie Werkstudenten!</h2>
+            <p className="text-right">Durchsuchen Sie Profile von hochqualifizierten Studierenden, die auf der Suche nach Werkstudentenmöglichkeiten sind. Unser Portal ermöglicht es Ihnen, gezielt nach Kandidaten zu suchen, die Ihren Anforderungen entsprechen.</p>
           </Col>
         </Row>
       </Container>
