@@ -1,9 +1,7 @@
-
 import '../../UserComponents/Chat/ChatWindow.css'; 
 import React, { useState, useEffect, useRef } from 'react';
 import { getHTTPRequest } from '../../serverPackage';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
-
 
 const ChatWindow = ({ selectedChat }) => {
   const [chatContent, setChatContent] = useState([]);
@@ -33,7 +31,14 @@ const ChatWindow = ({ selectedChat }) => {
       const response = await getHTTPRequest('getMessages', [sessionStorage.getItem('SelectedChat')]);
       const parsedContent = JSON.parse(response);
       console.log(parsedContent)
-      setChatContent(parsedContent);
+      if(parsedContent == null)
+      {
+        setChatContent([]);
+      }
+      else
+      {
+        setChatContent(parsedContent);
+      }
     } catch (error) {
       console.error('Error fetching chat content:', error);
       setChatContent([]);
@@ -63,29 +68,23 @@ const ChatWindow = ({ selectedChat }) => {
   };
 
   useEffect(() => {
-    if (selectedChat != null) {
+    if (selectedChat) {
       fetchChatContent(selectedChat);
     } else {
       setChatContent([]);
     }
   }, [selectedChat]);
+  console.log(chatContent)
   return (
     <div className="chat-window-container">
-      {chatContent != null ? (
+      {chatContent.length != null ? (
         renderChatContent()
       ) : (
-        <Container className="profile-container-like">
-
-          <div className="text-input" >
-        <input
-          type="text"
-          placeholder="Type a message..."
-          value={newMessage}
-          onChange={handleInputChange}
-        />
-        <button onClick={handleSendMessage}>Senden</button>
-      </div>
-        </Container>)}
+        <div className="no-content" >
+           
+              <p3> Kein Chat ausgewählt</p3>
+            </div>
+      )}
     </div>
   );
 };

@@ -6,7 +6,6 @@ const ChatMenu = ({ selectChat }) => {
   const [chatItems, setChatItems] = useState([]);
   const [selectedChat, setSelectedChat] = useState(sessionStorage.getItem('selectedChat'));
   const userID = sessionStorage.getItem('userID');
-
   const fetchChatsData = async () => {
     const uID = sessionStorage.getItem('userID');
     const response = await getHTTPRequest('getChatsC', [uID]);
@@ -37,13 +36,14 @@ const ChatMenu = ({ selectChat }) => {
 
   useEffect(() => {
     fetchChatsData();
+    
   }, []);
 
   const renderChatOptions = () => {
     return chatItems.map((chatItem) => (
       <div
         key={chatItem.id}
-        className={`chat-option ${selectedChat === chatItem.id ? 'active' : ''}`}
+        className={`chat-option ${selectedChat == chatItem.id ? 'active' : ''}`}
         onClick={() => handleChatClick(chatItem.id, chatItem.content, chatItem.chatid)}
       >
         <div className="chat-box">

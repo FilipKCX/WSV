@@ -120,7 +120,7 @@ const Profilansicht = () => {
               <Card.Title>Kontakt</Card.Title>
               <Card.Text>
                 E-Mail: {studentData.email} <br/>
-                Telefon:{studentData.telefon}  <br/>
+                Telefon: {studentData.telefon}  <br/>
               </Card.Text>
             </Card.Body>
           </Card>

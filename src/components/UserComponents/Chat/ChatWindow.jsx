@@ -31,7 +31,14 @@ const ChatWindow = ({ selectedChat }) => {
       const response = await getHTTPRequest('getMessages', [sessionStorage.getItem('SelectedChat')]);
       const parsedContent = JSON.parse(response);
       console.log(parsedContent)
-      setChatContent(parsedContent);
+      if(parsedContent == null)
+      {
+        setChatContent([]);
+      }
+      else
+      {
+        setChatContent(parsedContent);
+      }
     } catch (error) {
       console.error('Error fetching chat content:', error);
       setChatContent([]);
@@ -61,28 +68,22 @@ const ChatWindow = ({ selectedChat }) => {
   };
 
   useEffect(() => {
-    if (selectedChat != null) {
+    if (selectedChat) {
       fetchChatContent(selectedChat);
     } else {
       setChatContent([]);
     }
   }, [selectedChat]);
+  console.log(chatContent)
   return (
     <div className="chat-window-container">
-      {chatContent != null ? (
+      {chatContent.length != null ? (
         renderChatContent()
       ) : (
-        <div className="no-content">
-          <div className="text-input" >
-        <input
-          type="text"
-          placeholder="Type a message..."
-          value={newMessage}
-          onChange={handleInputChange}
-        />
-        <button onClick={handleSendMessage}>Senden</button>
-      </div>
-        </div>
+        <div className="no-content" >
+           
+              <p3> Kein Chat ausgewählt</p3>
+            </div>
       )}
     </div>
   );

@@ -56,7 +56,7 @@ const DynamicCards = ({ userId }) => {
             <Card className="custom-card">
             <Card.Img variant="top" src={logo} className="rounded-image"/>
             <Card.Body>
-              <Card.Title>Name: {studentData.name} </Card.Title>
+              <Card.Title>{studentData.name} </Card.Title>
             </Card.Body>
             <ListGroup className="list-group-flush">
               <ListGroup.Item className='fixed-height'>Studium: {studentData.study}</ListGroup.Item>

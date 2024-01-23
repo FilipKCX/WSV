@@ -116,7 +116,7 @@ return (
         <Card.Body>
           <Card.Title>Unsere Geschichte</Card.Title>
           <Card.Text>
-          {likeContent[0][6]}
+          {likeContent[0][7]}
           </Card.Text>
         </Card.Body>
       </Card>
@@ -125,7 +125,7 @@ return (
         <Card.Body>
           <Card.Title>Karrierechancen</Card.Title>
           <Card.Text>
-          {likeContent[0][7]}
+          {likeContent[0][6]}
           </Card.Text>
         </Card.Body>
       </Card>
