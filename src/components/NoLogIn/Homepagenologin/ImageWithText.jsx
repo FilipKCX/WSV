@@ -23,7 +23,7 @@ Bist du ein engagierter Student auf der Suche nach flexiblen Beschäftigungsmög
           </Card>
         </Col>
 
-        <Col className="homepage-right-section" style={{ marginTop: '150px' , marginLeft: '50px', marginBottom: '80px' }}>
+        <Col className="homepage-right-section" style={{ marginTop: '175px' , marginLeft: '50px', marginBottom: '80px' }}>
           <img
             src="https://imageio.forbes.com/specials-images/imageserve/5deaab2125ab5d00070081cd/Male-employee-shares-good-news-with-excited-diverse-colleagues/0x0.jpg?format=jpg&crop=5472,3647,x0,y0,safe&width=960"  // Replace with your image URL
             alt="Background Image"
