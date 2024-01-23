@@ -37,12 +37,36 @@ const Tutorial = () => {
           <Carousel.Item>
             <img
               className="d-block w-100"
-              src="https://via.placeholder.com/1200x600"
+              src="src/assets/userhome.png"
               alt="Second Slide"
             />
             <Carousel.Caption>
               <h3>Home</h3>
               <p>Entdecken Sie wöchentlich neue spannende Artikel auf der Homepage. Über die Navigationsbar kommen Sie zu den wichtigsten Funktionalitäten!</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="src/assets/userprofile.png"
+              alt="Fifth Slide"
+            />
+            <Carousel.Caption>
+              <h3>Profil</h3>
+              <p>Beschreiben Sie sich selbst über die Profilfunktion!</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src="src/assets/userlikes.png"
+              alt="Fourth Slide"
+            />
+            <Carousel.Caption>
+              <h3>Likes</h3>
+              <p>Sehen Sie sich unter Likes Unternehmen an, die Sie geliked haben und mit Ihnen in Kontakt treten wollen!</p>
             </Carousel.Caption>
           </Carousel.Item>
 
@@ -58,28 +82,6 @@ const Tutorial = () => {
             </Carousel.Caption>
           </Carousel.Item>
 
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="src/assets/userlikes.png"
-              alt="Fourth Slide"
-            />
-            <Carousel.Caption>
-              <h3>Likes</h3>
-              <p>Sehen Sie sich unter Likes Unternehmen an, die Sie geliked haben und mit Ihnen in Kontakt treten wollen!</p>
-            </Carousel.Caption>
-          </Carousel.Item>
-          <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src="src/assets/userprofile.png"
-              alt="Fifth Slide"
-            />
-            <Carousel.Caption>
-              <h3>Profil</h3>
-              <p>Beschreiben Sie sich selbst über die Profilfunktion!</p>
-            </Carousel.Caption>
-          </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
