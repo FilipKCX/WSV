@@ -1,7 +1,5 @@
 import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap';
 import './ProfileViewStatic.css';
-import { Formik, Field, ErrorMessage } from 'formik';
-import * as yup from 'yup';
 import React, { useState, useEffect } from 'react';
 import { getHTTPRequest } from '../../serverPackage';
 import { Link } from 'react-router-dom';

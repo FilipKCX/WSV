@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card} from 'react-bootstrap';
-import './ImageWithText.css'; // Import your styles for HomePage
+import './ImageWithText.css'; 
 
 const HomePage = () => {
   return (
@@ -27,7 +27,7 @@ Bist du ein engagierter Student auf der Suche nach flexiblen Beschäftigungsmög
           <img
             src="https://imageio.forbes.com/specials-images/imageserve/5deaab2125ab5d00070081cd/Male-employee-shares-good-news-with-excited-diverse-colleagues/0x0.jpg?format=jpg&crop=5472,3647,x0,y0,safe&width=960"  // Replace with your image URL
             alt="Background Image"
-            style={{ width: '700px', height: 'auto', borderRadius: '10px' }} // Adjust image styles as needed
+            style={{ width: '700px', height: 'auto', borderRadius: '10px' }} 
           />
         </Col>
       </Row>
