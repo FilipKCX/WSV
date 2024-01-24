@@ -32,7 +32,7 @@ const HomePage = () => {
               <Card.Img
                 variant="top"
                 src="https://imageio.forbes.com/specials-images/imageserve/5deaab2125ab5d00070081cd/Male-employee-shares-good-news-with-excited-diverse-colleagues/0x0.jpg?format=jpg&crop=5472,3647,x0,y0,safe&width=960"
-                style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+                style={{ width: '100%', height: '300px', objectFit: 'cover' , marginBottom: "30px"}}
               />
               <Card.Body>
                 <Card.Title className="text-left">Wieso WorkingStudent?</Card.Title>
@@ -44,7 +44,7 @@ const HomePage = () => {
           </Col>
         </Row>
 
-        <Row className="mt-3 mb-4">
+        <Row className="mt-4 mb-4">
           <Col>
             <h2 className="text-left">Finde den passenden Job!</h2>
             <p className="text-left">Erstellen Sie Ihr individuelles Profil und präsentieren Sie Ihre Fähigkeiten, Interessen und bisherigen Erfahrungen. Je detaillierter Ihr Profil, desto besser können Unternehmen erkennen, wie gut Sie zu ihren Anforderungen passt.

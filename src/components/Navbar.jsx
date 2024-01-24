@@ -56,8 +56,8 @@ import Logo from './Logo';
             <Link to="/hinweise" className="dropdown-item">
                 <NavDropdown.Item as="span">Hinweise</NavDropdown.Item>
             </Link>
-            <Link to="/kontakt" className="dropdown-item">
-                <NavDropdown.Item as="span">Kontakt</NavDropdown.Item>
+            <Link to="/" className="dropdown-item">
+                <NavDropdown.Item as="span">Ausloggen</NavDropdown.Item>
             </Link>
             </NavDropdown>
             
