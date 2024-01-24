@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { Toast } from 'react-bootstrap';
 import { getHTTPRequest } from '/src/components/serverPackage';
 import SelectButton from '../../SelectButton';
 
@@ -13,7 +14,19 @@ const Registrierung = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isUser, setIsButtonOff] = useState('1'); 
+  const [emailError, setEmailError] = useState('');
   const navigate = useNavigate();
+  const [showToast, setShowToast] = useState(false);
+
+  const validateEmail = () => {
+    // Simple email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setEmailError('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+    } else {
+      setEmailError('');
+    }
+  };
 
   const handleButtonToggle = () => {
     setIsButtonOff((prevValue) => (prevValue === '1' ? '0' : '1')); 
@@ -21,9 +34,9 @@ const Registrierung = () => {
 ``
   const handleRegister = () => {
     if (password !== confirmPassword) {
-      alert('Passwords do not match');
-      return;
-    }
+    setShowToast(true);
+    return;
+  }
 
     
     const userData = {
@@ -62,6 +75,7 @@ const Registrierung = () => {
       navigate("/TutorialCompany");
     } 
     
+   
 
     
   } catch (error) {
@@ -84,7 +98,9 @@ const Registrierung = () => {
           placeholder="E-Mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          onBlur={validateEmail} 
         />
+        {emailError && <Form.Text className="text-danger">{emailError}</Form.Text>}
       </Form.Group>
 
       <Form.Group className="input-container">
@@ -104,12 +120,14 @@ const Registrierung = () => {
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
       </Form.Group>
+      
+      <div className='alignb-center'> <SelectButton onToggle={handleButtonToggle} /> </div>
 
       <Button className='register-button' variant="outline-primary" onClick={handleRegister}>
         Registrieren
       </Button>{' '}
       
-      <div className='alignb-center'> <SelectButton onToggle={handleButtonToggle} /> </div>
+      
       <p className="registration-text">
         Durch Klicken auf "Registrieren" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie
         <br />und der Cookie-Richtlinie von WorkingStudent zu.
@@ -117,6 +135,12 @@ const Registrierung = () => {
       <Link to='/anmeldung'>
         <p className="login-link">Bereits ein Mitglied? Jetzt anmelden!</p>
       </Link>
+      <Toast show={showToast} onClose={() => setShowToast(false)} delay={3000} autohide className="toast-rightr">
+  <Toast.Header>
+    <strong className="mr-auto">Fehler bei der Registrierung!</strong>
+  </Toast.Header>
+  <Toast.Body>Die Passwörter stimmen nicht überein!</Toast.Body>
+</Toast>
     </div>
   );
 };

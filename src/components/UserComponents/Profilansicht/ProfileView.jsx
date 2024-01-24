@@ -1,27 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Image, Card, Form, Button, Table } from 'react-bootstrap';
+import { Container, Row, Col, Image, Card, Form, Button, Table, Toast } from 'react-bootstrap';
 import './ProfileView.css';
 import { getHTTPRequest } from '../../serverPackage';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
 import { Link } from 'react-router-dom';
 
-
-const validationSchema = Yup.object().shape({
-  name: Yup.string()
-    .matches(/^[a-zA-Z]+$/, 'Im Feld sind ausschließlich Buchstaben erlaubt.'),
-  email: Yup.string()
-    .matches(/.*[@.].*/, 'Die E-Mail muss die Zeichen "@" und "." enthalten.')
-    .email('Ungültige E-Mail Adresse'),
-  telefon: Yup.string()
-    .matches(/^\+?[0-9]*$/, 'Im Feld sind ausschließlich Ziffern und das Zeichen "+" erlaubt.')
-    .max(13, 'Die Telefonnummer darf maximal 13 Ziffern enthalten.'),
-  studiengang: Yup.string()
-    .matches(/^[a-zA-Z]+$/, 'Im Feld sind ausschließlich Buchstaben erlaubt.'),
-  semester: Yup.string()
-    .matches(/^[0-9]+$/, 'Im Feld sind ausschließlich Ziffern erlaubt.')
-    .max(2, 'Die Semesteranzahl darf maximal zweistellig sein.'),
-});
 
 const Profilansicht = () => {
   const [name, setName] = useState('');
@@ -43,24 +25,50 @@ const Profilansicht = () => {
     freitag: { available: false, hours: 0 },
   });
 
-  const formik = useFormik({
-    initialValues: {
-      name: '',
-      email: '',
-      telefon: '',
-      studiengang: '',
-      semester: '',
-      faehigkeiten: '',
-      profilbeschreibung: '',
-      werdegang: '',
-    },
-    validationSchema: validationSchema,
-    onSubmit: (values) => {
-      console.log('Form values:', values);
-      
-      saveProfile();
-    },
-  });
+  const [nameError, setNameError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [telefonError, setTelefonError] = useState('');
+  const [semesterError, setSemesterError] = useState('');
+  const [berufserfahrungError, setBerufserfahrungError] = useState('');
+  const [toastVisible, setToastVisible] = useState(false);
+
+  const validateInputs = () => {
+    let isValid = true;
+
+    if (!validateName()) {
+      setNameError('Bitte geben Sie nur Buchstaben für den Namen ein.');
+      isValid = false;
+    }
+
+    if (!validateEmail()) {
+      setEmailError('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+      isValid = false;
+    }
+
+    if (!validateTelefon()) {
+      setTelefonError('Bitte geben Sie eine gültige Telefonnummer ein.');
+      isValid = false;
+    }
+
+    if (!validateSemester()) {
+      setSemesterError('Bitte geben Sie nur Zahlen für das Semester ein.');
+      isValid = false;
+    }
+
+    if (!validateBerufserfahrung()) {
+      setBerufserfahrungError('Bitte geben Sie nur Zahlen und Punkte für die Berufserfahrung ein.');
+      isValid = false;
+    }
+
+    return isValid;
+  };
+
+  const validateName = () => /^[a-zA-Z]+$/.test(name);
+  const validateEmail = () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const validateTelefon = () => /^[0-9+]+$/.test(telefon);
+  const validateSemester = () => /^[0-9]+$/.test(semester);
+  const validateBerufserfahrung = () => /^[0-9.]+$/.test(berufserfahrung);
+
 
   
   const toggleVerfuegbarkeit = (tag) => {
@@ -111,6 +119,9 @@ const Profilansicht = () => {
   };
 
   const saveProfile = () => {
+    if (!validateInputs()) {
+      return;
+    }
     console.log('Speichern der Profildaten...');
     console.log('Name:', name);
     console.log('E-Mail:', email);
@@ -125,7 +136,11 @@ const Profilansicht = () => {
     console.log('Verfügbarkeit:', verfuegbarkeit);
     console.log(extractHoursAsArray())
     handleProfileCreation();
-    alert('Profil gespeichert!'); 
+    setToastVisible(true);
+
+    setTimeout(() => {
+      setToastVisible(false);
+    }, 3000); 
   };
 
   const calculateTotalWorkHours = () => {
@@ -199,27 +214,39 @@ const Profilansicht = () => {
                             type="text"
                             placeholder="Name"
                             value={name} 
-                            onChange={e => setName(e.target.value)}
+                            onChange={(e) => {
+              setName(e.target.value);
+              setNameError('');
+            }}
                             className="profil-input"
                         />
+                        {nameError && <span className="error-message">{nameError}</span>}
                     </Form.Group>
                     <Form.Group>
                         <Form.Control
                             type="text"
                             placeholder="E-Mail"
                             value={email}
-                            onChange={e => setEmail(e.target.value)}
+                            onChange={(e) => {
+                              setEmail(e.target.value);
+                              setEmailError('');
+                            }}
                             className="profil-input"
                         />
+                          {emailError && <span className="error-message">{emailError}</span>}
                     </Form.Group>
                     <Form.Group>
                         <Form.Control
                             type="text"
                             placeholder="Telefonnummer"
                             value={telefon}
-                            onChange={e => setTelefon(e.target.value)}
+                            onChange={(e) => {
+                              setTelefon(e.target.value);
+                              setTelefonError('');
+                            }}
                             className="profil-input"
                         />
+                       {telefonError && <span className="error-message">{telefonError}</span>}
                     </Form.Group>
                     <Form.Group>
                         <Form.Control
@@ -244,18 +271,26 @@ const Profilansicht = () => {
                             type="text"
                             placeholder="Aktuelles Semester"
                             value={semester}
-                            onChange={e => setSemester(e.target.value)}
+                            onChange={(e) => {
+                              setSemester(e.target.value);
+                              setSemesterError('');
+                            }}
                             className="profil-input"
                         />
+                        {semesterError && <span className="error-message">{semesterError}</span>}
                     </Form.Group>
                     <Form.Group>
                         <Form.Control
                             type="text"
                             placeholder="Berufserfahrung (in Jahren)"
                             value={berufserfahrung}
-                            onChange={e => setBerufserfahrung(e.target.value)}
+                            onChange={(e) => {
+                              setBerufserfahrung(e.target.value);
+                              setBerufserfahrungError('');
+                            }}
                             className="profil-input"
                         />
+                        {berufserfahrungError && <span className="error-message">{berufserfahrungError}</span>}
                     </Form.Group>
                     <Form.Group>
                         <Form.Control
@@ -344,6 +379,13 @@ const Profilansicht = () => {
                     </div>
                 </Col>
             </Row>
+            <Toast show={toastVisible} onClose={() => setToastVisible(false)} delay={3000} autohide className="toast-rightpv">
+        <Toast.Header>
+          <strong className="mr-auto">Erfolgreich gespeichert!</strong>
+        </Toast.Header>
+        <Toast.Body>Ihre Profiländerungen wurden gespeichert.</Toast.Body>
+      </Toast>
+
         </Container>
     );
 

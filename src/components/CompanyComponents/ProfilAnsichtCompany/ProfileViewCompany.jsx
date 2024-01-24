@@ -1,7 +1,5 @@
-import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Image, Card, Form, Button, Toast } from 'react-bootstrap';
 import './ProfileViewCompany.css';
-import { Formik, Field, ErrorMessage } from 'formik';
-import * as yup from 'yup';
 import React, { useState } from 'react';
 import { getHTTPRequest } from '../../serverPackage';
 import { Link } from 'react-router-dom';
@@ -17,11 +15,24 @@ const Unternehmensprofil = () => {
   const [faehigkeiten, setFaehigkeiten] = useState('');
   const [logo, setLogo] = useState('none.jpg')
   const [selectedImagePath, setSelectedImagePath] = useState('');
-  
+  const [validationError, setValidationError] = useState('');
+  const [showToast, setShowToast] = useState(false);
+
+  const isValidEmail = (value) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(value);
+  };
+
     const saveCompanyProfile = () => {
+      if (!isValidEmail(email)) {
+        setValidationError('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+        return;
+      }
+      setValidationError('');
         handleProfileCreation()
-        alert('Unternehmensprofil gespeichert!');
+        setShowToast(true);
     };
+    
 
   const [profilBild, setProfilBild] = useState(null);
 
@@ -81,6 +92,9 @@ const Unternehmensprofil = () => {
               onChange={e => setEmail(e.target.value)}
               
             />
+             {validationError && (
+          <small className="text-danger">{validationError}</small>
+        )}
           </Form.Group>
           <Form.Group>
             <Form.Control
@@ -150,6 +164,12 @@ const Unternehmensprofil = () => {
               />
             </Card.Body>
           </Card>
+          <Toast show={showToast} onClose={() => setShowToast(false)} delay={3000} autohide className="toast-rightpvc">
+        <Toast.Header>
+          <strong className="mr-auto">Unternehmensprofil gespeichert!</strong>
+        </Toast.Header>
+        <Toast.Body>Profil wurde erfolgreich gespeichert!</Toast.Body>
+      </Toast>
           <div className="d-flex justify-content-end mb-3">
             <Button type="submit" variant="primary" className="speichern-button" onClick={saveCompanyProfile} >
               Speichern

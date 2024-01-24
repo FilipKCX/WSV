@@ -94,3 +94,11 @@
   display: flex;
   justify-content: end;
 }
+
+.toast-rightpv {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-left: 30px; 
+  margin-bottom: 20px;
+}

@@ -1,63 +1,37 @@
 import React from 'react';
-import { Container, Row, Col, Button, Card } from 'react-bootstrap';
+import { Container, Row, Col, Card} from 'react-bootstrap';
+import './ImageWithText.css'; // Import your styles for HomePage
 
 const HomePage = () => {
-  const containerStyle = {
-    marginTop: '100px', 
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    textAlign: 'center',
-  };
-
-  const cardStyle = {
-    width: '800px',
-  };
-
   return (
-    <div>
-      <Container style={containerStyle}>
-        <Row>
-          <Col>
-            <h1 >Willkommen bei WorkingStudent!</h1>
-            <p>WorkingStudent: Dein Tor zur beruflichen Zukunft!</p>
-          </Col>
-        </Row>
-      </Container>
+    <Container fluid>
+      <Row>
+        <Col md={6} style={{ marginTop: '150px', marginLeft: '50px', maxWidth: '600px' }} className="homepage-left-section">
+          <h1 className="homepage-title">WorkingStudent: die Revolution des Bewerbungprozesses!</h1>
+          <p className="homepage-long-subtext">
+Willkommen auf WorkingStudent – der Plattform, die die Art und Weise, wie du dich als Student bewirbst, revolutioniert!
 
-      <Container className="mt-2" style={containerStyle}>
-        <Row>
-          <Col style={cardStyle}>
-            <Card className="mb-3">
-              <Card.Img
-                variant="top"
-                src="https://imageio.forbes.com/specials-images/imageserve/5deaab2125ab5d00070081cd/Male-employee-shares-good-news-with-excited-diverse-colleagues/0x0.jpg?format=jpg&crop=5472,3647,x0,y0,safe&width=960"
-                style={{ width: '100%', height: '300px', objectFit: 'cover' , marginBottom: "30px"}}
-              />
-              <Card.Body>
-                <Card.Title className="text-left">Wieso WorkingStudent?</Card.Title>
-                <Card.Text className="text-left">
-                  WorkingStudent verbindet talentierte Studenten mit den besten Arbeitgebern und das auf eine komplett neue Art!
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+Bist du ein engagierter Student auf der Suche nach flexiblen Beschäftigungsmöglichkeiten, die zu deinem Studium passen? Dann bist du hier genau richtig! WorkingStudent hat sich zum Ziel gesetzt, die Job-Suche und Bewerbung für Studierende so einfach und effizient wie möglich zu gestalten.
+          </p>
+          <Card style={{ backgroundColor: '#0074cc', color: 'white' }}>
+            <Card.Body>
+              <Card.Title>Our Mission</Card.Title>
+              <Card.Text>
+              Bei WorkingStudent verstehen wir die einzigartigen Herausforderungen, denen sich arbeitende Studierende gegenübersehen. Wir sind der Überzeugung, dass jeder Studierende Zugang zu sinnvollen Beschäftigungsmöglichkeiten haben sollte, die ihr Studium ergänzen. Unsere Mission besteht darin, ein benutzerfreundliches Jobportal bereitzustellen, auf dem arbeitende Studierende nahtlos mit Arbeitgebern in Kontakt treten können, die Werkstudentenstellen anbieten.
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
 
-        <Row className="mt-4 mb-4">
-          <Col>
-            <h2 className="text-left">Finde den passenden Job!</h2>
-            <p className="text-left">Erstellen Sie Ihr individuelles Profil und präsentieren Sie Ihre Fähigkeiten, Interessen und bisherigen Erfahrungen. Je detaillierter Ihr Profil, desto besser können Unternehmen erkennen, wie gut Sie zu ihren Anforderungen passt.
-
-            </p>
-          </Col>
-          <Col>
-            <h2 className="text-right">Finden Sie Werkstudenten!</h2>
-            <p className="text-right">Durchsuchen Sie Profile von hochqualifizierten Studierenden, die auf der Suche nach Werkstudentenmöglichkeiten sind. Unser Portal ermöglicht es Ihnen, gezielt nach Kandidaten zu suchen, die Ihren Anforderungen entsprechen.</p>
-          </Col>
-        </Row>
-      </Container>
-    </div>
+        <Col className="homepage-right-section" style={{ marginTop: '175px' , marginLeft: '50px', marginBottom: '80px' }}>
+          <img
+            src="https://imageio.forbes.com/specials-images/imageserve/5deaab2125ab5d00070081cd/Male-employee-shares-good-news-with-excited-diverse-colleagues/0x0.jpg?format=jpg&crop=5472,3647,x0,y0,safe&width=960"  // Replace with your image URL
+            alt="Background Image"
+            style={{ width: '700px', height: 'auto', borderRadius: '10px' }} // Adjust image styles as needed
+          />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
