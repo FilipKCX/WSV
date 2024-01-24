@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getHTTPRequest } from '../../serverPackage';
 import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap';
-import { Formik, Field, ErrorMessage } from 'formik';
 import './LikeWindow.css'
 
 const LikeWindow = ({ selectedLike }) => {
