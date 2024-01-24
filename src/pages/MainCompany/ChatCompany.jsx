@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import ChatMenu from '../../components/CompanyComponents/ChatCompany/ChatMenuCompany';
-import ChatWindow from '../../components/CompanyComponents/ChatCompany/ChatWindowCompany';
+import ChatsWindow from '../../components/CompanyComponents/ChatCompany/ChatWindowCompany';
 import Navibar from '../../components/CompanyComponents/NavbarCompany';
+import '../../pages/Main/Chat.css';
 
 const Chat = () => {
   const [selectedChat, setSelectedChat] = useState(null);
@@ -18,7 +19,7 @@ const Chat = () => {
           <ChatMenu chats={chats} selectChat={handleChatSelect} selectedChat={selectedChat} />
         </div>
         <div className="chat-window">
-          <ChatWindow selectedChat={selectedChat} />
+          <ChatsWindow key={selectedChat} selectedChat={selectedChat} />
         </div>
       </div>
     </>

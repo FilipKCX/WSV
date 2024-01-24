@@ -11,10 +11,7 @@ const Chat = () => {
   const handleChatSelect = (chatId, chatContent) => {
     setSelectedChat({ id: chatId, content: chatContent });
   };
-
-
-
-  return (
+ return (
     <>
       <Navibar />
       <div className="chat-app-container">

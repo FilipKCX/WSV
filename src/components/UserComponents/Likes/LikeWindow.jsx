@@ -135,7 +135,7 @@ return (
     
     </div>
     <div className="text-center mt-4 mb-3">
-        <Button variant="success" size="lg" className="mr-5" onClick={handleChatLike} style={{ backgroundColor: '#39e75f', borderColor: '#39e75f' }}>
+        <Button variant="success" size="lg" className="mr-5" onClick={handleChatLike} style={{ backgroundColor: '#0c7dfe', borderColor: '#0c7dfe' }}>
           Like
         </Button>
         <Button variant="danger" size="lg" onClick={handleChatDislike}>

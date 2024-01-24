@@ -35,12 +35,15 @@
 }
 
 .like-option.active {
-  background-color: #7289da;
-  border-radius: 12px;
+  background-color: #0c7dfe; 
+  color: white;
+  border-radius: 10px;
+
 }
 
 .like-box.active {
-  border-color: #0074cc;
+  background-color: #0c7dfe; 
+    color: white;
 }
 
 .like-box h3 {

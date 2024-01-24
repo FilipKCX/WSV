@@ -84,7 +84,12 @@ const Anmeldung = () => {
           <Button type="submit" className='anmelde-button' variant="outline-primary" onClick={handleLogInRequest}>
             Log In
           </Button>
-        
+          <Toast show={showToast} onClose={() => setShowToast(false)} delay={3000} autohide className="toast-righta">
+        <Toast.Header>
+          <strong className="mr-auto">Fehler beim Anmelden!</strong>
+        </Toast.Header>
+        <Toast.Body>Die Email oder das Passwort ist falsch!</Toast.Body>
+      </Toast>
 
       <p className="anmeldung-text">
         Durch Klicken auf "Log In" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie
@@ -100,12 +105,7 @@ const Anmeldung = () => {
           Noch kein WorkingStudent oder auf der Suche nach WorkingStudents? Hier registrieren!
         </p>
       </Link>
-      <Toast show={showToast} onClose={() => setShowToast(false)} delay={3000} autohide className="toast-righta">
-        <Toast.Header>
-          <strong className="mr-auto">Fehler beim Anmelden!</strong>
-        </Toast.Header>
-        <Toast.Body>Die Email oder das Passwort ist falsch!</Toast.Body>
-      </Toast>
+      
     </div>
   );
 };

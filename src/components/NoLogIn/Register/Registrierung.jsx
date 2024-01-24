@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Registrierung.css';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
@@ -15,8 +15,10 @@ const Registrierung = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [isUser, setIsButtonOff] = useState('1'); 
   const [emailError, setEmailError] = useState('');
+  const [pwError, setpwError] = useState('');
   const navigate = useNavigate();
   const [showToast, setShowToast] = useState(false);
+  const [isRegistrationDisabled, setIsRegistrationDisabled] = useState(true);
 
   const validateEmail = () => {
     // Simple email format validation
@@ -27,6 +29,19 @@ const Registrierung = () => {
       setEmailError('');
     }
   };
+  const validatePw = () => {
+  const passwordRegex = /^.{6,}$/;
+    if (!passwordRegex.test(password)) {
+      setpwError('Ihr Passwort muss mindestens 6 Zeichen lang sein.');
+    } else {
+      setpwError('');
+    }
+  };
+
+  useEffect(() => {
+    // Enable/disable registration button based on conditions
+    setIsRegistrationDisabled(!(email && password && confirmPassword && !emailError && !pwError));
+  }, [email, password, confirmPassword, emailError, pwError]);
 
   const handleButtonToggle = () => {
     setIsButtonOff((prevValue) => (prevValue === '1' ? '0' : '1')); 
@@ -71,7 +86,7 @@ const Registrierung = () => {
     if ( sessionStorage.getItem('isUser') == "1") {
       navigate("/TutorialUser");
     }
-    else{
+    else if( sessionStorage.getItem('isUser') == "0"){
       navigate("/TutorialCompany");
     } 
     
@@ -109,7 +124,9 @@ const Registrierung = () => {
           placeholder="Passwort"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          onBlur={validatePw}
         />
+        {pwError && <Form.Text className="text-danger">{pwError}</Form.Text>}
       </Form.Group>
 
       <Form.Group className="input-container">
@@ -123,10 +140,15 @@ const Registrierung = () => {
       
       <div className='alignb-center'> <SelectButton onToggle={handleButtonToggle} /> </div>
 
-      <Button className='register-button' variant="outline-primary" onClick={handleRegister}>
+      <Button className='register-button' variant="outline-primary" onClick={handleRegister}  disabled={isRegistrationDisabled}>
         Registrieren
       </Button>{' '}
-      
+      <Toast show={showToast} onClose={() => setShowToast(false)} delay={3000} autohide className="toast-rightr">
+  <Toast.Header>
+    <strong className="mr-auto">Fehler bei der Registrierung!</strong>
+  </Toast.Header>
+  <Toast.Body>Die Passwörter stimmen nicht überein!</Toast.Body>
+</Toast>
       
       <p className="registration-text">
         Durch Klicken auf "Registrieren" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie
@@ -135,12 +157,7 @@ const Registrierung = () => {
       <Link to='/anmeldung'>
         <p className="login-link">Bereits ein Mitglied? Jetzt anmelden!</p>
       </Link>
-      <Toast show={showToast} onClose={() => setShowToast(false)} delay={3000} autohide className="toast-rightr">
-  <Toast.Header>
-    <strong className="mr-auto">Fehler bei der Registrierung!</strong>
-  </Toast.Header>
-  <Toast.Body>Die Passwörter stimmen nicht überein!</Toast.Body>
-</Toast>
+      
     </div>
   );
 };

@@ -40,18 +40,18 @@
 }
 
 .chat-box.active {
-  border-color: #0074cc;
+  background-color: #0c7dfe; 
+  color: white;
 }
 
 .chat-box h3 {
   margin-top: 0;
   margin-bottom: 5px;
   font-size: 18px;
-  color: #333; 
 }
 
 .chat-box p {
   margin: 0;
   font-size: 14px;
-  color: #666; 
+   
 }

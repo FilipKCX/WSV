@@ -4,6 +4,7 @@ const getHTTPRequest = async (command, paramArray) => {
   let StringParams = "";
   if(paramArray != null)
   {
+    console.log(paramArray[0])
   for (let i = 0; i < paramArray.length; i++) {
     StringParams = StringParams + "&" + paramArray[i];
   }

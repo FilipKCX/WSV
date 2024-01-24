@@ -43,7 +43,7 @@ const ChatMenu = ({ selectChat }) => {
     return chatItems.map((chatItem) => (
       <div
         key={chatItem.id}
-        className={`chat-option ${sessionStorage.getItem('SelectedChat') == chatItem.chatid ? 'active' : ''}`}
+        className={`chat-option ${selectedChat == chatItem.id ? 'active' : ''}`}
         onClick={() => handleChatClick(chatItem.id, chatItem.content, chatItem.chatid)}
       >
         <div className="chat-box">

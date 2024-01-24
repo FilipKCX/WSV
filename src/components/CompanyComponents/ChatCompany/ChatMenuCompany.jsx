@@ -1,11 +1,12 @@
-import '../../UserComponents/Chat/ChatMenu.css'
 import React, { useState, useEffect } from 'react';
+import '../../UserComponents/Chat/ChatMenu.css';
 import { getHTTPRequest } from '../../serverPackage';
 
-const ChatMenu = ({ selectChat }) => {
+const ChatsMenu = ({ selectChat }) => {
   const [chatItems, setChatItems] = useState([]);
   const [selectedChat, setSelectedChat] = useState(sessionStorage.getItem('selectedChat'));
   const userID = sessionStorage.getItem('userID');
+
   const fetchChatsData = async () => {
     const uID = sessionStorage.getItem('userID');
     const response = await getHTTPRequest('getChatsC', [uID]);
@@ -27,23 +28,22 @@ const ChatMenu = ({ selectChat }) => {
 
     return Promise.all(mappedChats);
   };
-
+  console.log(selectedChat)
   async function fetchCompanyName(companyId) {
     const response = await getHTTPRequest('getProfileInfox', [companyId]);
     const companyProfile = JSON.parse(response);
-    return companyProfile[0][1];
+    return companyProfile[0][0];
   }
 
   useEffect(() => {
     fetchChatsData();
-    
   }, []);
 
   const renderChatOptions = () => {
     return chatItems.map((chatItem) => (
       <div
         key={chatItem.id}
-        className={`chat-option ${sessionStorage.getItem('SelectedChat') == chatItem.chatid ? 'active' : ''}`}
+        className={`chat-option ${selectedChat == chatItem.id ? 'active' : ''}`}
         onClick={() => handleChatClick(chatItem.id, chatItem.content, chatItem.chatid)}
       >
         <div className="chat-box">
@@ -52,10 +52,10 @@ const ChatMenu = ({ selectChat }) => {
       </div>
     ));
   };
-
+  
   const handleChatClick = (cId, chatContent, chatid) => {
-    sessionStorage.setItem('SelectedCompany', cId);
-    sessionStorage.setItem('SelectedChat', chatid);
+    sessionStorage.setItem('SelectedComp', cId);
+    sessionStorage.setItem('SelecteddChat', chatid);
     console.log(chatid)
     setSelectedChat(cId);
     selectChat(cId, chatContent);
@@ -64,4 +64,4 @@ const ChatMenu = ({ selectChat }) => {
   return <div>{renderChatOptions()}</div>;
 };
 
-export default ChatMenu;
+export default ChatsMenu;

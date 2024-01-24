@@ -25,6 +25,7 @@ const Profilansicht = () => {
     freitag: { available: false, hours: 0 },
   });
 
+  
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
   const [telefonError, setTelefonError] = useState('');
@@ -63,9 +64,9 @@ const Profilansicht = () => {
     return isValid;
   };
 
-  const validateName = () => /^[a-zA-Z]+$/.test(name);
+  const validateName = () => /^[a-z A-Z]+$/.test(name);
   const validateEmail = () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  const validateTelefon = () => /^[0-9+]+$/.test(telefon);
+  const validateTelefon = () => /^[ 0-9+]+$/.test(telefon);
   const validateSemester = () => /^[0-9]+$/.test(semester);
   const validateBerufserfahrung = () => /^[0-9.]+$/.test(berufserfahrung);
 
