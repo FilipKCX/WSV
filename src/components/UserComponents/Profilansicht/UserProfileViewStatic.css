@@ -6,13 +6,7 @@
   border-radius: 15px; 
   overflow: hidden; 
   margin-top: 10px;
-  width: calc(100% - 430px); 
-}
-
-.left-aligned-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  width: calc(100%); 
   margin-bottom: 10px;
 }
 

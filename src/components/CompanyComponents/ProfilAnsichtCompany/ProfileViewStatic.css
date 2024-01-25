@@ -6,7 +6,7 @@
   border-radius: 15px; 
   overflow: hidden; 
   margin-top: 10px;
-  width: calc(100% - 430px); 
+  width: calc(100%); 
 }
 
 .left-aligned-content {
