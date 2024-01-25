@@ -16,13 +16,18 @@
 .chat-option {
   margin-bottom: 15px;
   border-radius: 12px;
+  align-items: center;
 }
 
 .chat-box {
+  display: flex;
   border: 1px solid transparent;
   border-radius: 12px;
   padding: 10px;
   width: 100%; 
+  align-items: center;
+  flex-Direction: row;
+  font-size: 30px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.2s, border-color 0.2s;
   margin-bottom: 10px;
@@ -41,6 +46,7 @@
 
 .chat-box.active {
   background-color: #0c7dfe; 
+  
   color: white;
 }
 

@@ -4,7 +4,7 @@
   background-color: #f0f0f0cc;
   color: rgba(0, 0, 0, 0.61);
   padding: 15px;
-  border-radius: 12px;
+  border-radius: 6px;
   overflow-y: auto;
   overflow-x: hidden;
 }

@@ -6,9 +6,10 @@
 
 
 .like-mmenu {
-  height: 100%;
-  width: 25%;
-  padding: 20px;
+  height: 106vh;
+  width: 40vh;
+  padding: 0px;
+  border-radius: 12px;
   overflow-y: auto;
   overflow-x: hidden;
 }

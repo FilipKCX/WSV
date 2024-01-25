@@ -86,7 +86,7 @@ const ChatWindow = ({ selectedChat }) => {
       ) : (
         <div className="no-content" >
            
-              <p3> Kein Chat ausgewählt</p3>
+              <p3 style={{ fontSize:'30px'}} > Kein Chat ausgewählt</p3>
             </div>
       )}
     </div>

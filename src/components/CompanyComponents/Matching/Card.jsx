@@ -46,7 +46,7 @@ const DynamicCards = ({ userId }) => {
       }
 
       function showProfile() {
-        sessionStorage.setItem('selectedProfile', userId )
+        sessionStorage.setItem('selectedProfile', [userId] )
         navigate("/MatchingProfile")
       }
       const logo = "./src/imagess/" + selectedArray[6]

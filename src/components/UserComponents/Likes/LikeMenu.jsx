@@ -46,7 +46,7 @@ const LikeOptions = ({ selectLike }) => {
   async function fetchCompanyName(companyID) {
     const response = await getHTTPRequest('getCompanyInfox', [companyID]);
     const companyProfile = JSON.parse(response);
-    return companyProfile[0];
+    return companyProfile[0][0];
   }
 
   useEffect(() => {

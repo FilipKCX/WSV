@@ -19,10 +19,12 @@ const ChatsMenu = ({ selectChat }) => {
     const mappedChats = chatsData.map(async (chatData) => {
       const companyId = chatData;
       const companyName = await fetchCompanyName(chatData[0]);
+      const logo = await fetchCompanyLogo(chatData[0]);
       return {
         id: chatData[0],
         content: companyName,
-        chatid: chatData[1]
+        chatid: chatData[1],
+        logo: "./src/imagess/"+logo
       };
     });
 
@@ -32,7 +34,12 @@ const ChatsMenu = ({ selectChat }) => {
   async function fetchCompanyName(companyId) {
     const response = await getHTTPRequest('getProfileInfox', [companyId]);
     const companyProfile = JSON.parse(response);
-    return companyProfile[0][0];
+    return companyProfile[0][1];
+  }
+  async function fetchCompanyLogo(companyId) {
+    const response = await getHTTPRequest('getProfileInfox', [companyId]);
+    const companyProfile = JSON.parse(response);
+    return companyProfile[0][6];
   }
 
   useEffect(() => {
@@ -47,7 +54,13 @@ const ChatsMenu = ({ selectChat }) => {
         onClick={() => handleChatClick(chatItem.id, chatItem.content, chatItem.chatid)}
       >
         <div className="chat-box">
-          <h3>{chatItem.content}</h3>
+        <img src={chatItem.logo} style={{
+                width: '60px',
+                height: '60px',
+                objectFit: 'cover', 
+                borderRadius: '20%', 
+              }}/>
+          <h3 style={{ marginLeft: '30px', fontSize: '21px' }}>{chatItem.content}</h3>
         </div>
       </div>
     ));

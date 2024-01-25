@@ -47,58 +47,57 @@ const Profilansicht = () => {
     }
   };
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const userId = sessionStorage.getItem('userID')
-  //     console.log(userId);
-  //     const param = [userId];
-  //     const apiResponse = await getHTTPRequest("getProfileInfo", param);
-  //     const apiResponse3 = await getHTTPRequest('getTage', param)
-  //     const sortArray = JSON.parse(apiResponse);
-  //     const selectedArray = sortArray[0];
-  //     console.log(apiResponse3)
-  //     const sortTage = JSON.parse(apiResponse3)
-  //     const tage = sortTage[0]
+   useEffect(() => {
+     const fetchData = async () => {
+       const userId = sessionStorage.getItem('selectedProfile')
+       console.log(userId);
+       const param = [userId];
+       const apiResponse = await getHTTPRequest("getProfileInfo", param);
+       const apiResponse3 = await getHTTPRequest('getTage', param)
+       const sortArray = JSON.parse(apiResponse);
+       const selectedArray = sortArray[0];
+       console.log(apiResponse3)
+       const sortTage = JSON.parse(apiResponse3)
+       const tage = sortTage[0]
+     const userTage = {
 
-  //     const userTage = {
-
-  //       montag: tage[0],
-  //       dienstag: tage[1],
-  //       mittwoch: tage[2],
-  //       donnerstag: tage[3],
-  //       freitag: tage[4],
+         montag: tage[0],
+         dienstag: tage[1],
+        mittwoch: tage[2],
+       donnerstag: tage[3],
+         freitag: tage[4],
 
 
-  //     }
-  //     console.log(userTage)
+       }
+      console.log(userTage)
         
     
-  //   const StudentData = 'hallo';
+     const StudentData = 'hallo';
 
-  //     const studentData = {
-  //       uID: selectedArray[0],
-  //       name: selectedArray[1],
-  //       email: selectedArray[2],
-  //       telefon: selectedArray[3],
-  //       abschluss: selectedArray[4],
-  //       studium: selectedArray[5],
-  //       semester: selectedArray[6],
-  //       berufserf: selectedArray[7],
-  //       skills: selectedArray[8],
-  //       profilb: selectedArray[9],
-  //       werdeg: selectedArray[10],
-  //       Stunden: selectedArray[11],
-  //       Logo: selectedArray[12],
-  //     };
+       const studentData = {
+         uID: selectedArray[0],
+         name: selectedArray[1],
+         email: selectedArray[2],
+         telefon: selectedArray[3],
+         abschluss: selectedArray[4],
+         studium: selectedArray[5],
+         semester: selectedArray[6],
+        berufserf: selectedArray[7],
+        skills: selectedArray[8],
+        profilb: selectedArray[9],
+         werdeg: selectedArray[10],
+        Stunden: selectedArray[11],
+        Logo: selectedArray[12],
+       };
 
     const profile = (
     <Container className="profile-container">
       <Row>
-        {/* Left Column */}
+
         <Col md={3}>
           <div>
             <Image
-               src= {/*"./src/imagess/"+studentData.Logo*/ 'https://cdn.nba.com/headshots/nba/latest/1040x760/2544.png'} 
+               src= {"./src/imagess/"+studentData.Logo} 
               alt="Profile"
               rounded
               style={{
@@ -117,8 +116,8 @@ const Profilansicht = () => {
             <Card.Body>
               <Card.Title>Kontakt</Card.Title>
               <Card.Text>
-                E-Mail: example@email.com{/*studentData.email*/} <br/>
-                Telefon: 123-456-7890{/*studentData.telefon*/}  <br/>
+                E-Mail: {studentData.email} <br/>
+                Telefon: {studentData.telefon}  <br/>
               </Card.Text>
             </Card.Body>
           </Card>
@@ -126,24 +125,24 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Info</Card.Title>
             <Card.Text>
-              Abschluss: Bachelor of Science{/*studentData.abschluss*/} <br/>
-              Studiengang: Computer Science{/*studentData.studium*/}<br/>
-              Semester: 5{/*studentData.semester*/}<br/>
-              Berufserfahrung (in Jahren): 2{/*studentData.berufserf*/}
+              Abschluss: {studentData.abschluss} <br/>
+              Studiengang: {studentData.studium}<br/>
+              Semester: {studentData.semester}<br/>
+              Berufserfahrung (in Jahren): {studentData.berufserf}
             </Card.Text>
           </Card.Body>
         </Card>
         </Col>
 
         <Col md={9}>
-        <h2 style={{ marginTop: '100px', fontSize: '45px'}}> John Doe{/*studentData.name*/}</h2>
+        <h2 style={{ marginTop: '100px', fontSize: '45px'}}> {studentData.name}</h2>
         
         <Card style={{ width: '960px', marginTop: '120px'}}>
           <Card.Body>
             <Card.Title>Profilbeschreibung</Card.Title>
             <Card.Text>
-            "I am a motivated and creative individual with a strong passion for web development. My goal is to create user-friendly and visually appealing websites that make a positive impact. Currently pursuing a degree in Computer Science with a focus on front-end technologies.",
-              {/*studentData.profilb*/}
+            
+              {studentData.profilb}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -152,9 +151,9 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Werdegang</Card.Title>
             <Card.Text>
-            "During my academic journey, I've had the opportunity to work on various projects, including a collaborative e-commerce platform where I led the front-end development. I also completed an internship at ABC Tech, where I gained valuable experience in building scalable web applications using React and Node.js.",
+            
   
-              {/*studentData.werdeg*/}
+              {studentData.werdeg}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -163,8 +162,8 @@ const Profilansicht = () => {
           <Card.Body>
             <Card.Title>Fähigkeiten</Card.Title>
             <Card.Text>
-            "Proficient in JavaScript and its modern frameworks such as React.js. Solid understanding of HTML5, CSS3, and responsive web design. Experience with version control systems like Git. Familiarity with back-end technologies including Node.js. Strong problem-solving and communication skills.",
-               {/*studentData.skills*/}
+            
+               {studentData.skills}
             </Card.Text>
           </Card.Body>
         </Card>
@@ -176,7 +175,7 @@ const Profilansicht = () => {
       <thead>
         <tr>
           <th>Wochentag</th>
-          {/* <th className="th-verfuegbar">Verfügbar</th> */}
+
           <th>Stunden</th>
         </tr>
       </thead>
@@ -187,7 +186,7 @@ const Profilansicht = () => {
             <td>
               <Form.Control
                 type="number"
-                // value={userTage[tag]}
+                 value={userTage[tag]}
                 readOnly 
               />
             </td>
@@ -208,12 +207,12 @@ const Profilansicht = () => {
                 </div>
     </Container>
   );
-  //       setCmProfile(profile);
-  // };
+         setCmProfile(profile);
+   };
 
-  //   fetchData();
-  // }, []);
-  return profile;
+     fetchData();
+   }, []);
+  return CmProfile;
 }
 
   

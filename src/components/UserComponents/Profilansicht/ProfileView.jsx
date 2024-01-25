@@ -17,6 +17,7 @@ const Profilansicht = () => {
   const [abschluss, setAbschluss] = useState('');
   const [berufserfahrung, setBerufserfahrung] = useState('');
   const [logo, setLogo] = useState('none.jpg')
+  const [logob, setLogob] = useState('none.jpg')
   const [verfuegbarkeit, setVerfuegbarkeit] = useState({
     montag: { available: false, hours: 0 },
     dienstag: { available: false, hours: 0 },
@@ -33,6 +34,60 @@ const Profilansicht = () => {
   const [berufserfahrungError, setBerufserfahrungError] = useState('');
   const [toastVisible, setToastVisible] = useState(false);
 
+  const fetchData = async () => {
+    const userId = sessionStorage.getItem('userID')
+    console.log(userId);
+    const param = [userId];
+    const apiResponse = await getHTTPRequest("getProfileInfo", param);
+    const apiResponse3 = await getHTTPRequest('getTage', param)
+    const sortArray = JSON.parse(apiResponse);
+    const selectedArray = sortArray[0];
+   console.log(apiResponse3)
+    const sortTage = JSON.parse(apiResponse3)
+    const tage = sortTage[0]
+
+    const userTage = {
+
+      montag: tage[0],
+     dienstag: tage[1],
+     mittwoch: tage[2],
+      donnerstag: tage[3],
+     freitag: tage[4],
+
+
+    }
+    console.log(userTage)
+     
+ 
+  const StudentData = 'hallo';
+
+   const studentData = {
+      uID: selectedArray[0],
+      name: selectedArray[1],
+      email: selectedArray[2],
+      telefon: selectedArray[3],
+      abschluss: selectedArray[4],
+      studium: selectedArray[5],
+      semester: selectedArray[6],
+      berufserf: selectedArray[7],
+      skills: selectedArray[8],
+      profilb: selectedArray[9],
+      werdeg: selectedArray[10],
+      Stunden: selectedArray[11],
+      Logo: selectedArray[12],
+    };
+    setName(studentData.name)
+    setEmail(studentData.email)
+    setTelefon(studentData.telefon)
+    setAbschluss(studentData.abschluss)
+    setBerufserfahrung(studentData.berufserf)
+    setFaehigkeiten(studentData.skills)
+    setSelectedImagePath(studentData.Logo)
+    setProfilbeschreibung(studentData.profilb)
+    setWerdegang(studentData.werdeg)
+    setSemester(studentData.semester)
+    setLogo("./src/imagess/"+studentData.Logo)
+  }
   const validateInputs = () => {
     let isValid = true;
 
@@ -95,6 +150,7 @@ const Profilansicht = () => {
   };
   useEffect(() => {
     extractHoursAsArray();
+    fetchData();
   }, [verfuegbarkeit]);
   console.log(extractHoursAsArray)
   
@@ -176,7 +232,8 @@ const Profilansicht = () => {
         const imageData = reader.result;
         const base64Image = `data:image/jpeg;base64,${imageData}`;
         setProfilBild(base64Image);
-        setLogo(fileName)
+        setLogo("./src/imagess/"+fileName)
+        setLogob(fileName)
       };
 
       reader.readAsDataURL(file);
@@ -188,7 +245,7 @@ const Profilansicht = () => {
   };
   const usID = sessionStorage.getItem('userID')
   const Tage = extractHoursAsArray()
-  let paramArray = [usID, name, email, telefon, abschluss, studiengang, semester, berufserfahrung, faehigkeiten, profilbeschreibung, werdegang, totalWorkHours, logo];
+  let paramArray = [usID, name, email, telefon, abschluss, studiengang, semester, berufserfahrung, faehigkeiten, profilbeschreibung, werdegang, totalWorkHours, logob];
   console.log(paramArray)
   async function handleProfileCreation() {
     const apiResponse = await getHTTPRequest("createProfile", paramArray);
@@ -202,7 +259,7 @@ const Profilansicht = () => {
                 <Col md={6} className="profil-col">
           <div className="profil-bild-container" onClick={triggerFileInput}>
             <Image
-              src={selectedImagePath || "platzhalter-bild-url.jpg"}
+              src={logo || "platzhalter-bild-url.jpg"}
               roundedCircle
               className="profil-bild"
             />
