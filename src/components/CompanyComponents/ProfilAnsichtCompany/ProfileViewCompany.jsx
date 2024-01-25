@@ -118,6 +118,7 @@ const Unternehmensprofil = () => {
               value= {name}
               className="profil-input"
               onChange={e => setName(e.target.value)}
+              maxLength={50}
             />
           </Form.Group>
           <Form.Group>
@@ -128,7 +129,7 @@ const Unternehmensprofil = () => {
               value= {email}
               className="profil-input"
               onChange={e => setEmail(e.target.value)}
-              
+              maxLength={50}
             />
              {validationError && (
           <small className="text-danger">{validationError}</small>
@@ -142,7 +143,7 @@ const Unternehmensprofil = () => {
               value= {standort}
               className="profil-input"
               onChange={e => setStandort(e.target.value)}
-             
+              maxLength={50}
             />
           </Form.Group>
         </Col>
@@ -158,7 +159,7 @@ const Unternehmensprofil = () => {
                 value= {wersw}
                 className="profil-input"
                 onChange={e => setWersw(e.target.value)}
-                
+                maxLength={50}
               />
             </Card.Body>
           </Card>
@@ -173,7 +174,7 @@ const Unternehmensprofil = () => {
                 value= {waswb}
                 className="profil-input"
                 onChange={e => setWaswb(e.target.value)}
-                
+                maxLength={50}
               />
             </Card.Body>
           </Card>
@@ -188,7 +189,7 @@ const Unternehmensprofil = () => {
                 value= {karriere}
                 className="profil-input"
                 onChange={e => setKarriere(e.target.value)}
-                
+                maxLength={50}
               />
             </Card.Body>
           </Card>
@@ -203,7 +204,7 @@ const Unternehmensprofil = () => {
                 value= {geschichte}
                 className="profil-input"
                 onChange={e => setGeschichte(e.target.value)}
-                
+                maxLength={50}
               />
             </Card.Body>
           </Card>

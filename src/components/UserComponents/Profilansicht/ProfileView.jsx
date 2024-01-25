@@ -273,9 +273,11 @@ const Profilansicht = () => {
                             placeholder="Name"
                             value={name} 
                             onChange={(e) => {
-              setName(e.target.value);
-              setNameError('');
-            }}
+                            setName(e.target.value);
+                            setNameError('');
+              
+                             }}
+                             maxLength={50}
                             className="profil-input"
                         />
                         {nameError && <span className="error-message">{nameError}</span>}
@@ -289,6 +291,7 @@ const Profilansicht = () => {
                               setEmail(e.target.value);
                               setEmailError('');
                             }}
+                            maxLength={50}
                             className="profil-input"
                         />
                           {emailError && <span className="error-message">{emailError}</span>}
@@ -302,6 +305,7 @@ const Profilansicht = () => {
                               setTelefon(e.target.value);
                               setTelefonError('');
                             }}
+                            maxLength={50}
                             className="profil-input"
                         />
                        {telefonError && <span className="error-message">{telefonError}</span>}
@@ -313,6 +317,7 @@ const Profilansicht = () => {
                             value={abschluss}
                             onChange={e => setAbschluss(e.target.value)}
                             className="profil-input"
+                            maxLength={50}
                         />
                     </Form.Group>
                     <Form.Group>
@@ -322,6 +327,7 @@ const Profilansicht = () => {
                             value={studiengang}
                             onChange={e => setStudiengang(e.target.value)}
                             className="profil-input"
+                            maxLength={50}
                         />
                     </Form.Group>
                     <Form.Group>
@@ -333,6 +339,7 @@ const Profilansicht = () => {
                               setSemester(e.target.value);
                               setSemesterError('');
                             }}
+                            maxLength={2}
                             className="profil-input"
                         />
                         {semesterError && <span className="error-message">{semesterError}</span>}
@@ -346,6 +353,7 @@ const Profilansicht = () => {
                               setBerufserfahrung(e.target.value);
                               setBerufserfahrungError('');
                             }}
+                            maxLength={2}
                             className="profil-input"
                         />
                         {berufserfahrungError && <span className="error-message">{berufserfahrungError}</span>}
@@ -358,6 +366,7 @@ const Profilansicht = () => {
                           value={faehigkeiten}
                           onChange={e => setFaehigkeiten(e.target.value)}
                           className="profil-input"
+                          maxLength={50}
                         />
                     </Form.Group>
                 </Col>
@@ -372,6 +381,7 @@ const Profilansicht = () => {
                                 value={profilbeschreibung}
                                 onChange={e => setProfilbeschreibung(e.target.value)}
                                 className="profil-input"
+                                maxLength={50}
                             />
                         </Card.Body>
                     </Card>
@@ -385,6 +395,7 @@ const Profilansicht = () => {
                                 value={werdegang}
                                 onChange={e => setWerdegang(e.target.value)}
                                 className="profil-input"
+                                maxLength={50}
                             />
                         </Card.Body>
                     </Card>

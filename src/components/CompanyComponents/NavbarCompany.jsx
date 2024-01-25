@@ -16,7 +16,6 @@ import Logo from './LogoCompany';
       { text: 'Matching', to: '/Matching' },
       { text: 'Profil', to: '/ProfilepageCompany' },
       { text: 'Home', to: '/HomeCompany' }
-
   ];
 
   return (
