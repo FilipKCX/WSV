@@ -1,6 +1,6 @@
 import React from 'react'
 import KontaktComp from '../../components/UserComponents/KontaktUser/KontaktComp'
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/UserComponents/Navbar'
 
 const Kontakt = () => 
 {

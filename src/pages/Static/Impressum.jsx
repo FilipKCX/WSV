@@ -1,6 +1,6 @@
 import React from 'react'
 import ImpressumComp from '../../components/UserComponents/ImpressumUser/ImpressumComp'
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/UserComponents/Navbar'
 
 const Impressum = () => 
 {

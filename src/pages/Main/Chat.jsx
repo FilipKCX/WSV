@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ChatMenu from '../../components/UserComponents/Chat/ChatMenu';
-import Navibar from '../../components/Navbar';
+import Navibar from '../../components/UserComponents/Navbar';
 import './Chat.css';
 import ChatWindow from '../../components/UserComponents/Chat/ChatWindow';
 

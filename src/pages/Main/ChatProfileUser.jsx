@@ -1,14 +1,12 @@
 import React from 'react'
-import './ProfilePage.css'
 import Navibar from '../../components/UserComponents/Navbar'
-import ProfileView from '../../components/UserComponents/Profilansicht/ProfileView'
+import ChatProfileUser from '../../components/UserComponents/Chat/ChatProfileUser'
 
 const ProfilePage = () => 
 {
 return (
-    <div>
-    <Navibar/>
-    <ProfileView/>
+    <div><Navibar/>
+    <ChatProfileUser/>
 </div>
     
 ) 

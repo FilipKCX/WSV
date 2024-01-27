@@ -1,6 +1,6 @@
 import React from 'react'
 import AGBComp from '../../components/UserComponents/AGBUser/AGBComp'
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/UserComponents/Navbar'
 
 const AGB = () => 
 {

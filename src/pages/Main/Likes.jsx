@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import LikeMenu from '../../components/UserComponents/Likes/LikeMenu';
-import Navibar from '../../components/Navbar';
+import Navibar from '../../components/UserComponents/Navbar';
 import './Likes.css'; 
 import LikeWindow from '../../components/UserComponents/Likes/LikeWindow';
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import HinweiseComp from '../../components/UserComponents/HinweiseUser/HinweiseComp'
-import Navbar from '../../components/Navbar'
+import Navbar from '../../components/UserComponents/Navbar'
 
 const Hinweise = () => 
 {

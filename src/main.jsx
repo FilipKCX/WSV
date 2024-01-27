@@ -30,6 +30,8 @@ import KontaktCompany from './pages/StaticCompany/KontaktCompany'
 import AGBCompany from './pages/StaticCompany/AGBCompany'
 import HinweiseCompany from './pages/StaticCompany/HinweiseCompany'
 import ChatCompany from './pages/MainCompany/ChatCompany'
+import ChatProfileCompany from './pages/MainCompany/ChatProfileCompany'
+import ChatProfileUser from './pages/Main/ChatProfileUser'
 import LikesCompany from './pages/MainCompany/LikesCompany'
 import EinstellungenCompany from './pages/MainCompany/SettingsCompany'
 import ImpressumCompany from './pages/StaticCompany/ImpressumCompany'
@@ -152,6 +154,14 @@ const router = createBrowserRouter([
   {
     path: "/ChatCompany",
     element: <ChatCompany/>
+  },
+  {
+    path: "/ChatProfileCompany",
+    element: <ChatProfileCompany/>
+  },
+  {
+    path: "/ChatProfileUser",
+    element: <ChatProfileUser/>
   },
   // {
   //   path: "/LikesCompany",

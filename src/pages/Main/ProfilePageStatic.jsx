@@ -1,6 +1,6 @@
 import React from 'react'
 import './ProfilePageStatic.css'
-import Navibar from '../../components/Navbar'
+import Navibar from '../../components/UserComponents/Navbar'
 import UserProfileViewStatic from '../../components/UserComponents/Profilansicht/UserProfileViewStatic'
 
 const ProfilePageStatic = () => {
