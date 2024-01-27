@@ -49,7 +49,7 @@ const Profilansicht = () => {
 
    useEffect(() => {
      const fetchData = async () => {
-       const userId = sessionStorage.getItem('selectedProfile')
+       const userId = sessionStorage.getItem('SelectedComp')
        console.log(userId);
        const param = [userId];
        const apiResponse = await getHTTPRequest("getProfileInfo", param);

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Container, Row, Col, Card, ListGroup, ListGroupItem, Button } from 'react-bootstrap';
 import './Card.css';
 import {getHTTPRequest} from '../../serverPackage';
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const DynamicCards = ({ userId }) => {
   //console.log(userId)
@@ -63,11 +64,16 @@ const DynamicCards = ({ userId }) => {
               <ListGroup.Item className='fixed-height'>Abschluss: {studentData.degree} </ListGroup.Item>
               <ListGroup.Item className='fixed-height'>Arbeitszeit: {studentData.workingHours} Std/Woche </ListGroup.Item>
               <ListGroup.Item className='fixed-height'>Berufserfahrung: {studentData.experience} Jahr(e)</ListGroup.Item>
-              <ListGroup.Item><Card.Link onClick={showProfile}>Zum Profil!</Card.Link></ListGroup.Item>
+              <ListGroup.Item className='text-center'>
+              <Button variant="outline-secondary" className="card-link-button" onClick={showProfile}>
+              Zum Profil
+             </Button>
+
+      </ListGroup.Item>  
             </ListGroup>
             <Card.Body className="card-buttons">
-              <button className="roundmatch-button x-button" onClick={dislike}>×</button>
-              <button className="roundmatch-button check-button" onClick={addToLikes}>✓</button>
+              <Button variant="primary" className="likebuttonc" onClick={addToLikes}>Like</Button>
+              <Button variant="danger" className="dislikebuttonc" onClick={dislike}>Dislike</Button>
             </Card.Body>
             </Card>
       );

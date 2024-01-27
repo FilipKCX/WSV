@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { getHTTPRequest } from '../../serverPackage';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import './ChatWindow.css';
+import { Link } from 'react-router-dom';
 
 const ChatWindow = ({ selectedChat }) => {
   const [chatContent, setChatContent] = useState([]);
@@ -24,6 +25,8 @@ const ChatWindow = ({ selectedChat }) => {
       setNewMessage('');
     }
   };
+
+
   console.log(selectedChat)
   const handleInputChange = (e) => {
     setNewMessage(e.target.value);
@@ -50,8 +53,9 @@ const ChatWindow = ({ selectedChat }) => {
 
   const renderChatContent = () => {
     return (
+
       <Container className="profile-container-like">
-        <div style={{marginBottom:'13px', backgroundColor:'lightgrey', borderRadius:'12px'}}  > {sessionStorage.getItem('selectedName')}</div>
+        
         {chatContent.map((message) => (
           <div key={message[3]} className={`chat-bubble ${sessionStorage.getItem('userID') == message[1] ? 'sender-chat' : 'receiver-chat'}`}>
             <h3 style={{fontSize:"11px" , textAlign:"right" , marginTop:'-23px', color:"black"}}> {message[4]}</h3>
@@ -61,6 +65,9 @@ const ChatWindow = ({ selectedChat }) => {
           
         ))}
         <div className="text-input" >
+        <Link to='/ChatProfileUser'>
+        <Button variant='outline-primary' style={{marginRight:'10px', backgroundColor:'white', color:'black', outline:'black'}}>Zum Profil</Button>
+        </Link>
         <input
           type="text"
           placeholder="Type a message..."

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { getHTTPRequest } from '../../serverPackage';
 import { Container, Row, Col, Card, Form, Button } from 'react-bootstrap';
 import '../../../components/UserComponents/Chat/ChatWindow.css';
+import { Link } from 'react-router-dom';
+
 
 const ChatsWindow = ({ selectedChat }) => {
   const [chatContent, setChatContent] = useState([]);
@@ -56,6 +58,9 @@ const ChatsWindow = ({ selectedChat }) => {
         </div>
       ))}
         <div className="text-input">
+        <Link to='/ChatProfileCompany'>
+        <Button variant='outline-primary' style={{marginRight:'10px', backgroundColor:'white', color:'black', outline:'black'}}>Zum Profil</Button>
+        </Link>
         <input
           type="text"
           placeholder="Type a message..."

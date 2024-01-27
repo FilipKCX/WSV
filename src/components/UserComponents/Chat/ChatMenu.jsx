@@ -60,6 +60,7 @@ const ChatMenu = ({ selectChat }) => {
                 objectFit: 'cover', 
                 borderRadius: '20%', 
               }}/>
+
           <h3 style={{ marginLeft: '30px', fontSize: '21px' }}>{chatItem.content}</h3>
           
         </div>
@@ -75,6 +76,8 @@ const ChatMenu = ({ selectChat }) => {
     setSelectedChat(cId);
     selectChat(cId, chatContent);
   };
+
+
 
   return <div>{renderChatOptions()}</div>;
 };

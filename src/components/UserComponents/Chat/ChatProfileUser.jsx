@@ -9,7 +9,7 @@ const ProfilePage = () => {
 
    useEffect(() => {
      const fetchData = async () => {
-       const userId = sessionStorage.getItem('userID')
+       const userId = sessionStorage.getItem('SelectedCompany')
        console.log(userId);
        const param = [userId];
        const apiResponse = await getHTTPRequest("getCompanyInfos", param);
@@ -99,7 +99,7 @@ const ProfilePage = () => {
         </Card>
      
       <div className="pvsbuttus mb-3">
-                  <Link to='/ChatUser'>
+                  <Link to='/Chat'>
                     <Button variant="primary">
                         Zurück
                     </Button>
