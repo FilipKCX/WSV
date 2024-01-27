@@ -68,6 +68,7 @@ const ChatMenu = ({ selectChat }) => {
   };
   
   const handleChatClick = (cId, chatContent, chatid) => {
+    sessionStorage.setItem('selectedName', chatContent)
     sessionStorage.setItem('SelectedCompany', cId);
     sessionStorage.setItem('SelectedChat', chatid);
     console.log(chatid)

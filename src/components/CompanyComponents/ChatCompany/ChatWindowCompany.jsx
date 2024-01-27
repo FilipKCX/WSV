@@ -49,12 +49,13 @@ const ChatsWindow = ({ selectedChat }) => {
     return (
       <Container className="profile-container-like">
         {chatContent.map((message) => (
-          <div key={message[3]} className={`chat-bubble ${sessionStorage.getItem('userID') == message[1] ? 'sender-chat' : 'receiver-chat'}`}>
-              {message[2]}
-          </div>
           
-        ))}
-        <div className="text-input" >
+        <div key={message[3]} className={`chat-bubble ${sessionStorage.getItem('userID') == message[1] ? 'sender-chat' : 'receiver-chat'}`}>
+          <h3 style={{fontSize:"11px" , textAlign:"right" , marginTop:'-23px', color:"black"}}> {message[4]}</h3>
+          {message[2]}
+        </div>
+      ))}
+        <div className="text-input">
         <input
           type="text"
           placeholder="Type a message..."
@@ -82,7 +83,7 @@ const ChatsWindow = ({ selectedChat }) => {
       ) : (
         <div className="no-content" >
            
-              <p3 style={{ fontSize:'30px'}} > Kein Chat ausgewählt</p3>
+              
             </div>
       )}
     </div>

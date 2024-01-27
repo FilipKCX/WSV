@@ -51,8 +51,10 @@ const ChatWindow = ({ selectedChat }) => {
   const renderChatContent = () => {
     return (
       <Container className="profile-container-like">
+        <div style={{marginBottom:'13px', backgroundColor:'lightgrey', borderRadius:'12px'}}  > {sessionStorage.getItem('selectedName')}</div>
         {chatContent.map((message) => (
           <div key={message[3]} className={`chat-bubble ${sessionStorage.getItem('userID') == message[1] ? 'sender-chat' : 'receiver-chat'}`}>
+            <h3 style={{fontSize:"11px" , textAlign:"right" , marginTop:'-23px', color:"black"}}> {message[4]}</h3>
               {message[2]}
               
           </div>
