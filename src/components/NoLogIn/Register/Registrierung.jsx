@@ -73,6 +73,7 @@ const Registrierung = () => {
     if (apiResponse == "f")
     {
       setShowToast2(true)
+      return
     }    
     sessionStorage.setItem('userID', apiResponse);
     
