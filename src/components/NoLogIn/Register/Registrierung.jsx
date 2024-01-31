@@ -18,6 +18,7 @@ const Registrierung = () => {
   const [pwError, setpwError] = useState('');
   const navigate = useNavigate();
   const [showToast, setShowToast] = useState(false);
+  const [showToast2, setShowToast2] = useState(false);
   const [isRegistrationDisabled, setIsRegistrationDisabled] = useState(true);
 
   const validateEmail = () => {
@@ -64,15 +65,15 @@ const Registrierung = () => {
     let paramArray = [email, password, isUser];
     console.log(paramArray)
     handleRequest();
-    //let test = handleRequest().then(result => {resulttest = result});
 
-    //alert(test);
-
-    //let globalTestValue = null; // Globale Variable
 
   async function handleRequest() {
    try {
-    const apiResponse = await getHTTPRequest("createUser", paramArray);    
+    const apiResponse = await getHTTPRequest("createUser", paramArray);
+    if (apiResponse == "f")
+    {
+      setShowToast2(true)
+    }    
     sessionStorage.setItem('userID', apiResponse);
     
     let userArray = [sessionStorage.getItem('userID')]
@@ -149,6 +150,12 @@ const Registrierung = () => {
   </Toast.Header>
   <Toast.Body>Die Passwörter stimmen nicht überein!</Toast.Body>
 </Toast>
+  <Toast show={showToast2} onClose={() => setShowToast2(false)} delay={3000} autohide className="toast-rightr">
+  <Toast.Header>
+    <strong className="mr-auto">Fehler bei der Registrierung!</strong>
+  </Toast.Header>
+  <Toast.Body>Die Email wird bereits verwendet!</Toast.Body>
+  </Toast>
       
       <p className="registration-text">
         Durch Klicken auf "Registrieren" stimmen Sie der Nutzervereinbarung, der Datenschutzrichtlinie
